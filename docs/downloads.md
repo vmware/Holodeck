@@ -28,8 +28,7 @@ Download the necessary VCF 9.0 installation components (ESXi, Cloud Builder / VC
 
 For **air-gapped** or **internet-restricted** environments:
 
-- <a href="#" target="_blank" rel="noopener">Download the Offline Depot OVA</a><br>
-- [View Offline Depot Documentation](offline_depot.md)
+<a href="https://support.broadcom.com/group/ecx/productfiles?subFamily=Holodeck&displayGroup=Holodeck&release=9.0&os=&servicePk=&language=EN&freeDownloads=true" target="_blank" rel="noopener"><strong>Download the Offline Depot OVA</strong></a>
 
 ---
 ## Getting Started
