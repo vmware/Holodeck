@@ -1,6 +1,9 @@
-site_name: HoloDeck 9.0
+site_name: Holodeck 9.0
 theme:
   name: material
+  logo: images/VMware_by_Broadcom_White.png
+  font:
+    text: Roboto
   features:
     - navigation.tabs
     - navigation.sections
@@ -15,19 +18,28 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/lightbulb
         name: Switch to dark mode
-      primary: indigo
-      accent: deep purple
+      primary: custom
     - scheme: slate
       toggle:
-        icon: material/toggle-switch
+        icon: material/lightbulb-outline
         name: Switch to light mode
       primary: black
       accent: deep purple
 
 nav:
   - Getting Started: index.md
+  - Downloads: downloads.md
+  - Command Reference: cmd_reference.md
+  - Offline Depot: offline_depot.md 
+  - Support: support_community.md
+  - FAQ: faq.md
+
+
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -41,13 +53,13 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.mark
   - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
 
 copyright: |
-  Copyright © 2025 Broadcom. All rights reserved.
-  The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries. For more information, go to www.broadcom.com. All trademarks, trade names, service marks, and logos
-  referenced herein belong to their respective companies. Broadcom reserves the right to make changes without further notice to any products or data herein to improve reliability,
-  function, or design. Information furnished by Broadcom is believed to be accurate and reliable. However, Broadcom does not assume any liability arising out of the application or
-  use of this information, nor the application or use of any product or circuit described herein, neither does it convey any license under its patent rights nor the rights of others.
+  Copyright © 2005-2025 Broadcom. All Rights Reserved. The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.

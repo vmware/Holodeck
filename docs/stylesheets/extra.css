@@ -1,0 +1,83 @@
+/* VMware Brand Colors and Theme Customization - Enhanced */
+
+:root {
+    /* Official VMware Brand Colors */
+    --vmware-black: #000000;
+    --vmware-white: #ffffff;
+    --vmware-dark-blue: #1b1d36;
+    --vmware-blue: #005c8a;
+    --vmware-aqua: #007b8c;
+    --vmware-azure: #0098c7;
+    --vmware-purple: #6c4b94;
+    --vmware-green: #61a60e;
+    --vmware-red: #cc092f;
+    --vmware-orange: #e68c28;
+    --vmware-yellow: #f3ba16;
+    --vmware-dark-gray: #53565a;
+    --vmware-cool-gray-7: #97999b;
+    --vmware-broadcom-gray: #e2e3e4;
+    
+    /* Enhanced color variants */
+    --vmware-blue-light: #4db8da;
+    --vmware-blue-lighter: #e6f4fb;
+    --vmware-gray-50: #f9fafb;
+    --vmware-gray-100: #f3f4f6;
+    --vmware-gray-200: #e5e7eb;
+    --vmware-gray-300: #d1d5db;
+    --vmware-gray-600: #4b5563;
+    --vmware-gray-700: #374151;
+    --vmware-gray-800: #1f2937;
+    --vmware-gray-850: #1a202c;
+    --vmware-gray-900: #111827;
+
+    --md-primary-fg-color:        #005C8A;
+    --md-primary-fg-color--light: #005C8A;
+    --md-primary-fg-color--dark:  #90030C;
+}
+
+/* Content Area Improvements - Better Typography */
+.md-content__inner {
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+}
+
+.md-typeset h1 {
+    color: var(--vmware-dark-blue);
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+    color: #f7fafc;
+}
+
+.md-typeset h2 {
+    color: var(--vmware-blue);
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #D9D9D9;
+    padding-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+    color: var(--vmware-blue-light);
+}
+
+.md-typeset h3 {
+    color: #2d3748;
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+    color: #e2e8f0;
+}
