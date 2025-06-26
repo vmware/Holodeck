@@ -189,8 +189,8 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
 
 ### Licensing
 
-Holodeck 9.0 only supports VCF 5.2.x and 9.0 in "License Later" deployment mode. This mode enables
-all functionality for 90 days from the date of install. After 90 days, the environment will need to be redeployed, or license
+Holodeck 9.0 only supports VCF 5.2.x and 9.0 in "License Later" deployment mode. This mode enables all functionality for 90 days from the date of 
+install for VCF 9.0 and for 60 days for VCF 5.2. After that time period expires, the environment will need to be redeployed, or license
 must be added. Licensing is the responsibility of the end-user to ensure they procure the appropriate licenses by working with
 their account teams.
 
