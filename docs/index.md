@@ -185,6 +185,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
 - 4 CPU, 4 GB RAM and 75 GB storage for Holorouter (Internet access is optional)
 - Backing storage should be SSD/NVMe based
 - Holorouter external IP address per Holodeck Environment
+- NTP service needs to be enabled and an NTP server must be configured. If using vCenter as the target, then all hosts within the vCenter cluster must have NTP running and configured.
 
 
 ### Licensing
