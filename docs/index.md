@@ -509,11 +509,11 @@ Approx times for tested workflows (for 9.0):
 
 Please note that the time mentioned above is only an indication as the actual time taken depends on multiple factors such as the physical environment, networking connectivity etc.
 
-# During Deployment
+## During Deployment
 
 You may see "errors" during the deployment phase, if they are not displayed in **RED** text and exit the script, they are handled and you shouldn't need to worry about them.
 
-# Post Deployment
+## Post Deployment
 
 Once Holodeck is deployed, you can access the VCF components on your browser (local based on your networking setup or webtop):
 
@@ -534,9 +534,9 @@ Once Holodeck is deployed, you can access the VCF components on your browser (lo
 
 The above table has been generated for Site A. If you have deployed Site B, replace "site-a" in the FQDN with "site-b". For example, Management vCenter for Site A is https://vc-mgmt-a.site-a.vcf.lab/ and Management vCenter for Site B is https://vc-mgmt-a.site-b.vcf.lab/
 
-# How To
+## How To
 
-## Start and Stop Holodeck Instance
+### Start and Stop Holodeck Instance
 
 There may be situations where you have already deployed Holodeck but need the resources for another operation. In that case, we provide cmdlets to power off Holodeck and power it back on as well.
 
@@ -554,7 +554,7 @@ For powering on Holodeck:
 Start-HoloDeckInstance [-InstanceID] <string> [-Force]
 ```
 
-## Create new nested ESX hosts
+### Create new nested ESX hosts
 
 You can dynamically add new ESXi hosts to an existing site using the New-HoloDeckESXiNodes cmdlet.
 
@@ -562,6 +562,18 @@ You can dynamically add new ESXi hosts to an existing site using the New-HoloDec
 New-HoloDeckESXiNodes -Nodes <No. of Nodes> -CPU <No. of vCPU> -MemoryInGb <Memory in GB> -Site <'a' or 'b'> -vSANMode <'ESA' or 'OSA'>
 ```
 
-# Troubleshooting
+### Remove nested VCF Instance
+
+To remove a HoloDeck Instance, run:
+
+```
+Remove-HoloDeckInstance [-ResetHoloRouter]
+```
+
+Remove-HoloDeckInstance will delete al the nested ESX hosts and VCF Installer/Cloud Builder VM associated to a specific instance.
+
+-ResetHoloRouter will remove the networking configuration setup for the nested VCF instance. When you run New-HoloDeckInstance, the networking is configured again. This involves an automatic reboot of the Holorouter.
+
+## Troubleshooting
 
 Refer to the [Troubleshooting section](faq.md#troubleshooting) on the [FAQ page](faq.md) for more details.
