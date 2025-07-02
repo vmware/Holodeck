@@ -3,7 +3,7 @@
 ## What is Holodeck?
 
 <figure markdown="span">
-    <img src="images/Holodeck-Overview.png">
+    <img src="images/HoloDeck-Overview.png">
 </figure>
 
 <div style="flex: 1; display: flex; align-items: center; justify-content: center">
