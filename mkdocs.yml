@@ -30,6 +30,7 @@ theme:
 
 nav:
   - Getting Started: index.md
+  - Release Notes: release_notes.md
   - Downloads: downloads.md
   - Command Reference: cmd_reference.md
   - Offline Depot: offline_depot.md 
