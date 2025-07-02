@@ -17,7 +17,7 @@ Download the base appliance to run Holodeck:
 ---
 ### 2. VCF Binaries
 
-Download the necessary VCF 9.0 installation components (ESXi, Cloud Builder / VCF Installer) from Broadcom:
+Download the necessary VCF 9.0 installation components (ESX, Cloud Builder / VCF Installer) from Broadcom:
 
 <a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Cloud%20Foundation" target="_blank" rel="noopener"><strong>Broadcom Support Portal – VMware Cloud Foundation</strong></a>
 

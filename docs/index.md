@@ -2,10 +2,6 @@
 
 ## What is Holodeck?
 
-<figure markdown="span">
-    <img src="images/HoloDeck-Overview.png">
-</figure>
-
 <div style="flex: 1; display: flex; align-items: center; justify-content: center">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/NaAquL2U88E?si=3XdV_kiCy31tZErG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
@@ -19,6 +15,10 @@ wanting to gain a better understanding of how VCF functions across many use case
 two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.0. 
     
 This documentation solely focuses on Holodeck 9.0. If you need details on the previous version of Holodeck, please refer to this <a href="https://www.vmware.com/docs/vmw-vcf-holodeck-v52-setup" target="_blank">documentation</a>
+
+<figure markdown="span">
+    <img src="images/HoloDeck-Overview.png">
+</figure>
 
 ## Advantages of Holodeck
 
@@ -560,7 +560,7 @@ Start-HoloDeckInstance [-InstanceID] <string> [-Force]
 
 ### Create new nested ESX hosts
 
-You can dynamically add new ESXi hosts to an existing site using the New-HoloDeckESXiNodes cmdlet.
+You can dynamically add new ESX hosts to an existing site using the New-HoloDeckESXiNodes cmdlet.
 
 ```
 New-HoloDeckESXiNodes -Nodes <No. of Nodes> -CPU <No. of vCPU> -MemoryInGb <Memory in GB> -Site <'a' or 'b'> -vSANMode <'ESA' or 'OSA'>

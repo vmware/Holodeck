@@ -99,11 +99,11 @@ Welcome! Here are answers to some of the most common questions about **Holodeck*
     ```
 
     **What it means:**
-    - The **Network Time Protocol (NTP)** service on the ESXi host is not active.
+    - The **Network Time Protocol (NTP)** service on the ESX host is not active.
     - Accurate and synchronized time is required across all hosts in a VCF deployment to avoid certificate, authentication, and cluster issues.
 
     **How to fix:**
-    1. **Log in** to the ESXi host UI (e.g., `https://10.162.11.248`)
+    1. **Log in** to the ESX host UI (e.g., `https://10.162.11.248`)
     2. Navigate to:  
        **Manage → System → Time & Date**
     3. Click **Edit Settings**
@@ -141,14 +141,14 @@ Welcome! Here are answers to some of the most common questions about **Holodeck*
     ```
 
     **What it means:**
-    - The deployment script is attempting to connect to the ESXi host via SSH.
+    - The deployment script is attempting to connect to the ESX host via SSH.
     - It’s retrying because the host is still booting or SSH is not yet available.
     - This is expected behavior and can take around 10 minutes for the ESX to be ready.
 
     **What to do:**
-    - **Wait for 10-15 minutes** — SSH usually becomes available shortly after ESXi finishes booting.
+    - **Wait for 10-15 minutes** — SSH usually becomes available shortly after ESX finishes booting.
     - If the message persists **for more than 15 minutes**, confirm that:
-      - The ESXi VM is powered on and reachable
+      - The ESX VM is powered on and reachable
       - Networking is properly configured in your Holodeck setup
 
     **Still stuck?**  
@@ -170,7 +170,7 @@ Welcome! Here are answers to some of the most common questions about **Holodeck*
     significant performance degradation.
 
     Although the deployment might technically complete, you may experience:
-    - Crashes or instability in nested ESXi hosts
+    - Crashes or instability in nested ESX hosts
     - Prolonged deployment times
     - Overall sluggish performance
 
