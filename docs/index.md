@@ -2,6 +2,10 @@
 
 ## What is Holodeck?
 
+<figure markdown="span">
+    <img src="../images/Holodeck-Overview.png">
+</figure>
+
 <div style="flex: 1; display: flex; align-items: center; justify-content: center">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/NaAquL2U88E?si=3XdV_kiCy31tZErG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>

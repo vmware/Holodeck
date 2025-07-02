@@ -26,6 +26,7 @@ You can obtain a download token by following the instructions described in this 
 ### Deployment Options if Using Holodeck
 
 If you are using Holodeck, you basically have two options for where to deploy the ODA: 
+
 - It can be deployed on the management network
 - It can be deployed on the isolated network.
 
