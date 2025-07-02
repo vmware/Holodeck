@@ -36,7 +36,7 @@ Deploys a HoloDeck instance based on the provided VCF version and optional param
 | `-DeploySupervisor` | Deploy Supervisor (VCF 9.0 only) | ❌ | `False` |
 | `-Interactive` | Launch interactive mode for Day 2 ops | ❌ | `False` |
 | `-LogLevel` | Log verbosity: `"INFO"`, `"DEBUG"`, etc. | ❌ | `INFO` |
-| `-ProvisionOnly` | Provision ESXi & CloudBuilder only | ❌ | `False` |
+| `-ProvisionOnly` | Provision ESX & CloudBuilder only | ❌ | `False` |
 | `-VVF` | Deploys a VVF instance | ✅ | |
 | `-Site` | Site to deploy: `"a"` or `"b"` | ❌ | `a` |
 | `-DepotType` | For VCF 9.0: `"Online"` or `"Offline"` | ❌ | `Online` |

@@ -38,7 +38,7 @@ The other method is to install the ODA on the isolated network. Although this wo
 
 As the isolated network doesn't have network access until the Holorouter is all configured with BGP and DNS, you can not download the binaries to the ODA.
 
-This means that you would have to manually download and copy the SDDC Manager and ESXi binaries to the Holorouter and start the Holorouter deployment.
+This means that you would have to manually download and copy the SDDC Manager and ESX binaries to the Holorouter and start the Holorouter deployment.
 
 Once the Holorouter is up and online, then it can forward requests out to the internet and this allows you to start performing the binary downloads directly to the ODA as the ODA will now have internet access.
 
@@ -165,7 +165,7 @@ This is the preferred method, as it makes things a bit easier. Simply access the
     <img src="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png">
 </figure>
 
-Please note that the Jupyter Notebook will display the output of the command cell executed (if there is any). For example, if you ran the cell to download the ESXi binaries for Holodeck, you would see something similar to this:
+Please note that the Jupyter Notebook will display the output of the command cell executed (if there is any). For example, if you ran the cell to download the ESX binaries for Holodeck, you would see something similar to this:
 
 <figure markdown="span">
     <img src="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png">
@@ -208,7 +208,7 @@ There are a few things that you should be aware when using this depot:
 
 - The disk size is only about 300g for the appliance. Depending on what you are doing, you might need more space. If this is the case, see the section below on how to add more space.
 
-- There is a known issue with the depot appliance when you deploy to a ESXi host directly. In this case, the Jupyter Labs server may not be able to be configured. The depot will still function, regardless.  To work around this, deploy the appliance to a vCenter instance.
+- There is a known issue with the depot appliance when you deploy to a ESX host directly. In this case, the Jupyter Labs server may not be able to be configured. The depot will still function, regardless.  To work around this, deploy the appliance to a vCenter instance.
 
 ### How to Expand the Storage
 
