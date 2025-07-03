@@ -71,7 +71,8 @@ Each Holodeck environment includes a pre-configured set of virtual infrastructur
 
 - Hosts with memory tiering enabled may cause instability in nested workloads
 - vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior
-- **Online Depot Check Failure**:
+
+??? question "Online Depot Check Failure: `ConvertFrom-Json: Cannot bind argument to parameter 'InputObject' because it is null.`"
 
     If you’re using the **online depot** route for VCF Installer configuration, there is a known issue where the final validation step fails due to a mismatch between the API response format expected by Holodeck and the actual output from VCF Installer.
 
@@ -108,7 +109,25 @@ Each Holodeck environment includes a pre-configured set of virtual infrastructur
     - Run `New-HoloDeckInstance` command again to pick up from where it failed.
 
     Track this issue and future fix here: [GitHub Issue #1](https://github.com/vmware/Holodeck/issues/1#issuecomment-3022048968)
-    
+
+??? question "Why did VM deployment fail with 'VM with name not found using the specified filter(s)'?"
+    ![image](images/nested-vm-build-error.png)
+    This issue can occur if the **portgroup used by vCenter for VM placement is an uplink portgroup**.  
+    Uplink portgroups are static and do not have available ports for VM deployment, which causes Holodeck to fail during the VM provisioning step.
+
+    **Symptoms**:
+    - Error: `VM with name 'green-esx-01a' was not found using the specified filter(s)`
+    - Deployment halts with: `[ERROR] Deployment failed`
+
+    **When does this happen?**
+    - Environments with **multiple vSphere Distributed Switches (vDS)** configured in the same vCenter.
+    - The VM placement logic accidentally targets an uplink portgroup.
+
+    **Workaround**:
+    - Create a **test portgroup** in the same vDS with **default settings** (non-uplink, ephemeral or static binding).
+    - Retry the Holodeck deployment process.
+
+    Track this issue and future fix here: [GitHub Issue #10](https://github.com/vmware/Holodeck/issues/10)
 ---
 
 ## Previous Versions
