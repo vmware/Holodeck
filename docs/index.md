@@ -517,6 +517,61 @@ Please note that the time mentioned above is only an indication as the actual ti
 
 You may see "errors" during the deployment phase, if they are not displayed in **RED** text and exit the script, they are handled and you shouldn't need to worry about them.
 
+### Online Depot method
+
+![image](images/online-depot-deployment-prechecks-1.png)
+
+This is an interactive section during the pre-checks where you select the desired datastore to use for Holodeck deployment:
+
+![image](images/online-depot-deployment-prechecks-2.png)
+
+Choose your desired trunk port group to deploy the nested VMs (ESX and VCF Installer/Cloud Builder) on:
+
+![image](images/online-depot-deployment-prechecks-3.png)
+
+Pre-Checks are completed. If going through the online route, you need to provide the broadcom support site token:
+
+![image](images/online-depot-deployment-prechecks-4.png)
+
+Networking setup completed on Holorouter:
+
+![image](images/online-depot-deployment-prechecks-5.png)
+
+Deployment initiated:
+
+![image](images/online-depot-deployment-prechecks-6.png)
+
+Nested ESX hosts getting built:
+
+![image](images/online-depot-deployment-esxbuild.png)
+
+VCF Installer being deployed:
+
+![image](images/online-depot-deployment-deploy-vcf-installer.png)
+
+VCF bundles being downloaded:
+
+![image](images/online-depot-deployment-vcf-installer-bundles-download.png)
+
+Management Domain deployment initiated through VCF Installer:
+
+![image](images/online-depot-deployment-mgmt-domain-deployment.png)
+
+Management Domain deployment completed and Workload Domain deployment initiated:
+
+![image](images/online-depot-deployment-wkld-domain-deployment.png)
+
+Deployment completed successfully:
+
+![image](images/online-depot-deployment-success.png)
+
+### Offline Depot method
+
+The procedure is similar to online depot except instead of passing the build token, customer needs to provide the details of the offline depot interactively:
+
+![image](images/offline-depot-deployment-input.png)
+
+
 ## Post Deployment
 
 Once Holodeck is deployed, you can access the VCF components on your browser (local based on your networking setup or webtop):
