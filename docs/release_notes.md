@@ -135,7 +135,15 @@ Each Holodeck environment includes a pre-configured set of virtual infrastructur
 
     **Impacted Services**: SSH, Ping, and Webtop; None of the other Holodeck infrastructure services should have any impact due to this bug.
     
-    **Workaround**: Since you don't have SSH access when you reboot the holorouter, log into the holorouter console from vCenter/ESX host and run the following commands - 
+    **Workaround**: 
+    
+    1. If you haven't rebooted the HoloRouter yet but are planning to, run the following command before rebooting it - 
+    ```
+    iptables-save > /etc/systemd/scripts/ip4save
+    ```
+
+    2. If you've already rebooted the HoloRouter, since you don't have SSH access, log into the HoloRouter console in the vCenter/ESX host and run the following commands - 
+
     ```
     iptables -D INPUT -i eth0 -j DROP
     iptables -A INPUT -i lo -j ACCEPT
