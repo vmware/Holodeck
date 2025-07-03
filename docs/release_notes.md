@@ -128,6 +128,25 @@ Each Holodeck environment includes a pre-configured set of virtual infrastructur
     - Retry the Holodeck deployment process.
 
     Track this issue and future fix here: [GitHub Issue #10](https://github.com/vmware/Holodeck/issues/10)
+
+??? question "Users lose Webtop, SSH and ping access to Holorouter on rebooting Holorouter"
+
+    **Reason**: Some of the iptables rules on HoloRouter aren't persistent across reboots 
+
+    **Impacted Services**: SSH, Ping, and Webtop; None of the other Holodeck infrastructure services should have any impact due to this bug.
+    
+    **Workaround**: Since you don't have SSH access when you reboot the holorouter, log into the holorouter console from vCenter/ESX host and run the following commands - 
+    ```
+    iptables -D INPUT -i eth0 -j DROP
+    iptables -A INPUT -i lo -j ACCEPT
+    iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+    iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+    iptables -A INPUT -i eth0 -p icmp -j ACCEPT
+    iptables-A INPUT -i eth0 -p tcp -m tcp --dport 22 -j ACCEPT
+    iptables-A INPUT -i eth0 -p tcp -m tcp --dport 30000 -j ACCEPT
+    iptables -A INPUT -i eth0 -j DROP
+    ```
+     Track this issue and future fix here: [GitHub Issue #12](https://github.com/vmware/Holodeck/issues/12)
 ---
 
 ## Previous Versions
