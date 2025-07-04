@@ -161,7 +161,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
         </figure>
     </li>
     <li>
-        If NSX port group is used, ensure the type is Overlay. Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
+        If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or at a minimum VLAN 10-25 for Site A and 40-58 for Site-B). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
         <figure markdown="span">
             <img src="images/NSX-Overlay-Segment-IP-Discovery-Profile.png" alt="IP Discovery Profile in NSX">
             <figcaption>Figure: IP Discovery Profile in NSX</figcaption>
