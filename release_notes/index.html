@@ -1,0 +1,880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../downloads/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Release Notes - Holodeck 9.0</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Holodeck 9.0" class="md-header__button md-logo" aria-label="Holodeck 9.0" data-md-component="logo">
+      
+  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Holodeck 9.0
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Release Notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Release Notes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../downloads/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Downloads
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cmd_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../offline_depot/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Offline Depot
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../support_community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Support
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Holodeck 9.0" class="md-nav__button md-logo" aria-label="Holodeck 9.0" data-md-component="logo">
+      
+  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+
+    </a>
+    Holodeck 9.0
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Release Notes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Release Notes
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#holodeck-90-initial-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      Holodeck 9.0 – Initial Release
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Holodeck 9.0 – Initial Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's New
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Known Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Known Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workaround" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workaround
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#previous-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Previous Versions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reporting Issues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Downloads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmd_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../offline_depot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Offline Depot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support_community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="release-notes">Release Notes</h1>
+<p>This page documents the key features, enhancements, and capabilities available in Holodeck releases.</p>
+<hr />
+<h2 id="holodeck-90-initial-release">Holodeck 9.0 – Initial Release</h2>
+<p><strong>Release Date:</strong> June 2025<br />
+<strong>Supported VCF Versions:</strong> VCF 9.0, VCF 5.2.x<br />
+<strong>Minimum ESX Version:</strong> 8.0 U3</p>
+<h3 id="whats-new">What's New</h3>
+<ul>
+<li>Support for both <strong>VCF 9.0</strong> and <strong>VCF 5.2</strong> deployments from a single toolkit</li>
+<li><strong>vSAN ESA and OSA</strong> deployment options</li>
+<li>New <strong>VVF deployment mode</strong> (VMware vSphere Foundation)</li>
+<li>Proxy support for online/offline depot workflows</li>
+<li>Enhanced PowerShell cmdlets with modular support:</li>
+<li><code>New-HoloDeckConfig</code>, <code>New-HoloDeckInstance</code>, <code>Start-HoloDeckInstance</code>, <code>Stop-HoloDeckInstance</code></li>
+<li>Option to deploy <strong>greenfield</strong> VCF environments with <strong>provision-only mode</strong></li>
+</ul>
+<hr />
+<h2 id="environment-breakdown">Environment Breakdown</h2>
+<p>Each Holodeck environment includes a pre-configured set of virtual infrastructure components.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VCF 9.0</label><label for="__tabbed_1_2">VCF 5.2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>A <strong>Holorouter appliance</strong> (Photon OS based) with:</li>
+<li>DNS, DHCP, NTP, Proxy</li>
+<li>Dynamic routing (BGP), L2 switching</li>
+<li>Optional webtop (browser-based desktop)</li>
+<li>Support for <strong>VCF</strong> and <strong>VVF</strong> deployments</li>
+<li>Supports <strong>vSAN ESA</strong> and <strong>vSAN OSA</strong></li>
+<li>Online and offline <strong>depot support</strong> for the VCF Installer</li>
+<li><strong>Management Domain</strong> includes:</li>
+<li>4 nested ESX hosts as vSAN ready nodes</li>
+<li>VCF Installer, vCenter, NSX, VCF Operations, SDDC Manager</li>
+<li>Optional: VCF Automation</li>
+<li><strong>Optional Workload Domain</strong>:</li>
+<li>3 nested ESX hosts</li>
+<li>vCenter, NSX, optional Supervisor Cluster</li>
+<li><strong>Optional NSX Edge Clusters</strong> in management and/or workload domains</li>
+<li>Deploy additional 3-node vSphere clusters within management domain</li>
+<li><strong>Provision-only mode</strong> to deploy just the installer and hosts</li>
+<li>Custom <strong>CIDR support</strong> for flexible networking</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>A <strong>Holorouter appliance</strong> (Photon OS based) with:</li>
+<li>DNS, DHCP, NTP, Proxy</li>
+<li>Dynamic routing (BGP), L2 switching</li>
+<li>Optional webtop (browser-based desktop)</li>
+<li>Supports <strong>VCF deployment only</strong></li>
+<li><strong>vSAN OSA</strong> support</li>
+<li><strong>Management Domain</strong> includes:</li>
+<li>4 nested ESX hosts as vSAN ready nodes</li>
+<li>Cloud Builder, vCenter, NSX, SDDC Manager</li>
+<li><strong>Optional Workload Domain</strong>:</li>
+<li>3 nested ESX hosts</li>
+<li>vCenter and NSX</li>
+<li><strong>Optional NSX Edge Clusters</strong> in management and/or workload domains</li>
+<li>Deploy additional 3-node vSphere clusters within management domain</li>
+<li>Custom <strong>CIDR support</strong> for flexible networking</li>
+</ul>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="known-issues">Known Issues</h2>
+<ul>
+<li>Hosts with memory tiering enabled may cause instability in nested workloads</li>
+<li>vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior</li>
+</ul>
+<details class="question">
+<summary>Online Depot Check Failure: <code>ConvertFrom-Json: Cannot bind argument to parameter 'InputObject' because it is null.</code></summary>
+<p>If you’re using the <strong>online depot</strong> route for VCF Installer configuration, there is a known issue where the final validation step fails due to a mismatch between the API response format expected by Holodeck and the actual output from VCF Installer.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>27-06-2025 00:43:32 SddcMgmtDomain[63248]: [INFO] Setting up depot for VCF Installer
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>27-06-2025 00:43:32 SddcMgmtDomain[63248]: [INFO] Depot Type selected: online
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>27-06-2025 00:43:34 SddcMgmtDomain[63248]: [ERROR] Depot connection failed.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ConvertFrom-Json: Cannot bind argument to parameter &#39;InputObject&#39; because it is null.
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Exception: Exiting
+</code></pre></div>
+<h3 id="workaround">Workaround</h3>
+<ul>
+<li>Login to the <strong>VCF Installer UI</strong> via Webtop<br />
+  (typically at <code>https://10.1.10.250</code> unless a custom CIDR was used)</li>
+<li>Check if the depot is already configured successfully</li>
+<li>If confirmed, navigate back to PowerShell and run:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">vi</span> <span class="nv">$config</span><span class="p">.</span><span class="n">state</span>
+</code></pre></div>
+<ul>
+<li>Find and manually update the section:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;VCF-Installer-Depot-Setup&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;InProgress&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Change <code>"Status": "InProgress"</code> to <code>"Status": "Success"</code> to unblock the process.</li>
+<li>Run <code>New-HoloDeckInstance</code> command again to pick up from where it failed.</li>
+</ul>
+<p>Track this issue and future fix here: <a href="https://github.com/vmware/Holodeck/issues/1#issuecomment-3022048968">GitHub Issue #1</a></p>
+</details>
+<details class="question">
+<summary>Why did VM deployment fail with 'VM with name not found using the specified filter(s)'?</summary>
+<p><img alt="image" src="../images/nested-vm-build-error.png" />
+This issue can occur if the <strong>portgroup used by vCenter for VM placement is an uplink portgroup</strong>.<br />
+Uplink portgroups are static and do not have available ports for VM deployment, which causes Holodeck to fail during the VM provisioning step.</p>
+<p><strong>Symptoms</strong>:
+- Error: <code>VM with name 'green-esx-01a' was not found using the specified filter(s)</code>
+- Deployment halts with: <code>[ERROR] Deployment failed</code></p>
+<p><strong>When does this happen?</strong>
+- Environments with <strong>multiple vSphere Distributed Switches (vDS)</strong> configured in the same vCenter.
+- The VM placement logic accidentally targets an uplink portgroup.</p>
+<p><strong>Workaround</strong>:
+- Create a <strong>test portgroup</strong> in the same vDS with <strong>default settings</strong> (non-uplink, ephemeral or static binding).
+- Retry the Holodeck deployment process.</p>
+<p>Track this issue and future fix here: <a href="https://github.com/vmware/Holodeck/issues/10">GitHub Issue #10</a></p>
+</details>
+<details class="question">
+<summary>Users lose Webtop, SSH and ping access to Holorouter on rebooting Holorouter</summary>
+<p><strong>Reason</strong>: Some of the iptables rules on HoloRouter aren't persistent across reboots </p>
+<p><strong>Impacted Services</strong>: SSH, Ping, and Webtop; None of the other Holodeck infrastructure services should have any impact due to this bug.</p>
+<p><strong>Workaround</strong>: </p>
+<ol>
+<li>
+<p>If you haven't rebooted the HoloRouter yet but are planning to, run the following command before rebooting it - 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>iptables-save &gt; /etc/systemd/scripts/ip4save
+</code></pre></div></p>
+</li>
+<li>
+<p>If you've already rebooted the HoloRouter, since you don't have SSH access, log into the HoloRouter console in the vCenter/ESX host and run the following commands - </p>
+</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>iptables -D INPUT -i eth0 -j DROP
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>iptables -A INPUT -i lo -j ACCEPT
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>iptables -A INPUT -i eth0 -p icmp -j ACCEPT
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>iptables-A INPUT -i eth0 -p tcp -m tcp --dport 22 -j ACCEPT
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>iptables-A INPUT -i eth0 -p tcp -m tcp --dport 30000 -j ACCEPT
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>iptables -A INPUT -i eth0 -j DROP
+</code></pre></div>
+ Track this issue and future fix here: <a href="https://github.com/vmware/Holodeck/issues/12">GitHub Issue #12</a></p>
+</details>
+<hr />
+<h2 id="previous-versions">Previous Versions</h2>
+<p>Looking for Holodeck 5.2 setup guidance? Refer to the <a href="https://www.vmware.com/docs/vmw-vcf-holodeck-v52-setup">Holodeck 5.2 documentation</a>.</p>
+<hr />
+<h2 id="reporting-issues">Reporting Issues</h2>
+<p>To raise issues, feature requests, or provide feedback, please visit the <a href="https://github.com/vmware/Holodeck/issues">Holodeck GitHub repository</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2005-2025 Broadcom. All Rights Reserved. The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
