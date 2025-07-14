@@ -91,7 +91,7 @@ port group if available.
 
 ### Holorouter Overview
 
-HoloRouter is an appliance that serves as the infrastructure backbone for Holodeck. It provides infrastructure services such as Layer-3 routing, Firewall, DHCP, DNS, NTP, BGP, Proxy, Job scheduling, etc. Through these services, HoloRouter connects the nested VCF environment to the external networks. It also provides inter-connectivity between different networks in the nested VCF environment. For Site-a, VLANs 10 through 25 and for Site-b, VLANs 40 through 58 are used. It is equipped with a built-in webtop (Desktop UI) which allows users access to HoloRouter via a GUI. Through the webtop service, users get easy GUI access to the nested VCF environment. 
+HoloRouter is an appliance that serves as the infrastructure backbone for Holodeck. It provides infrastructure services such as Layer-3 routing, Firewall, DHCP, DNS, NTP, BGP, Proxy, Job scheduling, etc. Through these services, HoloRouter connects the nested VCF environment to the external networks. It also provides inter-connectivity between different networks in the nested VCF environment. For Site-a, VLANs 0, 10 through 25 and for Site-b, VLANs 40 through 58 are used. It is equipped with a built-in webtop (Desktop UI) which allows users access to HoloRouter via a GUI. Through the webtop service, users get easy GUI access to the nested VCF environment. 
 
 Scope of Services:
 - DNS: local to Site-a and Site-b of nested VCF environment, acts as forwarder
@@ -161,7 +161,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
         </figure>
     </li>
     <li>
-        If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or at a minimum VLAN 10-25 for Site A and 40-58 for Site-B). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
+        If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or at a minimum VLANs 0,10-25 for Site A and 40-58 for Site-B). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
         <figure markdown="span">
             <img src="images/NSX-Overlay-Segment-IP-Discovery-Profile.png" alt="IP Discovery Profile in NSX">
             <figcaption>Figure: IP Discovery Profile in NSX</figcaption>
@@ -175,7 +175,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
         Once the profiles have been created, navigate to the overlay segment you wish to use and edit the segment and update the segment profiles association. 
     </li>
     <li>
-        If a vCenter is used as the target for deploying nested VCF lab, then VLANs 10 through 25 and 40 through 58 need to be allowed on the physical switches to allow inter-host communication within the vSphere cluster where the nested VCF deployment will occur.
+        If a vCenter is used as the target for deploying nested VCF lab, then VLANs 0, 10 through 25 and 40 through 58 need to be allowed on the physical switches to allow inter-host communication within the vSphere cluster where the nested VCF deployment will occur.
     </li>
 </ol>
 
