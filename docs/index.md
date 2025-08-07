@@ -567,6 +567,8 @@ Deployment completed successfully:
 
 ### Offline Depot method
 
+For setting up the offline depot, check out the [Offline Depot Page](offline_depot.md).
+
 The procedure is similar to online depot except instead of passing the build token, customer needs to provide the details of the offline depot interactively:
 
 ![image](images/offline-depot-deployment-input.png)
