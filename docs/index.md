@@ -116,6 +116,11 @@ Scope of Services:
 
 - **Built-In PreChecks:** Holodeck 9.0 runs a set of pre-checks when a new deployment is run to ensure everything needed is available such as all the required binaries are available in the right location or not, is the target host reachable etc.
 
+### Holodeck Networking
+
+Let's take a look at the default VLANs used within the Holodeck Network for Site A:
+
+![image](images/Holodeck_Networking.png)
 
 ### Download the Required Software
 
