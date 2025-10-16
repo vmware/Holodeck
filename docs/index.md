@@ -1,4 +1,4 @@
-# <h1 style="text-align: center;"><strong>Holodeck 9.0</strong></h1>
+# <h1 style="text-align: center;">**Holodeck**</h1>
 
 ## What is Holodeck?
 
@@ -12,7 +12,7 @@ Foundation (VCF) environments on a VMware ESX host or a vSphere cluster. These e
 multiple teams inside a data center to explore hands-on exercises showcasing VCF capabilities to deliver a customer managed
 VMware Private Cloud. Holodeck is **only** to be used for a testing and training environment; it is ideal for anyone
 wanting to gain a better understanding of how VCF functions across many use cases and capabilities. Currently, there are
-two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.0. 
+two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.0.x. 
     
 This documentation solely focuses on Holodeck 9.0. If you need details on the previous version of Holodeck, please refer to this <a href="https://www.vmware.com/docs/vmw-vcf-holodeck-v52-setup" target="_blank">documentation</a>
 
@@ -76,6 +76,9 @@ Note: Holodeck 9.0 is not a VMware supported product, it is similar to a Fling.
 
 Holodeck 9.0 supports nested VCF deployment for versions 5.2 and 9.0. This can be deployed either on a single stand-alone ESX host or a vSphere cluster based on resource availability. Please check the [Pre-requisites](#pre-requisites) section
 
+!!! warning "Holodeck 9.0 Support Status"
+    Holodeck 9.0 is not a VMware supported product; it is similar to a Fling. It is intended for testing and training environments.
+
 <!-- Architecture Diagram placeholder -->
 
 Holodeck 9.0 has been developed using PowerShell and VMware PowerCLI. We have bundled and packaged everything needed into a powershell module called
@@ -135,6 +138,16 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
 | CPU       | 16                | 32            |
 | Memory    | 384 GB            | 1TB           |
 | Disk      | 2 TB              | 4TB           |
+
+If deploying VCF Automation with vSAN ESA:
+
+| VCF 9.0   | **Single Site**   | **Dual Site** |
+|---        |---                |---            |
+| CPU       | 32                | 64            |
+| Memory    | 325 GB            | 768 GB        |
+| Disk      | 1.1 TB            | 2.5TB         |
+
+If deploying VCF Automation with vSAN OSA:
 
 | VCF 9.0   | **Single Site**   | **Dual Site** |
 |---        |---                |---            |
@@ -199,7 +212,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
 
 ### Licensing
 
-Holodeck 9.0 only supports VCF 5.2.x and 9.0 in "License Later" deployment mode. This mode enables all functionality for 90 days from the date of 
+Holodeck 9.0 only supports VCF 5.2.x and 9.0.x in "License Later" deployment mode. This mode enables all functionality for 90 days from the date of 
 install for VCF 9.0 and for 60 days for VCF 5.2. After that time period expires, the environment will need to be redeployed, or license
 must be added. Licensing is the responsibility of the end-user to ensure they procure the appropriate licenses by working with
 their account teams.
@@ -350,19 +363,51 @@ Use the password that was set for Holorouter during OVA deployment.
 
 Upload the binaries for VCF Installer/Cloud Builder and VMware ESX that were downloaded in the Pre-requisites section to the below folder on holorouter:
 
-For VCF 9.0: Folder = "/holodeck-runtime/bin/9.0/"
-For VCF 5.2: Folder = "/holodeck-runtime/bin/5.2/"  
+
+| VCF Version | Folder Path                      |
+|-------------|----------------------------------|
+| VCF 9.0.1.0 | `/holodeck-runtime/bin/9.0.1.0/` |
+| VCF 9.0.0.0 | `/holodeck-runtime/bin/9.0.0.0/` |
+| VCF 5.2.2   | `/holodeck-runtime/bin/5.2.2/`   |
+| VCF 5.2.1   | `/holodeck-runtime/bin/5.2.1/`   |
+| VCF 5.2     | `/holodeck-runtime/bin/5.2/`     |
 
 The files can be downloaded by accessing the Broadcom Support Portal within the webtop UI (assuming proper entitlement is available for end-user)
 
 Another option is to download the files locally and use scp to copy the files using the below command:
 
-For VCF 9.0:
+For VCF 9.0.1.0:
 
 ```
-scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0/
-scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0/
+scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0.1.0/
+scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0.1.0/
 ```
+
+For VCF 9.0.0.0:
+
+```
+scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0.0.0/
+scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0.0.0/
+```
+
+!!! Note 
+    VCF Installer 9.0.1.0 needs to be used for deploying VCF 9.0.0.0. VCF Installer 9.0.0.0 is no longer supported on Holodeck for nested VCF deployments.
+
+
+For VCF 5.2.2:
+
+```
+scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/5.2.2/
+scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/5.2.2/
+```
+
+For VCF 5.2.1:
+
+```
+scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/5.2.1/
+scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/5.2.1/
+```
+
 
 For VCF 5.2:
 
@@ -420,25 +465,69 @@ Deploy a Holodeck instance using the New-HoloDeckInstance command. This command 
 If you notice closely, some of the parameters have a square bracket around them while others do not. The ones that have square brackets around them are optional parameters. With this information, let's look at each option in the Syntax section of the above image.
 
 <hr>
+
+#### **VVF Deployment**
+
 ```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-LogLevel <String>] [-ProvisionOnly] -VVF [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
 In the first option, we see that -VVF and -Version are mandatory, showcasing this syntax is used for VVF deployment. 
 
-Note: VVF deployment is supported only when -Version is selected as "9.0". Using -Version "5.2" with -VVF yields no result.
+Note: VVF deployment is supported only when -Version is selected as "9.0.0.0" and beyond. Using -Version "5.2" with -VVF yields no result.
 <hr>
+
+#### **Management-Domain Only Deployment**
 
 ```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
 In the second option, we see that -ManagementOnly and -Version is mandatory, showcasing this syntax is used to deploy a nested VCF deployment with management domain only. 
 
+
+| **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
+|--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
+| Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
+| InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
+| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR. If you wish to use a custom CIDR, provide a CIDR of /20 size     | String of format: "10.3.0.0/20"                     | "10.1.0.0/20"              |
+| vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
+| ManagementOnly           | Switch   | **Mandatory**|  Deploys a VCF instance with Management domain only    | NA                                                  |                            |
+| NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
+| DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond. VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
+| ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
+| Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
+| DepotType                | String   | Optional     | Applicable for -Version 9.0.0.0 and beyond only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
+| LogLevel                 | String   | Optional     | Set the log level you wish to view     | One of "INFO", "DEBUG", "SUCCESS", "WARN", "ERROR"  | "INFO"                     |
+| DeveloperMode            | Switch   | Optional     | Enables automated deployments using environment variables. | NA  |                      |
+
+
+
 <hr>
 
+#### **Full Stack Deployment**
 
 ```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisor] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
 In the third option, we see that only -Version is mandatory, but it also has an optional parameter called -WorkloadDomainType showcasing this syntax is used for deploying a full stack nested VCF deployment. -WorkloadDomainType is optional as it already has a default value set. 
 
+
+| **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
+|--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
+| Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
+| InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
+| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR. If you wish to use a custom CIDR, provide a CIDR of /20 size     | String of format: "10.3.0.0/20"                     | "10.1.0.0/20"              |
+| vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
+| WorkloadDomainType       | String   | Optional     | Choose whether you want to share the management domain SSO with workload domain or use a separate SSO (wld.sso). | "SharedSSO" or "IsolatedSSO"                        | ""                         |
+| NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
+| NsxEdgeClusterWkldDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Workload domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
+| DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond. VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
+| DeploySupervisor         | Switch   | Optional     | Applicable only for VCF 9.0.0.0 and beyond. Deploys Supervisor in workload domain and additional networking configuration needed to activate supervisor |NA                                                  |                            |
+| ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
+| Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
+| DepotType                | String   | Optional     | Applicable for -Version 9.0.0.0 and beyond only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
+| LogLevel                 | String   | Optional     | Set the log level you wish to view     | One of "INFO", "DEBUG", "SUCCESS", "WARN", "ERROR"  | "INFO"                     |
+| DeveloperMode            | Switch   | Optional     | Enables automated deployments using environment variables. | NA  |      
+
 <hr>
+
+#### **Interactive Mode for Day 2 Ops**
 
 ```
 New-HoloDeckInstance [-Interactive] [<CommonParameters>]
@@ -449,50 +538,7 @@ The last option is used for performing day 2 activities on a Holodeck instance a
 <hr>
 
 
-**Management-Domain only deployment:**
-
-```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
-
-| **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
-|--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
-| Version                  | String   | **Mandatory**| Provide VCF version | "9.0" or "5.2"                                      |                            |
-| InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
-| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR. If you wish to use a custom CIDR, provide a CIDR of /20 size     | String of format: "10.3.0.0/20"                     | "10.1.0.0/20"              |
-| vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
-| ManagementOnly           | Switch   | **Mandatory**|  Deploys a VCF instance with Management domain only    | NA                                                  |                            |
-| NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
-| DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0". VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
-| ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
-| Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
-| DepotType                | String   | Optional     | Applicable for -Version 9.0 only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
-| LogLevel                 | String   | Optional     | Set the log level you wish to view     | One of "INFO", "DEBUG", "SUCCESS", "WARN", "ERROR"  | "INFO"                     |
-| DeveloperMode            | Switch   | Optional     | Used for internal Holodeck testing. Ignore | NA  |                      |
-
-
-
-**Full-Stack deployment:**
-
-```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisor] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
-
-| **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
-|--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
-| Version                  | String   | **Mandatory**| Provide VCF version | "9.0" or "5.2"                                      |                            |
-| InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
-| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR. If you wish to use a custom CIDR, provide a CIDR of /20 size     | String of format: "10.3.0.0/20"                     | "10.1.0.0/20"              |
-| vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
-| WorkloadDomainType       | String   | Optional     | Choose whether you want to share the management domain SSO with workload domain or use a separate SSO (wld.sso). | "SharedSSO" or "IsolatedSSO"                        | ""                         |
-| NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
-| NsxEdgeClusterWkldDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Workload domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
-| DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0". VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
-| DeploySupervisor         | Switch   | Optional     | Applicable only for VCF 9.0. Deploys Supervisor in workload domain and additional networking configuration needed to activate supervisor |NA                                                  |                            |
-| ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
-| Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
-| DepotType                | String   | Optional     | Applicable for -Version 9.0 only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
-| LogLevel                 | String   | Optional     | Set the log level you wish to view     | One of "INFO", "DEBUG", "SUCCESS", "WARN", "ERROR"  | "INFO"                     |
-| DeveloperMode            | Switch   | Optional     | Used for internal Holodeck testing. Ignore | NA  |                      |
-
-
-**Dual Site deployment:**
+#### **Dual Site Deployment**
 
 ``` 
 New-HoloDeckNetworkConfig -Site a -MasterCIDR <string>
@@ -507,11 +553,72 @@ Open a new tab in powershell, import the config and run
 New-HoloDeckInstance -Site b [Additional Parameters]
 ```
 
+!!! Note 
+    If you provide a custom CIDR in New-HoloDeckNetworkConfig, then the same custom CIDR needs to be provided in New-HoloDeckInstance to avoid the custom CIDR being overwritten by the default CIDRs.
 
-Approx times for tested workflows (for 9.0):
+#### **Developer Mode**
+
+The -DeveloperMode Parameter allows you to automate deployments by defining all interactive inputs as environment variables. To run this, open a powershell session on Holorouter and define the following variables:
+
+- Online Depot Configuration
+
+    For online depot deployments:
+
+    ```powershell
+    $env:brcm_build_token = "build"
+    $env:enable_proxy = "y" or "n"
+    ```
+
+    If proxy is enabled, set the following:
+
+    ```powershell
+    $env:proxy_protocol = "http" or "https"
+    $env:proxy_ip = "<proxy_ip_address>"
+    $env:proxy_port = "<proxy_port>"
+    $env:enable_proxy_auth = "y" or "n"
+    ```
+
+    If proxy authentication is enabled, set the following:
+
+    ```powershell
+    $env:proxy_username = "<proxy_username>"
+    $env:proxy_password = "<proxy_password>"
+    ```
+
+- Offline Depot Configuration
+
+    For offline depot deployments, define the following environment variables:
+
+    ```powershell
+    $env:offline_depot_ip = "<offline_depot_ip_address>"
+    $env:offline_depot_port = "<offline_depot_port>"
+    $env:offline_depot_username = "<offline_depot_username>"
+    $env:offline_depot_password = "<offline_depot_password>"
+    ```
+
+- Datastore and Network Port Group details:
+
+    ```powershell
+    $env:datastore_name = "<datastore_name>"
+    $env:trunk_port_group_name = "<trunk_port_group_name>"
+    ```
+
+- If vCenter is the target, set the following:
+
+    ```powershell
+    $env:cluster_name = "<cluster_name>"
+    $env:dc_name = "<datacenter_name>"
+    ```
+
+After setting the environment variables, run the New-HoloDeckConfig and New-HoloDeckInstance command as you would in a manual deployment with the parameters you require and the user inputs will automatically be captured from the environment variables.
+
+For Dual Site, open 2 powershell sessions and provide the required values to the same variables in both the sessions.
+
+
+Approx times for tested workflows (for 9.0.0.0):
 
 | **Parameters**            | **Time** | **Notes** |
-|-|-|-|
+|-|--|-|
 | -ManagementOnly | 4-5 hours | Just 4 hosts for management domain |
 | -NsxEdgeClusterMgmtDomain | 5-6 hours| 4 hosts without and 2 node Edge Cluster |
 | -DeployVCFAuto -DeploySupervisor | 12+| 4 hosts management with VCF Automation, Supervisor implies 3 node WLD, Edges and Supervisor |

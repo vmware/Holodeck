@@ -12,7 +12,7 @@ Welcome! Here are answers to some of the most common questions about **Holodeck*
     It includes pre-built components like HoloRouter, pre-configured networking, and deployment scripts to accelerate VCF evaluation and training.
 
 ??? question "What version of VCF is supported?"
-    Holodeck currently supports **VCF 9.0** and **VC 5.2**.
+    Holodeck 9.0.1 currently supports **VCF 9.0.0.0, VCF 9.0.1.0, VCF 5.2, VCF 5.2.1** and **VC 5.2.2**.
 
 ??? question "Is internet access required for deployment?"
     Holodeck can be used in both **connected** and **air-gapped** environments.  

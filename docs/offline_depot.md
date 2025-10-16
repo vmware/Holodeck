@@ -2,22 +2,19 @@
 
 ### Overview
 
-The Offline Depot Appliance (ODA) is intended to help with the creation and maintenance of a VCF offline depot. A offline depot provides software for installation or updates to one or more VMware Cloud Foundation instances.
+The Offline Depot Appliance (ODA) facilitates the creation and maintenance of a VMware Cloud Foundation (VCF) offline depot. An offline depot stores software for VCF installation or updates.
 
-An offline depot is not a requirement for VMware Cloud Foundation, as it has the out-of-the-box ability to leverage a online depot. As the online depot is managed by Broadcom, it has all the binaries accessible for a customer's entitlements. In contrast, a offline depot is managed by a customer and can be configured to only have specific binaries (if desired). 
+While VCF has built-in capabilities to use an online depot managed by Broadcom, an offline depot offers several key advantages:
 
-However, a offline depot has several advantages:
-- It can provide organizations with ability to use a offline depot in environments where external network connectivity is restricted or unavailable.
-- It can provide faster download and installation speeds, as the offline depot would be local to the organization. 
-- It allows organizations to curate the binaries that they wish to make available to their VCF Instances.
+- **Restricted Environments**: Enables VCF deployments in environments with limited or no external network connectivity. 
+- **Faster Speeds**: Provides quicker download and installation speeds due to local proximity. 
+- **Content Curation**: Allows organizations to control and curate the VCF binaries available to their instances. 
 
-In addition, this Offline Depot Appliance provides a couple of additional features over and beyond simple offline depot:
+Additionally, the ODA provides features beyond basic offline depot functionality:
 
-- It supports Holodeck
-Holodeck is a tool that automates the deployment of a virtualized VMware Cloud Foundation instance. This can be helpful to organizations in testing integrations, APIs, and general functionality as it requires a significantly reduced physical hardware footprint (and cost). 
+- **Holodeck Support**: Integrates with Holodeck for automated deployment of virtualized VCF instances, reducing physical hardware requirements and costs.
+- **Simplified Management**: Optionally includes a Jupyter Lab instance with notebooks for streamlined depot maintenance and Holodeck integration tasks.
 
-- It provides for easy management of the depot
-The user can optionally enable a Jupyter Lab instance on the depot. In doing so, a couple of Jupyter notebooks are included which help perform various tasks related to depot maintenance and Holodeck integration. 
 ### Obtaining a Download Token
 
 In order to leverage the ODA to download and populate the depot with the required binaries, you will need a download token. 
@@ -25,85 +22,82 @@ In order to leverage the ODA to download and populate the depot with the require
 You can obtain a download token by following the instructions described in this [Broadcom KnowledgeBase Article](https://knowledge.broadcom.com/external/article/390098).
 ### Deployment Options if Using Holodeck
 
-If you are using Holodeck, you basically have two options for where to deploy the ODA: 
+When using Holodeck, there are two primary options for deploying the ODA:
 
-- It can be deployed on the management network
-- It can be deployed on the isolated network.
+- **Management Network Deployment (Recommended)**
 
-The recommended deployment method is to install the ODA on the management network. This allows the ODA to have network access to download the bits as well as to allow the AI chatbot to function. 
+  Deploying the ODA on the management network is the recommended method. This configuration provides the ODA with direct network access to download binaries and enables full functionality, including the AI chatbot. Additionally, the integrated Jupyter notebooks can be leveraged to streamline tasks such as copying binaries to the Holorouter and accessing HoloDeck configuration information.
 
-With this type of deployment, you can utilize the included Jupyter notebooks to perform several of the tasks needed when using Holodeck. This includes things like copying the binaries to the Holorouter as well as performing common tasks, such as getting information from the HoloDeck configuration.  
+- **Isolated Network Deployment**
 
-The other method is to install the ODA on the isolated network. Although this works, there are a few more steps required.
-
-As the isolated network doesn't have network access until the Holorouter is all configured with BGP and DNS, you can not download the binaries to the ODA.
-
-This means that you would have to manually download and copy the SDDC Manager and ESX binaries to the Holorouter and start the Holorouter deployment.
-
-Once the Holorouter is up and online, then it can forward requests out to the internet and this allows you to start performing the binary downloads directly to the ODA as the ODA will now have internet access.
+  While deploying the ODA on an isolated network is possible, it requires additional steps. Initially, the isolated network lacks external connectivity until the Holorouter is fully configured with BGP and DNS. This means binaries cannot be directly downloaded to the ODA. As a workaround, you must manually download and copy the SDDC Manager and ESX binaries to the Holorouter before initiating the Holorouter deployment. Once the Holorouter is online and configured, it can forward internet requests, enabling direct binary downloads to the ODA.
 
 ### Deploying the Offline Depot Appliance
 
-To deploy the appliance, simply deploy the OVA on your vCenter Server like you would normally do.
+<ol>
+    <li>
+        To deploy the appliance, simply deploy the OVA on your vCenter Server like you would normally do.
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-1.png">
+        </figure>
+        <br>
+    </li>
+    <li>
+        Next, provide a name for the VM and specify its deployment location:
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-2.png">
+        </figure>
+        <br>
+    </li>
+    <li>
+        Then, select the compute resource for the VM. You can choose to automatically start the VM after import by checking the box; otherwise, you can power it on manually to observe the first boot process.
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-3.png">
+        </figure>
+        <br>
+    </li>
+    <li>
+        Review the settings and proceed by clicking Next.
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-4.png">
+        </figure>
+        <br>
+    </li>
+    <li>
+        Next, select appropriate storage with sufficient capacity for your needs.
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-5.png">
+        </figure>
+        <br>
+    </li>
+    <li>
+        On the next screen, select the network for ODA deployment. As discussed in the previous section, it is recommended to deploy the appliance on the management network.
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-6.png">
+        </figure>
+        <br>
+    </li>
+    <li>
+        Now, specify the networking attributes, including hostname, IP address, and netmask, according to your environment's requirements.
+        <figure markdown="span">
+            <img src="../images/Deploy-Offline-Depot-Step-7a.png">
+        </figure>
+        <br>
+    </li>
+</ol>
 
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-1.png">
-</figure>
+The subsequent section allows you to set the password for the admin user, which is used for SSH access to the appliance.
 
-Next, You will provide the VM a name and specify the location where it will be deployed to:
+Following this, configure the depot-specific options:
 
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-2.png">
-</figure>
+- **Skip Binary Download:**
+  Selecting this option prevents the appliance from automatically downloading required VCF binaries during power-on, which is useful if a download token is not available at installation. The depot can be populated manually or using the included Jupyter Notebooks after deployment.
 
-Next, you will select the compute resource to deploy the VM to. Note that you can check the box so that the VM is automatically started after it is finished being imported. If you wanted to watch the first boot process, then you can leave this unselected and manually power on the VM.
+- **Download Token:**
+  Provide a download token to enable automatic download of VCF binaries upon appliance power-on. If no token is provided, the download attempt will time out. Similar to skipping the download, manual population or Jupyter Notebooks can be used later.
 
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-3.png">
-</figure>
-
-Next, you see the review page - Just click Next to continue.
-
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-4.png">
-</figure>
-
-Next, you will need to select the appropriate storage. Ensure that the storage has enough space for your needs. 
-
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-5.png">
-</figure>
-
-At the next screen, you can select the network that you want to deploy the ODA to. Please see the above section that talks about the different ways you could deploy the appliance. In short though, it is recommended that you put the appliance on the management network.
-
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-6.png">
-</figure>
-
-Now you've gotten to the point where you will need to specify various networking attributes, such as the host name, IP address, and Net Mask. Use the values required for your environment.
-
-<figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-7a.png">
-</figure>
-
-The next section of attributes are used to set the password for the admin user. This is the user account that you will use to SSH into the appliance.
-
-After this, you can select some options specific to the depot configuration. 
-
-- Skip Binary Download
-If you select this, the appliance will not attempt to automatically download the required VCF binaries when it powers on. This is very handy if you do not have your download token at the time you are installing the appliance. 
-
-After the appliance is deployed, you can either manually populate the depot or you can utilize the automation provided in the included Jupyter Notebooks to help you populate the depot. 
-
-- Download Token
-You will need to provide this in order to the appliance to attempt to automatically download the VCF binaries. If you do not provide this, then the appliance will attempt to download the required bits and then fail after timing out. 
-
-As in the case if you selected to skip the binary download, you can always manually populate the depot or use the Jupyter Notebooks later.
-
-- VCF Version
-This specifies the VCF version you wish to have the appliance download the binaries for. For VCF 9, simply enter '9.0' here.
-
-The Advanced section provides you the ability to enable SSH to the appliance as well as the option to enable the Jupyter Lab server. It is highly recommended that you enable the Jupyter Lab server and this option will be checked by default. 
+- **VCF Version:**
+  Specify the target VCF version for binary downloads (e.g., '9.0' for VCF 9). The Advanced section offers options to enable SSH and the Jupyter Lab server. Enabling the Jupyter Lab server is highly recommended and is selected by default.
 
 <figure markdown="span">
     <img src="../images/Deploy-Offline-Depot-Step-7b.png">
@@ -199,16 +193,15 @@ You will also see a directory for metadata and vsan under /PROD as well. If you 
 
 ### Caveats
 
-There are a few things that you should be aware when using this depot:
+Consider the following important points when using the offline depot:
 
-- The depot does not use HTTPS. Doing so would require the generation and maintenance of certs. This just adds complexity to everything that isn't needed for most lab environments. 
-	- You will need to change the application-prod.properties file attributes to allow for the use of http.
-	- You will likely see a error in the VCF Installer UI saying that you have to use HTTPS. If you've made all the changes, then you can ignore this warning.
-	- If you are using Holodeck, it automatically will make the required changes for you.
+- **HTTPS Support**: The depot does not currently support HTTPS to reduce complexity related to certificate generation and maintenance. 
+  - **Workaround**: You will need to modify `application-prod.properties` to allow HTTP. The VCF Installer UI may display a warning about HTTPS; this can be ignored if the necessary changes have been applied. Holodeck automates these modifications.
 
-- The disk size is only about 300g for the appliance. Depending on what you are doing, you might need more space. If this is the case, see the section below on how to add more space.
+- **Disk Space**: The appliance is provisioned with approximately 300GB of disk space. Depending on your use case and the number of binaries, additional storage may be required. Refer to the "How to Expand the Storage" section for instructions on increasing disk capacity.
 
-- There is a known issue with the depot appliance when you deploy to a ESX host directly. In this case, the Jupyter Labs server may not be able to be configured. The depot will still function, regardless.  To work around this, deploy the appliance to a vCenter instance.
+- **Jupyter Lab on ESX**: A known issue exists where the Jupyter Lab server may not configure correctly when the depot appliance is deployed directly to an ESX host. The depot functionality remains unaffected. 
+  - **Recommendation**: To avoid this issue, deploy the appliance to a vCenter instance.
 
 ### How to Expand the Storage
 
