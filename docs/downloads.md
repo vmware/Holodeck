@@ -12,7 +12,7 @@ To set up and deploy Holodeck 9.0.1, download the following components:
 
 #### 1. HoloRouter OVA  
 Download the base appliance to run Holodeck:  
-<a href="" target="_blank" rel="noopener"><strong>Download HoloRouter OVA</strong></a>
+<a href="https://support.broadcom.com/group/ecx/productfiles?subFamily=Holodeck&displayGroup=Holodeck&release=9.0.1&os=&servicePk=&language=EN&freeDownloads=true" target="_blank" rel="noopener"><strong>Download HoloRouter OVA</strong></a>
 
 > *Note: Ensure you're signed in to the Broadcom Support Portal with an entitled account.*
 
