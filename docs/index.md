@@ -880,7 +880,7 @@ Remove-HoloDeckDNSConfig -DNSRecord '10.1.1.210 harbor.site-a.vcf.lab'
 
 ![image](images/Remove-HoloDeckDNSConfig.png)
 
-## Migrating Holorouter 9.0 to 9.0.1 in an existing Holodeck 9.0 instance
+### Migrate Holorouter 9.0 to 9.0.1
 
 Please follow the steps specified in the flowchart below to deploy and use Holorouter 9.0.1 in an existing Holodeck 9.0 instance.
 
