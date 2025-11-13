@@ -81,3 +81,99 @@
 [data-md-color-scheme="slate"] .md-typeset h3 {
     color: #e2e8f0;
 }
+
+/* Contributing Section - Custom Right Sidebar */
+.md-sidebar--contributing {
+    position: sticky;
+    top: 4.8rem;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+.md-nav__title--contributing-custom {
+    font-weight: 700;
+    padding: 0.625rem 0.6rem;
+    font-size: 0.8rem;
+    color: var(--vmware-black);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title--contributing-custom {
+    color: var(--vmware-white);
+}
+
+.contributing-folder-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.md-nav__contributing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0.6rem 0.75rem;
+}
+
+.md-button--contributing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--vmware-black);
+    color: var(--vmware-white);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.75rem;
+    transition: background-color 0.2s ease;
+    border: none;
+    text-align: left;
+}
+
+.md-button--contributing:hover {
+    background-color: var(--vmware-dark-gray);
+    color: var(--vmware-white);
+}
+
+.md-button--contributing svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.md-button--contributing span {
+    flex: 1;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .md-button--contributing {
+    background-color: #1a1a1a;
+    color: var(--vmware-white); /* Ensure text and icons are white in dark mode */
+}
+
+[data-md-color-scheme="slate"] .md-button--contributing:hover {
+    background-color: var(--vmware-dark-gray);
+}
+
+/* Video Thumbnail in Right Sidebar */
+.md-sidebar__video-thumbnail {
+    padding: 1rem 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.video-thumbnail-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.md-sidebar__video-thumbnail a:hover .video-thumbnail-img {
+    opacity: 0.85;
+}
