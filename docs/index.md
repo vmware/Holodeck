@@ -1,11 +1,9 @@
-# <h1 style="text-align: center;">**Holodeck**</h1>
-
-## What is Holodeck?
 
 <div style="flex: 1; display: flex; align-items: center; justify-content: center">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/NaAquL2U88E?si=3XdV_kiCy31tZErG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
+## What is Holodeck?
 
 Holodeck is a toolkit designed to provide a standardized and automated method to deploy nested VMware Cloud
 Foundation (VCF) environments on a VMware ESX host or a vSphere cluster. These environments are ideal for technical capability testing by
@@ -418,7 +416,7 @@ scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-r
 
 ### Run Holodeck deployment
 
-Once logged in to Holorouter via SSH or webtop (access the CLI inside webtop), run the following commands:
+Once logged in to Holorouter via SSH, run the following commands:
 
 Open PowerShell:
 
@@ -594,6 +592,7 @@ The -DeveloperMode Parameter allows you to automate deployments by defining all 
     $env:offline_depot_port = "<offline_depot_port>"
     $env:offline_depot_username = "<offline_depot_username>"
     $env:offline_depot_password = "<offline_depot_password>"
+    $env:offline_depot_protocol = "http" or "https"
     ```
 
 - Datastore and Network Port Group details:

@@ -1,14 +1,29 @@
+#Project Information
 site_name: Holodeck
+site_url: https://vmware.github.io/Holodeck/
+site_author: Broadcom
+docs_dir: docs
+
+#Repository
+repo_url: https://github.com/vmware/Holodeck
+edit_uri: blob/main/docs/
+
+#Configuration
 theme:
   name: material
+  custom_dir: overrides
   logo: images/VMware_by_Broadcom_White.png
   font:
     text: Roboto
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
-    - toc.integrate
+    - navigation.instant
     - navigation.top
+    - navigation.tracking
+    - toc.integrate
+    - toc.follow
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -63,4 +78,5 @@ markdown_extensions:
       alternate_style: true
 
 copyright: |
-  Copyright © 2005-2025 Broadcom. All Rights Reserved. The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.
+  Copyright © 2005-2025 Broadcom. All Rights Reserved. <br>
+  The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
