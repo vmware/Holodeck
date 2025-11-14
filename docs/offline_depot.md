@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"><strong>Offline Depot</strong></h1>
+# Offline Depot
 
 ### Overview
 
