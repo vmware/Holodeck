@@ -1,4 +1,4 @@
-<h1 style="text-align: center"><strong>❓ Frequently Asked Questions (FAQ)</strong></h1>
+# ❓ Frequently Asked Questions (FAQ)
 
 
 Welcome! Here are answers to some of the most common questions about **Holodeck** and deploying **VCF 9.0**.

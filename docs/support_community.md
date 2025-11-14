@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"><strong>Support & Feedback</strong></h1>
+# Support & Feedback
 
 If you're encountering issues, need help, or want to engage with the community, we offer two main channels of support.
 

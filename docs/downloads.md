@@ -1,4 +1,4 @@
-<h1 style="text-align: center;"><strong>Downloads</strong></h1>
+# Downloads
 
 ## Holodeck 9.0.1
 
