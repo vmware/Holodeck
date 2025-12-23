@@ -488,13 +488,13 @@ In the second option, we see that -ManagementOnly and -Version is mandatory, sho
 |--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
 | Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
 | InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
-| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR. If you wish to use a custom CIDR, provide a CIDR of /20 size     | String of format: "10.3.0.0/20"                     | "10.1.0.0/20"              |
+| CIDR                     | Array of Strings   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR for Site a and 10.2.0.0/20 for Site b. If you wish to use a custom CIDR, provide a CIDR of /20 size. For single site (site a) deployment, specify only a single CIDR. For site b deployment in a dual site scenario, specify an array of CIDRs using an array [n,m] where n and m are the CIDRs for Site a and Site b respectively.     | String of format: ["10.3.0.0/20","10.4.0.0/20"]                     | ["10.1.0.0/20","10.2.0.0/20"]              |
 | vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
 | ManagementOnly           | Switch   | **Mandatory**|  Deploys a VCF instance with Management domain only    | NA                                                  |                            |
 | NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
 | DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond. VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
-| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify it only for a single site by just specifying the integer or for dual site using an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
+| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
 | DNSDomain                     | String   | Optional     | VCF instance is deployed by default with DNS domain vcf.lab. The users can specify a custom DNS domain using the DNSDomain parameter.     | String of format: demo.lab                    | vcf.lab             |
 | Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
 | DepotType                | String   | Optional     | Applicable for -Version 9.0.0.0 and beyond only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
@@ -516,7 +516,7 @@ In the third option, we see that only -Version is mandatory, but it also has an 
 |--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
 | Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
 | InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
-| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR. If you wish to use a custom CIDR, provide a CIDR of /20 size     | String of format: "10.3.0.0/20"                     | "10.1.0.0/20"              |
+| CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR for Site a and 10.2.0.0/20 for Site b. If you wish to use a custom CIDR, provide a CIDR of /20 size. For single site (site a) deployment, specify only a single CIDR. For site b deployment in a dual site scenario, specify an array of CIDRs using an array [n,m] where n and m are the CIDRs for Site a and Site b respectively.     | String of format: ["10.3.0.0/20","10.4.0.0/20"]                     | ["10.1.0.0/20","10.2.0.0/20"]              |
 | vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
 | WorkloadDomainType       | String   | Optional     | Choose whether you want to share the management domain SSO with workload domain or use a separate SSO (wld.sso). | "SharedSSO" or "IsolatedSSO"                        | ""                         |
 | NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
@@ -524,7 +524,7 @@ In the third option, we see that only -Version is mandatory, but it also has an 
 | DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond. VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
 | DeploySupervisor         | Switch   | Optional     | Applicable only for VCF 9.0.0.0 and beyond. Deploys Supervisor in workload domain and additional networking configuration needed to activate supervisor |NA                                                  |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
-| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify it only for a single site by just specifying the integer or for dual site using an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
+| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
 | DNSDomain                     | String   | Optional     | VCF instance is deployed by default with DNS domain vcf.lab. The users can specify a custom DNS domain using the DNSDomain parameter.     | String of format: demo.lab                    | vcf.lab             |
 | Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
 | DepotType                | String   | Optional     | Applicable for -Version 9.0.0.0 and beyond only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
@@ -546,21 +546,36 @@ The last option is used for performing day 2 activities on a Holodeck instance a
 
 #### **Dual Site Deployment**
 
+**For dual site deployments with default CIDRs and VLAN ranges:**
 ``` 
-New-HoloDeckNetworkConfig -Site a -MasterCIDR <string>
-New-HoloDeckNetworkConfig -Site b -MasterCIDR <string>
+New-HoloDeckNetworkConfig -Site a
+New-HoloDeckNetworkConfig -Site b
 Set-HoloRouter -dualsite
-New-HoloDeckInstance -Site a [-MasterCIDR <string>] [Additional Parameters]
+New-HoloDeckInstance -Site a [Additional Parameters]
 ```
 
 Open a new tab in powershell, import the config and run 
 
 ```
-New-HoloDeckInstance -Site b [-MasterCIDR <string>] [Additional Parameters]
+New-HoloDeckInstance -Site b [Additional Parameters]
+```
+
+**For dual site deployments with custom CIDRs and VLAN ranges:**
+``` 
+New-HoloDeckNetworkConfig -Site a -MasterCIDR <site-a-cidr> -VLANRangeStart <site-a-vlanrangestart>
+New-HoloDeckNetworkConfig -Site b -MasterCIDR <site-b-cidr> -VLANRangeStart <site-b-vlanrangestart>
+Set-HoloRouter -dualsite
+New-HoloDeckInstance -Site a -CIDR <site-a-cidr> -VLANRangeStart <site-a-vlanrangestart> [Additional Parameters]
+```
+
+Open a new tab in powershell, import the config and run 
+
+```
+New-HoloDeckInstance -Site b -CIDR <site-a-cidr>,<site-b-cidr> -VLANRangeStart <site-a-vlanrangestart>,<site-b-vlanrangestart> [Additional Parameters]
 ```
 
 !!! Note 
-    If you provide a custom CIDR in New-HoloDeckNetworkConfig, then the same custom CIDR needs to be provided in New-HoloDeckInstance to avoid the custom CIDR being overwritten by the default CIDRs.
+    If you provide custom CIDRs or VLAN ranges in New-HoloDeckNetworkConfig, then the same custom CIDRs and start of custom VLAN ranges need to be furnished in New-HoloDeckInstance command to avoid the custom CIDRs or VLANs being overwritten by the default values.
 
 #### **Developer Mode**
 
