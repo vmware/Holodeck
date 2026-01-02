@@ -575,8 +575,9 @@ New-HoloDeckInstance -Site b -CIDR <site-a-cidr>,<site-b-cidr> -VLANRangeStart <
 ```
 
 !!! Note 
-    If you provide custom CIDRs or VLAN ranges in New-HoloDeckNetworkConfig, then the same custom CIDRs and start of custom VLAN ranges need to be furnished in New-HoloDeckInstance command to avoid the custom CIDRs or VLANs being overwritten by the default values.
+    If you provide custom CIDRs please ensure it is a /20 in size.  For a customer CIDR and VLAN ranges in New-HoloDeckNetworkConfig, then the same custom CIDRs and start of custom VLAN ranges need to be furnished in New-HoloDeckInstance command to avoid the custom CIDRs or VLANs being overwritten by the default values.
 
+    
 #### **Developer Mode**
 
 The -DeveloperMode Parameter allows you to automate deployments by defining all interactive inputs as environment variables. To run this, open a powershell session on Holorouter and define the following variables:
