@@ -1,0 +1,84 @@
+name: Bug Report
+description: Create a report to help us improve
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: holorouter-version
+    attributes:
+      label: Holorouter Version
+      description: Which version of Holorouter are you using?
+      options:
+        - "9.0.2"
+        - "9.0.1"
+        - "9.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: vcf-version
+    attributes:
+      label: VCF Version
+      description: Which VCF version are you deploying?
+      options:
+        - "VCF 9.0.2.0"
+        - "VCF 9.0.1.0"
+        - "VCF 9.0.0.0"
+        - "VCF 5.2.2"
+        - "VCF 5.2.1"
+        - "VCF 5.2"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: target-type
+    attributes:
+      label: Target Type
+      description: What is your deployment target?
+      options:
+        - "Standalone ESX Host"
+        - "vCenter Cluster"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction steps
+      description: Steps to reproduce the behavior.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: relevant-logs
+    attributes:
+      label: Relevant logs
+      description: Paste any relevant log output. Error logs can be found at `/holodeck-runtime/logs/` on the Holorouter.
+      render: shell
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here (screenshots, config snippets, etc.).
