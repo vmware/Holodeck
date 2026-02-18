@@ -10,7 +10,7 @@ Foundation (VCF) environments on a VMware ESX host or a vSphere cluster. These e
 multiple teams inside a data center to explore hands-on exercises showcasing VCF capabilities to deliver a customer managed
 VMware Private Cloud. Holodeck is **only** to be used for a testing and training environment; it is ideal for anyone
 wanting to gain a better understanding of how VCF functions across many use cases and capabilities. Currently, there are
-two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.0.x. 
+two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.x. 
     
 This documentation solely focuses on Holodeck 9.0. If you need details on the previous version of Holodeck, please refer to this <a href="https://www.vmware.com/docs/vmw-vcf-holodeck-v52-setup" target="_blank">documentation</a>
 
@@ -53,8 +53,10 @@ Each Holodeck environment contains:
     - Support for online and offline depot with proxy for VCF Installer
     - Management Domain deployed with 4 nested hosts deployed as vSAN ready nodes including VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
     - Optional Workload Domain deployed with 3 nested hosts deployed as vSAN ready nodes including VMware vCenter, VMware NSX and Supervisor (optional)
+    - Optional Supervisor deployment in management domain or workload domain
     - Optional NSX Edge Cluster deployment in management and/or workload domain
-    - Deploy one or many additional 3-node vSphere cluster in management domain
+    - VCF Automation All Apps Org deployment as a Day 2 operation
+    - Deploy one or many additional 3-node vSphere cluster in management domain via Day 2 operations
     - Support for provision-only mode (deploy VCF Installer and ESX hosts to allow greenfield deployment experience)
     - Custom CIDR support for Holodeck network
     - Custom VLAN support for Holodeck network
@@ -99,6 +101,7 @@ port group if available.
 HoloRouter is an appliance that serves as the infrastructure backbone for Holodeck. It provides infrastructure services such as Layer-3 routing, Firewall, DHCP, DNS, NTP, BGP, Proxy, Job scheduling, etc. Through these services, HoloRouter connects the nested VCF environment to the external networks. It also provides inter-connectivity between different networks in the nested VCF environment. If you are not using custom VLANs for Holodeck, then for Site-a, VLANs 0, 10 through 25 and for Site-b, VLANs 40 through 58 are used. It is equipped with a built-in webtop (Desktop UI) which allows users access to HoloRouter via a GUI. Through the webtop service, users get easy GUI access to the nested VCF environment. 
 
 Scope of Services:
+
 - DNS: local to Site-a and Site-b of nested VCF environment, acts as forwarder
 - DHCP: local to Site-a and Site-b of nested VCF environment
 - NTP: local to Site-a and Site-b of nested VCF environment
@@ -168,6 +171,9 @@ If deploying VCF Automation with vSAN OSA:
 
 <ol>
     <li>
+        Ensure MTU of vDS/vSS/NSX switch is set to 9000.
+    </li>
+    <li>
         Create a dedicated trunk port on the vSwitch (vSS) or vDS for connecting to Holorouter. Dedicated port group ensures Holodeck does not interfere with your environment's networking. An NSX overlay trunk port group can be used instead as well.
     </li>
     <li>
@@ -219,39 +225,21 @@ install for VCF 9.0 and for 60 days for VCF 5.2. After that time period expires,
 must be added. Licensing is the responsibility of the end-user to ensure they procure the appropriate licenses by working with
 their account teams.
 
+### Offline Depot
+
+Holodeck 9.0 supports both online and offline depot modes for VCF 9.x deployments. If you plan to use an offline depot (e.g., in environments with limited or no internet connectivity), you will need to set up the Offline Depot before initiating your Holodeck deployment. The offline depot provides faster download speeds, content curation, and is essential for air-gapped environments.
+
+For detailed instructions on deploying and configuring the Offline Depot Appliance, including populating binaries, and integrating with Holodeck, please refer to the dedicated [Offline Depot](offline_depot.md) page.
+
+!!! note
+    The offline depot is applicable only for VCF 9.x deployments. VCF 5.2.x deployments use Cloud Builder and do not require an offline depot.
+
+!!! note
+    If using an existing an existing Offline depot with previous VCF 9 binaries available, ensure you use the latest manifest available on Broadcom Support Portal.
+
 ## Deployment
 
-### Prepare Physical ESX for Holodeck Networking
-
-Each Holodeck environment requires an isolated (no uplinks) vSphere Standard Switch and corresponding Port Groups.
-
-#### Pre-Requisites
-
-External facing Port Group configured with an IP address available for each Holodeck environment to be deployed on this
-host.
-
-#### ESX Host Networking Configuration
-
-This task describes the process for configuring a vSwitch called Holo-PG-A and a port group called Holo-PG-A
-
-Note: Adding the second switch and port group for Site-2 is recommended even if you do not initially deploy the second site
-within the pod.
-
-#### Configure vSphere Standard Switches for Nested Networking
-
-1. Create a standard switch called Holo-PG-A and MTU 8000.
-2. Remove the uplink by clicking on the X on the uplink.
-3. Verify the settings and click Add
-
-#### Configure Holodeck Port Groups
-
-1. Add a new Port Group
-2. Name the Port Group Holo-PG-A
-3. Set VLAN ID to 4095
-4. Set virtual switch to Holo-PG-A
-5. Open security and set all to accept
-6. Click Add
-
+Ensure all the pre-requistes stated earlier are completed.
 
 ### Deploy Holorouter OVA
 
@@ -365,18 +353,27 @@ Use the password that was set for Holorouter during OVA deployment.
 
 Upload the binaries for VCF Installer/Cloud Builder and VMware ESX that were downloaded in the Pre-requisites section to the below folder on holorouter:
 
-
+<div style="display: flex; justify-content: center;" markdown>
 | VCF Version | Folder Path                      |
 |-------------|----------------------------------|
+| VCF 9.0.2.0 | `/holodeck-runtime/bin/9.0.2.0/` |
 | VCF 9.0.1.0 | `/holodeck-runtime/bin/9.0.1.0/` |
 | VCF 9.0.0.0 | `/holodeck-runtime/bin/9.0.0.0/` |
 | VCF 5.2.2   | `/holodeck-runtime/bin/5.2.2/`   |
 | VCF 5.2.1   | `/holodeck-runtime/bin/5.2.1/`   |
 | VCF 5.2     | `/holodeck-runtime/bin/5.2/`     |
+</div>
 
 The files can be downloaded by accessing the Broadcom Support Portal within the webtop UI (assuming proper entitlement is available for end-user)
 
 Another option is to download the files locally and use scp to copy the files using the below command:
+
+For VCF 9.0.2.0:
+
+```
+scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0.2.0/
+scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.0.2.0/
+```
 
 For VCF 9.0.1.0:
 
@@ -393,7 +390,8 @@ scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-r
 ```
 
 !!! Note 
-    VCF Installer 9.0.1.0 needs to be used for deploying VCF 9.0.0.0. VCF Installer 9.0.0.0 is no longer supported on Holodeck for nested VCF deployments.
+    - Holodeck recommends VCF Installer 9.0.2.0 for deploying VCF 9.0.0.0, VCF 9.0.1.0 and VCF 9.0.2.0. 
+    - VCF Installer 9.0.0.0 is no longer supported on Holodeck for nested VCF deployments.
 
 
 For VCF 5.2.2:
@@ -434,7 +432,10 @@ Use the command below to create a new Holodeck config. This command creates a co
 
 ![image](images/New-HoloDeckConfig.png)
 
-Multiple config files can be created by running the below command multiple times for different use-cases such as 1 config for VCF 5.2 deployment and another for VCF 9.0 deployment. 
+!!! warning "Config to Deployment: 1:1 Mapping"
+    Each Holodeck configuration file is mapped to a single deployment. Always create a new config for each new deployment. **Do not re-use the same config for multiple deployments** as it may lead to state conflicts and unpredictable behavior.
+
+Multiple config files can be created by running the above command multiple times for different use-cases such as 1 config for VCF 5.2 deployment and another for VCF 9.0 deployment. 
 
 To check which config is currently loaded in your powershell session, run the below command and check the config ID or description:
 
@@ -470,29 +471,30 @@ If you notice closely, some of the parameters have a square bracket around them 
 
 #### **VVF Deployment**
 
-```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] -VVF [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
+```New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] -VVF [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
-In the first option, we see that -VVF and -Version are mandatory, showcasing this syntax is used for VVF deployment. 
+In the first option, we see that -VVF, -Version and -InstanceID are mandatory, showcasing this syntax is used for VVF deployment. 
 
 Note: VVF deployment is supported only when -Version is selected as "9.0.0.0" and beyond. Using -Version "5.2" with -VVF yields no result.
 <hr>
 
 #### **Management-Domain Only Deployment**
 
-```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
+```New-HoloDeckInstance -Version <String> -InstanceID <String> -ManagementOnly [-CIDR <String[]>] [-vSANMode <String>] [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
-In the second option, we see that -ManagementOnly and -Version is mandatory, showcasing this syntax is used to deploy a nested VCF deployment with management domain only. 
+In the second option, we see that -ManagementOnly, -Version and -InstanceID are mandatory, showcasing this syntax is used to deploy a nested VCF deployment with management domain only. 
 
 
 | **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
 |--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
-| Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
-| InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
+| Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "9.0.2.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
+| InstanceID               | String   | **Mandatory**| Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to uniquely identify the instance.     | String                                              |                            |
 | CIDR                     | Array of Strings   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR for Site a and 10.2.0.0/20 for Site b. If you wish to use a custom CIDR, provide a CIDR of /20 size. For single site (site a) deployment, specify only a single CIDR. For site b deployment in a dual site scenario, specify an array of CIDRs using an array [n,m] where n and m are the CIDRs for Site a and Site b respectively.     | String of format: ["10.3.0.0/20","10.4.0.0/20"]                     | ["10.1.0.0/20","10.2.0.0/20"]              |
 | vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
 | ManagementOnly           | Switch   | **Mandatory**|  Deploys a VCF instance with Management domain only    | NA                                                  |                            |
 | NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
 | DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond. VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
+| DeploySupervisorMgmtDomain | Switch   | Optional     | Deploys Supervisor in management domain. Applicable only for VCF 9.0.0.0 and beyond.     | NA                                                  |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
 | VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
 | DNSDomain                     | String   | Optional     | VCF instance is deployed by default with DNS domain vcf.lab. The users can specify a custom DNS domain using the DNSDomain parameter.     | String of format: demo.lab                    | vcf.lab             |
@@ -507,22 +509,23 @@ In the second option, we see that -ManagementOnly and -Version is mandatory, sho
 
 #### **Full Stack Deployment**
 
-```New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisor] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
+```New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWldDomain] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
-In the third option, we see that only -Version is mandatory, but it also has an optional parameter called -WorkloadDomainType showcasing this syntax is used for deploying a full stack nested VCF deployment. -WorkloadDomainType is optional as it already has a default value set. 
+In the third option, we see that -Version and -InstanceID are mandatory, and it also has an optional parameter called -WorkloadDomainType showcasing this syntax is used for deploying a full stack nested VCF deployment. -WorkloadDomainType is optional as it already has a default value set. 
 
 
 | **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
 |--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
-| Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
-| InstanceID               | String   | Optional     | Optional Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to help users uniquely identify their instances. If Instance ID is not provided, a random Instance ID is generated and used.     | String                                              |                            |
+| Version                  | String   | **Mandatory**| Provide VCF version | "9.0.0.0", "9.0.1.0", "9.0.2.0", "5.2", "5.2.1" or "5.2.2"                                      |                            |
+| InstanceID               | String   | **Mandatory**| Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to uniquely identify the instance.     | String                                              |                            |
 | CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR for Site a and 10.2.0.0/20 for Site b. If you wish to use a custom CIDR, provide a CIDR of /20 size. For single site (site a) deployment, specify only a single CIDR. For site b deployment in a dual site scenario, specify an array of CIDRs using an array [n,m] where n and m are the CIDRs for Site a and Site b respectively.     | String of format: ["10.3.0.0/20","10.4.0.0/20"]                     | ["10.1.0.0/20","10.2.0.0/20"]              |
 | vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
 | WorkloadDomainType       | String   | Optional     | Choose whether you want to share the management domain SSO with workload domain or use a separate SSO (wld.sso). | "SharedSSO" or "IsolatedSSO"                        | ""                         |
 | NsxEdgeClusterMgmtDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Management domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
 | NsxEdgeClusterWkldDomain | Switch   | Optional     | Deploys an NSX Edge Cluster in Workload domain (AVN included if deploying VCF 5.2)     | NA                                                  |                            |
 | DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond. VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
-| DeploySupervisor         | Switch   | Optional     | Applicable only for VCF 9.0.0.0 and beyond. Deploys Supervisor in workload domain and additional networking configuration needed to activate supervisor |NA                                                  |                            |
+| DeploySupervisorWldDomain | Switch   | Optional     | Applicable only for VCF 9.0.0.0 and beyond. Deploys Supervisor in workload domain and additional networking configuration needed to activate supervisor |NA                                                  |                            |
+| DeploySupervisorMgmtDomain | Switch   | Optional     | Applicable only for VCF 9.0.0.0 and beyond. Deploys Supervisor in management domain.     | NA                                                  |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
 | VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
 | DNSDomain                     | String   | Optional     | VCF instance is deployed by default with DNS domain vcf.lab. The users can specify a custom DNS domain using the DNSDomain parameter.     | String of format: demo.lab                    | vcf.lab             |
@@ -532,17 +535,6 @@ In the third option, we see that only -Version is mandatory, but it also has an 
 | DeveloperMode            | Switch   | Optional     | Enables automated deployments using environment variables. | NA  |      
 
 <hr>
-
-#### **Interactive Mode for Day 2 Ops**
-
-```
-New-HoloDeckInstance [-Interactive] [<CommonParameters>]
-```
-
-The last option is used for performing day 2 activities on a Holodeck instance after it has been deployed successfully. Day 2 operations include deploying an additional vSphere cluster in the Management Domain or the Workload Domain. More day 2 capabilities to be added in future based on feedback.
-
-<hr>
-
 
 #### **Dual Site Deployment**
 
@@ -575,7 +567,7 @@ New-HoloDeckInstance -Site b -CIDR <site-a-cidr>,<site-b-cidr> -VLANRangeStart <
 ```
 
 !!! Note 
-    If you provide custom CIDRs please ensure it is a /20 in size.  For a customer CIDR and VLAN ranges in New-HoloDeckNetworkConfig, then the same custom CIDRs and start of custom VLAN ranges need to be furnished in New-HoloDeckInstance command to avoid the custom CIDRs or VLANs being overwritten by the default values.
+    If you provide custom CIDRs please ensure it is a /20 in size. If custom CIDR and VLAN ranges are used in New-HoloDeckNetworkConfig, then the same custom CIDRs and start of custom VLAN ranges need to be furnished in New-HoloDeckInstance command to avoid the custom CIDRs or VLANs being overwritten by the default values.
 
     
 #### **Developer Mode**
@@ -644,7 +636,7 @@ Approx times for tested workflows (for 9.0.0.0):
 |-|--|-|
 | -ManagementOnly | 4-5 hours | Just 4 hosts for management domain |
 | -NsxEdgeClusterMgmtDomain | 5-6 hours| 4 hosts without and 2 node Edge Cluster |
-| -DeployVCFAuto -DeploySupervisor | 12+| 4 hosts management with VCF Automation, Supervisor implies 3 node WLD, Edges and Supervisor |
+| -DeployVCFAuto -DeploySupervisorWldDomain | 12+| 4 hosts management with VCF Automation, 3 hosts WLD, Edge Cluster and Supervisor |
 
 Please note that the time mentioned above is only an indication as the actual time taken depends on multiple factors such as the physical environment, networking connectivity etc.
 
@@ -729,6 +721,46 @@ Once Holodeck is deployed, you can access the VCF components on your browser, as
 |                   | ESX                            | https://esx-05a.site-a.vcf.lab https://esx-06a.site-a.vcf.lab https://esx-07a.site-a.vcf.lab                                | root                                                                                | VMware123!VMware123! |
 
 The above table has been generated for Site A. If you have deployed Site B, replace "site-a" in the FQDN with "site-b". For example, Management vCenter for Site A is https://vc-mgmt-a.site-a.vcf.lab/ and Management vCenter for Site B is https://vc-mgmt-a.site-b.vcf.lab/
+
+#### **Day 2 Operations**
+
+Use the `Update-HoloDeckInstance` cmdlet to perform Day 2 operations on a Holodeck instance after it has been deployed successfully. This replaces the previous `New-HoloDeckInstance -Interactive` workflow. Each operation is invoked using a specific parameter flag along with `-Site` and `-VIDomain`.
+
+##### Deploy Additional Cluster
+
+Deploys an additional 3-node vSphere cluster in the Management or Workload domain.
+
+```powershell
+Update-HoloDeckInstance -Site a -AdditionalCluster -VIDomain Management
+```
+
+```powershell
+Update-HoloDeckInstance -Site a -AdditionalCluster -VIDomain Workload
+```
+
+| **Parameter**            | **Type** | **Required** | **Description**     |  **Options**  |
+|--------------------------|----------|--------------|----------------------|---------------|
+| Site                     | String   | **Mandatory**| Site identifier      | "a" or "b"    |
+| AdditionalCluster        | Switch   | **Mandatory**| Triggers additional cluster deployment | NA |
+| VIDomain                 | String   | **Mandatory**| Target domain for the cluster | "Management" or "Workload" |
+
+##### Deploy VCF Automation All Apps Org
+
+Creates a VCF Automation All Apps Org in the specified domain. This requires VCF Automation to already be deployed in the instance (via `-DeployVcfAutomation` during `New-HoloDeckInstance`) and Supervisor to be deployed in the management or workload domain (via `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWldDomain` during `New-HoloDeckInstance`). This command setsup the required constructs for creating an organization such as region, region quota, IP space etc.
+
+```powershell
+Update-HoloDeckInstance -Site a -AddVcfAutomationAllAppsOrg -VIDomain Management
+```
+
+| **Parameter**            | **Type** | **Required** | **Description**     |  **Options**  |
+|--------------------------|----------|--------------|----------------------|---------------|
+| Site                     | String   | **Mandatory**| Site identifier      | "a" or "b"    |
+| AddVcfAutomationAllAppsOrg | Switch | **Mandatory**| Triggers All Apps Org creation in VCF Automation | NA |
+| VIDomain                 | String   | **Mandatory**| Target domain | "Management" or "Workload" |
+
+!!! Note
+    The `-AdditionalCluster` and `-AddVcfAutomationAllAppsOrg` parameters belong to separate parameter sets and cannot be used together in a single invocation. Run separate commands for each operation.
+
 
 ## How To
 
@@ -895,11 +927,11 @@ Remove-HoloDeckDNSConfig -DNSRecord '10.1.1.210 harbor.site-a.vcf.lab'
 
 ![image](images/Remove-HoloDeckDNSConfig.png)
 
-### Migrate Holorouter 9.0 to 9.0.1
+### Migrate Holorouter 9.0/9.0.1 to 9.0.2
 
-Please follow the steps specified in the flowchart below to deploy and use Holorouter 9.0.1 in an existing Holodeck 9.0 instance.
+Please follow the steps specified in the flowchart below to deploy and use Holorouter 9.0.2 in an existing Holodeck 9.0/9.0.1 instance.
 
-![image](images/Migrating-HoloRouter-9.0-to-9.0.1.png)
+![image](images/Migrating-HoloRouter-9.0-and-9.0.1-to-9.0.2.png)
 
 ## Troubleshooting
 

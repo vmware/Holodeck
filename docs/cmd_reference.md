@@ -3,13 +3,11 @@
 Creates a new HoloDeck instance — a nested VMware Cloud Foundation (VCF) lab environment for testing and training purposes.
 
 ```powershell
-New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-LogLevel <String>] [-ProvisionOnly] -VVF [-Site <String>] [-DepotType <String>] [-DeveloperMode]
+New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-LogLevel <String>] [-ProvisionOnly] -VVF [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 
-New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
+New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 
-New-HoloDeckInstance -Version <String> [-InstanceID <String>] [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisor] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
-
-New-HoloDeckInstance [-Interactive]
+New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWldDomain] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 ```
 
 ---
@@ -24,8 +22,8 @@ Deploys a HoloDeck instance based on the provided VCF version and optional param
 
 | Name | Description | Required | Default |
 |------|-------------|----------|---------|
-| `-Version` | VCF version. Valid: `9.0.0.0` , `9.0.1.0` , `5.2` , `5.2.1` , `5.2.2` | ✅ | |
-| `-InstanceID` | Optional prefix for all nested VMs | ❌ | Random |
+| `-Version` | VCF version. Valid: `9.0.0.0` , `9.0.1.0` , `9.0.2.0` , `5.2` , `5.2.1` , `5.2.2` | ✅ | |
+| `-InstanceID` | Prefix for all nested VMs to uniquely identify the instance | ✅ | |
 | `-CIDR` | Custom /20 CIDR block (e.g., `"10.3.0.0/20"`). For Dual Site, provide in the format `["10.3.0.0/20","10.4.0.0/20"]` | ❌ | `10.1.0.0/20` |
 | `-vSANMode` | vSAN type: `"ESA"` or `"OSA"` | ❌ | `OSA` |
 | `-ManagementOnly` | Deploy only Management domain | ❌ | `False` |
@@ -33,8 +31,8 @@ Deploys a HoloDeck instance based on the provided VCF version and optional param
 | `-NsxEdgeClusterMgmtDomain` | Deploy NSX Edge Cluster in management domain | ❌ | `False` |
 | `-NsxEdgeClusterWkldDomain` | Deploy NSX Edge Cluster in workload domain | ❌ | `False` |
 | `-DeployVcfAutomation` | Deploy VCF Automation (VCF 9.x only) | ❌ | `False` |
-| `-DeploySupervisor` | Deploy Supervisor (VCF 9.x only) | ❌ | `False` |
-| `-Interactive` | Launch interactive mode for Day 2 ops | ❌ | `False` |
+| `-DeploySupervisorWldDomain` | Deploy Supervisor in workload domain (VCF 9.x only) | ❌ | `False` |
+| `-DeploySupervisorMgmtDomain` | Deploy Supervisor in management domain (VCF 9.x only) | ❌ | `False` |
 | `-LogLevel` | Log verbosity: `"INFO"`, `"DEBUG"`, etc. | ❌ | `INFO` |
 | `-ProvisionOnly` | Provision ESX & CloudBuilder/VCF Installer only | ❌ | `False` |
 | `-VVF` | Deploys a VVF instance | ❌ | |
@@ -48,9 +46,9 @@ Deploys a HoloDeck instance based on the provided VCF version and optional param
 
  Example 1
  
-Deploys a VVF using 9.0 version with vSAN ESA mode using default CIDR 10.1.0.0/20 and a randomly generated Instance ID
+Deploys a VVF using 9.0 version with vSAN ESA mode using default CIDR 10.1.0.0/20
 ```powershell
-New-HoloDeckInstance -Version 9.0.0.0 -vSANMode ESA -VVF -DepotType Online
+New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -vSANMode ESA -VVF -DepotType Online
 ```
 
  Example 2
@@ -71,14 +69,118 @@ New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -CIDR 10.3.0.0/20 -vSANMo
 
 Deploys a VCF 9.0 full stack instance with NSX Edge cluster deployed in both management and workload domain, VCF Automation deployed in Management domain, supervisor deployed in workload domain using an online depot.
 ```powershell
-New-HoloDeckInstance -Version 9.0.0.0 -NsxEdgeClusterMgmtDomain -NsxEdgeClusterWkldDomain -DeployVcfAutomation -DeploySupervisor -DepotType Online
+New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -NsxEdgeClusterMgmtDomain -NsxEdgeClusterWkldDomain -DeployVcfAutomation -DeploySupervisorWldDomain -DepotType Online
 ```
 
  Example 5
 
-Deploy additional cluster in management domain or workload domain after VCF instance has been deployed.
+Deploys a VCF 9.0 management-only instance with Supervisor deployed in the management domain.
 ```powershell
-New-HoloDeckInstance -Interactive
+New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -CIDR 10.3.0.0/20 -ManagementOnly -NsxEdgeClusterMgmtDomain -DeployVcfAutomation -DeploySupervisorMgmtDomain -DepotType Offline
+```
+
+---
+
+## Update-HoloDeckInstance
+
+Performs Day 2 operations on an existing HoloDeck instance.
+
+```powershell
+Update-HoloDeckInstance -Site <String> -AdditionalCluster -VIDomain <String>
+
+Update-HoloDeckInstance -Site <String> -AddVcfAutomationAllAppsOrg -VIDomain <String>
+```
+
+---
+
+### Description
+
+Performs Day 2 operations on a previously deployed Holodeck instance. This cmdlet replaces the previous `New-HoloDeckInstance -Interactive` workflow. Each Day 2 operation is invoked using a specific parameter set.
+
+Currently supported Day 2 operations:
+
+- **Deploy Additional Cluster** (`-AdditionalCluster`): Deploys a 3-node vSphere cluster in the specified domain.
+- **Deploy VCF Automation All Apps Org** (`-AddVcfAutomationAllAppsOrg`): Creates an All Apps Org in VCF Automation for the specified domain.
+
+---
+
+### Parameters
+
+| Name | Description | Required | Default |
+|------|-------------|----------|---------|
+| `-Site` | Site identifier: `"a"` or `"b"` | ✅ | |
+| `-AdditionalCluster` | Deploy an additional 3-node vSphere cluster in the specified domain | ✅ (for AddCluster set) | |
+| `-AddVcfAutomationAllAppsOrg` | Deploy a VCF Automation All Apps Org in the specified domain | ✅ (for VcfAutomation set) | |
+| `-VIDomain` | Target domain for the operation. Valid values: `"Management"` or `"Workload"` | ✅ | |
+
+---
+
+### Examples
+
+ Example 1
+
+Deploy an additional vSphere cluster in the Management domain for Site A
+```powershell
+Update-HoloDeckInstance -Site a -AdditionalCluster -VIDomain Management
+```
+
+ Example 2
+
+Deploy an additional vSphere cluster in the Workload domain for Site A
+```powershell
+Update-HoloDeckInstance -Site a -AdditionalCluster -VIDomain Workload
+```
+
+ Example 3
+
+Deploy a VCF Automation All Apps Org in the Management domain for Site A
+```powershell
+Update-HoloDeckInstance -Site a -AddVcfAutomationAllAppsOrg -VIDomain Management
+```
+
+---
+
+### Notes
+
+This cmdlet replaces `New-HoloDeckInstance -Interactive`. 
+
+- The `-AdditionalCluster` and `-AddVcfAutomationAllAppsOrg` parameters belong to separate parameter sets and cannot be used together in a single invocation.
+- VCF Automation and Supervisor must already be deployed (via `-DeployVcfAutomation`, `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWldDomain` during `New-HoloDeckInstance`) before running `-AddVcfAutomationAllAppsOrg`.
+- The additional cluster is deployed as a 3-node vSphere cluster.
+
+---
+
+## Get-HoloDeckInstance
+
+Retrieves details of a deployed HoloDeck instance.
+
+```powershell
+Get-HoloDeckInstance -InstanceID <String>
+```
+
+---
+
+### Description
+
+Gets instance details from the Holodeck instance output file (`output.json`). Returns a structured HolodeckInstance model object providing programmatic access to instance details such as deployed components, networking information, and deployment state.
+
+---
+
+### Parameters
+
+| Name | Description | Required | Default |
+|------|-------------|----------|---------|
+| `-InstanceID` | The Instance ID of the deployed Holodeck instance | ✅ | |
+
+---
+
+### Examples
+
+ Example 1
+
+Returns details for the instance with ID "holo"
+```powershell
+Get-HoloDeckInstance -InstanceID holo
 ```
 
 ---
@@ -180,6 +282,9 @@ New-HoloDeckConfig -TargetHost "vcenter.example.com" -UserName "admin" -Password
 ### Notes
 
 The configuration is saved to `/holodeck-runtime/config` directory.
+
+!!! warning "Config to Deployment: 1:1 Mapping"
+    Each configuration is mapped to a single deployment. Always create a new config for each new deployment. Do not reuse the same config for multiple deployments as it may lead to state conflicts and unpredictable behavior.
 
 ---
 
@@ -319,7 +424,7 @@ New-HoloDeckNetworkConfig -MasterCIDR <String> [-NoOfSubnets <String>] [-bgpPass
 
 ### Description
 
-Creates a comprehensive network configuration including subnets, VLANs, IP pools, and BGP configuration. Supports custom network layouts or default configurations. Generates configuration for ESXi hosts, vCenter, NSX, and other VCF components.
+Creates a comprehensive network configuration including subnets, VLANs, IP pools, and BGP configuration. Supports custom network layouts or default configurations. Generates configuration for ESX hosts, vCenter, NSX, and other VCF components.
 
 ---
 
@@ -641,7 +746,7 @@ Get-HoloDeckAppIpPools [-Site <String>] [-Name <String>] [-ipPool <String>]
 
 ### Description
 
-Queries the network configuration YAML file for application IP pool definitions. IP pools are used for allocating IP addresses to VCF appliances and components such as vCenter, NSX managers, SDDC Manager, and other infrastructure services. Can filter results by pool name, IP pool range, or retrieve all pools for a site.
+Queries the network configuration YAML file for application IP pool definitions. IP pools are used for allocating IP addresses to VCF appliances and components such as Supervisor, VCF Automation and other infrastructure services. Can filter results by pool name, IP pool range, or retrieve all pools for a site.
 
 ---
 
@@ -676,4 +781,38 @@ Get-HoloDeckAppIpPools -Name "vcenter-pool" -Site "a"
 Retrieves IP pool information for the specified range in Site B
 ```powershell
 Get-HoloDeckAppIpPools -ipPool "192.168.1.10-192.168.1.20" -Site "b"
+```
+---
+
+## Get-HolodeckServiceIPPools
+
+Displays IP pool allocations used by all Holodeck services.
+
+```powershell
+Get-HolodeckServiceIPPools [-Site <String>]
+```
+
+---
+
+### Description
+
+Retrieves and displays IP pool allocations used by Holodeck infrastructure services. This is useful for network troubleshooting and understanding IP usage across the Holodeck environment.
+
+---
+
+### Parameters
+
+| Name | Description | Required | Default |
+|------|-------------|----------|---------|
+| `-Site` | Site identifier (a or b) | ❌ | `a` |
+
+---
+
+### Examples
+
+ Example 1
+
+Displays IP pool allocations for all Holodeck services in Site A
+```powershell
+Get-HolodeckServiceIPPools -Site "a"
 ```
