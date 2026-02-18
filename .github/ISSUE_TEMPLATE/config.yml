@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Holodeck Documentation
+    url: https://vmware.github.io/Holodeck/
+    about: Check the documentation release notes for known issues related to a specific Holodeck version before opening an issue

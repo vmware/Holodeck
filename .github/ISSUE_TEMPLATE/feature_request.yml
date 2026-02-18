@@ -1,0 +1,34 @@
+name: Feature Request
+description: Suggest an idea for this project
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the feature you'd like to see.
+      placeholder: Tell us what you'd like
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case / Motivation
+      description: Why do you need this feature? What problem does it solve?
+      placeholder: Describe your use case
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: If you have an idea for how this could be implemented, describe it here.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context, screenshots, or references about the feature request here.
