@@ -53,6 +53,9 @@ nav:
   - FAQ: faq.md
 
 
+plugins:
+  - glightbox
+
 extra_css:
   - stylesheets/extra.css
 
@@ -78,5 +81,5 @@ markdown_extensions:
       alternate_style: true
 
 copyright: |
-  Copyright © 2005-2025 Broadcom. All Rights Reserved. <br>
+  Copyright © 2005-2026 Broadcom. All Rights Reserved. <br>
   The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
