@@ -1,0 +1,6 @@
+# Internal Holodeck nested environment FQDNs (not resolvable externally)
+.*\.site-a\.vcf\.lab
+.*\.site-b\.vcf\.lab
+
+# Broadcom community site frequently returns 500 to automated requests
+https://community\.broadcom\.com/.*
