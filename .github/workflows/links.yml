@@ -42,11 +42,14 @@ jobs:
           path: .lycheecache
           key: ${{ steps.restore-cache.outputs.cache-primary-key }}
 
-      - name: Create or Update Issue From File
+      - name: Create or Update Issue
         if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue
-          update-existing: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=$(gh issue list --state open --label "automated issue" --search "Link Checker Report" --json number,title --jq '.[] | select(.title == "Link Checker Report") | .number' | head -1)
+          if [ -n "$ISSUE_NUMBER" ]; then
+            gh issue edit "$ISSUE_NUMBER" --body-file ./lychee/out.md
+          else
+            gh issue create --title "Link Checker Report" --body-file ./lychee/out.md --label "report" --label "automated issue"
+          fi
