@@ -38,49 +38,49 @@ When using Holodeck, there are two primary options for deploying the ODA:
     <li>
         To deploy the appliance, simply deploy the OVA on your vCenter Server like you would normally do.
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-1.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-1.png">
         </figure>
         <br>
     </li>
     <li>
         Next, provide a name for the VM and specify its deployment location:
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-2.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-2.png">
         </figure>
         <br>
     </li>
     <li>
         Then, select the compute resource for the VM. You can choose to automatically start the VM after import by checking the box; otherwise, you can power it on manually to observe the first boot process.
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-3.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-3.png">
         </figure>
         <br>
     </li>
     <li>
         Review the settings and proceed by clicking Next.
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-4.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-4.png">
         </figure>
         <br>
     </li>
     <li>
         Next, select appropriate storage with sufficient capacity for your needs.
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-5.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-5.png">
         </figure>
         <br>
     </li>
     <li>
         On the next screen, select the network for ODA deployment. As discussed in the previous section, it is recommended to deploy the appliance on the management network.
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-6.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-6.png">
         </figure>
         <br>
     </li>
     <li>
         Now, specify the networking attributes, including hostname, IP address, and netmask, according to your environment's requirements.
         <figure markdown="span">
-            <img src="../images/Deploy-Offline-Depot-Step-7a.png">
+            <img src="/Holodeck/images/Deploy-Offline-Depot-Step-7a.png">
         </figure>
         <br>
     </li>
@@ -100,7 +100,7 @@ Following this, configure the depot-specific options:
   Specify the target VCF version for binary downloads (e.g., '9.0' for VCF 9). The Advanced section offers options to enable SSH and the Jupyter Lab server. Enabling the Jupyter Lab server is highly recommended and is selected by default.
 
 <figure markdown="span">
-    <img src="../images/Deploy-Offline-Depot-Step-7b.png">
+    <img src="/Holodeck/images/Deploy-Offline-Depot-Step-7b.png">
 </figure>
 
 ### Initial Boot
@@ -117,7 +117,7 @@ With the appliance online, use a web browser and go to:
 You should see this if you selected the option to skip the automatic download of the binaries or if the appliance had some issue trying to download the binaries:
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Web-Server.png">
+    <img src="/Holodeck/images/Offline-Depot-Web-Server.png">
 </figure>
 
 This indicates that no binaries have been put into place on the depot. After you download binaries (see below) then this will be populated.
@@ -129,7 +129,7 @@ You can also access the Jupyter Lab server (if you enabled it) by using the foll
 http://<ODA_IP>:8888
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Jupyter-Notebook.png">
+    <img src="/Holodeck/images/Offline-Depot-Jupyter-Notebook.png">
 </figure>
 
 Here, you will see two Jupyter notebooks that can assist you in performing a variety of tasks. 
@@ -156,13 +156,13 @@ There are two main methods you can do this by. These are listed below.
 This is the preferred method, as it makes things a bit easier. Simply access the Depot Maintenance Jupyter Notebook and go to the section about downloading the binaries and follow the directions.
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png">
+    <img src="/Holodeck/images/Offline-Depot-Jupyter-Notebook-Manual-1.png">
 </figure>
 
 Please note that the Jupyter Notebook will display the output of the command cell executed (if there is any). For example, if you ran the cell to download the ESX binaries for Holodeck, you would see something similar to this:
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png">
+    <img src="/Holodeck/images/Offline-Depot-Jupyter-Notebook-Manual-2.png">
 </figure>
 
 It's important to note that you can make these Jupyter Notebooks specific to your environment by modifying the commands or adding more.
@@ -178,7 +178,7 @@ If you populate the binaries manually, then you need to ensure the files are in 
 Again, to assist you with this, you can leverage the Jupyter Notebooks or you can manually execute the commands:
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png">
+    <img src="/Holodeck/images/Offline-Depot-Jupyter-Notebook-Manual-3.png">
 </figure>
 
 Failure to set the permissions properly will result in the inability to download the files from the depot.
@@ -188,7 +188,7 @@ The directory structure varies depending on what version of VCF you populated th
 You will also see a directory for metadata and vsan under /PROD as well. If you are populating the binaries manually, ensure these files exist.
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Web-Server-2.png">
+    <img src="/Holodeck/images/Offline-Depot-Web-Server-2.png">
 </figure>
 
 ### Caveats
@@ -225,7 +225,7 @@ parted -s -a opt /dev/sda "print free"
 ```
 
 <figure markdown="span">
-    <img src="../images/Offline-Depot-Storage-Expansion.png">
+    <img src="/Holodeck/images/Offline-Depot-Storage-Expansion.png">
 </figure>
 
 Next, you need to expand the filesystem in order to take advantage of the new partition space by using a command like:
