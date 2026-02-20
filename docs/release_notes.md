@@ -90,6 +90,47 @@ This page documents the key features, enhancements, and capabilities available i
 
     Download the vCenter 9.0.2.0 bundle as well and resume the deployment.
 
+??? question "VCF Automation All Apps Org IP Space uses hard-coded CIDR instead of custom CIDR"
+
+    When deploying the All Apps Org in VCF Automation via the `Update-HoloDeckInstance` command with a **custom MasterCIDR** (e.g., `10.2.0.0/20`), the IP Spaces created in VCF Automation still use a `/28` subnet from the default `10.1.0.0/20` block instead of the custom CIDR. This is because the IP Space CIDR is hard-coded in the config file. Deployments using the default MasterCIDR (`10.1.0.0/20`) are not affected.
+
+    **Workaround**
+
+    1. With PowerShell open and the config loaded in the session, edit the config file:
+
+        ```powershell
+        vi $config.ConfigPath
+        ```
+
+    2. Locate the following key and update the CIDR value to match your custom subnet (e.g., `10.2.0.32/28`):
+
+        ```
+        "holodeck-sddc"."Site-A"."vcf-installer-management-domain"."vcfAutomationSpec"."allAppsOrgSpec"."networkingSpec"."ipSpaceCidr"
+        ```
+
+        For the workload domain, also update:
+
+        ```
+        "holodeck-sddc"."Site-A"."vcf-installer-workload-domain"."vcfAutomationSpec"."allAppsOrgSpec"."networkingSpec"."ipSpaceCidr"
+        ```
+
+    3. Save and close the file, then reload the config:
+
+        ```powershell
+        Import-HoloDeckConfig -ConfigID <id>
+        ```
+
+    4. Run `Update-HoloDeckInstance` — it will use the corrected CIDR range for the IP Space.
+
+    !!! note
+        If `Update-HoloDeckInstance` was already run and the All Apps Org constructs were created with the incorrect CIDR, you must first delete the existing constructs in VCFA (org, region, IP space, external connection) and empty the state file before re-running the command:
+
+        ```powershell
+        vi $config.state
+        ```
+
+        Clear all contents, save and close, then run `Update-HoloDeckInstance` again.
+
 ??? question "VCF 5.2.x deployments fail at `Sync-HolodeckComponents` with 'No route to host' error"
 
     All VCF 5.2.x deployments (single site and dual site, management-only and full stack) complete the VCF deployment successfully, but the Holodeck script fails at the final **`Sync-HolodeckComponents`** step with an error such as:
