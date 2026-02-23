@@ -5,6 +5,9 @@ on:
     - cron: "0 23 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   repo-stats:
     name: collect-stats
