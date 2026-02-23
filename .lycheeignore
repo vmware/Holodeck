@@ -4,3 +4,6 @@
 
 # Broadcom community site frequently returns 500 to automated requests
 https://community\.broadcom\.com/.*
+
+# Placeholder IP used in offline depot instructions
+http://*oda-ip*/
