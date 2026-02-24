@@ -596,12 +596,6 @@ This page documents the key features, enhancements, and capabilities available i
 
 ---
 
-## Previous Versions
-
-Looking for Holodeck 5.2 setup guidance? Refer to the [Holodeck 5.2 documentation](https://www.vmware.com/docs/vmw-vcf-holodeck-v52-setup).
-
----
-
 ## Reporting Issues
 
 To raise issues, feature requests, or provide feedback, please visit the [Holodeck GitHub repository](https://github.com/vmware/Holodeck/issues).

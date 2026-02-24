@@ -12,7 +12,6 @@ VMware Private Cloud. Holodeck is **only** to be used for a testing and training
 wanting to gain a better understanding of how VCF functions across many use cases and capabilities. Currently, there are
 two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.x. 
     
-This documentation solely focuses on Holodeck 9.0. If you need details on the previous version of Holodeck, please refer to this <a href="https://www.vmware.com/docs/vmw-vcf-holodeck-v52-setup" target="_blank">documentation</a>
 
 <figure markdown="span">
     <img src="images/HoloDeck-Overview.png">
