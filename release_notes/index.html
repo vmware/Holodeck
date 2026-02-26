@@ -1,0 +1,1477 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Broadcom">
+      
+      
+        <link rel="canonical" href="https://vmware.github.io/Holodeck/release_notes/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../downloads/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Release Notes - Holodeck</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#release-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Holodeck" class="md-header__button md-logo" aria-label="Holodeck" data-md-component="logo">
+      
+  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Holodeck
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Release Notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Release Notes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../downloads/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Downloads
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cmd_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../offline_depot/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Offline Depot
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../support_community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Support
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+  
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Holodeck" class="md-nav__button md-logo" aria-label="Holodeck" data-md-component="logo">
+      
+  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+
+    </a>
+    Holodeck
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#holodeck-902-maintenance-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Holodeck 9.0.2 – Maintenance Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Holodeck 9.0.2 – Maintenance Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's New
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What's New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vcf-deployment-related-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VCF Deployment-related Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#holorouter-related-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Holorouter-related Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmdlet-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cmdlet Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#holodeck-901-maintenance-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Holodeck 9.0.1 – Maintenance Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Holodeck 9.0.1 – Maintenance Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's New
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What's New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmdlet-enhancements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cmdlet Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-issues_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#holodeck-90-initial-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Holodeck 9.0 – Initial Release
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Holodeck 9.0 – Initial Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whats-new_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's New
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What's New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#known-issues_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmd_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../offline_depot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Offline Depot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support_community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+  
+  
+  
+    <div class="md-sidebar md-sidebar--secondary md-sidebar--contributing" data-md-component="sidebar" data-md-type="contributing">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          <nav class="md-nav md-nav--secondary" aria-label="Contributing">
+            <div class="md-nav__title--contributing-custom">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-4h2v2h2v-2h2v-2h-2v-2h-2v2h-2v2z"></path></svg>
+              Contributing
+            </div>
+            <div class="md-nav__contributing">
+              <a href="https://github.com/vmware/Holodeck/blob/main/docs/release_notes.md" title="Edit this page" class="md-button md-button--contributing" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <span>Page source</span>
+              </a>
+              <a href="https://github.com/vmware/Holodeck/issues/new" title="Create issue" class="md-button md-button--contributing" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <span>Create issue</span>
+              </a>
+            </div>
+          </nav>
+          
+          <!-- Video Thumbnail -->
+          <div class="md-sidebar__video-thumbnail">
+            <a href="https://www.vmware.com/explore/video/6377277989112" target="_blank" rel="noopener">
+              <img src="../images/Explore-2025-Session.png" alt="Explore 2025 Session" class="video-thumbnail-img">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="release-notes">Release Notes</h1>
+<p>This page documents the key features, enhancements, and capabilities available in Holodeck releases.</p>
+<hr>
+<h2 id="holodeck-902-maintenance-release">Holodeck 9.0.2 – Maintenance Release</h2>
+<p><strong>Release Date:</strong> February 2026<br>
+<strong>Supported VCF Versions:</strong> VCF 9.0.2.0, VCF 9.0.1.0, VCF 9.0.0.0, VCF 5.2.2, VCF 5.2.1, VCF 5.2<br>
+<strong>Minimum ESX Version:</strong> 8.0 U3</p>
+<h3 id="whats-new">What's New</h3>
+<h4 id="enhancements">Enhancements</h4>
+<h5 id="vcf-deployment-related-enhancements">VCF Deployment-related Enhancements</h5>
+<ul>
+<li>Added support for VCF 9.0.2.0 deployment</li>
+<li>VCF Installer version 9.0.2.0 can be used to deploy VCF 9.0.0.0, 9.0.1.0 and 9.0.2.0 environments.</li>
+<li>Introduced support for <strong>Supervisor deployment in the management domain</strong> via the new <code>-DeploySupervisorMgmtDomain</code> parameter. The previous <code>-DeploySupervisor</code> parameter has been renamed to <code>-DeploySupervisorWldDomain</code>.</li>
+<li>Added support for <strong>VCF Automation All Apps Org creation</strong> as a Day 2 operation.</li>
+<li>New VCF Automation host protection logic added to protect the VCF Automation VM by ensuring no other VM runs on the same nested ESX host in the management domain.</li>
+<li>Added route redistribution for Transit Gateway in Management NSX Edge Cluster for VCF 9.0 by default.</li>
+<li>Introduced dedicated <strong>error logging</strong> to a separate error file under <code>/holodeck-runtime/logs/</code>, capturing detailed error diagnostics including stack traces, exception types, and full error records for easier troubleshooting.</li>
+<li>Automated HTTPS certificate trust establishment between the VCF Installer and the offline depot, including automated self-signed certificate import, for automated secure depot workflows.</li>
+<li>Added a precheck to ensure the IP provided for the offline depot is present in the depot certificate SAN to avoid trust establishment failures.</li>
+<li>Refactored depot setup code and added support for offline depot setup in <strong>provision-only mode</strong>.</li>
+<li>Automated bundle download retry on download failure in VCF Installer.</li>
+<li>Automated NSX Edge Cluster certificate expiry bug workaround from KB to prevent deployment failures for VCF 9.0.0.0 and 9.0.1.0.</li>
+<li>Added MasterCIDR validation to ensure only /20 CIDR blocks are used.</li>
+<li>Added guardrail for proxy protocol input — only uppercase (HTTP/HTTPS) is accepted to prevent VCF Installer API failures.</li>
+<li>Listed clusters and datastores alphabetically in pre-checks for easier selection.</li>
+<li>Added error handling for vCenter selected as target with no clusters created.</li>
+<li>Updated additional cluster deployments to use VDS MTU set to 8000.</li>
+<li>Added <code>allowLegacyCPU=true</code> persistently to both <code>boot.cfg</code> and <code>altbootbank/boot.cfg</code> for nested ESX hosts for supporting Legacy CPU use case.</li>
+<li>Removed default color-based instance naming; <strong>InstanceID is now a mandatory parameter in <code>New-HoloDeckInstance</code>.</strong></li>
+</ul>
+<h5 id="holorouter-related-enhancements">Holorouter-related Enhancements</h5>
+<ul>
+<li>Bookmarks and Passwords for nested VCF components added to Mozilla Firefox in webtop</li>
+<li>Split DNSMASQ into 3 DNS pods and 1 DHCP pod with CNI networking for improved DNS reliability and scalability on HoloRouter.</li>
+<li>Added AAAA query filtering for single site deployments to prevent DNS resolution timeouts.</li>
+<li>Enhanced service definitions for Webtop and DNSMASQ on HoloRouter.</li>
+<li>Fixed MTU on eth0 to 8000 on HoloRouter to resolve networking issues.</li>
+<li>Updated IP and hostname mappings</li>
+</ul>
+<h5 id="cmdlet-enhancements">Cmdlet Enhancements</h5>
+<ul>
+<li><strong>Multi-Version Support</strong>: Holodeck now supports VCF 5.2, 5.2.1, 5.2.2, 9.0.0.0, 9.0.1.0 and 9.0.2.0. Please note that you need to upload ESX and VCF Installer (for 9.x) and Cloud Builder Appliance (for 5.2.x) versions in their respective folders at '/holodeck-runtime/bin' in HoloRouter.</li>
+<li><code>New-HoloDeckInstance</code>: The <code>-Interactive</code> parameter has been removed. Day 2 operations are now handled by the new <code>Update-HoloDeckInstance</code> cmdlet. InstanceID is now a mandatory parameter. The <code>-DeploySupervisor</code> parameter has been renamed to <code>-DeploySupervisorWldDomain</code> and a new <code>-DeploySupervisorMgmtDomain</code> parameter has been added for deploying Supervisor in the management domain.</li>
+<li><code>Get-HoloDeckInstance</code>: Get details of the nested components deployed via New-HoloDeckInstance command</li>
+<li><code>Update-HoloDeckInstance</code>: New cmdlet for performing Day 2 operations on Holodeck, replacing <code>New-HoloDeckInstance -Interactive</code>. Uses <code>-Site</code>, <code>-VIDomain</code>, and operation-specific flags (<code>-AdditionalCluster</code> or <code>-AddVcfAutomationAllAppsOrg</code>). This release supports deploying an All Apps Org in VCF Automation and deploying additional clusters in the VCF instance.</li>
+<li><code>Start-HoloDeckInstance</code> / <code>Stop-HoloDeckInstance</code>: Updated to handle complex deployment types. <code>Stop-HoloDeckInstance</code> now implements proper power-off operations that gracefully shut down all nested VMs and VCF components in the correct order.</li>
+<li><code>Get-HolodeckServiceIPPools</code>: New cmdlet that displays IP pool allocations used by all Holodeck services for easier network troubleshooting.</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li>Applied NSX Image validation workaround for deploying VCF 9.0.0.0 and VCF 9.0.1.0 using the 9.0.1.0 VCF Installer.</li>
+<li>Fixed offline depot authentication bug to properly support authenticated depot access.</li>
+<li>Fixed proxy protocol input in lowercase causing VCF Installer API failures — added guardrail to accept uppercase input only.</li>
+<li>Fixed typecasting bug in pre-check input for cluster and datastore selection when the list contains more than 10 values.</li>
+<li>Fixed developer mode bug for cluster and datacenter selection.</li>
+<li>Fixed state management issues for Day 2 operations.</li>
+<li>Fixed empty depot credentials being passed for HTTP depot configurations.</li>
+<li>Fixed <code>Set-HoloRouter -DualSite</code> issue caused by removal of hostname proxy from Site B lab standards.</li>
+<li>Fixed DNSMASQ service definition label causing service startup issues.</li>
+<li>Fixed additional cluster deployment workflow and site version selection.</li>
+<li>Fixed occasional issue where nested host NIC would get the wrong type assigned.</li>
+<li>Updated VCF Installer DNS and NTP entries to avoid warnings during deployment pre-checks.</li>
+</ul>
+<h3 id="known-issues">Known Issues</h3>
+<div class="admonition note">
+<p class="admonition-title">Common Known Issues</p>
+<ul>
+<li>Hosts with memory tiering enabled may cause instability in nested workloads</li>
+<li>vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior</li>
+</ul>
+</div>
+<details class="question">
+<summary>VVF 9.0.0.0 deployment fails when using VCF Installer 9.0.2.0 with 9.0.2 manifest files</summary>
+<p>Deploying VVF 9.0.0.0 using the VCF Installer 9.0.2.0 fails at the <strong>"Generate Workload Domain Runtime Data Model"</strong> step in VCF Installer UI with the error:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Failed to generate add workload domain internal model specification
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Remediation: Please verify the commonsvcs and domainmanager services are running and retry
+</code></pre></div>
+<p>This occurs due to a bug in VCF Installer 9.0.2.0 when using 9.0.2.0 manifest. VCF Installer expects vCenter 9.0.2.0 binary even though VVF 9.0.0.0 is being deployed. The installer reports <code>Got 0 install image(s) for product VCENTER</code> and fails to generate the workload domain model.</p>
+<p><strong>Workaround</strong></p>
+<p>Download the vCenter 9.0.2.0 bundle as well and resume the deployment.</p>
+</details>
+<details class="question">
+<summary>VCF Automation All Apps Org IP Space uses hard-coded CIDR instead of custom CIDR</summary>
+<p>When deploying the All Apps Org in VCF Automation via the <code>Update-HoloDeckInstance</code> command with a <strong>custom MasterCIDR</strong> (e.g., <code>10.2.0.0/20</code>), the IP Spaces created in VCF Automation still use a <code>/28</code> subnet from the default <code>10.1.0.0/20</code> block instead of the custom CIDR. This is because the IP Space CIDR is hard-coded in the config file. Deployments using the default MasterCIDR (<code>10.1.0.0/20</code>) are not affected.</p>
+<p><strong>Workaround</strong></p>
+<ol>
+<li>
+<p>With PowerShell open and the config loaded in the session, edit the config file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">vi</span> <span class="nv">$config</span><span class="p">.</span><span class="n">ConfigPath</span>
+</code></pre></div>
+</li>
+<li>
+<p>Locate the following key and update the CIDR value to match your custom subnet (e.g., <code>10.2.0.32/28</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>"holodeck-sddc"."Site-A"."vcf-installer-management-domain"."vcfAutomationSpec"."allAppsOrgSpec"."networkingSpec"."ipSpaceCidr"
+</code></pre></div>
+<p>For the workload domain, also update:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>"holodeck-sddc"."Site-A"."vcf-installer-workload-domain"."vcfAutomationSpec"."allAppsOrgSpec"."networkingSpec"."ipSpaceCidr"
+</code></pre></div>
+</li>
+<li>
+<p>Save and close the file, then reload the config:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">Import-HoloDeckConfig</span> <span class="n">-ConfigID</span> <span class="p">&lt;</span><span class="n">id</span><span class="p">&gt;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Run <code>Update-HoloDeckInstance</code> — it will use the corrected CIDR range for the IP Space.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <code>Update-HoloDeckInstance</code> was already run and the All Apps Org constructs were created with the incorrect CIDR, you must first delete the existing constructs in VCFA (org, region, IP space, external connection) and empty the state file before re-running the command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">vi</span> <span class="nv">$config</span><span class="p">.</span><span class="n">state</span>
+</code></pre></div>
+<p>Clear all contents, save and close, then run <code>Update-HoloDeckInstance</code> again.</p>
+</div>
+</details>
+<details class="question">
+<summary>VCF 5.2.x deployments fail at <code>Sync-HolodeckComponents</code> with 'No route to host' error</summary>
+<p>All VCF 5.2.x deployments (single site and dual site, management-only and full stack) complete the VCF deployment successfully, but the Holodeck script fails at the final <strong><code>Sync-HolodeckComponents</code></strong> step with an error such as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[ERROR] No route to host (opslcm-a.site-a.vcf.lab:443)
+</code></pre></div>
+<p>or for dual site:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[ERROR] No route to host (opslcm-b.site-b.vcf.lab:443)
+</code></pre></div>
+<p>This happens because <code>Sync-HolodeckComponents</code> attempts to query <strong>VCF Operations</strong> to sync instance details, but VCF Operations is not deployed in VCF 5.2.x environments. The VCF deployment itself completes without issues.</p>
+<p><strong>Workaround</strong></p>
+<p>This error can be safely ignored — the VCF 5.2.x environment is fully deployed and functional.</p>
+</details>
+<hr>
+<h2 id="holodeck-901-maintenance-release">Holodeck 9.0.1 – Maintenance Release</h2>
+<p><strong>Release Date:</strong> October 2025<br>
+<strong>Supported VCF Versions:</strong> VCF 9.0.1.0, VCF 9.0.0.0, VCF 5.2.2, VCF 5.2.1, VCF 5.2<br>
+<strong>Minimum ESX Version:</strong> 8.0 U3</p>
+<h3 id="whats-new_1">What's New</h3>
+<h4 id="enhancements_1">Enhancements</h4>
+<ul>
+<li>Added support for VCF 9.0.1.0, including bypassing vSAN ESA check in VCF Installer and SDDC Manager.</li>
+<li>Updated CPU requirements for VCF Automation with vSAN ESA (min. 32 vCPUs) and vSAN OSA (min. 24 vCPUs).</li>
+<li>Added the capability to use custom VLAN ranges (sequential per site) for Holodeck and the users can specify the start of the custom VLAN range while deploying Holodeck</li>
+<li>Added the capability to use custom DNS domain for Holodeck by specifying it while deploying Holodeck</li>
+<li>Enabled vCLS Retreat Mode for 9.0 clusters by default.</li>
+<li>Custom vSAN HCL now in-built into Cloud Builder and VCF Installer for Dark Site deployments.</li>
+<li>Added user input for offline depot protocol (HTTP/HTTPS) and port flexibility.</li>
+<li>Implemented prechecks for proper offline depot configuration and file availability.</li>
+<li>Ability to select unique port group during prechecks for each site during dual site deployment.</li>
+<li>Reduced the boot time for HoloRouter VM</li>
+<li>Bumped up the resources on HoloRouter - it now uses 4 vCPUs and 8GB of memory</li>
+<li>Enhanced support for special characters in target host credentials.</li>
+<li>Improved cluster selection logic for vCenter targets with multiple folder levels.</li>
+<li>Added support for partial host commissioning during workload domain creation retries.</li>
+<li>Implemented additional guardrails for target disconnections to prevent errors.</li>
+<li>Improved idempotency for NSX Edge Cluster deployment retries.</li>
+<li>Introduced case sensitivity for input parameters to avoid issues.</li>
+<li>Improved error handling and cleaner code exits.</li>
+<li>Reduced CIDR size for VPC from /24 to /28 to free up IPs.</li>
+<li>Completed coverage for developer mode.</li>
+<li>Added error handling for unsupported targets (standalone ESX managed by vC).</li>
+<li>Provided default username and password values for optional offline depot authentication.</li>
+<li>Removed misleading "must support https" message from offline depot input.</li>
+<li>Improved idempotency for New-HolodeckNetworkConfig cmdlet</li>
+<li>Added access to HoloRouter's /holodeck-runtime/specs/ folder in webtop</li>
+<li>Moved iptables from startup_script to ip4save to avoid duplicate entries</li>
+<li>Configured HoloRouter to drop all inbound traffic on eth0 except on the ports with services enabled</li>
+<li>Improved error handling for Network Manager</li>
+</ul>
+<h5 id="cmdlet-enhancements_1">Cmdlet Enhancements</h5>
+<ul>
+<li><strong>Multi-Version Support</strong>: Holodeck now supports VCF 5.2, 5.2.1, 5.2.2, 9.0.0.0 and 9.0.1.0. Please note that you need to upload ESX and VCF Installer (for 9.x) and Cloud Builder Appliance (for 5.2.x) versions in their respective folders at '/holodeck-runtime/bin' in holorouter.</li>
+<li><code>Remove-HoloDeckInstance</code>: This cmdlet has a new optional parameter to support the automated deletion of the holodeck instance. If not specified, then the instance ID will be captured from the global config file. Also, the prompt for user confirmation is removed; instead, the user will have 15 seconds to abort the operation by pressing any key on the console.</li>
+<li><code>New-HoloDeckConfig</code>: This cmdlet now validates the integrity of the <code>config.json</code> template. If the template file’s integrity does not match, the user will see a warning before a new config file is created for the Holodeck instance. Ideally, users are not expected to modify the template config file; however, there may be edge cases where a customer chooses to do so. In such cases, the warning ensures they are informed of the change.</li>
+<li><code>Set-HoloDeckDNSConfig</code>: Removed the -update parameter. If the user specifies -DNSRecord, it will create a new record. If the user specifies -SearchDNSRecord and -ReplaceDNSRecord, it will update the DNS record.</li>
+<li><strong>DNS Cmdlets</strong>: Removed the -ConfigPath parameter from all DNS cmdlets. It will now use the global $config, which means users should ensure HolodeckConfig is imported in the session before running DNS cmdlets</li>
+</ul>
+<h4 id="bug-fixes_1">Bug Fixes</h4>
+<ul>
+<li>NSX Edge Cluster for Site B was trying to use BGP configuration from Site A. Fixed it to use Site B BGP configuration.</li>
+<li>VCF Installer for Site B was trying to get deployed in an incorrect VLAN. Fixed this.</li>
+<li>If NSX Edge Cluster creation task fails and another task populates in SDDC Manager, initiating retry gets stuck in an infinite loop. Fixed this to look for that specific task in SDDC Manager.</li>
+<li>Missing disconnection from target host was causing PowerCLI to list supervisors on the target sometimes instead of the nested vCenter. This has been fixed by adding a disconnection to target host before checking supervisor.</li>
+<li>Disabling vSAN HCL warning step was showcasing intermittent success and failure due to different object names for the warnings. Added error handling to ensure these errors are not thrown to the user.</li>
+<li>AVN deployment in 5.2 was failing due to an extra parameter being passed internally in the code. This has been fixed. AVN deployment is expected to proceed smoothly.</li>
+<li>Online depot connection check was failing due to incorrect API response expected in the code. This has been fixed. Online depot connection check should pass going forward.</li>
+<li>PreChecks was not looking at a specific cluster for ESX host version validation in case of multiple clusters when vCenter was selected as the target. Fixed this behavior.</li>
+<li>VVF deployment failure due to 4 host entries in spec file instead of 3. Fixed.</li>
+<li>Dual Site VVF data was not properly configured for Site B. Fixed.</li>
+<li>Dual site if executed serially was skipping over Site B deployment due to state management. Fixed.</li>
+<li>Single set of spec files were maintained for Dual site causing file overwrite for Site A. Fixed.</li>
+<li>VCF Installer for Site B needed to be on Site A Untagged-HoL network. Fixed.</li>
+<li>New ESX hosts would get created on retry even if the task had successfully completed in the previous try. Fixed.</li>
+<li>Fixed DNSMASQ configuration to not respond to AAAA queries that caused nslookup commands to time out</li>
+<li>Fixed the bug to point the VCF Installer in site b to use Untagged-HOL network with IP x.x.10.251</li>
+<li>Fixed iptables to not loose SSH and Webtop access on HoloRouter reboot</li>
+<li>Fixed the code to not throw an error when the network manager output file already exists</li>
+<li>Removed old journal logs from HoloRouter</li>
+<li>Fixed the issue in configuring DNSMASQ as primary DNS server in HoloRouter (during Set-HoloRouter) when HoloRouter uses DHCP</li>
+<li>Fixed Proxy FQDN to point to the right IP i.e. x.x.10.129 instead of x.x.1.129</li>
+<li>Fixed the inter-VRF communication by adding l3mdev settings on HoloRouter</li>
+<li>Fixed the rp_filter settings on HoloRouter</li>
+<li>Fixed the NTP and router IP/FQDN mappings used in VCF installer to fix the expected vs found IP warnings while deployment</li>
+<li>Fixed Network Manager not to fail if there are multiple files /etc/systemd/network/ folder</li>
+<li>Fixed Network Manager not to throw an error when the network manager output file already exists</li>
+</ul>
+<h3 id="known-issues_1">Known Issues</h3>
+<div class="admonition note">
+<p class="admonition-title">Common Known Issues</p>
+<ul>
+<li>Hosts with memory tiering enabled may cause instability in nested workloads</li>
+<li>vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior</li>
+</ul>
+</div>
+<details class="question">
+<summary>VCF 9.0.x Deployment fails on step 'Validate NSX Install Image is Available'</summary>
+<p>When deploying VCF 9.0.0.0 or 9.0.1.0, the deployment fails on the step <strong>"Validate NSX Install Image is Available"</strong> with the error:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>NSX install image validation failed for NSX Version - 9.0.2.0.25150386
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Remediation: Please download NSX install image with Version - 9.0.2.0.25150386
+</code></pre></div>
+<p><strong>Workaround</strong></p>
+<ol>
+<li>Download the <strong>VCF Installer</strong> files for <strong>9.0.2.0</strong> (the ESX version should remain 9.0 or 9.0.1 depending on which version you are deploying).</li>
+<li>Copy the VCF Installer 9.0.2.0 files to the appropriate version folder on the HoloRouter (e.g., the <code>9.0.1.0</code> folder).</li>
+<li>Update <code>/holodeck-runtime/templates/bom.json</code> to reflect the 9.0.2 VCF Installer file names.</li>
+<li>Run the VCF deployment again.</li>
+</ol>
+<p><strong>Fixed in:</strong> Holodeck 9.0.2</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/89">GitHub Issue #89</a></p>
+</details>
+<details class="question">
+<summary>NSX Edge deployment fails due to expired OVF certificate</summary>
+<p>NSX Edge Cluster deployment fails with the error <strong>"OVF certificate validation failed. Error: [VALIDATION_ERROR: CERTIFICATE_EXPIRED]"</strong> in NSX when deploying Edge nodes. This is a known upstream issue documented in <a href="https://knowledge.broadcom.com/external/article/424034">Broadcom KB 424034</a>.</p>
+<p><strong>Workaround</strong></p>
+<p>Follow the steps in <a href="https://knowledge.broadcom.com/external/article/424034">Broadcom KB 424034</a>. Note that you may need to enable SFTP on NSX Manager first:</p>
+<ol>
+<li>SSH into the NSX Manager.</li>
+<li>Edit <code>/etc/ssh/sshd_config</code> and change:<ul>
+<li>From: <code>#Subsystem sftp /usr/lib/openssh/sftp-server</code></li>
+<li>To: <code>Subsystem sftp internal-sftp</code></li>
+</ul>
+</li>
+<li>Restart the SSH service.</li>
+<li>Then proceed with the KB steps to replace the expired certificate.</li>
+</ol>
+<p><strong>Fixed in:</strong> Holodeck 9.0.2 (automated workaround applied during deployment)</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/86">GitHub Issue #86</a></p>
+</details>
+<details class="question">
+<summary>VCF Automation deployment hangs or fails with LCMVMSP10002 error</summary>
+<p>When deploying a full stack with VCF Automation enabled (using <code>-DeployVcfAutomation</code>), the deployment may fail during VCF Automation deployment with a <code>COMPLETED_WITH_FAILURE</code> status or an <code>LCMVMSP10002</code> error code. The deployment may then hang indefinitely while retrying, showing repeated messages like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[INFO] Current task in progress: Retrieve the status of VCF Automation Deployment request
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[INFO] Management Domain is not ready yet. Sleeping for 5 mins
+</code></pre></div>
+<p><strong>Troubleshooting Steps</strong></p>
+<ol>
+<li>Log in to <strong>VCF Operations &gt; Fleet Management &gt; LifeCycle</strong>. On the right pane, check <strong>VCF Management &gt; Tasks</strong> for the VCF Automation task and review any specific errors.</li>
+<li>SSH into the <strong>VCF Installer</strong> and review <code>/var/log/vmware/vcf/domainmanager/domainmanager.log</code> for detailed error information.</li>
+<li>Ensure you have sufficient physical resources — VCF Automation requires a minimum of <strong>24 vCPUs</strong> (vSAN OSA) or <strong>32 vCPUs</strong> (vSAN ESA).</li>
+<li>Retry the deployment by running the <code>New-HoloDeckInstance</code> command again.</li>
+</ol>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/91">GitHub Issue #91</a>, <a href="https://github.com/vmware/Holodeck/issues/79">GitHub Issue #79</a></p>
+</details>
+<details class="question">
+<summary>Valid cluster choice returns 'Enter a valid option' when more than 10 clusters exist</summary>
+<p>During pre-checks, if the target vCenter has more than 10 clusters, selecting any cluster number may return the error <strong>"Enter a valid option"</strong> due to a type mismatch between the string input and integer comparison.</p>
+<p><strong>Workaround</strong></p>
+<p>Cast the cluster choice input to an integer in the validation logic:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">while</span><span class="p">((</span><span class="nv">$cluster_choice</span> <span class="o">-notmatch</span> <span class="s2">"^\d+$"</span><span class="p">)</span> <span class="o">-or</span> <span class="p">(</span><span class="no">[int]</span><span class="nv">$cluster_choice</span> <span class="o">-lt</span> <span class="n">1</span><span class="p">)</span> <span class="o">-or</span> <span class="p">(</span><span class="no">[int]</span><span class="nv">$cluster_choice</span> <span class="o">-gt</span> <span class="p">((</span><span class="nb">Get-Cluster</span><span class="p">).</span><span class="n">Count</span><span class="p">))){</span>
+</code></pre></div>
+<p>And update the cluster/datacenter selection:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">$cluster</span> <span class="p">=</span> <span class="nv">$cluster_report</span><span class="no">[[int]</span><span class="nv">$cluster_choice</span> <span class="p">-</span> <span class="n">1</span><span class="p">].</span><span class="n">Clustername</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">$data_center</span> <span class="p">=</span> <span class="nv">$cluster_report</span><span class="no">[[int]</span><span class="nv">$cluster_choice</span> <span class="p">-</span> <span class="n">1</span><span class="p">].</span><span class="n">DCname</span>
+</code></pre></div>
+<p><strong>Fixed in:</strong> Holodeck 9.0.2</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/77">GitHub Issue #77</a></p>
+</details>
+<details class="question">
+<summary>Developer mode does not work with vCenter as target</summary>
+<p>When using developer mode with environment variables and a vCenter as the deployment target, cluster and datacenter selection fails with the error:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Cannot convert the "" value of type "System.Management.Automation.PSCustomObject" to type "VMware.VimAutomation.ViCore.Types.V1.Inventory.VIContainer"
+</code></pre></div>
+<p>This occurs because <code>$env</code> variables are not correctly dereferenced during cluster and datacenter filtering.</p>
+<p><strong>Workaround</strong></p>
+<p>Update the cluster/datacenter selection in the pre-check logic to directly use the environment variable values:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">$cluster</span> <span class="p">=</span> <span class="nv">$env:cluster_name</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nv">$data_center</span> <span class="p">=</span> <span class="nv">$env:dc_name</span>
+</code></pre></div>
+<p><strong>Fixed in:</strong> Holodeck 9.0.2</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/78">GitHub Issue #78</a></p>
+</details>
+<details class="question">
+<summary>HoloRouter becomes unresponsive during deployment</summary>
+<p>In some environments, the HoloRouter VM may become unresponsive during deployment — SSH, console access, and Webtop stop working, and VMware Tools stops reporting as running. This appears to be related to high I/O load on the HoloRouter.</p>
+<p><strong>Workaround</strong></p>
+<p>If the HoloRouter becomes unresponsive, try power-cycling the HoloRouter VM from the vCenter/ESX host UI and resuming the deployment. Ensure the HoloRouter VM has adequate resources (Holodeck 9.0.2 increased the default to 4 vCPUs and 8 GB memory).</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/84">GitHub Issue #84</a></p>
+</details>
+<details class="question">
+<summary>DNS resolution fails in dual-site deployment</summary>
+<p>In dual-site deployments, ESX hosts may receive the subnet gateway IP as their DNS server instead of the correct Holodeck DNS server IPs (e.g., <code>10.x.168.129</code>). DNS resolution from the ESX management network fails, and the Holodeck DNS IP may be unreachable.</p>
+<p><strong>Important:</strong> The <code>-MasterCIDR</code> parameter must be a <strong>/20</strong> CIDR block. Using other sizes (e.g., /16) is not supported and will cause DNS and networking issues.</p>
+<p><strong>Workaround</strong></p>
+<p>Ensure that all CIDR inputs use a <strong>/20</strong> block size as documented. If you have already deployed with an incorrect CIDR, redeploy using the correct /20 CIDR.</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.2 (enforced to allow only /20 CIDR as input)</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/85">GitHub Issue #85</a></p>
+</details>
+<details class="question">
+<summary>NSX Edge deployment fails due to insufficient memory on nested hosts</summary>
+<p>NSX Edge Cluster deployment may fail when nested ESX hosts do not have sufficient memory to accommodate Edge node VMs. This can occur even on physical hosts with large amounts of RAM (e.g., 1.25 TB) if the nested host memory allocation is too low.</p>
+<p><strong>Workaround</strong></p>
+<p>Increase the RAM allocation for nested ESX hosts in the Holodeck configuration:</p>
+<ol>
+<li>Edit the config template at <code>/holodeck-runtime/templates/config.json</code>.</li>
+<li>Increase the management and workload host memory from <strong>80 GB</strong> to <strong>128 GB</strong> (or as needed).</li>
+<li>Redeploy the Holodeck instance.</li>
+</ol>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/87">GitHub Issue #87</a></p>
+</details>
+<details class="question">
+<summary>VCF 5.2 Edge Cluster deployment fails — BGP peering does not establish</summary>
+<p>When deploying a VCF 5.2 environment and attempting to deploy an NSX Edge Cluster via SDDC Manager, the task fails at <strong>"Verify NSX BGP Peering"</strong>. In NSX CLI, the BGP neighbor state shows as <code>connect</code> rather than <code>established</code>, indicating BGP peering is not working between the T0 router and the HoloRouter.</p>
+<p><strong>Workaround</strong></p>
+<p>See <a href="https://community.broadcom.com/vmware-cloud-foundation/discussion/holodeck-9-frr-router-access">this community discussion</a> for steps to manually fix BGP peering on the HoloRouter FRR configuration.</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.2</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/56">GitHub Issue #56</a></p>
+</details>
+<hr>
+<h2 id="holodeck-90-initial-release">Holodeck 9.0 – Initial Release</h2>
+<p><strong>Release Date:</strong> June 2025<br>
+<strong>Supported VCF Versions:</strong> VCF 9.0, VCF 5.2.x<br>
+<strong>Minimum ESX Version:</strong> 8.0 U3</p>
+<h3 id="whats-new_2">What's New</h3>
+<h4 id="enhancements_2">Enhancements</h4>
+<ul>
+<li>Support for both <strong>VCF 9.0</strong> and <strong>VCF 5.2</strong> deployments from a single toolkit</li>
+<li><strong>vSAN ESA and OSA</strong> deployment options</li>
+<li>New <strong>VVF deployment mode</strong> (VMware vSphere Foundation)</li>
+<li>Proxy support for online/offline depot workflows</li>
+<li>Enhanced PowerShell cmdlets with modular support:</li>
+<li><code>New-HoloDeckConfig</code>, <code>New-HoloDeckInstance</code>, <code>Start-HoloDeckInstance</code>, <code>Stop-HoloDeckInstance</code></li>
+<li>Option to deploy <strong>greenfield</strong> VCF environments with <strong>provision-only mode</strong></li>
+</ul>
+<h3 id="known-issues_2">Known Issues</h3>
+<div class="admonition note">
+<p class="admonition-title">Common Known Issues</p>
+<ul>
+<li>Hosts with memory tiering enabled may cause instability in nested workloads</li>
+<li>vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior</li>
+</ul>
+</div>
+<details class="question">
+<summary>Online Depot Check Failure: <code>ConvertFrom-Json: Cannot bind argument to parameter 'InputObject' because it is null.</code></summary>
+<p>If you're using the <strong>online depot</strong> route for VCF Installer configuration, there is a known issue where the final validation step fails due to a mismatch between the API response format expected by Holodeck and the actual output from VCF Installer.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>27-06-2025 00:43:32 SddcMgmtDomain[63248]: [INFO] Setting up depot for VCF Installer
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>27-06-2025 00:43:32 SddcMgmtDomain[63248]: [INFO] Depot Type selected: online
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>27-06-2025 00:43:34 SddcMgmtDomain[63248]: [ERROR] Depot connection failed.
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>ConvertFrom-Json: Cannot bind argument to parameter 'InputObject' because it is null.
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Exception: Exiting
+</code></pre></div>
+<p><strong>Workaround</strong></p>
+<ul>
+<li>Login to the <strong>VCF Installer UI</strong> via Webtop<br>
+  (typically at <code>https://10.1.10.250</code> unless a custom CIDR was used)</li>
+<li>Check if the depot is already configured successfully</li>
+<li>If confirmed, navigate back to PowerShell and run:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">vi</span> <span class="nv">$config</span><span class="p">.</span><span class="n">state</span>
+</code></pre></div>
+<ul>
+<li>Find and manually update the section:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">"VCF-Installer-Depot-Setup"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InProgress"</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Change <code>"Status": "InProgress"</code> to <code>"Status": "Success"</code> to unblock the process.</li>
+<li>Run <code>New-HoloDeckInstance</code> command again to pick up from where it failed.</li>
+</ul>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue and future fix here: <a href="https://github.com/vmware/Holodeck/issues/1#issuecomment-3022048968">GitHub Issue #1</a></p>
+</details>
+<details class="question">
+<summary>Why did VM deployment fail with 'VM with name not found using the specified filter(s)'?</summary>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/nested-vm-build-error.png" data-desc-position="bottom"><img alt="image" src="../images/nested-vm-build-error.png"></a>
+This issue can occur if the <strong>portgroup used by vCenter for VM placement is an uplink portgroup</strong>.<br>
+Uplink portgroups are static and do not have available ports for VM deployment, which causes Holodeck to fail during the VM provisioning step.</p>
+<p><strong>Symptoms</strong>:
+- Error: <code>VM with name 'green-esx-01a' was not found using the specified filter(s)</code>
+- Deployment halts with: <code>[ERROR] Deployment failed</code></p>
+<p><strong>When does this happen?</strong>
+- Environments with <strong>multiple vSphere Distributed Switches (vDS)</strong> configured in the same vCenter.
+- The VM placement logic accidentally targets an uplink portgroup.</p>
+<p><strong>Workaround</strong>:
+- Create a <strong>test portgroup</strong> in the same vDS with <strong>default settings</strong> (non-uplink, ephemeral or static binding).
+- Retry the Holodeck deployment process.</p>
+<p>Track this issue and future fix here: <a href="https://github.com/vmware/Holodeck/issues/10">GitHub Issue #10</a></p>
+</details>
+<details class="question">
+<summary>Users lose Webtop, SSH and ping access to Holorouter on rebooting Holorouter</summary>
+<p><strong>Reason</strong>: Some of the iptables rules on HoloRouter aren't persistent across reboots </p>
+<p><strong>Impacted Services</strong>: SSH, Ping, and Webtop; None of the other Holodeck infrastructure services should have any impact due to this bug.</p>
+<p><strong>Workaround</strong>: </p>
+<ol>
+<li>
+<p>If you haven't rebooted the HoloRouter yet but are planning to, run the following command before rebooting it - 
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>iptables-save &gt; /etc/systemd/scripts/ip4save
+</code></pre></div><p></p>
+</li>
+<li>
+<p>If you've already rebooted the HoloRouter, since you don't have SSH access, log into the HoloRouter console in the vCenter/ESX host and run the following commands - </p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>iptables -D INPUT -i eth0 -j DROP
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>iptables -A INPUT -i lo -j ACCEPT
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>iptables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>iptables -A INPUT -i eth0 -p icmp -j ACCEPT
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>iptables -A INPUT -i eth0 -p tcp -m tcp --dport 22 -j ACCEPT
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>iptables -A INPUT -i eth0 -p tcp -m tcp --dport 30000 -j ACCEPT
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>iptables -A INPUT -i eth0 -j DROP
+</code></pre></div>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue and future fix here: <a href="https://github.com/vmware/Holodeck/issues/12">GitHub Issue #12</a></p>
+</details>
+<details class="question">
+<summary>DNS requests timeout due to AAAA query forwarding to upstream DNS server</summary>
+<p>DNS resolution for Holodeck-managed systems (e.g., <code>nslookup vc-mgmt-a.site-a.vcf.lab</code>) returns the correct IP address but then times out with <code>communications error</code> and <code>SERVFAIL</code> messages. This is caused by DNSMASQ forwarding AAAA (IPv6) queries to the upstream DNS server, which may not handle them properly. Since IPv6 is disabled on HoloRouter, AAAA queries are unnecessary.</p>
+<p>This can cause <strong>Management Domain deployment failures</strong> when SDDC Manager tries to create certificates and cannot resolve FQDNs in a timely manner.</p>
+<p><strong>Workaround</strong></p>
+<p>Add AAAA query filtering to DNSMASQ on HoloRouter:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">$dnsmasq_config</span> <span class="p">=</span> <span class="nb">Get-Content</span> <span class="n">-Path</span> <span class="p">/</span><span class="n">holodeck-runtime</span><span class="p">/</span><span class="n">dnsmasq</span><span class="p">/</span><span class="n">dnsmasq_configmap</span><span class="p">.</span><span class="n">yaml</span> <span class="p">|</span> <span class="nb">ConvertFrom-Yaml</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nv">$dnsmasq_config</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="s2">"dnsmasq.conf"</span> <span class="p">+=</span> <span class="s2">"</span><span class="se">`n</span><span class="s2">filter-AAAA"</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nv">$dnsmasq_config</span> <span class="p">|</span> <span class="nb">ConvertTo-Yaml</span> <span class="p">|</span> <span class="nb">Set-Content</span> <span class="n">-Path</span> <span class="p">/</span><span class="n">holodeck-runtime</span><span class="p">/</span><span class="n">dnsmasq</span><span class="p">/</span><span class="n">dnsmasq_configmap</span><span class="p">.</span><span class="n">yaml</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-f</span> <span class="p">/</span><span class="n">holodeck-runtime</span><span class="p">/</span><span class="n">dnsmasq</span><span class="p">/</span><span class="n">dnsmasq_configmap</span><span class="p">.</span><span class="n">yaml</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">kubectl</span> <span class="n">delete</span> <span class="o">-f</span> <span class="p">/</span><span class="n">holodeck-runtime</span><span class="p">/</span><span class="n">dnsmasq</span><span class="p">/</span><span class="n">dnsmasq_deployment</span><span class="p">.</span><span class="n">yaml</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-f</span> <span class="p">/</span><span class="n">holodeck-runtime</span><span class="p">/</span><span class="n">dnsmasq</span><span class="p">/</span><span class="n">dnsmasq_deployment</span><span class="p">.</span><span class="n">yaml</span>
+</code></pre></div>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/16">GitHub Issue #16</a></p>
+</details>
+<details class="question">
+<summary>HoloRouter configuration fails when using DHCP: 'Adding DNSMASQ server as the default DNS Server' error</summary>
+<p>When the HoloRouter is configured with DHCP (instead of a static IP), the <code>Set-HoloRouter</code> step fails at <strong>"Adding DNSMASQ server as the default DNS Server"</strong> with <code>Exception: Exiting</code>. This occurs because the DNS configuration logic does not properly handle DHCP-based network setups.</p>
+<p><strong>Workaround</strong></p>
+<p>Configure the HoloRouter with a <strong>static IP address</strong> instead of DHCP before running <code>New-HoloDeckInstance</code>.</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/7">GitHub Issue #7</a></p>
+</details>
+<details class="question">
+<summary>AMD EPYC processor incorrectly identified as deprecated Naples/Zen 1st Gen</summary>
+<p>The CPU deprecation check during pre-checks incorrectly identifies newer AMD EPYC processors (e.g., EPYC 7643 — Milan/Zen 3rd Gen) as deprecated <strong>AMD EPYC 7001 Series (Naples/Zen 1st Gen)</strong>. This is a cosmetic issue caused by pattern matching on the <code>EPYC 7</code> prefix rather than correctly checking the generation digit in the model number.</p>
+<p><strong>Workaround</strong></p>
+<p>The deprecation warning can be safely ignored if you know your CPU is a supported generation (2nd Gen or later). The deployment will still proceed.</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/9">GitHub Issue #9</a></p>
+</details>
+<details class="question">
+<summary>Deployment of VCF Installer fails when target cluster is in a host folder hierarchy</summary>
+<p>When deploying to a vCenter where the target cluster exists inside a host folder hierarchy (e.g., <code>Datacenter &gt; Host Folder &gt; Cluster</code>), the VCF Installer OVF deployment fails with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Error: Locator does not refer to an object: vi://user@vcenter/DATACENTER/host/CLUSTER
+</code></pre></div>
+<p>The code assumes the cluster exists directly under the Datacenter object and does not traverse folder hierarchies.</p>
+<p><strong>Workaround</strong></p>
+<p>Manually modify the <code>VcfInstaller.psm1</code> module to build the full cluster path including host folders. See <a href="https://github.com/vmware/Holodeck/issues/18">GitHub Issue #18</a> for the recommended code change.</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/18">GitHub Issue #18</a></p>
+</details>
+<details class="question">
+<summary>SDDC Manager deployment fails in a loop when <code>-Site</code> parameter uses uppercase letters</summary>
+<p>When the <code>-Site</code> parameter is passed with an uppercase letter (e.g., <code>-Site A</code> instead of <code>-Site a</code>), the domain FQDN contains an uppercase character (e.g., <code>site-A.vcf.lab</code>). SDDC Manager does not accept uppercase letters in the FQDN, causing the deployment to enter a loop where the SDDC Manager VM is repeatedly deployed, started, and deleted.</p>
+<p><strong>Workaround</strong></p>
+<p>Always use <strong>lowercase</strong> for the <code>-Site</code> parameter (e.g., <code>-Site a</code>, <code>-Site b</code>).</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/24">GitHub Issue #24</a></p>
+</details>
+<details class="question">
+<summary>NSX install image validation fails when deploying VCF 9.0.0.0</summary>
+<p>When deploying VCF 9.0.0.0 using the VCF Installer 9.0.0.0, deployment fails on the <strong>"Validate NSX Install Image is Available"</strong> step. This is caused by a manifest mismatch in the VCF Installer where it expects an NSX version that doesn't match the downloaded bundle.</p>
+<p><strong>Workaround</strong></p>
+<p>Use <strong>VCF Installer 9.0.1.0</strong> (instead of 9.0.0.0) to deploy VCF 9.0.0.0, as updated in the official VCF Bill of Materials.</p>
+<p><strong>Fixed in:</strong> Holodeck 9.0.1</p>
+<p>Track this issue here: <a href="https://github.com/vmware/Holodeck/issues/53">GitHub Issue #53</a></p>
+</details>
+<hr>
+<h2 id="reporting-issues">Reporting Issues</h2>
+<p>To raise issues, feature requests, or provide feedback, please visit the <a href="https://github.com/vmware/Holodeck/issues">Holodeck GitHub repository</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2005-2026 Broadcom. All Rights Reserved. <br>
+The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.instant", "navigation.top", "navigation.tracking", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

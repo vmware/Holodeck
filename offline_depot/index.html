@@ -1,0 +1,1367 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Broadcom">
+      
+      
+        <link rel="canonical" href="https://vmware.github.io/Holodeck/offline_depot/">
+      
+      
+        <link rel="prev" href="../cmd_reference/">
+      
+      
+        <link rel="next" href="../support_community/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Offline Depot - Holodeck</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#offline-depot" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Holodeck" class="md-header__button md-logo" aria-label="Holodeck" data-md-component="logo">
+      
+  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Holodeck
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Offline Depot
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../release_notes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Release Notes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../downloads/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Downloads
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cmd_reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Offline Depot
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../support_community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Support
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+  
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Holodeck" class="md-nav__button md-logo" aria-label="Holodeck" data-md-component="logo">
+      
+  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+
+    </a>
+    Holodeck
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmd_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Offline Depot
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Offline Depot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-a-download-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtaining a Download Token
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-options-if-using-holodeck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options if Using Holodeck
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-offline-depot-appliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying the Offline Depot Appliance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initial-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Boot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-appliance-web-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing the Appliance Web Server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-jupyter-lab-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing the Jupyter Lab Server
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-the-vcf-product-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accessing the VCF Product Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-into-the-oda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging into the ODA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#populating-the-binaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Populating the Binaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Populating the Binaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-one-automatic-download-requires-internet-and-download-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option One: Automatic Download (Requires Internet and Download Token)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-two-leverage-the-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option Two: Leverage the Jupyter Notebook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-three-manually-use-the-vcf-download-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option Three: Manually Use the VCF Download Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-four-manually-populate-the-depot-darksite-air-gapped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option Four: Manually Populate the Depot (Darksite / Air-Gapped)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory-structure-and-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Directory Structure and Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-https-ssltls-for-the-offline-depot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring HTTPS (SSL/TLS) for the Offline Depot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring HTTPS (SSL/TLS) for the Offline Depot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create the Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-the-root-ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create the Root CA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-the-intermediate-ca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Create the Intermediate CA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-the-server-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Create the Server Certificate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-build-the-full-certificate-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Build the Full Certificate Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-set-file-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Set File Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-configure-nginx-for-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Configure NGINX for HTTPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-open-firewall-port-for-https" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Open Firewall Port for HTTPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caveats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-expand-the-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Expand the Storage
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../support_community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+  
+  
+  
+    <div class="md-sidebar md-sidebar--secondary md-sidebar--contributing" data-md-component="sidebar" data-md-type="contributing">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          <nav class="md-nav md-nav--secondary" aria-label="Contributing">
+            <div class="md-nav__title--contributing-custom">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-4h2v2h2v-2h2v-2h-2v-2h-2v2h-2v2z"></path></svg>
+              Contributing
+            </div>
+            <div class="md-nav__contributing">
+              <a href="https://github.com/vmware/Holodeck/blob/main/docs/offline_depot.md" title="Edit this page" class="md-button md-button--contributing" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <span>Page source</span>
+              </a>
+              <a href="https://github.com/vmware/Holodeck/issues/new" title="Create issue" class="md-button md-button--contributing" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <span>Create issue</span>
+              </a>
+            </div>
+          </nav>
+          
+          <!-- Video Thumbnail -->
+          <div class="md-sidebar__video-thumbnail">
+            <a href="https://www.vmware.com/explore/video/6377277989112" target="_blank" rel="noopener">
+              <img src="../images/Explore-2025-Session.png" alt="Explore 2025 Session" class="video-thumbnail-img">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="offline-depot">Offline Depot</h1>
+<h3 id="overview">Overview</h3>
+<p>The Offline Depot Appliance (ODA) facilitates the creation and maintenance of a VMware Cloud Foundation (VCF) offline depot. An offline depot stores software for VCF installation or updates.</p>
+<p>While VCF has built-in capabilities to use an online depot managed by Broadcom, an offline depot offers several key advantages:</p>
+<ul>
+<li><strong>Restricted Environments</strong>: Enables VCF deployments in environments with limited or no external network connectivity. </li>
+<li><strong>Faster Speeds</strong>: Provides quicker download and installation speeds due to local proximity. </li>
+<li><strong>Content Curation</strong>: Allows organizations to control and curate the VCF binaries available to their instances. </li>
+</ul>
+<p>Additionally, the ODA provides features beyond basic offline depot functionality:</p>
+<ul>
+<li><strong>Holodeck Support</strong>: Integrates with Holodeck for automated deployment of virtualized VCF instances, reducing physical hardware requirements and costs.</li>
+<li><strong>Simplified Management</strong>: Optionally includes a Jupyter Lab instance with notebooks for streamlined depot maintenance and Holodeck integration tasks.</li>
+</ul>
+<h3 id="obtaining-a-download-token">Obtaining a Download Token</h3>
+<p>In order to leverage the ODA to download and populate the depot with the required binaries, you will need a download token. </p>
+<p>You can obtain a download token by following the instructions described in this <a href="https://knowledge.broadcom.com/external/article/390098">Broadcom KnowledgeBase Article</a>.</p>
+<h3 id="deployment-options-if-using-holodeck">Deployment Options if Using Holodeck</h3>
+<p>When using Holodeck, there are two primary options for deploying the ODA:</p>
+<ul>
+<li><strong>Management Network Deployment (Recommended)</strong></li>
+</ul>
+<p>Deploying the ODA on the management network is the recommended method. This configuration provides the ODA with direct network access to download binaries and enables full functionality, including the AI chatbot. Additionally, the integrated Jupyter notebooks can be leveraged to streamline tasks such as copying binaries to the Holorouter and accessing HoloDeck configuration information.</p>
+<ul>
+<li><strong>Isolated Network Deployment</strong></li>
+</ul>
+<p>While deploying the ODA on an isolated network is possible, it requires additional steps. Initially, the isolated network lacks external connectivity until the Holorouter is fully configured with BGP and DNS. This means binaries cannot be directly downloaded to the ODA. As a workaround, you must manually download and copy the SDDC Manager and ESX binaries to the Holorouter before initiating the Holorouter deployment. Once the Holorouter is online and configured, it can forward internet requests, enabling direct binary downloads to the ODA.</p>
+<h3 id="deploying-the-offline-depot-appliance">Deploying the Offline Depot Appliance</h3>
+<ol>
+<li>
+<p>To deploy the appliance, simply deploy the OVA on your vCenter Server like you would normally do.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-1.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 1" src="../images/Deploy-Offline-Depot-Step-1.png"></a></p>
+</li>
+<li>
+<p>Next, provide a name for the VM and specify its deployment location:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-2.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 2" src="../images/Deploy-Offline-Depot-Step-2.png"></a></p>
+</li>
+<li>
+<p>Then, select the compute resource for the VM. You can choose to automatically start the VM after import by checking the box; otherwise, you can power it on manually to observe the first boot process.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-3.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 3" src="../images/Deploy-Offline-Depot-Step-3.png"></a></p>
+</li>
+<li>
+<p>Review the settings and proceed by clicking Next.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-4.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 4" src="../images/Deploy-Offline-Depot-Step-4.png"></a></p>
+</li>
+<li>
+<p>Next, select appropriate storage with sufficient capacity for your needs.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-5.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 5" src="../images/Deploy-Offline-Depot-Step-5.png"></a></p>
+</li>
+<li>
+<p>On the next screen, select the network for ODA deployment. As discussed in the previous section, it is recommended to deploy the appliance on the management network.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-6.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 6" src="../images/Deploy-Offline-Depot-Step-6.png"></a></p>
+</li>
+<li>
+<p>Now, specify the networking attributes, including hostname, IP address, and netmask, according to your environment's requirements.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-7a.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 7a" src="../images/Deploy-Offline-Depot-Step-7a.png"></a></p>
+</li>
+</ol>
+<p>The subsequent section allows you to set the password for the admin user, which is used for SSH access to the appliance.</p>
+<p>Following this, configure the depot-specific options:</p>
+<ul>
+<li>
+<p><strong>Skip Binary Download:</strong>
+  Selecting this option prevents the appliance from automatically downloading required VCF binaries during power-on, which is useful if a download token is not available at installation. The depot can be populated manually or using the included Jupyter Notebooks after deployment.</p>
+</li>
+<li>
+<p><strong>Download Token:</strong>
+  Provide a download token to enable automatic download of VCF binaries upon appliance power-on. If no token is provided, the download attempt will time out. Similar to skipping the download, manual population or Jupyter Notebooks can be used later.</p>
+</li>
+<li>
+<p><strong>VCF Version:</strong>
+  Specify the target VCF version for binary downloads (e.g., '9.0' for VCF 9). The Advanced section offers options to enable SSH and the Jupyter Lab server. Enabling the Jupyter Lab server is highly recommended and is selected by default.</p>
+</li>
+</ul>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-7b.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 7b" src="../images/Deploy-Offline-Depot-Step-7b.png"></a>
+</figure>
+<h3 id="initial-boot">Initial Boot</h3>
+<p>After you deploy the appliance, you'll want to power it on. Note that the first time you power it on, it will perform some configuration steps and then reboot itself. These configuration steps will only occur the first time you boot the VM.</p>
+<p>Please wait until the second boot completes until trying to use the appliance.</p>
+<h3 id="accessing-the-appliance-web-server">Accessing the Appliance Web Server</h3>
+<p>With the appliance online, use a web browser and go to:</p>
+<p><code>http://&lt;ODA_IP&gt;</code></p>
+<p>You should see this if you selected the option to skip the automatic download of the binaries or if the appliance had some issue trying to download the binaries:</p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Web-Server.png" data-desc-position="bottom"><img alt="Offline Depot Web Server" src="../images/Offline-Depot-Web-Server.png"></a>
+</figure>
+<p>This indicates that no binaries have been put into place on the depot. After you download binaries (see below) then this will be populated.</p>
+<h3 id="accessing-the-jupyter-lab-server">Accessing the Jupyter Lab Server</h3>
+<p>You can also access the Jupyter Lab server (if you enabled it) by using the following URL: </p>
+<p>http://<oda_ip>:8888</oda_ip></p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook" src="../images/Offline-Depot-Jupyter-Notebook.png"></a>
+</figure>
+<p>Here, you will see two Jupyter notebooks that can assist you in performing a variety of tasks. </p>
+<h3 id="accessing-the-vcf-product-documentation">Accessing the VCF Product Documentation</h3>
+<p>To make things a bit easier for people, copies of the VCF 5.2 and 9.0 product documentation is included on the appliance under /var/www/docs</p>
+<h3 id="logging-into-the-oda">Logging into the ODA</h3>
+<p>You can login to the ODA appliance as the user <strong>admin</strong> with the password you set at boot.</p>
+<p>If you need to become root, simply use sudo</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo su
+</code></pre></div>
+<h3 id="populating-the-binaries">Populating the Binaries</h3>
+<p>There are three methods to populate the depot with VCF binaries. Choose the method that best fits your environment.</p>
+<h4 id="option-one-automatic-download-requires-internet-and-download-token">Option One: Automatic Download (Requires Internet and Download Token)</h4>
+<p>If the ODA has internet connectivity and you provided a download token during deployment, binaries are downloaded automatically on first boot. This is the simplest method and requires no manual intervention.</p>
+<h4 id="option-two-leverage-the-jupyter-notebook">Option Two: Leverage the Jupyter Notebook</h4>
+<p>This is the preferred manual method, as it makes things a bit easier. Simply access the Depot Maintenance Jupyter Notebook and go to the section about downloading the binaries and follow the directions.</p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook Manual 1" src="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png"></a>
+</figure>
+<p>Please note that the Jupyter Notebook will display the output of the command cell executed (if there is any). For example, if you ran the cell to download the ESX binaries for Holodeck, you would see something similar to this:</p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook Manual 2" src="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png"></a>
+</figure>
+<p>It's important to note that you can make these Jupyter Notebooks specific to your environment by modifying the commands or adding more.</p>
+<h4 id="option-three-manually-use-the-vcf-download-tool">Option Three: Manually Use the VCF Download Tool</h4>
+<p>The VCF Download Tool (VDT) is also included with this version of the ODA under the /root/vdt/bin directory.</p>
+<p>The VDT tool replaces the Offline Bundle Transfer Utility (OBTU) tool previously used. It also has some extensive help that you can access by using the -help argument.</p>
+<h4 id="option-four-manually-populate-the-depot-darksite-air-gapped">Option Four: Manually Populate the Depot (Darksite / Air-Gapped)</h4>
+<p>In environments with no internet connectivity (darksite or air-gapped), you must manually transfer the binaries and metadata files to the ODA. This involves two categories of files:</p>
+<ol>
+<li><strong>Binary files</strong> -- the VCF component OVAs, ISOs, and tarballs</li>
+<li><strong>Metadata files</strong> -- JSON manifest and catalog files that VCF Installer uses to discover available software</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Metadata Files Are Required</p>
+<p>Simply copying binaries to the ODA is not sufficient. The metadata files (manifest, product version catalog, and vSAN HCL data) must also be present for VCF Installer to recognize and use the depot. Without these files, the depot will not function correctly.</p>
+</div>
+<p><strong>How to Obtain the Binaries and Metadata Files</strong></p>
+<p><strong>Broadcom Support Portal</strong>: Download the individual component binaries (OVAs, ISOs, tarballs) from the specific VCF version downloads page on the Broadcom Support Portal. For the metadata files, download the <code>&lt;vcf-version&gt;-offline-depot-metadata.zip</code> file from the <strong>VCF Installer</strong> section. This ZIP contains the required manifest, product version catalog, and related metadata files. Place the binaries into the appropriate directory structure shown below on the ODA.</p>
+<h4 id="directory-structure-and-permissions">Directory Structure and Permissions</h4>
+<p>The depot files must be placed under <code>/var/www/build</code> on the ODA with the correct directory structure. Below is the expected layout for a VCF 9.0 depot:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/var/www/build
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>└── PROD
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    ├── COMP
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    │   ├── ESX_HOST
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    │   │   └── VMware-VMvisor-Installer-&lt;version&gt;.x86_64.iso
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    │   ├── NSX_T_MANAGER
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    │   │   └── nsx-unified-appliance-&lt;version&gt;.ova
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    │   ├── SDDC_MANAGER_VCF
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    │   │   ├── Compatibility
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    │   │   │   └── VmwareCompatibilityData.json
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    │   │   └── VCF-SDDC-Manager-Appliance-&lt;version&gt;.ova
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    │   ├── VCENTER
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    │   │   └── VMware-VCSA-all-&lt;version&gt;.iso
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    │   ├── VCF_OPS_CLOUD_PROXY
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    │   │   └── Operations-Cloud-Proxy-&lt;version&gt;.ova
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    │   ├── VRA
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    │   │   └── vmsp-vcfa-combined-&lt;version&gt;.tar
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    │   ├── VROPS
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    │   │   └── Operations-Appliance-&lt;version&gt;.ova
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    │   └── VRSLCM
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    │       └── VCF-OPS-Lifecycle-Manager-Appliance-&lt;version&gt;.ova
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    ├── metadata
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    │   ├── manifest
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    │   │   └── v1
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    │   │       └── vcfManifest.json
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    │   └── productVersionCatalog
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    │       └── v1
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    │           ├── productVersionCatalog.json
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    │           └── productVersionCatalog.sig
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    └── vsan
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>        └── hcl
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>            ├── all.json
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>            └── lastupdatedtime.json
+</code></pre></div>
+<p>The key directories are:</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PROD/COMP/</code></td>
+<td>Component binaries organized by product (ESX, NSX, SDDC Manager, vCenter, etc.)</td>
+</tr>
+<tr>
+<td><code>PROD/COMP/SDDC_MANAGER_VCF/Compatibility/</code></td>
+<td>VMware compatibility data JSON</td>
+</tr>
+<tr>
+<td><code>PROD/metadata/manifest/v1/</code></td>
+<td>VCF manifest file used by SDDC Manager to discover available software</td>
+</tr>
+<tr>
+<td><code>PROD/metadata/productVersionCatalog/v1/</code></td>
+<td>Product version catalog and its signature file</td>
+</tr>
+<tr>
+<td><code>PROD/vsan/hcl/</code></td>
+<td>vSAN Hardware Compatibility List data</td>
+</tr>
+</tbody>
+</table>
+<p>If you populate the binaries manually, you need to ensure the files are in the proper location with the proper permissions. You can leverage the Jupyter Notebooks or manually execute the commands:</p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook Manual 3" src="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png"></a>
+</figure>
+<p>Set proper ownership and permissions on all depot files:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>nginx<span class="w"> </span>/var/www
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>chgrp<span class="w"> </span>-R<span class="w"> </span>nginx<span class="w"> </span>/var/www
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">750</span><span class="w"> </span>/var/www
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>chmod<span class="w"> </span>g+s<span class="w"> </span>/var/www
+</code></pre></div>
+<p>Failure to set the permissions properly will result in the inability to download the files from the depot.</p>
+<p>Once the depot is ready, you should be able to access the web server by accessing the web server on http://ODA-IP</p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Web-Server-2.png" data-desc-position="bottom"><img alt="Offline Depot Web Server 2" src="../images/Offline-Depot-Web-Server-2.png"></a>
+</figure>
+<h3 id="configuring-https-ssltls-for-the-offline-depot">Configuring HTTPS (SSL/TLS) for the Offline Depot</h3>
+<p>By default, the ODA serves the depot over HTTP. However, HTTPS can be used when communicating with the VCF Installer. While Holodeck automates the <code>application-prod.properties</code> modification on the VCF Installer to allow HTTP, you may prefer to configure the depot with proper HTTPS support -- especially in production-like lab environments.</p>
+<p>This section walks through creating a certificate chain and configuring NGINX for HTTPS on the ODA.</p>
+<h4 id="step-1-create-the-directory-structure">Step 1: Create the Directory Structure</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/nginx/ssl/ca/<span class="o">{</span>root,intermediate,server<span class="o">}</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>/etc/nginx/ssl
+</code></pre></div>
+<h4 id="step-2-create-the-root-ca">Step 2: Create the Root CA</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span><span class="m">4096</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-key<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>-sha256<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Root CA"</span>
+</code></pre></div>
+<h4 id="step-3-create-the-intermediate-ca">Step 3: Create the Intermediate CA</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="m">4096</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/intermediate/intermediate.csr<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Intermediate CA"</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span>ca/intermediate/intermediate.csr<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>-CA<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>-CAcreateserial<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>-out<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span>-days<span class="w"> </span><span class="m">1825</span><span class="w"> </span>-sha256<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-extfile<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"basicConstraints=CA:TRUE,pathlen:0"</span><span class="o">)</span>
+</code></pre></div>
+<h4 id="step-4-create-the-server-certificate">Step 4: Create the Server Certificate</h4>
+<p>Generate a private key and CSR for the ODA. Replace the CN and SAN values with your ODA's FQDN and IP:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca/server/server.key<span class="w"> </span><span class="m">2048</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>ca/server/server.key<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/server/server.csr<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=&lt;ODA_FQDN&gt;"</span>
+</code></pre></div>
+<p>Create a SAN extension file at <code>ca/server/server_ext.cnf</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>subjectAltName = DNS:&lt;ODA_FQDN&gt;,IP:&lt;ODA_IP&gt;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>extendedKeyUsage = serverAuth
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>keyUsage = digitalSignature, keyEncipherment
+</code></pre></div>
+<p>Sign the CSR with the Intermediate CA:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span>ca/server/server.csr<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>-CA<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span>ca/server/server.crt<span class="w"> </span>-days<span class="w"> </span><span class="m">825</span><span class="w"> </span>-sha256<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span>-extfile<span class="w"> </span>ca/server/server_ext.cnf
+</code></pre></div>
+<h4 id="step-5-build-the-full-certificate-chain">Step 5: Build the Full Certificate Chain</h4>
+<p>The chain must be ordered: Server cert -&gt; Intermediate cert -&gt; Root cert:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cat<span class="w"> </span>ca/server/server.crt<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>&gt;<span class="w"> </span>ca/server/server-chain.pem
+</code></pre></div>
+<h4 id="step-6-set-file-permissions">Step 6: Set File Permissions</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>chown<span class="w"> </span>root:root<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>ca/server/server.crt<span class="w"> </span>ca/server/server-chain.pem
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>ca/server/server.crt<span class="w"> </span>ca/server/server-chain.pem
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>chown<span class="w"> </span>root:root<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>ca/server/server.key
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span>ca/server/server.key
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>chown<span class="w"> </span>root:root<span class="w"> </span>/etc/nginx/ssl
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/etc/nginx/ssl
+</code></pre></div>
+<h4 id="step-7-configure-nginx-for-https">Step 7: Configure NGINX for HTTPS</h4>
+<p>Edit the NGINX configuration at <code>/etc/nginx/nginx.conf</code> and update the <code>server</code> block:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w">       </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kn">listen</span><span class="w">       </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kn">server_name</span><span class="w">  </span><span class="s">&lt;ODA_FQDN&gt;</span><span class="p">;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w">      </span><span class="s">/etc/nginx/ssl/ca/server/server-chain.pem</span><span class="p">;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w">  </span><span class="s">/etc/nginx/ssl/ca/server/server.key</span><span class="p">;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="kn">ssl_protocols</span><span class="w">        </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="kn">ssl_session_cache</span><span class="w">    </span><span class="s">shared:SSL:1m</span><span class="p">;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="kn">ssl_session_timeout</span><span class="w">  </span><span class="mi">5m</span><span class="p">;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="kn">ssl_ciphers</span><span class="w">          </span><span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="kn">ssl_prefer_server_ciphers</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="kn">root</span><span class="w">      </span><span class="s">/var/www/build</span><span class="p">;</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="kn">index</span><span class="w">     </span><span class="s">index.html</span><span class="w"> </span><span class="s">index.htm</span><span class="p">;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">        </span><span class="kn">autoindex</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="p">}</span>
+</code></pre></div>
+<p>Test and reload NGINX:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nginx<span class="w"> </span>-t
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</code></pre></div>
+<h4 id="step-8-open-firewall-port-for-https">Step 8: Open Firewall Port for HTTPS</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-m<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/systemd/scripts/ip4save
+</code></pre></div>
+<h3 id="caveats">Caveats</h3>
+<p>Consider the following important points when using the offline depot:</p>
+<ul>
+<li>
+<p><strong>Disk Space</strong>: The appliance is provisioned with approximately 300GB of disk space. Depending on your use case and the number of binaries, additional storage may be required. Refer to the "How to Expand the Storage" section for instructions on increasing disk capacity.</p>
+</li>
+<li>
+<p><strong>Jupyter Lab on ESX</strong>: A known issue exists where the Jupyter Lab server may not configure correctly when the depot appliance is deployed directly to an ESX host. The depot functionality remains unaffected. </p>
+</li>
+<li><strong>Recommendation</strong>: To avoid this issue, deploy the appliance to a vCenter instance.</li>
+</ul>
+<h3 id="how-to-expand-the-storage">How to Expand the Storage</h3>
+<p>You might need to expand the filesystem of the depot as you populate it with more binaries. </p>
+<p>These procedures are documented in the included Jupyter Notebook. This allows you to execute them directly from there. However, if you chose not to install the Jupyter Notebooks, the instructions are duplicated here.</p>
+<p>First, you need to increase the size of the physical disk. To do this, simply edit the size of the disk for the VM and increase it to what will suit your needs. It will support up to 5.9TB in size.</p>
+<p>Next, we need to make sure the OS is aware of the space increase:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>echo 1 &gt; /sys/block/sda/device/rescan
+</code></pre></div>
+Finally, we will execute this command in order to resize the partition
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>printf 'yes\n100%%\n' | parted /dev/sda resizepart 2 ---pretend-input-tty
+</code></pre></div>
+You can verify that the partition has been resized by using the following command:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>parted -s -a opt /dev/sda "print free"
+</code></pre></div><p></p>
+<figure>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Storage-Expansion.png" data-desc-position="bottom"><img alt="Offline Depot Storage Expansion" src="../images/Offline-Depot-Storage-Expansion.png"></a>
+</figure>
+<p>Next, you need to expand the filesystem in order to take advantage of the new partition space by using a command like:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>resize2fs /dev/sda2
+</code></pre></div><p></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2005-2026 Broadcom. All Rights Reserved. <br>
+The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.instant", "navigation.top", "navigation.tracking", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
