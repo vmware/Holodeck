@@ -131,6 +131,35 @@ This page documents the key features, enhancements, and capabilities available i
 
         Clear all contents, save and close, then run `Update-HoloDeckInstance` again.
 
+??? question "DNS resolution fails during VCF deployment — hosts unreachable by hostname"
+
+    During VCF deployment, the VCF Installer may fail to resolve nested ESX host FQDNs (e.g., `esx-01a.site-a.vcf.lab`), causing deployment failures. Hosts are reachable by IP address but `nslookup` returns **"connection refused"**.
+
+    One of the reasons this could occur is when an **FQDN** (e.g., `cloudflare-dns.com`) is provided as the upstream DNS server instead of an **IP address** during HoloRouter setup. Linux resolves the FQDN and stores it in the format `resolved_ip#dns_name` (e.g., `1.1.1.1#cloudflare-dns.com`). DNSMASQ interprets the `#` as a port separator, which results in an invalid configuration and causes the DNS service to fail.
+
+    **Workaround**
+
+    1. SSH into the HoloRouter and edit the DNSMASQ ConfigMap:
+
+        ```
+        vi /holodeck-runtime/dnsmasq/dnsmasq_configmap.yaml
+        ```
+
+    2. Find the `server=` line that contains a `#` with a DNS name (e.g., `server=1.1.1.1#cloudflare-dns.com`) and change it to use the IP address only (e.g., `server=1.1.1.1`).
+
+    3. Apply the updated configuration:
+
+        ```
+        kubectl apply -f /holodeck-runtime/dnsmasq/dnsmasq_configmap.yaml
+        kubectl delete -f /holodeck-runtime/dnsmasq/dnsmasq_deployment.yaml
+        kubectl apply -f /holodeck-runtime/dnsmasq/dnsmasq_deployment.yaml
+        ```
+
+    !!! note
+        To avoid this issue, provide an **IP address** (not an FQDN) as the upstream DNS server when setting up the HoloRouter.
+
+    Track this issue here: [Community Discussion](https://community.broadcom.com/vmware-cloud-foundation/discussion/fail-to-deploy-vcf-9020)
+
 ??? question "VCF 5.2.x deployments fail at `Sync-HolodeckComponents` with 'No route to host' error"
 
     All VCF 5.2.x deployments (single site and dual site, management-only and full stack) complete the VCF deployment successfully, but the Holodeck script fails at the final **`Sync-HolodeckComponents`** step with an error such as:
