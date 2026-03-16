@@ -539,8 +539,8 @@ In the third option, we see that -Version and -InstanceID are mandatory, and it 
 
 **For dual site deployments with default CIDRs and VLAN ranges:**
 ``` 
-New-HoloDeckNetworkConfig -Site a
-New-HoloDeckNetworkConfig -Site b
+New-HoloDeckNetworkConfig -Site a -MasterCIDR 10.1.0.0/20
+New-HoloDeckNetworkConfig -Site b -MasterCIDR 10.2.0.0/20
 Set-HoloRouter -dualsite
 New-HoloDeckInstance -Site a [Additional Parameters]
 ```
