@@ -9,6 +9,8 @@ This page documents the key features, enhancements, and capabilities available i
 **Release Date:** February 2026  
 **Supported VCF Versions:** VCF 9.0.2.0, VCF 9.0.1.0, VCF 9.0.0.0, VCF 5.2.2, VCF 5.2.1, VCF 5.2  
 **Minimum ESX Version:** 8.0 U3
+<br>
+**Release Blog:** [Announcing the General Availability of Holodeck 9.0.2.0](https://blogs.vmware.com/cloud-foundation/2026/03/05/announcing-the-general-availability-of-holodeck-9-0-2/)
 
 ### What's New
 
