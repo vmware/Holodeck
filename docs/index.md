@@ -236,62 +236,60 @@ If deploying VCF Automation with vSAN OSA:
 
 ### Configuration requirements
 
-<ol>
-    <li>
-        Ensure MTU of vDS/vSS/NSX switch is set to 9000.
-    </li>
-    <li>
-        Create a dedicated trunk port on the vSwitch (vSS) or vDS for connecting to Holorouter. Dedicated port group ensures Holodeck does not interfere with your environment's networking. An NSX overlay trunk port group can be used instead as well.
-    </li>
-    <li>
-        If vSS/vDS port group is used, configure security settings on the trunk port group as described below. <strong>The required settings differ between vSS and vDS — read carefully.</strong>
-        <br><br>
-        <strong>vSS (Standard Switch)</strong> — Enable Promiscuous Mode:
-        <figure markdown="span">
-            <img src="images/vSS-security-settings.png" alt="Security Settings for vSS Port Group">
-            <figcaption>Figure: Security Settings for vSS Port Group — Promiscuous mode: Accept</figcaption>
-        </figure>
-        <strong>vDS (Distributed Switch)</strong> — Use MAC Learning instead of Promiscuous Mode:
-        <figure markdown="span">
-            <img src="images/vDS-security-settings.png" alt="Security Settings for vDS Port Group">
-            <figcaption>Figure: Security Settings for vDS Port Group — Promiscuous mode: Reject, MAC Learning: Enabled</figcaption>
-        </figure>
-        !!! warning "vDS: Promiscuous Mode and MAC Learning are mutually exclusive"
-            On a Distributed Switch, you **should not** enable both Promiscuous mode and MAC Learning at the same time. Use **MAC Learning** (enabled) with **Promiscuous mode set to Reject**. The required Security tab settings for vDS are:
+1. Ensure MTU of vDS/vSS/NSX switch is set to 9000.
 
-            | Setting | Value |
-            |---|---|
-            | Promiscuous mode | **Reject** |
-            | MAC address changes | Accept |
-            | Forged transmits | Accept |
+2. Create a dedicated trunk port on the vSwitch (vSS) or vDS for connecting to Holorouter. Dedicated port group ensures Holodeck does not interfere with your environment's networking. An NSX overlay trunk port group can be used instead as well.
 
-            And under the **Security → MAC Learning** section:
+3. If vSS/vDS port group is used, configure security settings on the trunk port group as described below. **The required settings differ between vSS and vDS — read carefully.**
 
-            | Setting | Value |
-            |---|---|
-            | Status | **Enabled** |
-            | Allow unicast flooding | Enabled |
-            | MAC limit | 4096 |
-            | MAC limit policy | Allow |
-    </li>
-    <li>
-        If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or if using default VLANs, at a minimum VLANs 0,10-25 for Site A and 40-58 for Site-B; if using custom VLANs, VLAN 0 and custom VLAN range). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
-        <figure markdown="span">
-            <img src="images/NSX-Overlay-Segment-IP-Discovery-Profile.png" alt="IP Discovery Profile in NSX">
-            <figcaption>Figure: IP Discovery Profile in NSX</figcaption>
-            <br>
-            <img src="images/NSX-Overlay-Segment-Mac-Discovery-Profile.png" alt="MAC Discovery Profile in NSX">
-            <figcaption>Figure: MAC Discovery Profile in NSX</figcaption>
-            <br>
-            <img src="images/NSX-Overlay-Segment-Security-Profile.png" alt="Segment Security Profile in NSX">
-            <figcaption>Figure: Segment Security Profile in NSX</figcaption>
-        </figure>
-        Once the profiles have been created, navigate to the overlay segment you wish to use and edit the segment and update the segment profiles association. 
-    </li>
-    <li>
-        If a vCenter is used as the target for deploying nested VCF lab, then VLANs 0, 10 through 25 and 40 through 58 (or VLAN 0 and custom VLAN range as specified by the user) need to be allowed on the physical switches to allow inter-host communication within the vSphere cluster where the nested VCF deployment will occur.
-    </li>
-</ol>
+    **vSS (Standard Switch)** — Enable Promiscuous Mode:
+
+    <figure markdown="span">
+        <img src="images/vSS-security-settings.png" alt="Security Settings for vSS Port Group">
+        <figcaption>Figure: Security Settings for vSS Port Group — Promiscuous mode: Accept</figcaption>
+    </figure>
+
+    **vDS (Distributed Switch)** — Use MAC Learning instead of Promiscuous Mode:
+
+    <figure markdown="span">
+        <img src="images/vDS-security-settings.png" alt="Security Settings for vDS Port Group">
+        <figcaption>Figure: Security Settings for vDS Port Group — Promiscuous mode: Reject, MAC Learning: Enabled</figcaption>
+    </figure>
+
+    !!! warning "vDS: Promiscuous Mode and MAC Learning are mutually exclusive"
+        On a Distributed Switch, you **should not** enable both Promiscuous mode and MAC Learning at the same time. Use **MAC Learning** (enabled) with **Promiscuous mode set to Reject**. The required Security tab settings for vDS are:
+
+        | Setting | Value |
+        |---|---|
+        | Promiscuous mode | **Reject** |
+        | MAC address changes | Accept |
+        | Forged transmits | Accept |
+
+        And under the **Security → MAC Learning** section:
+
+        | Setting | Value |
+        |---|---|
+        | Status | **Enabled** |
+        | Allow unicast flooding | Enabled |
+        | MAC limit | 4096 |
+        | MAC limit policy | Allow |
+
+4. If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or if using default VLANs, at a minimum VLANs 0,10-25 for Site A and 40-58 for Site-B; if using custom VLANs, VLAN 0 and custom VLAN range). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
+
+    <figure markdown="span">
+        <img src="images/NSX-Overlay-Segment-IP-Discovery-Profile.png" alt="IP Discovery Profile in NSX">
+        <figcaption>Figure: IP Discovery Profile in NSX</figcaption>
+        <br>
+        <img src="images/NSX-Overlay-Segment-Mac-Discovery-Profile.png" alt="MAC Discovery Profile in NSX">
+        <figcaption>Figure: MAC Discovery Profile in NSX</figcaption>
+        <br>
+        <img src="images/NSX-Overlay-Segment-Security-Profile.png" alt="Segment Security Profile in NSX">
+        <figcaption>Figure: Segment Security Profile in NSX</figcaption>
+    </figure>
+
+    Once the profiles have been created, navigate to the overlay segment you wish to use and edit the segment and update the segment profiles association.
+
+5. If a vCenter is used as the target for deploying nested VCF lab, then VLANs 0, 10 through 25 and 40 through 58 (or VLAN 0 and custom VLAN range as specified by the user) need to be allowed on the physical switches to allow inter-host communication within the vSphere cluster where the nested VCF deployment will occur.
 
 ### Target Host Configuration
 
