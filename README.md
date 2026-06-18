@@ -1,4 +1,4 @@
-# Holodeck 9.0 Documentation
+# Holodeck 9 Documentation
 
 [![CI](https://github.com/vmware/Holodeck/actions/workflows/ci.yml/badge.svg)](https://github.com/vmware/Holodeck/actions/workflows/ci.yml)
 [![Links](https://github.com/vmware/Holodeck/actions/workflows/links.yml/badge.svg)](https://github.com/vmware/Holodeck/actions/workflows/links.yml)

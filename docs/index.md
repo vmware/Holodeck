@@ -10,7 +10,7 @@ Foundation (VCF) environments on a VMware ESX host or a vSphere cluster. These e
 multiple teams inside a data center to explore hands-on exercises showcasing VCF capabilities to deliver a customer managed
 VMware Private Cloud. Holodeck is **only** to be used for a testing and training environment; it is ideal for anyone
 wanting to gain a better understanding of how VCF functions across many use cases and capabilities. Currently, there are
-two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9.0 supporting VCF 5.2.x and VCF 9.x. 
+two different versions of the Holodeck supported - Holodeck 5.2x supporting VCF 5.2.x and Holodeck 9 supporting VCF 5.2.x and VCF 9.x. 
     
 
 <figure markdown="span">
@@ -103,7 +103,7 @@ Each Holodeck environment contains:
     - Custom DNS Domain for Holodeck environment
 <!-- Removed ESA support in 5.2-->
 
-Note: Holodeck 9.x is not a VMware supported product, it is similar to a Fling.
+Note: Holodeck 9 is not a VMware supported product, it is similar to a Fling.
 
 Holodeck 9.1 supports nested VCF deployment for versions 5.2, 9.0, and 9.1. This can be deployed either on a single stand-alone ESX host or a vSphere cluster based on resource availability. Please check the [Pre-requisites](#pre-requisites) section
 
@@ -172,9 +172,9 @@ Scope of Services:
 
 - **Idempotency:** We know that deploying an entire full stack SDDC deployment can be time consuming. We also know that this time can increase even further when performing nested deployments. We've all been in a situation where we reach towards the end of the deployment only to realize we missed something minor that causes deployment failure and we have to start all over again. To solve this challenge, we've brought in the idempotency feature in Holodeck 9.x. We store the state of the holodeck deployment on Holorouter thus allowing users to run the same command used to deploy Holodeck and pick up right where the code failed, eliminating the need to restart entire deployment or proceed manually in case of failure.
 
-- **Automated Networking:** Assigning VLANs, IP addresses, routes etc for each of your deployments can seem like a daunting task. We take this pain away in Holodeck 9.0. We use a default CIDR (10.1.0.0/20) and build out the entire networking including DNS mapping for each of your nested hosts and VCF components, entire routing including BGP setup for NSX Edge peering. For end users looking to deploy Holodeck in a custom CIDR, we provide the option to bring in your own CIDR of /20 size as an input parameter and we automatically use that to deploy VCF in the CIDR you provide. End users also get an option to specify their own VLANs and DNS domain for the Holodeck environment. Holodeck uses vcf.lab as the default DNS domain but users can specify a custom DNS domain during deployment. 
+- **Automated Networking:** Assigning VLANs, IP addresses, routes etc for each of your deployments can seem like a daunting task. We take this pain away in Holodeck 9 We use a default CIDR (10.1.0.0/20) and build out the entire networking including DNS mapping for each of your nested hosts and VCF components, entire routing including BGP setup for NSX Edge peering. For end users looking to deploy Holodeck in a custom CIDR, we provide the option to bring in your own CIDR of /20 size as an input parameter and we automatically use that to deploy VCF in the CIDR you provide. End users also get an option to specify their own VLANs and DNS domain for the Holodeck environment. Holodeck uses vcf.lab as the default DNS domain but users can specify a custom DNS domain during deployment. 
 
-- **Built-In PreChecks:** Holodeck 9.0 runs a set of pre-checks when a new deployment is run to ensure everything needed is available such as all the required binaries are available in the right location or not, is the target host reachable etc.
+- **Built-In PreChecks:** Holodeck 9 runs a set of pre-checks when a new deployment is run to ensure everything needed is available such as all the required binaries are available in the right location or not, is the target host reachable etc.
 
 ### Holodeck Networking
 
@@ -313,7 +313,7 @@ their account teams.
 
 ### Offline Depot
 
-Holodeck 9.0 supports both online and offline depot modes for VCF 9.x deployments. If you plan to use an offline depot (e.g., in environments with limited or no internet connectivity), you will need to set up the Offline Depot before initiating your Holodeck deployment. The offline depot provides faster download speeds, content curation, and is essential for air-gapped environments.
+Holodeck 9 supports both online and offline depot modes for VCF 9.x deployments. If you plan to use an offline depot (e.g., in environments with limited or no internet connectivity), you will need to set up the Offline Depot before initiating your Holodeck deployment. The offline depot provides faster download speeds, content curation, and is essential for air-gapped environments.
 
 For detailed instructions on deploying and configuring the Offline Depot Appliance, including populating binaries, and integrating with Holodeck, please refer to the dedicated [Offline Depot](offline_depot.md) page.
 
@@ -329,7 +329,7 @@ Ensure all the pre-requistes stated earlier are completed.
 
 ### Deploy Holorouter OVA
 
-Holodeck 9.0 supports deployments on both stand-alone ESX hosts as well as vCenter as target. Choose the appropriate tab below to follow the instructions for your specific target to deploy Holorouter.
+Holodeck 9 supports deployments on both stand-alone ESX hosts as well as vCenter as target. Choose the appropriate tab below to follow the instructions for your specific target to deploy Holorouter.
 
 === "Stand-Alone ESX Host"
 
