@@ -9,6 +9,7 @@ body:
       label: Holorouter Version
       description: Which version of Holorouter are you using?
       options:
+        - "9.1"
         - "9.0.2"
         - "9.0.1"
         - "9.0"
@@ -21,6 +22,7 @@ body:
       label: VCF Version
       description: Which VCF version are you deploying?
       options:
+        - "VCF 9.1"
         - "VCF 9.0.2.0"
         - "VCF 9.0.1.0"
         - "VCF 9.0.0.0"
