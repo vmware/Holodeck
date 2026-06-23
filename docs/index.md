@@ -643,7 +643,7 @@ In the second option, we see that -ManagementOnly, -Version and -InstanceID are 
 
 #### **Full Stack Deployment**
 
-```New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-VnaClusterMgmtDomain] [-VnaClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWldDomain <String>] [-DeploySupervisorMgmtDomain <String>] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
+```New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-VnaClusterMgmtDomain] [-VnaClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWkldDomain <String>] [-DeploySupervisorMgmtDomain <String>] [-LogLevel <String>] [-ProvisionOnly] [-VLANRangeStart <Int32[]>] [-DNSDomain <String>] [-Site <String>] [-DepotType <String>] [-DeveloperMode] [<CommonParameters>]```
 
 In the third option, we see that -Version and -InstanceID are mandatory, and it also has an optional parameter called -WorkloadDomainType showcasing this syntax is used for deploying a full stack nested VCF deployment. -WorkloadDomainType is optional as it already has a default value set. 
 
@@ -660,7 +660,7 @@ In the third option, we see that -Version and -InstanceID are mandatory, and it 
 | VnaClusterMgmtDomain     | Switch   | Optional     | **NEW in 9.1**: Deploys a Virtual Network Appliance (VNA) cluster in Management domain for distributed networking     | NA                                                  |                            |
 | VnaClusterWkldDomain     | Switch   | Optional     | **NEW in 9.1**: Deploys a Virtual Network Appliance (VNA) cluster in Workload domain for distributed networking     | NA                                                  |                            |
 | DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond (including "9.1.0.0"). VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
-| DeploySupervisorWldDomain | String   | Optional     | **ENHANCED in 9.1**: Deploys Supervisor in workload domain with networking mode selection. Applicable only for VCF 9.0.0.0 and beyond (including VCF 9.1.0.0).     | "Centralized" or "Distributed"                     |                            |
+| DeploySupervisorWkldDomain | String   | Optional     | **ENHANCED in 9.1**: Deploys Supervisor in workload domain with networking mode selection. Applicable only for VCF 9.0.0.0 and beyond (including VCF 9.1.0.0).     | "Centralized" or "Distributed"                     |                            |
 | DeploySupervisorMgmtDomain | String   | Optional     | **ENHANCED in 9.1**: Deploys Supervisor in management domain with networking mode selection. Applicable only for VCF 9.0.0.0 and beyond (including VCF 9.1.0.0).     | "Centralized" or "Distributed"                     |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
 | VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
@@ -772,7 +772,7 @@ Approx times for tested workflows (for 9.0.0.0):
 |-|--|-|
 | -ManagementOnly | 4-5 hours | Just 4 hosts for management domain |
 | -NsxEdgeClusterMgmtDomain | 5-6 hours| 4 hosts without and 2 node Edge Cluster |
-| -DeployVCFAuto -DeploySupervisorWldDomain | 12+| 4 hosts management with VCF Automation, 3 hosts WLD, Edge Cluster and Supervisor |
+| -DeployVCFAuto -DeploySupervisorWkldDomain | 12+| 4 hosts management with VCF Automation, 3 hosts WLD, Edge Cluster and Supervisor |
 
 Please note that the time mentioned above is only an indication as the actual time taken depends on multiple factors such as the physical environment, networking connectivity etc.
 
