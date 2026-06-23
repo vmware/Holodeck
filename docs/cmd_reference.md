@@ -7,7 +7,7 @@ New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [
 
 New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 
-New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWldDomain] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
+New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWkldDomain] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 ```
 
 ---
@@ -31,7 +31,7 @@ Deploys a HoloDeck instance based on the provided VCF version and optional param
 | `-NsxEdgeClusterMgmtDomain` | Deploy NSX Edge Cluster in management domain | ❌ | `False` |
 | `-NsxEdgeClusterWkldDomain` | Deploy NSX Edge Cluster in workload domain | ❌ | `False` |
 | `-DeployVcfAutomation` | Deploy VCF Automation (VCF 9.x only) | ❌ | `False` |
-| `-DeploySupervisorWldDomain` | Deploy Supervisor in workload domain (VCF 9.x only) | ❌ | `False` |
+| `-DeploySupervisorWkldDomain` | Deploy Supervisor in workload domain (VCF 9.x only) | ❌ | `False` |
 | `-DeploySupervisorMgmtDomain` | Deploy Supervisor in management domain (VCF 9.x only) | ❌ | `False` |
 | `-LogLevel` | Log verbosity: `"INFO"`, `"DEBUG"`, etc. | ❌ | `INFO` |
 | `-ProvisionOnly` | Provision ESX & CloudBuilder/VCF Installer only | ❌ | `False` |
@@ -69,7 +69,7 @@ New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -CIDR 10.3.0.0/20 -vSANMo
 
 Deploys a VCF 9.0 full stack instance with NSX Edge cluster deployed in both management and workload domain, VCF Automation deployed in Management domain, supervisor deployed in workload domain using an online depot.
 ```powershell
-New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -NsxEdgeClusterMgmtDomain -NsxEdgeClusterWkldDomain -DeployVcfAutomation -DeploySupervisorWldDomain -DepotType Online
+New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -NsxEdgeClusterMgmtDomain -NsxEdgeClusterWkldDomain -DeployVcfAutomation -DeploySupervisorWkldDomain -DepotType Online
 ```
 
  Example 5
@@ -145,7 +145,7 @@ Update-HoloDeckInstance -Site a -AddVcfAutomationAllAppsOrg -VIDomain Management
 This cmdlet replaces `New-HoloDeckInstance -Interactive`. 
 
 - The `-AdditionalCluster` and `-AddVcfAutomationAllAppsOrg` parameters belong to separate parameter sets and cannot be used together in a single invocation.
-- VCF Automation and Supervisor must already be deployed (via `-DeployVcfAutomation`, `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWldDomain` during `New-HoloDeckInstance`) before running `-AddVcfAutomationAllAppsOrg`.
+- VCF Automation and Supervisor must already be deployed (via `-DeployVcfAutomation`, `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWkldDomain` during `New-HoloDeckInstance`) before running `-AddVcfAutomationAllAppsOrg`.
 - The additional cluster is deployed as a 3-node vSphere cluster.
 
 ---

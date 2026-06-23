@@ -102,7 +102,7 @@ This page documents the key features, enhancements, and capabilities available i
 
 - Added support for VCF 9.0.2.0 deployment
 - VCF Installer version 9.0.2.0 can be used to deploy VCF 9.0.0.0, 9.0.1.0 and 9.0.2.0 environments.
-- Introduced support for **Supervisor deployment in the management domain** via the new `-DeploySupervisorMgmtDomain` parameter. The previous `-DeploySupervisor` parameter has been renamed to `-DeploySupervisorWldDomain`.
+- Introduced support for **Supervisor deployment in the management domain** via the new `-DeploySupervisorMgmtDomain` parameter. The previous `-DeploySupervisor` parameter has been renamed to `-DeploySupervisorWkldDomain`.
 - Added support for **VCF Automation All Apps Org creation** as a Day 2 operation.
 - New VCF Automation host protection logic added to protect the VCF Automation VM by ensuring no other VM runs on the same nested ESX host in the management domain.
 - Added route redistribution for Transit Gateway in Management NSX Edge Cluster for VCF 9.0 by default.
@@ -132,7 +132,7 @@ This page documents the key features, enhancements, and capabilities available i
 ##### Cmdlet Enhancements
 
 - **Multi-Version Support**: Holodeck now supports VCF 5.2, 5.2.1, 5.2.2, 9.0.0.0, 9.0.1.0 and 9.0.2.0. Please note that you need to upload ESX and VCF Installer (for 9.x) and Cloud Builder Appliance (for 5.2.x) versions in their respective folders at '/holodeck-runtime/bin' in HoloRouter.
-- `New-HoloDeckInstance`: The `-Interactive` parameter has been removed. Day 2 operations are now handled by the new `Update-HoloDeckInstance` cmdlet. InstanceID is now a mandatory parameter. The `-DeploySupervisor` parameter has been renamed to `-DeploySupervisorWldDomain` and a new `-DeploySupervisorMgmtDomain` parameter has been added for deploying Supervisor in the management domain.
+- `New-HoloDeckInstance`: The `-Interactive` parameter has been removed. Day 2 operations are now handled by the new `Update-HoloDeckInstance` cmdlet. InstanceID is now a mandatory parameter. The `-DeploySupervisor` parameter has been renamed to `-DeploySupervisorWkldDomain` and a new `-DeploySupervisorMgmtDomain` parameter has been added for deploying Supervisor in the management domain.
 - `Get-HoloDeckInstance`: Get details of the nested components deployed via New-HoloDeckInstance command
 - `Update-HoloDeckInstance`: New cmdlet for performing Day 2 operations on Holodeck, replacing `New-HoloDeckInstance -Interactive`. Uses `-Site`, `-VIDomain`, and operation-specific flags (`-AdditionalCluster` or `-AddVcfAutomationAllAppsOrg`). This release supports deploying an All Apps Org in VCF Automation and deploying additional clusters in the VCF instance.
 - `Start-HoloDeckInstance` / `Stop-HoloDeckInstance`: Updated to handle complex deployment types. `Stop-HoloDeckInstance` now implements proper power-off operations that gracefully shut down all nested VMs and VCF components in the correct order.
