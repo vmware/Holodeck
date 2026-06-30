@@ -26,7 +26,7 @@ When using Holodeck, there are two primary options for deploying the ODA:
 
 - **Management Network Deployment (Recommended)**
 
-  Deploying the ODA on the management network is the recommended method. This configuration provides the ODA with direct network access to download binaries and enables full functionality, including the AI chatbot. Additionally, the integrated Jupyter notebooks can be leveraged to streamline tasks such as copying binaries to the Holorouter and accessing HoloDeck configuration information.
+  Deploying the ODA on the management network is the recommended method. This configuration provides the ODA with direct network access to download binaries and enables full functionality, including the AI chatbot. Additionally, the integrated Jupyter notebooks can be leveraged to streamline tasks such as copying binaries to the Holorouter and accessing Holodeck configuration information.
 
 - **Isolated Network Deployment**
 
