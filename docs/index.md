@@ -240,39 +240,15 @@ If deploying VCF Automation with vSAN OSA:
 
 2. Create a dedicated trunk port on the vSwitch (vSS) or vDS for connecting to Holorouter. Dedicated port group ensures Holodeck does not interfere with your environment's networking. An NSX overlay trunk port group can be used instead as well.
 
-3. If vSS/vDS port group is used, configure security settings on the trunk port group as described below. **The required settings differ between vSS and vDS — read carefully.**
-
-    **vSS (Standard Switch)** — Enable Promiscuous Mode:
+3. If vSS/vDS port group is used, enable security settings on the trunk port group as below:
 
     <figure markdown="span">
         <img src="images/vSS-security-settings.png" alt="Security Settings for vSS Port Group">
-        <figcaption>Figure: Security Settings for vSS Port Group — Promiscuous mode: Accept</figcaption>
-    </figure>
-
-    **vDS (Distributed Switch)** — Use MAC Learning instead of Promiscuous Mode:
-
-    <figure markdown="span">
+        <figcaption>Figure: Security Settings for vSS Port Group</figcaption>
+        <br>
         <img src="images/vDS-security-settings.png" alt="Security Settings for vDS Port Group">
-        <figcaption>Figure: Security Settings for vDS Port Group — Promiscuous mode: Reject, MAC Learning: Enabled</figcaption>
+        <figcaption>Figure: Security Settings for vDS Port Group</figcaption>
     </figure>
-
-    !!! warning "vDS: Promiscuous Mode and MAC Learning are mutually exclusive"
-        On a Distributed Switch, you **should not** enable both Promiscuous mode and MAC Learning at the same time. Use **MAC Learning** (enabled) with **Promiscuous mode set to Reject**. The required Security tab settings for vDS are:
-
-        | Setting | Value |
-        |---|---|
-        | Promiscuous mode | **Reject** |
-        | MAC address changes | Accept |
-        | Forged transmits | Accept |
-
-        And under the **Security → MAC Learning** section:
-
-        | Setting | Value |
-        |---|---|
-        | Status | **Enabled** |
-        | Allow unicast flooding | Enabled |
-        | MAC limit | 4096 |
-        | MAC limit policy | Allow |
 
 4. If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or if using default VLANs, at a minimum VLANs 0,10-25 for Site A and 40-58 for Site-B; if using custom VLANs, VLAN 0 and custom VLAN range). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
 
