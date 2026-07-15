@@ -184,9 +184,11 @@
    ============================================================ */
 
 /*
- * The tabs bar and its inner containers normally clip their overflow,
- * which hides the absolutely-positioned dropdown list.  Allow overflow
- * on the axis we need while keeping horizontal tab-scroll intact.
+ * Material sets both overflow:auto AND contain:content on .md-tabs and
+ * .md-tabs__list.  CSS containment (contain:content = layout+paint+style)
+ * is more aggressive than overflow:hidden — it hard-clips ALL descendants,
+ * so the absolutely-positioned dropdown can never escape.  We must
+ * override both overflow AND contain to let the dropdown render.
  */
 .md-tabs {
     overflow: visible !important;
@@ -201,6 +203,7 @@
     display: flex !important;
     align-items: center;
     overflow: visible !important;
+    contain: none !important;   /* remove paint/layout containment */
 }
 
 /* Wrapper <li> — pushed to the far right */
