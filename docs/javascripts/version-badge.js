@@ -1,9 +1,12 @@
 /*
  * version-badge.js
  *
- * Moves mike's native version picker element ([data-md-component="version"])
- * from the header into the sticky navigation tabs bar so it remains visible
- * while scrolling — without rebuilding any picker logic ourselves.
+ * Moves the MkDocs Material / mike version picker (.md-version) from the
+ * header into the right side of the sticky navigation tabs bar, so it stays
+ * permanently visible while scrolling.
+ *
+ * bundle.js creates .md-version asynchronously (via RxJS), so we poll
+ * every 100 ms for up to 8 seconds rather than relying on DOMContentLoaded.
  */
 
 (function () {
@@ -11,54 +14,46 @@
 
   var WRAPPER_ID = 'md-version-tab-wrapper';
 
-  function move() {
+  function tryMove() {
     /* Already done */
     if (document.getElementById(WRAPPER_ID)) return true;
 
-    /* Mike renders the picker asynchronously; bail if not ready yet */
-    var picker = document.querySelector('[data-md-component="version"]');
+    /*
+     * bundle.js creates the picker with class "md-version".
+     * data-md-component="version" is NOT in the static HTML, so we use
+     * the class selector which is more reliable.
+     */
+    var picker = document.querySelector('.md-version');
     if (!picker) return false;
 
     var tabsList = document.querySelector('.md-tabs__list');
     if (!tabsList) return false;
 
-    /* Wrap in a <li> so it sits cleanly in the tabs flex list */
+    /* Wrap in a <li> so it sits correctly in the flex tabs list */
     var li = document.createElement('li');
     li.id = WRAPPER_ID;
 
-    /* Move (not clone) — preserves all mike event listeners */
+    /* Physical move — all mike event listeners travel with the node */
     li.appendChild(picker);
     tabsList.appendChild(li);
 
     return true;
   }
 
-  function start() {
-    if (move()) return;
+  /* Poll every 100 ms; give up after 8 s (80 attempts) */
+  var attempts = 0;
+  var poll = setInterval(function () {
+    if (tryMove() || ++attempts >= 80) clearInterval(poll);
+  }, 100);
 
-    var timer   = null;
-    var observer = new MutationObserver(function (_, obs) {
-      if (move()) {
-        obs.disconnect();
-        clearTimeout(timer);
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-    timer = setTimeout(function () { observer.disconnect(); }, 5000);
-  }
-
-  /* Initial load */
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
-
-  /* MkDocs Material instant-navigation re-renders the header; re-move on each switch */
+  /* Re-run after MkDocs Material instant-navigation page switches */
   document.addEventListener('DOMContentSwitch', function () {
+    attempts = 0;
     var old = document.getElementById(WRAPPER_ID);
     if (old) old.remove();
-    start();
+    clearInterval(poll);
+    poll = setInterval(function () {
+      if (tryMove() || ++attempts >= 80) clearInterval(poll);
+    }, 100);
   });
 })();
