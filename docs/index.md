@@ -43,65 +43,32 @@ network configurations and allows for the deployment of multiple nested environm
 
 Each Holodeck environment contains:
 
-=== "VCF 9.1"
-
-    - **Enhanced Holorouter appliance** (Photon OS based) with built-in networking services:
-        - DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching
-        - **New**: HashiCorp Vault for secrets management
-        - **New**: Authentik SSO for identity and access management  
-        - **New**: Technitium DNS for advanced DNS capabilities
-        - Optional webtop (virtual desktop) capability with HTTPS endpoints
-    - **Enhanced VCF Support**: VCF 9.1.0.0, 9.0.x, 5.2.x and VVF 9.1.0.0 deployments
-    - **vSAN ESA and OSA support** with enhanced validation
-    - **Enhanced depot support**: Online and offline depot with proxy for VCF Installer and improved validation
-    - **Management Domain** deployed with 4 nested hosts as vSAN ready nodes:
-        - VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
-    - **Enhanced Workload Domain** with 3 nested hosts as vSAN ready nodes:
-        - VMware vCenter, VMware NSX, and Supervisor (optional)
-    - **Enhanced Supervisor deployment**: Management or workload domain with **VNA (distributed)** or **Edge (centralized)** networking modes
-    - **Enhanced NSX Support**: 
-        - Edge Cluster deployment in management and/or workload domain
-        - **New**: Virtual Network Appliance (VNA) cluster support for distributed networking
-    - **Comprehensive Day 2 Operations**:
-        - VCF Automation deployment via VCF Operations Manager
-        - VCF Automation All Apps Org deployment
-        - Supervisor deployment with networking mode selection
-        - Deploy additional 3-node vSphere clusters in management or workload domains
-        - Deploy new nested ESXi hosts with custom specifications
-    - **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
-    - **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
-    - **Enhanced security**: HTTPS everywhere, automated certificate management
-
-=== "VCF 9.0"
-
-    - A Holorouter appliance (photon OS based) with built-in networking services such as DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching and optional webtop (virtual desktop) capability
-    - Support for VCF and VVF deployments
-    - vSAN ESA and OSA support
-    - Support for online and offline depot with proxy for VCF Installer
-    - Management Domain deployed with 4 nested hosts deployed as vSAN ready nodes including VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
-    - Optional Workload Domain deployed with 3 nested hosts deployed as vSAN ready nodes including VMware vCenter, VMware NSX and Supervisor (optional)
-    - Optional Supervisor deployment in management domain or workload domain
-    - Optional NSX Edge Cluster deployment in management and/or workload domain
-    - VCF Automation All Apps Org deployment as a Day 2 operation
-    - Deploy one or many additional 3-node vSphere cluster in management domain via Day 2 operations
-    - Support for provision-only mode (deploy VCF Installer and ESX hosts to allow greenfield deployment experience)
-    - Custom CIDR support for Holodeck network
-    - Custom VLAN support for Holodeck network
-    - Custom DNS Domain for Holodeck environment
-
-=== "VCF 5.2"
-
-    - A Holorouter appliance (photon OS based) with built-in networking services such as DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching and optional webtop (virtual desktop) capability
-    - Support for VCF deployment only
-    - vSAN OSA support only
-    - Management Domain deployed with 4 nested hosts deployed as vSAN ready nodes including VMware Cloud Builder, VMware vCenter, VMware NSX, VMware SDDC-Manager
-    - Optional Workload Domain deployed with 3 nested hosts deployed as vSAN ready nodes including VMware vCenter and VMware NSX
-    - Optional NSX Edge Cluster deployment in management and/or workload domain
-    - Deploy one or many additional 3-node vSphere cluster in management domain
-    - Custom CIDR support for Holodeck network
-    - Custom VLAN support for Holodeck network
-    - Custom DNS Domain for Holodeck environment
-<!-- Removed ESA support in 5.2-->
+- **Enhanced Holorouter appliance** (Photon OS based) with built-in networking services:
+    - DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching
+    - HashiCorp Vault for secrets management
+    - Authentik SSO for identity and access management
+    - Technitium DNS for advanced DNS capabilities
+    - Optional webtop (virtual desktop) capability with HTTPS endpoints
+- **Enhanced VCF Support**: VCF 9.1.0.0, 9.0.x, 5.2.x and VVF 9.1.0.0 deployments
+- **vSAN ESA and OSA support** with enhanced validation
+- **Enhanced depot support**: Online and offline depot with proxy for VCF Installer and improved validation
+- **Management Domain** deployed with 4 nested hosts as vSAN ready nodes:
+    - VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
+- **Enhanced Workload Domain** with 3 nested hosts as vSAN ready nodes:
+    - VMware vCenter, VMware NSX, and Supervisor (optional)
+- **Enhanced Supervisor deployment**: Management or workload domain with **VNA (distributed)** or **Edge (centralized)** networking modes
+- **Enhanced NSX Support**:
+    - Edge Cluster deployment in management and/or workload domain
+    - Virtual Network Appliance (VNA) cluster support for distributed networking
+- **Comprehensive Day 2 Operations**:
+    - VCF Automation deployment via VCF Operations Manager
+    - VCF Automation All Apps Org deployment
+    - Supervisor deployment with networking mode selection
+    - Deploy additional 3-node vSphere clusters in management or workload domains
+    - Deploy new nested ESXi hosts with custom specifications
+- **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
+- **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
+- **Enhanced security**: HTTPS everywhere, automated certificate management
 
 Note: Holodeck 9 is not a VMware supported product, it is similar to a Fling.
 
@@ -189,34 +156,6 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
 ## Pre-requisites
 
 ### Physical Host requirements
-
-| VCF 5.2   | **Single Site**   | **Dual Site** |
-|---        |---                |---            |
-| CPU       | 16                | 32            |
-| Memory    | 384 GB            | 1TB           |
-| Disk      | 2 TB              | 4TB           |
-
-If deploying VCF Automation with vSAN ESA:
-
-| VCF 9.0   | **Single Site**   | **Dual Site** |
-|---        |---                |---            |
-| CPU       | 32                | 64            |
-| Memory    | 325 GB            | 768 GB        |
-| Disk      | 1.1 TB            | 2.5TB         |
-
-If deploying VCF Automation with vSAN OSA:
-
-| VCF 9.0   | **Single Site**   | **Dual Site** |
-|---        |---                |---            |
-| CPU       | 24                | 48            |
-| Memory    | 325 GB            | 768 GB        |
-| Disk      | 1.1 TB            | 2.5TB         |
-
-| VVF 9.0   | **Single Site**   | **Dual Site** |
-|---        |---                |---            |
-| CPU       | 12                | 24            |
-| Memory    | 256 GB            | 512 GB        |
-| Disk      | 1 TB              | 2TB           |
 
 | VCF 9.1   | **Single Site**   | **Dual Site** |
 |---        |---                |---            |
@@ -1058,76 +997,11 @@ Get-HoloDeckBGPConfig -Site b
 
 ![image](images/Get-HoloDeckBGPConfig.png)
 
-### Get DNS entries
+### Manage DNS entries
 
-!!!warning 
-    `Get-HoloDeckDNSConfig` is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab
+Starting with Holodeck 9.1, DNS management is handled via **Technitium DNS**, which provides a web UI for managing DNS entries.
 
-You can list all the DNS entries configured in the DNS service in HoloRouter. You can also get information about a specific DNS entry by specifying its IP or FQDN. 
-
-```
-Get-HoloDeckDNSConfig [-IP <string>] [-FQDN <string>] [<CommonParameters>]
-
-For e.g.:
-Get-HoloDeckDNSConfig
-
-Get-HoloDeckDNSConfig -IP 10.1.1.1
-
-Get-HoloDeckDNSConfig -FQDN esx-02a.site-a.vcf.lab 
-```
-
-![image](images/Get-HoloDeckDNSConfig.png)
-
-### Add or Update DNS entries
-
-!!! warning
-    `Set-HoloDeckDNSConfig` is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab
-
-You can configure additional DNS entries to the DNS service in HoloRouter. To do that, use the Set-HoloDeckDNSConfig cmdlet. Note that you must specify the DNS entry in single quotes ('<dns_entry>').
-
-```
-Set-HoloDeckDNSConfig -DNSRecord <string> [<CommonParameters>]
-
-For e.g., to create a DNS entry for '10.1.1.201 harbor.site-a.vcf.lab', you would run -
-Set-HoloDeckDNSConfig -DNSRecord '10.1.1.201 harbor.site-a.vcf.lab'
-```
-
-![image](images/Set-HoloDeckDNSConfig.png)
-
-
-
-You can also replace the DNS entries existing in the DNS service in HoloRouter. You will still use the Set-HoloDeckDNSConfig but specify different parameters. Note that the DNS entries to be searched and replaced must be specified in single quotes ('<dns_entry>').
-
-```
-Set-HoloDeckDNSConfig -SearchDNSRecord <string> -ReplaceDNSRecord <string> -Update [<CommonParameters>]
-
-For e.g., to replace the DNS entry '10.1.1.201 harbor.site-a.vcf.lab' with '10.1.1.210 harbor.site-a.vcf.lab', you would run -
-Set-HoloDeckDNSConfig -SearchDNSRecord '10.1.1.201 harbor.site-a.vcf.lab' -ReplaceDNSRecord '10.1.1.210 harbor.site-a.vcf.lab' -Update
-```
-
-![image](images/Set-HoloDeckDNSConfig-Update.png)
-
-### Remove DNS entries
-
-!!! warning 
-    `Remove-HoloDeckDNSConfig` is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab
-
-You can remove the DNS entries from the DNS service in HoloRouter. To do that, use Remove-HoloDeckDNSConfig cmdlet. You must specify the DNS entry in single quotes ('<dns_entry>').
-
-```
-Remove-HoloDeckDNSConfig -DNSRecord <string>  [<CommonParameters>]
-
-For e.g., to remove the DNS entry '10.1.1.210 harbor.site-a.vcf.lab', you would run -
-Remove-HoloDeckDNSConfig -DNSRecord '10.1.1.210 harbor.site-a.vcf.lab'
-```
-
-![image](images/Remove-HoloDeckDNSConfig.png)
-
-### Migrate Holorouter 9.0/9.0.1 to 9.0.2
-
-Please follow the steps specified in the flowchart below to deploy and use Holorouter 9.0.2 in an existing Holodeck 9.0/9.0.1 instance.
-
-![image](images/Migrating-HoloRouter-9.0-and-9.0.1-to-9.0.2.png)
+Access Technitium at `https://dns.vcf.lab` with credentials `admin` / `VMware123!VMware123!`.
 
 ## Troubleshooting
 

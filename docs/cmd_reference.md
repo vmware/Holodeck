@@ -89,18 +89,27 @@ Performs Day 2 operations on an existing Holodeck instance.
 Update-HoloDeckInstance -Site <String> -AdditionalCluster -VIDomain <String>
 
 Update-HoloDeckInstance -Site <String> -AddVcfAutomationAllAppsOrg -VIDomain <String>
+
+Update-HoloDeckInstance -Site <String> -DeploySupervisor -VIDomain <String> [-SupervisorDeploymentMode <String>]
+
+Update-HoloDeckInstance -Site <String> -DeployVcfAutomation
+
+Update-HoloDeckInstance -Site <String> -DeployNewHosts -CPU <Int> -MemoryInGb <Int> [-Nodes <Int>] [-vSANMode <String>] [-VIDomain <String>] [-DiskSizeInGB <Int[]>]
 ```
 
 ---
 
 ### Description
 
-Performs Day 2 operations on a previously deployed Holodeck instance. This cmdlet replaces the previous `New-HoloDeckInstance -Interactive` workflow. Each Day 2 operation is invoked using a specific parameter set.
+Performs Day 2 operations on a previously deployed Holodeck instance. Each Day 2 operation is invoked using a specific parameter set and cannot be combined with others in a single invocation.
 
 Currently supported Day 2 operations:
 
 - **Deploy Additional Cluster** (`-AdditionalCluster`): Deploys a 3-node vSphere cluster in the specified domain.
 - **Deploy VCF Automation All Apps Org** (`-AddVcfAutomationAllAppsOrg`): Creates an All Apps Org in VCF Automation for the specified domain.
+- **Deploy Supervisor** (`-DeploySupervisor`): Deploys Supervisor in management or workload domain with optional networking mode selection.
+- **Deploy VCF Automation** (`-DeployVcfAutomation`): Deploys VCF Automation as a Day 2 operation via VCF Operations Manager.
+- **Deploy New Hosts** (`-DeployNewHosts`): Deploys new nested ESXi hosts with custom specifications.
 
 ---
 
@@ -111,7 +120,16 @@ Currently supported Day 2 operations:
 | `-Site` | Site identifier: `"a"` or `"b"` | ✅ | |
 | `-AdditionalCluster` | Deploy an additional 3-node vSphere cluster in the specified domain | ✅ (for AddCluster set) | |
 | `-AddVcfAutomationAllAppsOrg` | Deploy a VCF Automation All Apps Org in the specified domain | ✅ (for VcfAutomation set) | |
-| `-VIDomain` | Target domain for the operation. Valid values: `"Management"` or `"Workload"` | ✅ | |
+| `-DeploySupervisor` | Deploy Supervisor in the specified domain | ✅ (for Supervisor set) | |
+| `-DeployVcfAutomation` | Deploy VCF Automation as a Day 2 operation | ✅ (for VcfAuto set) | |
+| `-DeployNewHosts` | Deploy new nested ESXi hosts | ✅ (for NewHosts set) | |
+| `-VIDomain` | Target domain: `"Management"` or `"Workload"` | ✅ (most sets) | |
+| `-SupervisorDeploymentMode` | Networking mode for Supervisor (VCF 9.1.0.0+) | ❌ | `Centralized` |
+| `-CPU` | vCPU count for new ESXi hosts | ✅ (NewHosts set) | |
+| `-MemoryInGb` | Memory in GB for new ESXi hosts | ✅ (NewHosts set) | |
+| `-Nodes` | Number of hosts to deploy | ❌ | |
+| `-vSANMode` | vSAN storage architecture: `"OSA"` or `"ESA"` | ❌ | |
+| `-DiskSizeInGB` | Custom disk sizes (max 3) | ❌ | |
 
 ---
 
@@ -138,15 +156,34 @@ Deploy a VCF Automation All Apps Org in the Management domain for Site A
 Update-HoloDeckInstance -Site a -AddVcfAutomationAllAppsOrg -VIDomain Management
 ```
 
+ Example 4
+
+Deploy Supervisor in the Workload domain using Distributed (VNA) mode
+```powershell
+Update-HoloDeckInstance -Site a -DeploySupervisor -VIDomain Workload -SupervisorDeploymentMode Distributed
+```
+
+ Example 5
+
+Deploy VCF Automation as a Day 2 operation
+```powershell
+Update-HoloDeckInstance -Site a -DeployVcfAutomation
+```
+
+ Example 6
+
+Deploy 4 new nested ESXi hosts with ESA storage
+```powershell
+Update-HoloDeckInstance -Site a -DeployNewHosts -CPU 12 -MemoryInGb 96 -Nodes 4 -vSANMode ESA
+```
+
 ---
 
 ### Notes
 
-This cmdlet replaces `New-HoloDeckInstance -Interactive`. 
-
-- The `-AdditionalCluster` and `-AddVcfAutomationAllAppsOrg` parameters belong to separate parameter sets and cannot be used together in a single invocation.
-- VCF Automation and Supervisor must already be deployed (via `-DeployVcfAutomation`, `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWkldDomain` during `New-HoloDeckInstance`) before running `-AddVcfAutomationAllAppsOrg`.
-- The additional cluster is deployed as a 3-node vSphere cluster.
+- Each Day 2 operation uses a separate parameter set and cannot be combined with others in a single invocation.
+- VCF Automation must already be deployed before running `-AddVcfAutomationAllAppsOrg`.
+- `-SupervisorDeploymentMode` supports `"Centralized"` (NSX Edge) and `"Distributed"` (VNA) for VCF 9.1.0.0+.
 
 ---
 
@@ -293,14 +330,14 @@ The configuration is saved to `/holodeck-runtime/config` directory.
 Imports and loads a Holodeck configuration.
 
 ```powershell
-Import-HoloDeckConfig -ConfigID <String>
+Import-HoloDeckConfig -ConfigID <String> -Site <String>
 ```
 
 ---
 
 ### Description
 
-Loads a specific Holodeck configuration file by ConfigID into the global `$config` variable for use by other Holodeck functions.
+Loads a specific Holodeck configuration file by ConfigID and site into the global `$config` variable for use by other Holodeck functions. The `-Site` parameter is mandatory in Holodeck 9.1, as `New-HoloDeckConfig` now creates separate Site A and Site B configuration files.
 
 ---
 
@@ -309,6 +346,7 @@ Loads a specific Holodeck configuration file by ConfigID into the global `$confi
 | Name | Description | Required | Default |
 |------|-------------|----------|---------|
 | `-ConfigID` | The configuration ID to import | ✅ | |
+| `-Site` | Site to load: `"a"` for Site A, `"b"` for Site B | ✅ | |
 
 ---
 
@@ -316,16 +354,23 @@ Loads a specific Holodeck configuration file by ConfigID into the global `$confi
 
  Example 1
 
-Imports the configuration with ID "abc123"
+Imports the Site A configuration with ID "abc123"
 ```powershell
-Import-HoloDeckConfig -ConfigID "abc123"
+Import-HoloDeckConfig -ConfigID "abc123" -Site a
+```
+
+ Example 2
+
+Imports the Site B configuration with ID "abc123"
+```powershell
+Import-HoloDeckConfig -ConfigID "abc123" -Site b
 ```
 
 ---
 
 ### Notes
 
-Sets the global `$config` variable with the imported configuration.
+Sets the global `$config` variable with the imported configuration. For single-site deployments, always use `-Site a`.
 
 ---
 
@@ -359,58 +404,6 @@ Reset-HoloDeckState
 ### Notes
 
 This operation cannot be undone. All state tracking information will be lost.
-
----
-
-## Get-HoloDeckDNSConfig
-
-> **Note:** This command is valid only for Holodeck versions up to and including 9.0.2.
-
-Retrieves DNS records from the Holodeck DNS configuration.
-
-```powershell
-Get-HoloDeckDNSConfig [-IP <String>] [-FQDN <String>]
-```
-
----
-
-### Description
-
-Queries the CoreDNS ConfigMap for DNS records. Can filter by IP address, FQDN, or retrieve all records.
-
----
-
-### Parameters
-
-| Name | Description | Required | Default |
-|------|-------------|----------|---------|
-| `-IP` | Optional IP address to filter DNS records | ❌ | |
-| `-FQDN` | Optional FQDN to filter DNS records | ❌ | |
-
----
-
-### Examples
-
- Example 1
-
-Retrieves all DNS records
-```powershell
-Get-HoloDeckDNSConfig
-```
-
- Example 2
-
-Retrieves DNS records for the specified IP address
-```powershell
-Get-HoloDeckDNSConfig -IP "192.168.1.10"
-```
-
- Example 3
-
-Retrieves DNS records for the specified FQDN
-```powershell
-Get-HoloDeckDNSConfig -FQDN "server.example.com"
-```
 
 ---
 
