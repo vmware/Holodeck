@@ -2,8 +2,8 @@
  * version-badge.js
  *
  * Moves the MkDocs Material / mike version picker (.md-version) from the
- * header into the right side of the sticky navigation tabs bar, so it stays
- * permanently visible while scrolling.
+ * header into the RIGHT end of the sticky navigation tabs bar, placing it
+ * directly below the GitHub source button — permanently visible on scroll.
  *
  * bundle.js creates .md-version asynchronously (via RxJS), so we poll
  * every 100 ms for up to 8 seconds rather than relying on DOMContentLoaded.
@@ -19,9 +19,9 @@
     if (document.getElementById(WRAPPER_ID)) return true;
 
     /*
-     * bundle.js creates the picker with class "md-version".
-     * data-md-component="version" is NOT in the static HTML, so we use
-     * the class selector which is more reliable.
+     * bundle.js creates the picker dynamically with class "md-version".
+     * data-md-component="version" is absent from the static HTML, so we
+     * target the class directly.
      */
     var picker = document.querySelector('.md-version');
     if (!picker) return false;
@@ -29,7 +29,7 @@
     var tabsList = document.querySelector('.md-tabs__list');
     if (!tabsList) return false;
 
-    /* Wrap in a <li> so it sits correctly in the flex tabs list */
+    /* Wrap in a <li> so it sits naturally in the flex tab list */
     var li = document.createElement('li');
     li.id = WRAPPER_ID;
 
