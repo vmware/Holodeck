@@ -61,16 +61,14 @@ Each Holodeck environment contains:
     - Edge Cluster deployment in management and/or workload domain
     - Virtual Network Appliance (VNA) cluster support for distributed networking
 - **Comprehensive Day 2 Operations**:
-    - VCF Automation deployment via VCF Operations Manager
+    - VCF Automation deployment
     - VCF Automation All Apps Org deployment
     - Supervisor deployment with networking mode selection
     - Deploy additional 3-node vSphere clusters in management or workload domains
-    - Deploy new nested ESXi hosts with custom specifications
+    - Deploy new nested ESX hosts with custom specifications
 - **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
 - **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
 - **Enhanced security**: HTTPS everywhere, automated certificate management
-
-Note: Holodeck 9 is not a VMware supported product, it is similar to a Fling.
 
 Holodeck 9.1 supports nested VCF deployment for versions 5.2, 9.0, and 9.1. This can be deployed either on a single stand-alone ESX host or a vSphere cluster based on resource availability. Please check the [Pre-requisites](#pre-requisites) section
 
@@ -97,6 +95,7 @@ HoloRouter is an appliance that serves as the infrastructure backbone for Holode
 Scope of Services:
 
 **Core Infrastructure Services:**
+
 - **DNS**: Local to Site-a and Site-b of nested VCF environment, acts as forwarder
 - **DHCP**: Local to Site-a and Site-b of nested VCF environment  
 - **NTP**: Local to Site-a and Site-b of nested VCF environment
@@ -126,6 +125,7 @@ Scope of Services:
 - **HTTPS Endpoints**: All HoloRouter services use secure HTTPS endpoints via a built-in reverse proxy with automated SSL certificate management
 
 **Management & Automation:**
+
 - **Job scheduling**: Allows users to schedule commands/scripts to be run recursively
 - **Webtop**: Allows users to access HoloRouter and nested VCF environment via a simple GUI. Accessible on port 30000 of the HoloRouter management IP. Credentials: `admin / VMware123!VMware123!`
 - **Enable GitOps**: Installs and configures **GitLab** on HoloRouter as part of OVA deployment. A GitLab repository is pre-configured with a pipeline to run Holodeck deployments, and HoloRouter is registered as a GitLab runner with the appropriate tags and parameters — so users can trigger a Holodeck deployment directly from the GitLab UI without needing to run PowerShell commands manually
