@@ -4,142 +4,6 @@ This page documents the key features, enhancements, and capabilities available i
 
 ---
 
-## Holodeck 9.0.2 – Maintenance Release
-
-**Release Date:** February 2026  
-**Supported VCF Versions:** VCF 9.0.2.0, VCF 9.0.1.0, VCF 9.0.0.0, VCF 5.2.2, VCF 5.2.1, VCF 5.2  
-**Minimum ESX Version:** 8.0 U3
-<br>
-**Release Blog:** [Announcing the General Availability of Holodeck 9.0.2.0](https://blogs.vmware.com/cloud-foundation/2026/03/05/announcing-the-general-availability-of-holodeck-9-0-2/)
-
-### What's New
-
-#### Enhancements
-
-##### VCF Deployment-related Enhancements
-
-- Added support for VCF 9.0.2.0 deployment
-- VCF Installer version 9.0.2.0 can be used to deploy VCF 9.0.0.0, 9.0.1.0 and 9.0.2.0 environments.
-- Introduced support for **Supervisor deployment in the management domain** via the new `-DeploySupervisorMgmtDomain` parameter. The previous `-DeploySupervisor` parameter has been renamed to `-DeploySupervisorWkldDomain`.
-- Added support for **VCF Automation All Apps Org creation** as a Day 2 operation.
-- New VCF Automation host protection logic added to protect the VCF Automation VM by ensuring no other VM runs on the same nested ESX host in the management domain.
-- Added route redistribution for Transit Gateway in Management NSX Edge Cluster for VCF 9.0 by default.
-- Introduced dedicated **error logging** to a separate error file under `/holodeck-runtime/logs/`, capturing detailed error diagnostics including stack traces, exception types, and full error records for easier troubleshooting.
-- Automated HTTPS certificate trust establishment between the VCF Installer and the offline depot, including automated self-signed certificate import, for automated secure depot workflows.
-- Added a precheck to ensure the IP provided for the offline depot is present in the depot certificate SAN to avoid trust establishment failures.
-- Refactored depot setup code and added support for offline depot setup in **provision-only mode**.
-- Automated bundle download retry on download failure in VCF Installer.
-- Automated NSX Edge Cluster certificate expiry bug workaround from KB to prevent deployment failures for VCF 9.0.0.0 and 9.0.1.0.
-- Added MasterCIDR validation to ensure only /20 CIDR blocks are used.
-- Added guardrail for proxy protocol input — only uppercase (HTTP/HTTPS) is accepted to prevent VCF Installer API failures.
-- Listed clusters and datastores alphabetically in pre-checks for easier selection.
-- Added error handling for vCenter selected as target with no clusters created.
-- Updated additional cluster deployments to use VDS MTU set to 8000.
-- Added `allowLegacyCPU=true` persistently to both `boot.cfg` and `altbootbank/boot.cfg` for nested ESX hosts for supporting Legacy CPU use case.
-- Removed default color-based instance naming; **InstanceID is now a mandatory parameter in `New-HoloDeckInstance`.**
-
-##### Holorouter-related Enhancements
-
-- Bookmarks and Passwords for nested VCF components added to Mozilla Firefox in webtop
-- Split DNSMASQ into 3 DNS pods and 1 DHCP pod with CNI networking for improved DNS reliability and scalability on HoloRouter.
-- Added AAAA query filtering for single site deployments to prevent DNS resolution timeouts.
-- Enhanced service definitions for Webtop and DNSMASQ on HoloRouter.
-- Fixed MTU on eth0 to 8000 on HoloRouter to resolve networking issues.
-- Updated IP and hostname mappings
-
-##### Cmdlet Enhancements
-
-- **Multi-Version Support**: Holodeck now supports VCF 5.2, 5.2.1, 5.2.2, 9.0.0.0, 9.0.1.0 and 9.0.2.0. Please note that you need to upload ESX and VCF Installer (for 9.x) and Cloud Builder Appliance (for 5.2.x) versions in their respective folders at '/holodeck-runtime/bin' in HoloRouter.
-- `New-HoloDeckInstance`: The `-Interactive` parameter has been removed. Day 2 operations are now handled by the new `Update-HoloDeckInstance` cmdlet. InstanceID is now a mandatory parameter. The `-DeploySupervisor` parameter has been renamed to `-DeploySupervisorWkldDomain` and a new `-DeploySupervisorMgmtDomain` parameter has been added for deploying Supervisor in the management domain.
-- `Get-HoloDeckInstance`: Get details of the nested components deployed via New-HoloDeckInstance command
-- `Update-HoloDeckInstance`: New cmdlet for performing Day 2 operations on Holodeck, replacing `New-HoloDeckInstance -Interactive`. Uses `-Site`, `-VIDomain`, and operation-specific flags (`-AdditionalCluster` or `-AddVcfAutomationAllAppsOrg`). This release supports deploying an All Apps Org in VCF Automation and deploying additional clusters in the VCF instance.
-- `Start-HoloDeckInstance` / `Stop-HoloDeckInstance`: Updated to handle complex deployment types. `Stop-HoloDeckInstance` now implements proper power-off operations that gracefully shut down all nested VMs and VCF components in the correct order.
-- `Get-HolodeckServiceIPPools`: New cmdlet that displays IP pool allocations used by all Holodeck services for easier network troubleshooting.
-
-#### Bug Fixes
-
-- Applied NSX Image validation workaround for deploying VCF 9.0.0.0 and VCF 9.0.1.0 using the 9.0.1.0 VCF Installer.
-- Fixed offline depot authentication bug to properly support authenticated depot access.
-- Fixed proxy protocol input in lowercase causing VCF Installer API failures — added guardrail to accept uppercase input only.
-- Fixed typecasting bug in pre-check input for cluster and datastore selection when the list contains more than 10 values.
-- Fixed developer mode bug for cluster and datacenter selection.
-- Fixed state management issues for Day 2 operations.
-- Fixed empty depot credentials being passed for HTTP depot configurations.
-- Fixed `Set-HoloRouter -DualSite` issue caused by removal of hostname proxy from Site B lab standards.
-- Fixed DNSMASQ service definition label causing service startup issues.
-- Fixed additional cluster deployment workflow and site version selection.
-- Fixed occasional issue where nested host NIC would get the wrong type assigned.
-- Updated VCF Installer DNS and NTP entries to avoid warnings during deployment pre-checks.
-
-### Known Issues
-
-!!! note "Common Known Issues"
-    - Hosts with memory tiering enabled may cause instability in nested workloads
-    - vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior
-
-??? question "VVF 9.0.0.0 deployment fails when using VCF Installer 9.0.2.0 with 9.0.2 manifest files"
-
-    Deploying VVF 9.0.0.0 using the VCF Installer 9.0.2.0 fails at the **"Generate Workload Domain Runtime Data Model"** step in VCF Installer UI with the error:
-
-    ```
-    Failed to generate add workload domain internal model specification
-    Remediation: Please verify the commonsvcs and domainmanager services are running and retry
-    ```
-
-    This occurs due to a bug in VCF Installer 9.0.2.0 when using 9.0.2.0 manifest. VCF Installer expects vCenter 9.0.2.0 binary even though VVF 9.0.0.0 is being deployed. The installer reports `Got 0 install image(s) for product VCENTER` and fails to generate the workload domain model.
-
-    **Workaround**
-
-    Download the vCenter 9.0.2.0 bundle as well and resume the deployment.
-
-??? question "VCF Automation All Apps Org IP Space uses hard-coded CIDR instead of custom CIDR"
-
-    When deploying the All Apps Org in VCF Automation via the `Update-HoloDeckInstance` command with a **custom MasterCIDR** (e.g., `10.2.0.0/20`), the IP Spaces created in VCF Automation still use a `/28` subnet from the default `10.1.0.0/20` block instead of the custom CIDR. This is because the IP Space CIDR is hard-coded in the config file. Deployments using the default MasterCIDR (`10.1.0.0/20`) are not affected.
-
-    **Workaround**
-
-    1. With PowerShell open and the config loaded in the session, edit the config file:
-
-        ```powershell
-        vi $config.ConfigPath
-        ```
-
-    2. Locate the following key and update the CIDR value to match your custom subnet (e.g., `10.2.0.32/28`):
-
-        ```
-        "holodeck-sddc"."Site-A"."vcf-installer-management-domain"."vcfAutomationSpec"."allAppsOrgSpec"."networkingSpec"."ipSpaceCidr"
-        ```
-
-    3. Save and close the file, then reload the config:
-
-        ```powershell
-        Import-HoloDeckConfig -ConfigID <id>
-        ```
-
-    4. Run `Update-HoloDeckInstance` — it will use the corrected CIDR range for the IP Space.
-
-??? question "DNS resolution fails during VCF deployment — hosts unreachable by hostname"
-
-    During VCF deployment, the VCF Installer may fail to resolve nested ESX host FQDNs (e.g., `esx-01a.site-a.vcf.lab`), causing deployment failures. Hosts are reachable by IP address but `nslookup` returns **"connection refused"**.
-
-    One of the reasons this could occur is when an **FQDN** (e.g., `cloudflare-dns.com`) is provided as the upstream DNS server instead of an **IP address** during HoloRouter setup.
-
-    **Workaround**
-
-    Provide an **IP address** (not an FQDN) as the upstream DNS server when setting up the HoloRouter.
-
-    Track this issue here: [Community Discussion](https://community.broadcom.com/vmware-cloud-foundation/discussion/fail-to-deploy-vcf-9020)
-
-??? question "VCF 5.2.x deployments fail at `Sync-HolodeckComponents` with 'No route to host' error"
-
-    All VCF 5.2.x deployments complete the VCF deployment successfully, but the Holodeck script fails at the final **`Sync-HolodeckComponents`** step with an error such as `[ERROR] No route to host (opslcm-a.site-a.vcf.lab:443)`. This happens because `Sync-HolodeckComponents` attempts to query **VCF Operations**, which is not deployed in VCF 5.2.x environments.
-
-    **Workaround**
-
-    This error can be safely ignored — the VCF 5.2.x environment is fully deployed and functional.
-
----
-
 ## Holodeck 9.0.1 – Maintenance Release
 
 **Release Date:** October 2025  
@@ -153,27 +17,50 @@ This page documents the key features, enhancements, and capabilities available i
 #### Enhancements
 
 - Added support for VCF 9.0.1.0, including bypassing vSAN ESA check in VCF Installer and SDDC Manager.
-- Added the capability to use custom VLAN ranges for Holodeck.
-- Added the capability to use custom DNS domain for Holodeck.
+- Updated CPU requirements for VCF Automation with vSAN ESA (min. 32 vCPUs) and vSAN OSA (min. 24 vCPUs).
+- Added the capability to use custom VLAN ranges (sequential per site) for Holodeck and the users can specify the start of the custom VLAN range while deploying Holodeck
+- Added the capability to use custom DNS domain for Holodeck by specifying it while deploying Holodeck
 - Enabled vCLS Retreat Mode for 9.0 clusters by default.
-- Reduced the boot time for HoloRouter VM; bumped resources to 4 vCPUs and 8 GB memory.
+- Custom vSAN HCL now in-built into Cloud Builder and VCF Installer for Dark Site deployments.
+- Added user input for offline depot protocol (HTTP/HTTPS) and port flexibility.
+- Implemented prechecks for proper offline depot configuration and file availability.
+- Ability to select unique port group during prechecks for each site during dual site deployment.
+- Reduced the boot time for HoloRouter VM
+- Bumped up the resources on HoloRouter - it now uses 4 vCPUs and 8GB of memory
 - Enhanced support for special characters in target host credentials.
 - Improved cluster selection logic for vCenter targets with multiple folder levels.
+- Added support for partial host commissioning during workload domain creation retries.
+- Implemented additional guardrails for target disconnections to prevent errors.
+- Improved idempotency for NSX Edge Cluster deployment retries.
+- Introduced case sensitivity for input parameters to avoid issues.
+- Improved error handling and cleaner code exits.
+- Reduced CIDR size for VPC from /24 to /28 to free up IPs.
 - Completed coverage for developer mode.
+- Added error handling for unsupported targets (standalone ESX managed by vC).
+- Provided default username and password values for optional offline depot authentication.
+- Removed misleading "must support https" message from offline depot input.
+- Improved idempotency for New-HolodeckNetworkConfig cmdlet
+- Added access to HoloRouter's /holodeck-runtime/specs/ folder in webtop
+- Moved iptables from startup_script to ip4save to avoid duplicate entries
+- Configured HoloRouter to drop all inbound traffic on eth0 except on the ports with services enabled
+- Improved error handling for Network Manager
 
 ##### Cmdlet Enhancements
 
-- **Multi-Version Support**: Holodeck now supports VCF 5.2, 5.2.1, 5.2.2, 9.0.0.0 and 9.0.1.0.
-- `Remove-HoloDeckInstance`: New optional parameter to support automated deletion. User has 15 seconds to abort.
-- `New-HoloDeckConfig`: Now validates the integrity of the `config.json` template.
-- `Set-HoloDeckDNSConfig`: Removed the -update parameter. Behavior is now inferred from parameters provided.
+- **Multi-Version Support**: Holodeck now supports VCF 5.2, 5.2.1, 5.2.2, 9.0.0.0 and 9.0.1.0. Please note that you need to upload ESX and VCF Installer (for 9.x) and Cloud Builder Appliance (for 5.2.x) versions in their respective folders at '/holodeck-runtime/bin' in holorouter.
+- `Remove-HoloDeckInstance`: This cmdlet has a new optional parameter to support the automated deletion of the holodeck instance. If not specified, then the instance ID will be captured from the global config file. Also, the prompt for user confirmation is removed; instead, the user will have 15 seconds to abort the operation by pressing any key on the console.
+- `New-HoloDeckConfig`: This cmdlet now validates the integrity of the `config.json` template. If the template file's integrity does not match, the user will see a warning before a new config file is created for the Holodeck instance.
+- `Set-HoloDeckDNSConfig`: Removed the -update parameter. If the user specifies -DNSRecord, it will create a new record. If the user specifies -SearchDNSRecord and -ReplaceDNSRecord, it will update the DNS record.
+- **DNS Cmdlets**: Removed the -ConfigPath parameter from all DNS cmdlets. It will now use the global $config.
 
 #### Bug Fixes
 
-- NSX Edge Cluster for Site B was trying to use BGP configuration from Site A. Fixed.
-- VCF Installer for Site B was trying to get deployed in an incorrect VLAN. Fixed.
-- Online depot connection check was failing due to incorrect API response expected. Fixed.
+- NSX Edge Cluster for Site B was trying to use BGP configuration from Site A. Fixed it to use Site B BGP configuration.
+- VCF Installer for Site B was trying to get deployed in an incorrect VLAN. Fixed this.
+- Online depot connection check was failing due to incorrect API response expected in the code. Fixed.
 - Fixed DNSMASQ configuration to not respond to AAAA queries that caused nslookup commands to time out.
+- Fixed iptables to not lose SSH and Webtop access on HoloRouter reboot.
+- Fixed the issue in configuring DNSMASQ as primary DNS server in HoloRouter when HoloRouter uses DHCP.
 
 ### Known Issues
 
@@ -183,11 +70,26 @@ This page documents the key features, enhancements, and capabilities available i
 
 ??? question "VCF 9.0.x Deployment fails on step 'Validate NSX Install Image is Available'"
 
+    When deploying VCF 9.0.0.0 or 9.0.1.0, the deployment fails on the step **"Validate NSX Install Image is Available"**.
+
+    **Workaround**
+
+    1. Download the **VCF Installer** files for **9.0.2.0**.
+    2. Copy the VCF Installer 9.0.2.0 files to the appropriate version folder on the HoloRouter.
+    3. Update `/holodeck-runtime/templates/bom.json` to reflect the 9.0.2 VCF Installer file names.
+    4. Run the VCF deployment again.
+
     **Fixed in:** Holodeck 9.0.2
 
     Track this issue here: [GitHub Issue #89](https://github.com/vmware/Holodeck/issues/89)
 
 ??? question "NSX Edge deployment fails due to expired OVF certificate"
+
+    NSX Edge Cluster deployment fails with **"OVF certificate validation failed. Error: [VALIDATION_ERROR: CERTIFICATE_EXPIRED]"**.
+
+    **Workaround**
+
+    Follow the steps in [Broadcom KB 424034](https://knowledge.broadcom.com/external/article/424034).
 
     **Fixed in:** Holodeck 9.0.2
 
@@ -214,12 +116,6 @@ This page documents the key features, enhancements, and capabilities available i
 - Enhanced PowerShell cmdlets with modular support:
   - `New-HoloDeckConfig`, `New-HoloDeckInstance`, `Start-HoloDeckInstance`, `Stop-HoloDeckInstance`
 - Option to deploy **greenfield** VCF environments with **provision-only mode**
-
-### Known Issues
-
-!!! note "Common Known Issues"
-    - Hosts with memory tiering enabled may cause instability in nested workloads
-    - vSAN ESA may consume more storage than expected due to nested deduplication/compression behavior
 
 ---
 
