@@ -180,12 +180,27 @@
 
 /* ============================================================
    Mike's native version picker — repositioned to the tabs bar
+   (right-aligned, directly below the GitHub button, always sticky)
    ============================================================ */
+
+/*
+ * The tabs bar and its inner containers normally clip their overflow,
+ * which hides the absolutely-positioned dropdown list.  Allow overflow
+ * on the axis we need while keeping horizontal tab-scroll intact.
+ */
+.md-tabs {
+    overflow: visible !important;
+}
+
+.md-tabs__inner {
+    overflow: visible !important;
+}
 
 /* Flex on the tabs list so margin-left: auto pushes the picker right */
 .md-tabs__list {
     display: flex !important;
     align-items: center;
+    overflow: visible !important;
 }
 
 /* Wrapper <li> — pushed to the far right */
@@ -195,7 +210,7 @@
     align-items: center;
     list-style: none;
     padding: 0 0.5rem;
-    position: relative; /* dropdown positions relative to this */
+    position: relative;   /* dropdown anchors to this */
     flex-shrink: 0;
 }
 
@@ -217,13 +232,19 @@
     border-color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* Dropdown — anchor to bottom-right of the wrapper */
+/*
+ * Dropdown — position relative to .md-version (which already has
+ * position:relative in Material's own CSS).  Override top/right to
+ * drop below the button and align to the right edge.
+ */
 #md-version-tab-wrapper .md-version__list {
-    top: calc(100% + 0.4rem) !important;
+    position: absolute !important;
+    top: calc(100% + 0.3rem) !important;
     right: 0 !important;
     left: auto !important;
     bottom: auto !important;
     z-index: 9999;
+    min-width: 6rem;
 }
 
 /* Dark mode */
