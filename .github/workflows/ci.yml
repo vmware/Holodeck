@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - 'release/**'
 permissions:
   contents: write
 jobs:
@@ -10,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
@@ -18,4 +21,13 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+      - run: git config user.name ci-bot
+      - run: git config user.email ci-bot@users.noreply.github.com
+      - name: Deploy docs with mike
+        run: |
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            mike deploy --push --update-aliases 9.1 latest
+          else
+            VERSION=$(echo "$GITHUB_REF_NAME" | sed 's|release/||')
+            mike deploy --push "$VERSION"
+          fi

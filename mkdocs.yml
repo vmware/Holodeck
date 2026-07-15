@@ -52,6 +52,10 @@ nav:
   - Support: support_community.md
   - FAQ: faq.md
 
+extra:
+  version:
+    provider: mike
+    default: latest
 
 plugins:
   - glightbox
