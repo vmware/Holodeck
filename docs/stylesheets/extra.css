@@ -204,14 +204,26 @@
     contain: none !important;
 }
 
-/* Wrapper <li> pushed to the far right */
+/* Wrapper <li> — aligned by JS to sit directly below the GitHub button */
 #md-version-tab-wrapper {
     margin-left: auto !important;
     display: flex;
     align-items: center;
     list-style: none;
-    padding: 0 0.5rem;
+    padding: 0;
     flex-shrink: 0;
+}
+
+/* "Holodeck version:" label before the button */
+#md-version-tab-wrapper::before {
+    content: "Holodeck version:";
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-right: 0.45rem;
 }
 
 /* Style the version button to blend with the tabs bar */
