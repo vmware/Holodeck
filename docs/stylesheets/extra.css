@@ -204,26 +204,23 @@
     contain: none !important;
 }
 
-/* Wrapper <li> — aligned by JS to sit directly below the GitHub button */
+/* Wrapper <li> — right-aligned via margin-left:auto; right padding matches header grid */
 #md-version-tab-wrapper {
     margin-left: auto !important;
     display: flex;
     align-items: center;
     list-style: none;
-    padding: 0;
+    padding: 0 0.6rem 0 0;
     flex-shrink: 0;
 }
 
-/* "Holodeck version:" label before the button */
-#md-version-tab-wrapper::before {
-    content: "Holodeck version:";
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    margin-right: 0.45rem;
+/* "Holodeck Version: " prefix rendered inside the button */
+#md-version-tab-wrapper .md-version__current::before {
+    content: "Holodeck Version: ";
+    font-weight: 400;
+    opacity: 0.82;
+    letter-spacing: normal;
+    font-size: 0.7rem;
 }
 
 /* Style the version button to blend with the tabs bar */
@@ -232,11 +229,12 @@
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.03em;
-    padding: 0.22rem 0.65rem !important;
+    padding: 0.22rem 0.75rem !important;
     border-radius: 2rem;
     background: rgba(255, 255, 255, 0.16) !important;
     border: 1.5px solid rgba(255, 255, 255, 0.42) !important;
     transition: background 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
 }
 
 #md-version-tab-wrapper .md-version__current:hover {

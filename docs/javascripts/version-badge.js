@@ -40,16 +40,6 @@
     list.addEventListener('mouseenter', pin); /* re-pin if user lingers */
   }
 
-  /* ── Align wrapper directly below the GitHub source button ──────────── */
-
-  function alignWithGitHub(wrapper) {
-    var source = document.querySelector('.md-header__source');
-    if (!source) return;
-    var r = source.getBoundingClientRect();
-    /* Right-align wrapper's right edge with GitHub button's right edge */
-    wrapper.style.marginRight = (window.innerWidth - r.right) + 'px';
-  }
-
   /* ── Move picker into the tabs bar ──────────────────────────────────── */
 
   function tryMove() {
@@ -66,14 +56,8 @@
     li.appendChild(picker);
     tabsList.appendChild(li);
 
-    /* Wait one tick so elements are rendered before measuring */
-    setTimeout(function () {
-      alignWithGitHub(li);
-      setupDropdown(li);
-    }, 0);
-
-    /* Keep aligned on resize */
-    window.addEventListener('resize', function () { alignWithGitHub(li); });
+    /* Wait one tick so the element is rendered before we query it */
+    setTimeout(function () { setupDropdown(li); }, 0);
 
     return true;
   }
