@@ -5,8 +5,9 @@
  * header into the RIGHT end of the sticky navigation tabs bar, placing it
  * directly below the GitHub source button — permanently visible on scroll.
  *
- * bundle.js creates .md-version asynchronously (via RxJS), so we poll
- * every 100 ms for up to 8 seconds rather than relying on DOMContentLoaded.
+ * The dropdown is repositioned with position:fixed + getBoundingClientRect()
+ * so it always appears directly below the button regardless of scroll depth
+ * or CSS containing-block quirks caused by the sticky tabs bar.
  */
 
 (function () {
@@ -14,28 +15,49 @@
 
   var WRAPPER_ID = 'md-version-tab-wrapper';
 
+  /* ── Dropdown repositioning ─────────────────────────────────────────── */
+
+  function setupDropdown(wrapper) {
+    var btn  = wrapper.querySelector('.md-version__current');
+    var list = wrapper.querySelector('.md-version__list');
+    if (!btn || !list) return;
+
+    function pin() {
+      var r = btn.getBoundingClientRect();
+      list.style.cssText = [
+        'position: fixed !important',
+        'top: '   + (r.bottom + 4)                  + 'px !important',
+        'right: ' + (window.innerWidth - r.right)   + 'px !important',
+        'left: auto !important',
+        'bottom: auto !important',
+        'z-index: 9999 !important'
+      ].join(';');
+    }
+
+    /* Pin when the user opens the dropdown (hover + focus for keyboard nav) */
+    btn.addEventListener('mouseenter', pin);
+    btn.addEventListener('focus',      pin);
+    list.addEventListener('mouseenter', pin); /* re-pin if user lingers */
+  }
+
+  /* ── Move picker into the tabs bar ──────────────────────────────────── */
+
   function tryMove() {
-    /* Already done */
     if (document.getElementById(WRAPPER_ID)) return true;
 
-    /*
-     * bundle.js creates the picker dynamically with class "md-version".
-     * data-md-component="version" is absent from the static HTML, so we
-     * target the class directly.
-     */
     var picker = document.querySelector('.md-version');
     if (!picker) return false;
 
     var tabsList = document.querySelector('.md-tabs__list');
     if (!tabsList) return false;
 
-    /* Wrap in a <li> so it sits naturally in the flex tab list */
     var li = document.createElement('li');
     li.id = WRAPPER_ID;
-
-    /* Physical move — all mike event listeners travel with the node */
     li.appendChild(picker);
     tabsList.appendChild(li);
+
+    /* Wait one tick so the element is rendered before we query it */
+    setTimeout(function () { setupDropdown(li); }, 0);
 
     return true;
   }
