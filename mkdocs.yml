@@ -63,6 +63,9 @@ plugins:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/version-badge.js
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true

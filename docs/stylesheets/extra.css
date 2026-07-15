@@ -177,3 +177,62 @@
 .md-sidebar__video-thumbnail a:hover .video-thumbnail-img {
     opacity: 0.85;
 }
+
+/* ============================================================
+   Sticky version badge in the navigation tabs bar
+   ============================================================ */
+
+/* Ensure the tabs list is a flex container so margin-left: auto works */
+.md-tabs__list {
+    display: flex !important;
+    align-items: center;
+}
+
+/* Push badge to the far right end of the tabs bar */
+#md-version-sticky-badge {
+    margin-left: auto !important;
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem;
+    flex-shrink: 0;
+    list-style: none;
+}
+
+/* Badge pill */
+.md-version-sticky-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.22rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    /* Contrasting pill on the blue tabs bar */
+    background-color: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.95);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    outline: none;
+}
+
+.md-version-sticky-badge:hover,
+.md-version-sticky-badge:focus-visible {
+    background-color: rgba(255, 255, 255, 0.32);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Dark-mode adjustment */
+[data-md-color-scheme="slate"] .md-version-sticky-badge {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+[data-md-color-scheme="slate"] .md-version-sticky-badge:hover,
+[data-md-color-scheme="slate"] .md-version-sticky-badge:focus-visible {
+    background-color: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.55);
+}
