@@ -1,96 +1,182 @@
 /*
  * version-badge.js
  *
- * Injects a persistent version chip into the sticky navigation tabs bar so the
- * current Holodeck docs version stays visible while scrolling.
+ * Renders an interactive version picker inside the sticky navigation tabs bar.
  *
- * Strategy:
- *  1. mike populates ".md-version__current" asynchronously after page load.
- *  2. We use a MutationObserver to detect that moment and read the version text.
- *  3. A styled <li> badge is appended to the tabs list; clicking it scrolls
- *     back to the top where the full mike version picker is accessible.
+ * How it works:
+ *  1. Waits (via MutationObserver) for mike to populate its header version
+ *     picker (.md-version__current + .md-version__list).
+ *  2. Reads the list of versions and their root URLs from that picker.
+ *  3. Injects a dropdown button into the tabs bar, right-aligned.
+ *  4. On version selection, navigates to the SAME page in the new version
+ *     (e.g. /9.1/release_notes/ → /9.0.2/release_notes/).
  */
 
 (function () {
   'use strict';
 
-  var BADGE_ID = 'md-version-sticky-badge';
+  var PICKER_ID = 'md-version-tab-picker';
 
-  /* ── render ──────────────────────────────────────────────────────────── */
-  function injectBadge(version) {
-    var tabsList = document.querySelector('.md-tabs__list');
-    if (!tabsList || !version) return;
+  /* ─── URL helpers ───────────────────────────────────────────────────── */
 
-    /* update text if badge already exists (instant-navigation re-runs) */
-    var existing = document.getElementById(BADGE_ID);
-    if (existing) {
-      var span = existing.querySelector('.md-version-sticky-badge');
-      if (span) span.textContent = 'v' + version;
-      return;
+  /**
+   * Build the target URL when switching to another version.
+   * Preserves the current page path relative to the version root.
+   *
+   * @param {HTMLAnchorElement} targetLink  – mike's <a> for the new version
+   * @param {string}            currentVersion – text of the active version
+   * @returns {string} absolute URL
+   */
+  function makeVersionUrl(targetLink, currentVersion) {
+    var allLinks = document.querySelectorAll('.md-version__list a');
+    var currentRoot = null;
+
+    for (var i = 0; i < allLinks.length; i++) {
+      if (allLinks[i].textContent.trim() === currentVersion) {
+        currentRoot = allLinks[i].href; // e.g. http://host/9.1/
+        break;
+      }
     }
 
-    var li   = document.createElement('li');
-    li.id    = BADGE_ID;
+    if (!currentRoot) return targetLink.href;
 
-    var span = document.createElement('span');
-    span.className = 'md-version-sticky-badge';
-    span.textContent = 'v' + version;
-    span.setAttribute('title', 'Current version — click to access version picker');
-    span.setAttribute('role', 'button');
-    span.setAttribute('tabindex', '0');
+    /* Strip fragment + query from current page URL */
+    var pageUrl = window.location.href.split('?')[0].split('#')[0];
 
-    span.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    var relPath = '';
+    if (pageUrl.startsWith(currentRoot)) {
+      relPath = pageUrl.slice(currentRoot.length); // e.g. "release_notes/"
+    }
+
+    return targetLink.href + relPath;
+  }
+
+  /* ─── Picker builder ────────────────────────────────────────────────── */
+
+  function buildPicker() {
+    var currentEl = document.querySelector('.md-version__current');
+    if (!currentEl) return false;
+    var currentVersion = currentEl.textContent.trim();
+    if (!currentVersion) return false;
+
+    var mikeLinks = Array.from(
+      document.querySelectorAll('.md-version__list a')
+    );
+    if (!mikeLinks.length) return false;
+
+    var tabsList = document.querySelector('.md-tabs__list');
+    if (!tabsList) return false;
+
+    /* Remove stale picker */
+    var old = document.getElementById(PICKER_ID);
+    if (old) old.remove();
+
+    /* ── outer <li> ────────────────────────────────────────────────── */
+    var li = document.createElement('li');
+    li.id = PICKER_ID;
+
+    var wrap = document.createElement('div');
+    wrap.className = 'md-version-tab-picker';
+
+    /* ── toggle button ─────────────────────────────────────────────── */
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'md-version-tab-picker__btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML =
+      '<span class="md-version-tab-picker__label">v' + currentVersion + '</span>' +
+      '<svg class="md-version-tab-picker__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">' +
+        '<path d="M7 10l5 5 5-5z"/>' +
+      '</svg>';
+
+    /* ── dropdown list ─────────────────────────────────────────────── */
+    var ul = document.createElement('ul');
+    ul.className = 'md-version-tab-picker__dropdown';
+    ul.setAttribute('role', 'listbox');
+    ul.hidden = true;
+
+    mikeLinks.forEach(function (link) {
+      var ver      = link.textContent.trim();
+      var isActive = ver === currentVersion;
+      var destUrl  = makeVersionUrl(link, currentVersion);
+
+      var item = document.createElement('li');
+      item.setAttribute('role', 'option');
+      item.setAttribute('aria-selected', String(isActive));
+      item.className =
+        'md-version-tab-picker__item' +
+        (isActive ? ' md-version-tab-picker__item--active' : '');
+
+      var a = document.createElement('a');
+      a.href = destUrl;
+      a.className = 'md-version-tab-picker__link';
+      a.textContent = ver;
+
+      item.appendChild(a);
+      ul.appendChild(item);
     });
-    span.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    /* ── interactions ──────────────────────────────────────────────── */
+
+    /* Open / close */
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !ul.hidden;
+      ul.hidden = open;
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+
+    /* Close on outside click */
+    document.addEventListener('click', function () {
+      ul.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    /* Prevent dropdown clicks from bubbling to document */
+    ul.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    /* Keyboard: Escape closes */
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        ul.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
       }
     });
 
-    li.appendChild(span);
+    wrap.appendChild(btn);
+    wrap.appendChild(ul);
+    li.appendChild(wrap);
     tabsList.appendChild(li);
+
+    return true;
   }
 
-  /* ── version detection ───────────────────────────────────────────────── */
-  function tryInject() {
-    /* Primary source: mike's version picker (most accurate) */
-    var el = document.querySelector('.md-version__current');
-    if (el && el.textContent.trim()) {
-      injectBadge(el.textContent.trim());
-      return true;
-    }
-    return false;
-  }
+  /* ─── Init with MutationObserver ────────────────────────────────────── */
 
   function startObserver() {
-    if (tryInject()) return;
+    if (buildPicker()) return;
 
-    var timer    = null;
+    var timer = null;
     var observer = new MutationObserver(function (_, obs) {
-      if (tryInject()) {
+      if (buildPicker()) {
         obs.disconnect();
         clearTimeout(timer);
       }
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
-
-    /* Abort observation after 3 s to avoid memory leaks */
-    timer = setTimeout(function () { observer.disconnect(); }, 3000);
+    /* Safety net: give up after 4 s */
+    timer = setTimeout(function () { observer.disconnect(); }, 4000);
   }
 
-  /* ── init ────────────────────────────────────────────────────────────── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', startObserver);
   } else {
     startObserver();
   }
 
-  /*
-   * MkDocs Material with `navigation.instant` performs SPA-style navigation.
-   * Re-inject on each navigation so the badge survives page transitions.
-   */
+  /* Re-run on MkDocs Material instant-navigation page switches */
   document.addEventListener('DOMContentSwitch', startObserver);
 })();
