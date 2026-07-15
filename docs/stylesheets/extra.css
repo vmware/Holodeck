@@ -184,11 +184,9 @@
    ============================================================ */
 
 /*
- * Material sets both overflow:auto AND contain:content on .md-tabs and
- * .md-tabs__list.  CSS containment (contain:content = layout+paint+style)
- * is more aggressive than overflow:hidden — it hard-clips ALL descendants,
- * so the absolutely-positioned dropdown can never escape.  We must
- * override both overflow AND contain to let the dropdown render.
+ * Material sets overflow:auto + contain:content on .md-tabs / .md-tabs__list,
+ * which hard-clips descendants.  We need overflow:visible + contain:none so
+ * the dropdown (repositioned to position:fixed by JS) isn't clipped.
  */
 .md-tabs {
     overflow: visible !important;
@@ -198,26 +196,25 @@
     overflow: visible !important;
 }
 
-/* Flex on the tabs list so margin-left: auto pushes the picker right */
+/* Flex on the tabs list so margin-left:auto pushes the picker right */
 .md-tabs__list {
     display: flex !important;
     align-items: center;
     overflow: visible !important;
-    contain: none !important;   /* remove paint/layout containment */
+    contain: none !important;
 }
 
-/* Wrapper <li> — pushed to the far right */
+/* Wrapper <li> pushed to the far right */
 #md-version-tab-wrapper {
     margin-left: auto !important;
     display: flex;
     align-items: center;
     list-style: none;
     padding: 0 0.5rem;
-    position: relative;   /* dropdown anchors to this */
     flex-shrink: 0;
 }
 
-/* Style the current-version button to match the tabs bar */
+/* Style the version button to blend with the tabs bar */
 #md-version-tab-wrapper .md-version__current {
     color: rgba(255, 255, 255, 0.9) !important;
     font-size: 0.72rem;
@@ -236,17 +233,12 @@
 }
 
 /*
- * Dropdown — position relative to .md-version (which already has
- * position:relative in Material's own CSS).  Override top/right to
- * drop below the button and align to the right edge.
+ * Dropdown: position:fixed and exact coordinates are set by version-badge.js
+ * via getBoundingClientRect() — no CSS top/right override needed here.
+ * Only z-index and min-width are set to ensure it stacks above everything.
  */
 #md-version-tab-wrapper .md-version__list {
-    position: absolute !important;
-    top: calc(100% + 0.3rem) !important;
-    right: 0 !important;
-    left: auto !important;
-    bottom: auto !important;
-    z-index: 9999;
+    z-index: 9999 !important;
     min-width: 6rem;
 }
 
