@@ -43,21 +43,28 @@
   /* ── Move picker into the tabs bar ──────────────────────────────────── */
 
   function tryMove() {
-    if (document.getElementById(WRAPPER_ID)) return true;
+    var wrapper = document.getElementById(WRAPPER_ID);
+    var picker  = document.querySelector('.md-version');
 
-    var picker = document.querySelector('.md-version');
     if (!picker) return false;
+
+    /* Picker is already inside our wrapper — nothing to do */
+    if (wrapper && wrapper.contains(picker)) return true;
 
     var tabsList = document.querySelector('.md-tabs__list');
     if (!tabsList) return false;
 
-    var li = document.createElement('li');
-    li.id = WRAPPER_ID;
-    li.appendChild(picker);
-    tabsList.appendChild(li);
+    /* Reuse existing wrapper or create a new one */
+    if (!wrapper) {
+      wrapper = document.createElement('li');
+      wrapper.id = WRAPPER_ID;
+      tabsList.appendChild(wrapper);
+    }
+
+    wrapper.appendChild(picker);
 
     /* Wait one tick so the element is rendered before we query it */
-    setTimeout(function () { setupDropdown(li); }, 0);
+    setTimeout(function () { setupDropdown(wrapper); }, 0);
 
     return true;
   }
@@ -68,11 +75,14 @@
     if (tryMove() || ++attempts >= 80) clearInterval(poll);
   }, 100);
 
-  /* Re-run after MkDocs Material instant-navigation page switches */
+  /*
+   * Re-run after MkDocs Material instant-navigation page switches.
+   * Do NOT remove the wrapper — the picker element persists in the DOM
+   * across navigations. Just restart polling so that if Material Theme
+   * re-adds the picker to the header (e.g. on some pages), we catch it.
+   */
   document.addEventListener('DOMContentSwitch', function () {
     attempts = 0;
-    var old = document.getElementById(WRAPPER_ID);
-    if (old) old.remove();
     clearInterval(poll);
     poll = setInterval(function () {
       if (tryMove() || ++attempts >= 80) clearInterval(poll);
