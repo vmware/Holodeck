@@ -1,15 +1,16 @@
 /*
  * version-badge.js
  *
- * Builds a custom version picker in the RIGHT end of the sticky tabs bar.
- * Reads from /Holodeck/versions.json (fetched once, cached on window).
+ * Builds a custom version picker pinned to the RIGHT end of the sticky
+ * tabs bar.  The wrapper is appended directly to .md-tabs (not the inner
+ * list) and positioned with position:absolute so that contain:strict on
+ * .md-tabs__list cannot collapse it to zero size.
  */
 
 (function () {
   'use strict';
 
   var WRAPPER_ID = 'md-version-tab-wrapper';
-  var LOG = '[version-badge]';
 
   /* ── URL helpers ─────────────────────────────────────────────────────── */
 
@@ -50,16 +51,15 @@
     var resolved   = resolveVersion(urlSeg, versions) || {};
     var displayVer = resolved.version || urlSeg || '?';
 
-    var tabsList = document.querySelector('.md-tabs__list');
-    console.log(LOG, 'buildPicker: tabsList=', !!tabsList, 'url=', window.location.href);
-    if (!tabsList) return false;
+    /* Attach to .md-tabs, not .md-tabs__list — avoids contain:strict */
+    var mdTabs = document.querySelector('.md-tabs');
+    if (!mdTabs) return;
 
     var wrapper = document.getElementById(WRAPPER_ID);
-    if (!wrapper || !tabsList.contains(wrapper)) {
-      wrapper = document.createElement('li');
+    if (!wrapper || !mdTabs.contains(wrapper)) {
+      wrapper = document.createElement('div');
       wrapper.id = WRAPPER_ID;
-      tabsList.appendChild(wrapper);
-      console.log(LOG, 'created wrapper');
+      mdTabs.appendChild(wrapper);
     }
 
     var items = versions.map(function (v) {
@@ -79,41 +79,6 @@
       '</div>';
 
     setupDropdown(wrapper);
-
-    /* Diagnostic: log wrapper computed style and bounding rect */
-    setTimeout(function () {
-      var st   = window.getComputedStyle(wrapper);
-      var rect = wrapper.getBoundingClientRect();
-      var btn  = wrapper.querySelector('.md-version__current');
-      var btnRect = btn ? btn.getBoundingClientRect() : null;
-      console.log(LOG, 'wrapper computed display:', st.display,
-        'visibility:', st.visibility, 'opacity:', st.opacity,
-        'width:', st.width, 'height:', st.height,
-        'overflow:', st.overflow);
-      console.log(LOG, 'wrapper rect:', JSON.stringify({
-        top: Math.round(rect.top), left: Math.round(rect.left),
-        width: Math.round(rect.width), height: Math.round(rect.height)
-      }));
-      if (btnRect) {
-        console.log(LOG, 'button rect:', JSON.stringify({
-          top: Math.round(btnRect.top), left: Math.round(btnRect.left),
-          width: Math.round(btnRect.width), height: Math.round(btnRect.height)
-        }));
-      }
-      /* Verify tabsList width vs its parent */
-      if (tabsList) {
-        var tlSt = window.getComputedStyle(tabsList);
-        console.log(LOG, 'tabsList display:', tlSt.display,
-          'width:', tlSt.width, 'overflow:', tlSt.overflow,
-          'contain:', tlSt.contain, 'flexWrap:', tlSt.flexWrap);
-        var tlRect = tabsList.getBoundingClientRect();
-        console.log(LOG, 'tabsList rect:', JSON.stringify({
-          top: Math.round(tlRect.top), left: Math.round(tlRect.left),
-          width: Math.round(tlRect.width), height: Math.round(tlRect.height)
-        }));
-      }
-    }, 100);
-    return true;
   }
 
   /* ── Dropdown pin ────────────────────────────────────────────────────── */
@@ -144,27 +109,22 @@
 
   function init() {
     if (window.__versionBadgeData) {
-      console.log(LOG, 'init: data cached, building picker directly');
       buildPicker(window.__versionBadgeData);
       return;
     }
     var url = window.location.origin + getBasePath() + 'versions.json';
-    console.log(LOG, 'init: fetching', url);
     fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        console.log(LOG, 'versions loaded:', data.map(function(v){ return v.version; }));
         window.__versionBadgeData = data;
         buildPicker(data);
       })
       .catch(function (e) {
-        console.error(LOG, 'FAILED to load versions.json:', e);
+        console.warn('[version-badge] failed to load versions.json:', e);
       });
   }
 
   /* ── Bootstrap ───────────────────────────────────────────────────────── */
-
-  console.log(LOG, 'script loaded, readyState=', document.readyState, 'active=', !!window.__versionBadgeActive);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -176,38 +136,24 @@
 
   if (!window.__versionBadgeActive) {
     window.__versionBadgeActive = true;
-    console.log(LOG, 'registering hooks');
 
-    /* Material Theme 9.x document$ observable */
     if (window.document$ && typeof window.document$.subscribe === 'function') {
-      console.log(LOG, 'subscribing to document$');
-      window.document$.subscribe(function () {
-        console.log(LOG, 'document$ fired, url=', window.location.href);
-        init();
-      });
-    } else {
-      console.log(LOG, 'document$ not available');
+      window.document$.subscribe(function () { init(); });
     }
 
-    /* Fallback for older Material Theme */
-    document.addEventListener('DOMContentSwitch', function () {
-      console.log(LOG, 'DOMContentSwitch fired');
-      init();
-    });
+    document.addEventListener('DOMContentSwitch', function () { init(); });
 
-    /* Interval fallback: catches re-renders the events miss */
     var lastUrl = '';
     setInterval(function () {
       if (!window.__versionBadgeData) return;
 
       var currentUrl  = window.location.href;
-      var tabsList    = document.querySelector('.md-tabs__list');
+      var mdTabs      = document.querySelector('.md-tabs');
       var wrapper     = document.getElementById(WRAPPER_ID);
       var urlChanged  = currentUrl !== lastUrl;
-      var wrapperGone = !wrapper || !tabsList || !tabsList.contains(wrapper);
+      var wrapperGone = !wrapper || !mdTabs || !mdTabs.contains(wrapper);
 
       if (urlChanged || wrapperGone) {
-        console.log(LOG, 'interval rebuild: urlChanged=', urlChanged, 'wrapperGone=', wrapperGone);
         lastUrl = currentUrl;
         buildPicker(window.__versionBadgeData);
       }
