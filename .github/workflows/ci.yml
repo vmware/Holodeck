@@ -37,3 +37,10 @@ jobs:
             echo "Attempt $attempt failed (gh-pages push conflict). Retrying in 20s..."
             sleep 20
           done
+          if [ "$GITHUB_REF_NAME" = "main" ]; then
+            for attempt in 1 2 3 4 5; do
+              mike set-default --push latest && break
+              echo "set-default attempt $attempt failed. Retrying in 20s..."
+              sleep 20
+            done
+          fi
