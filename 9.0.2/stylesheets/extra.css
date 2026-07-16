@@ -183,40 +183,24 @@
    The native Material Theme / mike picker in the header is hidden.
    ============================================================ */
 
-/* Hide the native mike picker — our custom one in the tabs bar replaces it */
+/* Hide the native mike picker — our custom one replaces it */
 .md-header .md-version {
     display: none !important;
 }
 
 /*
- * Material sets overflow:auto + contain:content on .md-tabs / .md-tabs__list,
- * which hard-clips descendants.  We need overflow:visible + contain:none so
- * the dropdown (repositioned to position:fixed by JS) isn't clipped.
+ * Wrapper <div> is appended directly to .md-tabs (which has position:sticky),
+ * so position:absolute pins it to the right end of the tabs bar without any
+ * flex/overflow/contain interaction with .md-tabs__list.
  */
-.md-tabs {
-    overflow: visible !important;
-}
-
-.md-tabs__inner {
-    overflow: visible !important;
-}
-
-/* Flex on the tabs list so margin-left:auto pushes the picker right */
-.md-tabs__list {
-    display: flex !important;
-    align-items: center;
-    overflow: visible !important;
-    contain: none !important;
-}
-
-/* Wrapper <li> — right-aligned via margin-left:auto; right padding matches header grid */
 #md-version-tab-wrapper {
-    margin-left: auto !important;
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
     display: flex;
     align-items: center;
-    list-style: none;
-    padding: 0 0.6rem 0 0;
-    flex-shrink: 0;
 }
 
 /* "Holodeck Version: " prefix rendered inside the button */
