@@ -179,9 +179,14 @@
 }
 
 /* ============================================================
-   Mike's native version picker — repositioned to the tabs bar
-   (right-aligned, directly below the GitHub button, always sticky)
+   Version picker — custom build in tabs bar (version-badge.js)
+   The native Material Theme / mike picker in the header is hidden.
    ============================================================ */
+
+/* Hide the native mike picker — our custom one in the tabs bar replaces it */
+.md-header .md-version {
+    display: none !important;
+}
 
 /*
  * Material sets overflow:auto + contain:content on .md-tabs / .md-tabs__list,
