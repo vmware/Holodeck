@@ -42,24 +42,35 @@
     return null;
   }
 
-  /* ── Position wrapper over the right end of .md-tabs ────────────────── */
+  /* ── Position wrapper below the GitHub source icon ──────────────────── */
 
   function positionWrapper(wrapper) {
     var mdTabs = document.querySelector('.md-tabs');
     if (!mdTabs || !wrapper) return;
     var r = mdTabs.getBoundingClientRect();
+
+    /* Align right edge with the GitHub source link in the header so the
+       picker sits visually below that icon.  Fall back to the tabs bar's
+       own right edge if the source element is not found. */
+    var sourceEl = document.querySelector('.md-header__source');
+    var rightEdge = r.right;           /* default: flush with tabs bar */
+    if (sourceEl) {
+      var sr = sourceEl.getBoundingClientRect();
+      rightEdge = sr.right;
+    }
+
     wrapper.style.cssText = [
       'position: fixed',
-      'top: '            + r.top                      + 'px',
-      'right: '          + (window.innerWidth - r.right) + 'px',
-      'height: '         + r.height                   + 'px',
+      'top: '    + r.top                              + 'px',
+      'right: '  + (window.innerWidth - rightEdge)    + 'px',
+      'height: ' + r.height                           + 'px',
       'left: auto',
       'bottom: auto',
       'z-index: 9999',
       'display: flex',
       'align-items: center',
-      'padding-right: 0.8rem',
       'pointer-events: auto',
+      'box-sizing: border-box',
     ].join(';');
   }
 
