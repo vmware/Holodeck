@@ -79,6 +79,40 @@
       '</div>';
 
     setupDropdown(wrapper);
+
+    /* Diagnostic: log wrapper computed style and bounding rect */
+    setTimeout(function () {
+      var st   = window.getComputedStyle(wrapper);
+      var rect = wrapper.getBoundingClientRect();
+      var btn  = wrapper.querySelector('.md-version__current');
+      var btnRect = btn ? btn.getBoundingClientRect() : null;
+      console.log(LOG, 'wrapper computed display:', st.display,
+        'visibility:', st.visibility, 'opacity:', st.opacity,
+        'width:', st.width, 'height:', st.height,
+        'overflow:', st.overflow);
+      console.log(LOG, 'wrapper rect:', JSON.stringify({
+        top: Math.round(rect.top), left: Math.round(rect.left),
+        width: Math.round(rect.width), height: Math.round(rect.height)
+      }));
+      if (btnRect) {
+        console.log(LOG, 'button rect:', JSON.stringify({
+          top: Math.round(btnRect.top), left: Math.round(btnRect.left),
+          width: Math.round(btnRect.width), height: Math.round(btnRect.height)
+        }));
+      }
+      /* Verify tabsList width vs its parent */
+      if (tabsList) {
+        var tlSt = window.getComputedStyle(tabsList);
+        console.log(LOG, 'tabsList display:', tlSt.display,
+          'width:', tlSt.width, 'overflow:', tlSt.overflow,
+          'contain:', tlSt.contain, 'flexWrap:', tlSt.flexWrap);
+        var tlRect = tabsList.getBoundingClientRect();
+        console.log(LOG, 'tabsList rect:', JSON.stringify({
+          top: Math.round(tlRect.top), left: Math.round(tlRect.left),
+          width: Math.round(tlRect.width), height: Math.round(tlRect.height)
+        }));
+      }
+    }, 100);
     return true;
   }
 
