@@ -51,15 +51,28 @@
     var resolved   = resolveVersion(urlSeg, versions) || {};
     var displayVer = resolved.version || urlSeg || '?';
 
+    console.log('[VB] buildPicker called. urlSeg=' + urlSeg + ' displayVer=' + displayVer);
+
     /* Attach to .md-tabs, not .md-tabs__list — avoids contain:strict */
     var mdTabs = document.querySelector('.md-tabs');
-    if (!mdTabs) return;
+    if (!mdTabs) {
+      console.warn('[VB] .md-tabs not found — picker cannot be placed');
+      return;
+    }
+
+    var tabsStyles = window.getComputedStyle(mdTabs);
+    console.log('[VB] .md-tabs found. position=' + tabsStyles.position
+      + ' overflow=' + tabsStyles.overflow
+      + ' height=' + tabsStyles.height);
 
     var wrapper = document.getElementById(WRAPPER_ID);
     if (!wrapper || !mdTabs.contains(wrapper)) {
       wrapper = document.createElement('div');
       wrapper.id = WRAPPER_ID;
       mdTabs.appendChild(wrapper);
+      console.log('[VB] wrapper created and appended to .md-tabs');
+    } else {
+      console.log('[VB] wrapper already exists, reusing');
     }
 
     var items = versions.map(function (v) {
@@ -77,6 +90,19 @@
         '</button>' +
         '<ul class="md-version__list">' + items + '</ul>' +
       '</div>';
+
+    // Log computed styles of the wrapper AFTER it is placed in the DOM
+    requestAnimationFrame(function () {
+      var ws = window.getComputedStyle(wrapper);
+      console.log('[VB] wrapper computed: display=' + ws.display
+        + ' position=' + ws.position
+        + ' width=' + ws.width + ' height=' + ws.height
+        + ' right=' + ws.right + ' top=' + ws.top
+        + ' visibility=' + ws.visibility + ' opacity=' + ws.opacity);
+      var r = wrapper.getBoundingClientRect();
+      console.log('[VB] wrapper rect: x=' + r.x + ' y=' + r.y
+        + ' w=' + r.width + ' h=' + r.height);
+    });
 
     setupDropdown(wrapper);
   }
@@ -108,23 +134,28 @@
   /* ── Fetch versions.json ─────────────────────────────────────────────── */
 
   function init() {
+    console.log('[VB] init() called. readyState=' + document.readyState);
     if (window.__versionBadgeData) {
       buildPicker(window.__versionBadgeData);
       return;
     }
     var url = window.location.origin + getBasePath() + 'versions.json';
+    console.log('[VB] fetching versions.json from: ' + url);
     fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (data) {
+        console.log('[VB] versions.json loaded: ' + JSON.stringify(data.map(function(v){return v.version;})));
         window.__versionBadgeData = data;
         buildPicker(data);
       })
       .catch(function (e) {
-        console.warn('[version-badge] failed to load versions.json:', e);
+        console.warn('[VB] failed to load versions.json:', e);
       });
   }
 
   /* ── Bootstrap ───────────────────────────────────────────────────────── */
+
+  console.log('[VB] version-badge.js loaded. readyState=' + document.readyState);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
