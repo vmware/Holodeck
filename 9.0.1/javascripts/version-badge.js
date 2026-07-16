@@ -2,24 +2,27 @@
  * version-badge.js
  *
  * Builds a custom version picker in the RIGHT end of the sticky tabs bar.
- * Reads versions from /Holodeck/versions.json so it is independent of
- * Material Theme's native .md-version element (which can be destroyed when
- * instant navigation re-renders the tabs bar).
+ * Reads from /Holodeck/versions.json (fetched once, cached on window).
  *
- * The native .md-version in the header is hidden via extra.css.
+ * Key design decisions:
+ *  1. window.__versionBadge guard — Material Theme 9.x re-executes body
+ *     scripts on every instant-navigation page switch.  The guard lets the
+ *     init block run only once while still re-using the cached data and
+ *     re-building the picker on each switch via document$ / interval.
+ *  2. window.document$ subscription — the correct Material Theme 9.x hook
+ *     for instant navigation (replaces the old DOMContentSwitch event).
+ *  3. 300 ms interval fallback — rebuilds if the tabs bar is re-rendered
+ *     and the picker disappears for any reason.
  */
 
 (function () {
   'use strict';
 
-  var WRAPPER_ID  = 'md-version-tab-wrapper';
-  var cachedVersions = null;
-  var tabsObserver   = null;
+  var WRAPPER_ID = 'md-version-tab-wrapper';
 
   /* ── URL helpers ─────────────────────────────────────────────────────── */
 
   function getBasePath() {
-    /* e.g. "/Holodeck/" from "/Holodeck/9.0.2/release_notes/" */
     var m = window.location.pathname.match(/^(\/[^/]+\/)/);
     return m ? m[1] : '/';
   }
@@ -32,7 +35,6 @@
   }
 
   function getCurrentPage() {
-    /* Everything after /Holodeck/VERSION/ */
     var base = getBasePath();
     var rest = window.location.pathname.slice(base.length);
     var m    = rest.match(/^[^/]+\/(.*)/);
@@ -40,7 +42,6 @@
   }
 
   function resolveVersion(urlSeg, versions) {
-    /* Resolves an alias (e.g. "latest") to the real version object */
     for (var i = 0; i < versions.length; i++) {
       var v = versions[i];
       if (v.version === urlSeg) return v;
@@ -49,19 +50,18 @@
     return null;
   }
 
-  /* ── Build picker DOM ────────────────────────────────────────────────── */
+  /* ── Build picker ────────────────────────────────────────────────────── */
 
   function buildPicker(versions) {
-    var base        = getBasePath();
-    var urlSeg      = getCurrentVersion();
-    var page        = getCurrentPage();
-    var resolved    = resolveVersion(urlSeg, versions) || {};
-    var displayVer  = resolved.version || urlSeg || '?';
+    var base       = getBasePath();
+    var urlSeg     = getCurrentVersion();
+    var page       = getCurrentPage();
+    var resolved   = resolveVersion(urlSeg, versions) || {};
+    var displayVer = resolved.version || urlSeg || '?';
 
     var tabsList = document.querySelector('.md-tabs__list');
     if (!tabsList) return;
 
-    /* Reuse or create the wrapper <li> */
     var wrapper = document.getElementById(WRAPPER_ID);
     if (!wrapper || !tabsList.contains(wrapper)) {
       wrapper = document.createElement('li');
@@ -69,13 +69,11 @@
       tabsList.appendChild(wrapper);
     }
 
-    /* Build inner HTML — same class names so existing CSS applies */
     var items = versions.map(function (v) {
       var isActive = (v.version === resolved.version);
-      var cls = 'md-version__link' + (isActive ? ' md-version__link--active' : '');
+      var cls  = 'md-version__link' + (isActive ? ' md-version__link--active' : '');
       var href = base + v.version + '/' + page;
-      return '<li class="md-version__item">' +
-             '<a class="' + cls + '" href="' + href + '">' +
+      return '<li class="md-version__item"><a class="' + cls + '" href="' + href + '">' +
              (v.title || v.version) + '</a></li>';
     }).join('');
 
@@ -88,10 +86,9 @@
       '</div>';
 
     setupDropdown(wrapper);
-    attachObserver();
   }
 
-  /* ── Dropdown fixed positioning ──────────────────────────────────────── */
+  /* ── Dropdown pin ────────────────────────────────────────────────────── */
 
   function setupDropdown(wrapper) {
     var btn  = wrapper.querySelector('.md-version__current');
@@ -115,57 +112,69 @@
     list.addEventListener('mouseenter', pin);
   }
 
-  /* ── MutationObserver: rebuild if the tabs bar is re-rendered ────────── */
+  /* ── Fetch versions.json (result stored on window for re-use) ────────── */
 
-  function attachObserver() {
-    if (tabsObserver) tabsObserver.disconnect();
-
-    var tabsEl = document.querySelector('.md-tabs');
-    if (!tabsEl || !cachedVersions) return;
-
-    tabsObserver = new MutationObserver(function () {
-      var wrapper  = document.getElementById(WRAPPER_ID);
-      var tabsList = document.querySelector('.md-tabs__list');
-      if (!wrapper || !tabsList || !tabsList.contains(wrapper)) {
-        buildPicker(cachedVersions);
-      }
-    });
-
-    tabsObserver.observe(tabsEl, { childList: true, subtree: true });
-  }
-
-  /* ── Fetch versions.json and initialise ─────────────────────────────── */
-
-  function init() {
-    if (cachedVersions) {
-      buildPicker(cachedVersions);
+  function fetchAndBuild() {
+    if (window.__versionBadgeData) {
+      buildPicker(window.__versionBadgeData);
       return;
     }
-
     var url = window.location.origin + getBasePath() + 'versions.json';
     fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        cachedVersions = data;
+        window.__versionBadgeData = data;
         buildPicker(data);
       })
       .catch(function (e) {
-        console.warn('version-badge.js: could not load versions.json', e);
+        console.warn('[version-badge] failed to load versions.json:', e);
       });
   }
 
-  /* ── Bootstrap ───────────────────────────────────────────────────────── */
+  /* ── One-time setup (guard prevents re-running on script re-execution) ── */
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  if (!window.__versionBadgeActive) {
+    window.__versionBadgeActive = true;
+
+    /* Subscribe to Material Theme 9.x document$ observable (instant nav) */
+    if (window.document$ && typeof window.document$.subscribe === 'function') {
+      window.document$.subscribe(function () {
+        if (window.__versionBadgeData) buildPicker(window.__versionBadgeData);
+        else fetchAndBuild();
+      });
+    }
+
+    /* Fallback: older Material Theme versions used DOMContentSwitch */
+    document.addEventListener('DOMContentSwitch', function () {
+      if (window.__versionBadgeData) buildPicker(window.__versionBadgeData);
+      else fetchAndBuild();
+    });
+
+    /* Interval fallback: catches re-renders the events miss (300 ms) */
+    var lastUrl = '';
+    setInterval(function () {
+      if (!window.__versionBadgeData) return;
+
+      var currentUrl    = window.location.href;
+      var tabsList      = document.querySelector('.md-tabs__list');
+      var wrapper       = document.getElementById(WRAPPER_ID);
+      var urlChanged    = currentUrl !== lastUrl;
+      var wrapperGone   = !wrapper || !tabsList || !tabsList.contains(wrapper);
+
+      if (urlChanged || wrapperGone) {
+        lastUrl = currentUrl;
+        buildPicker(window.__versionBadgeData);
+      }
+    }, 300);
   }
 
-  /* Rebuild on every instant-navigation switch (updates active version) */
-  document.addEventListener('DOMContentSwitch', function () {
-    if (cachedVersions) buildPicker(cachedVersions);
-    else init();
-  });
+  /* ── Always build on (re-)execution of this script ──────────────────── */
+  /* Runs on first load AND every time Material Theme re-injects the script */
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fetchAndBuild);
+  } else {
+    fetchAndBuild();
+  }
 
 })();
