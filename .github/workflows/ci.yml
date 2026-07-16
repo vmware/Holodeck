@@ -6,6 +6,9 @@ on:
       - 'release/**'
 permissions:
   contents: write
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
