@@ -190,8 +190,8 @@
     display: none !important;
 }
 
-/* Wrapper position is fully controlled by version-badge.js via inline style.
-   Only non-layout properties are set here. */
+/* Wrapper position (top/right/height/display) is set by version-badge.js.
+   Right edge aligns with .md-header__source (the GitHub link). */
 #md-version-tab-wrapper {
     box-sizing: border-box;
 }
