@@ -7,6 +7,11 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+# Serialize all deployments so concurrent branch pushes never race on gh-pages.
+# cancel-in-progress: false means queued runs wait their turn (none are dropped).
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
