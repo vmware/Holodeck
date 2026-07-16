@@ -7,11 +7,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-# Serialize all deployments so concurrent branch pushes never race on gh-pages.
-# cancel-in-progress: false means queued runs wait their turn (none are dropped).
-concurrency:
-  group: gh-pages-deploy
-  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -40,11 +35,15 @@ jobs:
 
           deployed=false
           for attempt in 1 2 3 4 5; do
-            # Update local gh-pages branch to match remote so mike can fast-forward
-            git fetch origin gh-pages:gh-pages || true
+            # Fetch remote state and force-reset local gh-pages to match origin.
+            # This discards any locally-built commits from a previous failed attempt,
+            # ensuring mike always builds cleanly on top of the current remote tip.
+            git fetch origin
+            git branch -f gh-pages origin/gh-pages 2>/dev/null || true
+
             mike deploy --push $DEPLOY_ARGS && deployed=true && break
-            echo "Attempt $attempt failed (gh-pages push conflict). Retrying in 30s..."
-            sleep 30
+            echo "Attempt $attempt failed (gh-pages push conflict). Retrying in 20s..."
+            sleep 20
           done
           if [ "$deployed" = "false" ]; then
             echo "ERROR: mike deploy failed after 5 attempts" >&2
@@ -54,10 +53,11 @@ jobs:
           if [ "$GITHUB_REF_NAME" = "main" ]; then
             set_default_done=false
             for attempt in 1 2 3 4 5; do
-              git fetch origin gh-pages:gh-pages || true
+              git fetch origin
+              git branch -f gh-pages origin/gh-pages 2>/dev/null || true
               mike set-default --push latest && set_default_done=true && break
-              echo "set-default attempt $attempt failed. Retrying in 30s..."
-              sleep 30
+              echo "set-default attempt $attempt failed. Retrying in 20s..."
+              sleep 20
             done
             if [ "$set_default_done" = "false" ]; then
               echo "ERROR: mike set-default failed after 5 attempts" >&2
