@@ -181,6 +181,8 @@
 /* ============================================================
    Version picker — custom build in tabs bar (version-badge.js)
    The native Material Theme / mike picker in the header is hidden.
+   The wrapper is on document.body; JS sets position:fixed + coordinates
+   from .md-tabs.getBoundingClientRect() so overflow:auto cannot clip it.
    ============================================================ */
 
 /* Hide the native mike picker — our custom one replaces it */
@@ -188,19 +190,10 @@
     display: none !important;
 }
 
-/*
- * Wrapper <div> is appended directly to .md-tabs (which has position:sticky),
- * so position:absolute pins it to the right end of the tabs bar without any
- * flex/overflow/contain interaction with .md-tabs__list.
- */
+/* Wrapper position is fully controlled by version-badge.js via inline style.
+   Only non-layout properties are set here. */
 #md-version-tab-wrapper {
-    position: absolute;
-    right: 0.8rem;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    display: flex;
-    align-items: center;
+    box-sizing: border-box;
 }
 
 /* "Holodeck Version: " prefix rendered inside the button */
