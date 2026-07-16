@@ -35,9 +35,9 @@ jobs:
 
           deployed=false
           for attempt in 1 2 3 4 5; do
-            git fetch origin gh-pages && \
-              mike deploy --push $DEPLOY_ARGS && \
-              deployed=true && break
+            # Update local gh-pages branch to match remote so mike can fast-forward
+            git fetch origin gh-pages:gh-pages || true
+            mike deploy --push $DEPLOY_ARGS && deployed=true && break
             echo "Attempt $attempt failed (gh-pages push conflict). Retrying in 30s..."
             sleep 30
           done
@@ -49,9 +49,8 @@ jobs:
           if [ "$GITHUB_REF_NAME" = "main" ]; then
             set_default_done=false
             for attempt in 1 2 3 4 5; do
-              git fetch origin gh-pages && \
-                mike set-default --push latest && \
-                set_default_done=true && break
+              git fetch origin gh-pages:gh-pages || true
+              mike set-default --push latest && set_default_done=true && break
               echo "set-default attempt $attempt failed. Retrying in 30s..."
               sleep 30
             done
