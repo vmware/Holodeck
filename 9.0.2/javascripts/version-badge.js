@@ -1,10 +1,10 @@
 /*
  * version-badge.js
  *
- * Builds a custom version picker pinned to the RIGHT end of the sticky
- * tabs bar.  The wrapper is appended directly to .md-tabs (not the inner
- * list) and positioned with position:absolute so that contain:strict on
- * .md-tabs__list cannot collapse it to zero size.
+ * The wrapper is appended to document.body (NOT inside .md-tabs) and
+ * positioned with position:fixed so that .md-tabs's overflow:auto
+ * cannot clip it to zero size.  JS reads .md-tabs.getBoundingClientRect()
+ * to align the wrapper to the right end of the sticky tabs bar.
  */
 
 (function () {
@@ -42,6 +42,27 @@
     return null;
   }
 
+  /* ── Position wrapper over the right end of .md-tabs ────────────────── */
+
+  function positionWrapper(wrapper) {
+    var mdTabs = document.querySelector('.md-tabs');
+    if (!mdTabs || !wrapper) return;
+    var r = mdTabs.getBoundingClientRect();
+    wrapper.style.cssText = [
+      'position: fixed',
+      'top: '            + r.top                      + 'px',
+      'right: '          + (window.innerWidth - r.right) + 'px',
+      'height: '         + r.height                   + 'px',
+      'left: auto',
+      'bottom: auto',
+      'z-index: 9999',
+      'display: flex',
+      'align-items: center',
+      'padding-right: 0.8rem',
+      'pointer-events: auto',
+    ].join(';');
+  }
+
   /* ── Build picker ────────────────────────────────────────────────────── */
 
   function buildPicker(versions) {
@@ -51,28 +72,16 @@
     var resolved   = resolveVersion(urlSeg, versions) || {};
     var displayVer = resolved.version || urlSeg || '?';
 
-    console.log('[VB] buildPicker called. urlSeg=' + urlSeg + ' displayVer=' + displayVer);
-
-    /* Attach to .md-tabs, not .md-tabs__list — avoids contain:strict */
+    /* Ensure .md-tabs exists before placing the wrapper */
     var mdTabs = document.querySelector('.md-tabs');
-    if (!mdTabs) {
-      console.warn('[VB] .md-tabs not found — picker cannot be placed');
-      return;
-    }
+    if (!mdTabs) return;
 
-    var tabsStyles = window.getComputedStyle(mdTabs);
-    console.log('[VB] .md-tabs found. position=' + tabsStyles.position
-      + ' overflow=' + tabsStyles.overflow
-      + ' height=' + tabsStyles.height);
-
+    /* Wrapper lives on body — immune to any overflow/contain on .md-tabs */
     var wrapper = document.getElementById(WRAPPER_ID);
-    if (!wrapper || !mdTabs.contains(wrapper)) {
+    if (!wrapper) {
       wrapper = document.createElement('div');
       wrapper.id = WRAPPER_ID;
-      mdTabs.appendChild(wrapper);
-      console.log('[VB] wrapper created and appended to .md-tabs');
-    } else {
-      console.log('[VB] wrapper already exists, reusing');
+      document.body.appendChild(wrapper);
     }
 
     var items = versions.map(function (v) {
@@ -91,19 +100,7 @@
         '<ul class="md-version__list">' + items + '</ul>' +
       '</div>';
 
-    // Log computed styles of the wrapper AFTER it is placed in the DOM
-    requestAnimationFrame(function () {
-      var ws = window.getComputedStyle(wrapper);
-      console.log('[VB] wrapper computed: display=' + ws.display
-        + ' position=' + ws.position
-        + ' width=' + ws.width + ' height=' + ws.height
-        + ' right=' + ws.right + ' top=' + ws.top
-        + ' visibility=' + ws.visibility + ' opacity=' + ws.opacity);
-      var r = wrapper.getBoundingClientRect();
-      console.log('[VB] wrapper rect: x=' + r.x + ' y=' + r.y
-        + ' w=' + r.width + ' h=' + r.height);
-    });
-
+    positionWrapper(wrapper);
     setupDropdown(wrapper);
   }
 
@@ -117,12 +114,12 @@
     function pin() {
       var r = btn.getBoundingClientRect();
       list.style.cssText = [
-        'position: fixed !important',
-        'top: '   + (r.bottom + 4)                + 'px !important',
-        'right: ' + (window.innerWidth - r.right) + 'px !important',
-        'left: auto !important',
-        'bottom: auto !important',
-        'z-index: 9999 !important'
+        'position: fixed',
+        'top: '   + (r.bottom + 4)                + 'px',
+        'right: ' + (window.innerWidth - r.right)  + 'px',
+        'left: auto',
+        'bottom: auto',
+        'z-index: 99999',
       ].join(';');
     }
 
@@ -134,28 +131,23 @@
   /* ── Fetch versions.json ─────────────────────────────────────────────── */
 
   function init() {
-    console.log('[VB] init() called. readyState=' + document.readyState);
     if (window.__versionBadgeData) {
       buildPicker(window.__versionBadgeData);
       return;
     }
     var url = window.location.origin + getBasePath() + 'versions.json';
-    console.log('[VB] fetching versions.json from: ' + url);
     fetch(url)
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        console.log('[VB] versions.json loaded: ' + JSON.stringify(data.map(function(v){return v.version;})));
         window.__versionBadgeData = data;
         buildPicker(data);
       })
       .catch(function (e) {
-        console.warn('[VB] failed to load versions.json:', e);
+        console.warn('[version-badge] failed to load versions.json:', e);
       });
   }
 
   /* ── Bootstrap ───────────────────────────────────────────────────────── */
-
-  console.log('[VB] version-badge.js loaded. readyState=' + document.readyState);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -163,30 +155,47 @@
     init();
   }
 
-  /* ── Navigation hooks (one-time setup) ──────────────────────────────── */
+  /* ── Navigation hooks + position updates (one-time setup) ───────────── */
 
   if (!window.__versionBadgeActive) {
     window.__versionBadgeActive = true;
 
+    /* Material Theme 9.x instant-navigation observable */
     if (window.document$ && typeof window.document$.subscribe === 'function') {
       window.document$.subscribe(function () { init(); });
     }
 
     document.addEventListener('DOMContentSwitch', function () { init(); });
 
+    /* Keep wrapper glued to .md-tabs on scroll / resize */
+    function reposition() {
+      var w = document.getElementById(WRAPPER_ID);
+      if (w) positionWrapper(w);
+    }
+    window.addEventListener('scroll', reposition, { passive: true });
+    window.addEventListener('resize', reposition, { passive: true });
+
+    /* Polling: rebuild if URL changed or wrapper was removed */
     var lastUrl = '';
     setInterval(function () {
       if (!window.__versionBadgeData) return;
 
       var currentUrl  = window.location.href;
-      var mdTabs      = document.querySelector('.md-tabs');
       var wrapper     = document.getElementById(WRAPPER_ID);
-      var urlChanged  = currentUrl !== lastUrl;
-      var wrapperGone = !wrapper || !mdTabs || !mdTabs.contains(wrapper);
+      var mdTabs      = document.querySelector('.md-tabs');
+      var urlChanged  = (currentUrl !== lastUrl);
+      var wrapperGone = !wrapper;
 
       if (urlChanged || wrapperGone) {
         lastUrl = currentUrl;
         buildPicker(window.__versionBadgeData);
+      } else if (wrapper && mdTabs) {
+        positionWrapper(wrapper);     /* keep in sync while scrolled */
+      }
+
+      /* Hide picker when there is no tabs bar (e.g. narrow-screen) */
+      if (wrapper) {
+        wrapper.style.display = mdTabs ? 'flex' : 'none';
       }
     }, 300);
   }
