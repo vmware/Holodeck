@@ -1,20 +1,20 @@
 ## New-HoloDeckInstance
 
-Creates a new Holodeck instance — a nested VMware Cloud Foundation (VCF) lab environment for testing and training purposes.
+Creates a new HoloDeck instance — a nested VMware Cloud Foundation (VCF) lab environment for testing and training purposes.
 
 ```powershell
 New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-LogLevel <String>] [-ProvisionOnly] -VVF [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 
 New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] -ManagementOnly [-NsxEdgeClusterMgmtDomain] [-DeployVcfAutomation] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 
-New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWkldDomain] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
+New-HoloDeckInstance -Version <String> -InstanceID <String> [-CIDR <String[]>] [-vSANMode <String>] [-WorkloadDomainType <String>] [-NsxEdgeClusterMgmtDomain] [-NsxEdgeClusterWkldDomain] [-DeployVcfAutomation] [-DeploySupervisorWldDomain] [-DeploySupervisorMgmtDomain] [-LogLevel <String>] [-ProvisionOnly] [-Site <String>] [-DepotType <String>] [-DeveloperMode]
 ```
 
 ---
 
 ### Description
 
-Deploys a Holodeck instance based on the provided VCF version and optional parameters to customize the environment for management/workload domain, NSX Edge, vSAN mode, and more.
+Deploys a HoloDeck instance based on the provided VCF version and optional parameters to customize the environment for management/workload domain, NSX Edge, vSAN mode, and more.
 
 ---
 
@@ -31,7 +31,7 @@ Deploys a Holodeck instance based on the provided VCF version and optional param
 | `-NsxEdgeClusterMgmtDomain` | Deploy NSX Edge Cluster in management domain | ❌ | `False` |
 | `-NsxEdgeClusterWkldDomain` | Deploy NSX Edge Cluster in workload domain | ❌ | `False` |
 | `-DeployVcfAutomation` | Deploy VCF Automation (VCF 9.x only) | ❌ | `False` |
-| `-DeploySupervisorWkldDomain` | Deploy Supervisor in workload domain (VCF 9.x only) | ❌ | `False` |
+| `-DeploySupervisorWldDomain` | Deploy Supervisor in workload domain (VCF 9.x only) | ❌ | `False` |
 | `-DeploySupervisorMgmtDomain` | Deploy Supervisor in management domain (VCF 9.x only) | ❌ | `False` |
 | `-LogLevel` | Log verbosity: `"INFO"`, `"DEBUG"`, etc. | ❌ | `INFO` |
 | `-ProvisionOnly` | Provision ESX & CloudBuilder/VCF Installer only | ❌ | `False` |
@@ -69,7 +69,7 @@ New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -CIDR 10.3.0.0/20 -vSANMo
 
 Deploys a VCF 9.0 full stack instance with NSX Edge cluster deployed in both management and workload domain, VCF Automation deployed in Management domain, supervisor deployed in workload domain using an online depot.
 ```powershell
-New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -NsxEdgeClusterMgmtDomain -NsxEdgeClusterWkldDomain -DeployVcfAutomation -DeploySupervisorWkldDomain -DepotType Online
+New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -NsxEdgeClusterMgmtDomain -NsxEdgeClusterWkldDomain -DeployVcfAutomation -DeploySupervisorWldDomain -DepotType Online
 ```
 
  Example 5
@@ -83,7 +83,7 @@ New-HoloDeckInstance -Version 9.0.0.0 -InstanceID holo -CIDR 10.3.0.0/20 -Manage
 
 ## Update-HoloDeckInstance
 
-Performs Day 2 operations on an existing Holodeck instance.
+Performs Day 2 operations on an existing HoloDeck instance.
 
 ```powershell
 Update-HoloDeckInstance -Site <String> -AdditionalCluster -VIDomain <String>
@@ -145,14 +145,14 @@ Update-HoloDeckInstance -Site a -AddVcfAutomationAllAppsOrg -VIDomain Management
 This cmdlet replaces `New-HoloDeckInstance -Interactive`. 
 
 - The `-AdditionalCluster` and `-AddVcfAutomationAllAppsOrg` parameters belong to separate parameter sets and cannot be used together in a single invocation.
-- VCF Automation and Supervisor must already be deployed (via `-DeployVcfAutomation`, `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWkldDomain` during `New-HoloDeckInstance`) before running `-AddVcfAutomationAllAppsOrg`.
+- VCF Automation and Supervisor must already be deployed (via `-DeployVcfAutomation`, `-DeploySupervisorMgmtDomain` and `-DeploySupervisorWldDomain` during `New-HoloDeckInstance`) before running `-AddVcfAutomationAllAppsOrg`.
 - The additional cluster is deployed as a 3-node vSphere cluster.
 
 ---
 
 ## Get-HoloDeckInstance
 
-Retrieves details of a deployed Holodeck instance.
+Retrieves details of a deployed HoloDeck instance.
 
 ```powershell
 Get-HoloDeckInstance -InstanceID <String>
@@ -187,7 +187,7 @@ Get-HoloDeckInstance -InstanceID holo
 
 ## Get-HoloDeckConfig
 
-Retrieves Holodeck configuration information.
+Retrieves HoloDeck configuration information.
 
 ```powershell
 Get-HoloDeckConfig [-configID <String>]
@@ -197,7 +197,7 @@ Get-HoloDeckConfig [-configID <String>]
 
 ### Description
 
-Gets configuration details from Holodeck config files. Can retrieve a specific configuration by ID or list all available configurations.
+Gets configuration details from HoloDeck config files. Can retrieve a specific configuration by ID or list all available configurations.
 
 ---
 
@@ -213,7 +213,7 @@ Gets configuration details from Holodeck config files. Can retrieve a specific c
 
  Example 1
 
-Returns all available Holodeck configurations
+Returns all available HoloDeck configurations
 ```powershell
 Get-HoloDeckConfig
 ```
@@ -235,7 +235,7 @@ Configurations are stored in the `/holodeck-runtime/config` directory.
 
 ## New-HoloDeckConfig
 
-Creates a new Holodeck configuration file.
+Creates a new HoloDeck configuration file.
 
 ```powershell
 New-HoloDeckConfig -TargetHost <String> -UserName <String> -Password <String> [-Description <String>] [-Default]
@@ -245,7 +245,7 @@ New-HoloDeckConfig -TargetHost <String> -UserName <String> -Password <String> [-
 
 ### Description
 
-Initializes a new Holodeck configuration with target host details, credentials, and optional description. Can create a default configuration or a custom one.
+Initializes a new HoloDeck configuration with target host details, credentials, and optional description. Can create a default configuration or a custom one.
 
 ---
 
@@ -290,7 +290,7 @@ The configuration is saved to `/holodeck-runtime/config` directory.
 
 ## Import-HoloDeckConfig
 
-Imports and loads a Holodeck configuration.
+Imports and loads a HoloDeck configuration.
 
 ```powershell
 Import-HoloDeckConfig -ConfigID <String>
@@ -300,7 +300,7 @@ Import-HoloDeckConfig -ConfigID <String>
 
 ### Description
 
-Loads a specific Holodeck configuration file by ConfigID into the global `$config` variable for use by other Holodeck functions.
+Loads a specific HoloDeck configuration file by ConfigID into the global `$config` variable for use by other HoloDeck functions.
 
 ---
 
@@ -331,7 +331,7 @@ Sets the global `$config` variable with the imported configuration.
 
 ## Reset-HoloDeckState
 
-Resets the Holodeck state file to empty.
+Resets the HoloDeck state file to empty.
 
 ```powershell
 Reset-HoloDeckState
@@ -341,7 +341,7 @@ Reset-HoloDeckState
 
 ### Description
 
-Clears all state information from the Holodeck state file by setting its contents to null. Used to start fresh or clear corrupted state.
+Clears all state information from the HoloDeck state file by setting its contents to null. Used to start fresh or clear corrupted state.
 
 ---
 
@@ -364,9 +364,7 @@ This operation cannot be undone. All state tracking information will be lost.
 
 ## Get-HoloDeckDNSConfig
 
-> **Note:** This command is valid only for Holodeck versions up to and including 9.0.2.
-
-Retrieves DNS records from the Holodeck DNS configuration.
+Retrieves DNS records from the HoloDeck DNS configuration.
 
 ```powershell
 Get-HoloDeckDNSConfig [-IP <String>] [-FQDN <String>]
@@ -416,7 +414,7 @@ Get-HoloDeckDNSConfig -FQDN "server.example.com"
 
 ## New-HoloDeckNetworkConfig
 
-Generates network configuration for Holodeck deployment.
+Generates network configuration for HoloDeck deployment.
 
 ```powershell
 New-HoloDeckNetworkConfig -MasterCIDR <String> [-NoOfSubnets <String>] [-bgpPassword <String>] [-Site <String>] [-VLANRangeStart <String>] [-DNSDomain <String>]
@@ -463,7 +461,7 @@ New-HoloDeckNetworkConfig -MasterCIDR "10.0.0.0/16" -NoOfSubnets 40 -VLANRangeSt
 
 ## Get-HoloDeckBGPConfig
 
-Retrieves BGP configuration information from Holodeck network configuration.
+Retrieves BGP configuration information from HoloDeck network configuration.
 
 ```powershell
 Get-HoloDeckBGPConfig [-Site <String>]
@@ -575,13 +573,13 @@ Reset-HoloRouter
 
 ### Notes
 
-This operation removes critical infrastructure services. Use with caution as it will disable DNS and routing services for the Holodeck environment. HoloRouter will need to be reconfigured with `Set-HoloRouter` after running this function. Requires appropriate permissions to modify Kubernetes resources and network settings.
+This operation removes critical infrastructure services. Use with caution as it will disable DNS and routing services for the HoloDeck environment. HoloRouter will need to be reconfigured with `Set-HoloRouter` after running this function. Requires appropriate permissions to modify Kubernetes resources and network settings.
 
 ---
 
 ## Get-HoloDeckAppNetwork
 
-Retrieves application network information from Holodeck network configuration.
+Retrieves application network information from HoloDeck network configuration.
 
 ```powershell
 Get-HoloDeckAppNetwork [-Hostname <String>] [-IP <String>] [-FQDN <String>] [-Site <String>]
@@ -633,7 +631,7 @@ Get-HoloDeckAppNetwork -IP "192.168.1.10" -Site "a"
 
 ## Get-HoloDeckSubnet
 
-Retrieves subnet configuration information from Holodeck network configuration.
+Retrieves subnet configuration information from HoloDeck network configuration.
 
 ```powershell
 Get-HoloDeckSubnet [-Name <String>] [-vlanID <String>] [-Subnet <String>] [-Gateway <String>] [-Site <String>]
@@ -686,7 +684,7 @@ Get-HoloDeckSubnet -vlanID "100" -Site "b"
 
 ## Get-HoloDeckOverlaySubnet
 
-Retrieves overlay subnet configuration information from Holodeck network configuration.
+Retrieves overlay subnet configuration information from HoloDeck network configuration.
 
 ```powershell
 Get-HoloDeckOverlaySubnet [-Name <String>] [-Subnet <String>] [-Gateway <String>] [-Site <String>]
@@ -738,7 +736,7 @@ Get-HoloDeckOverlaySubnet -Subnet "10.0.0.0/16" -Site "b"
 
 ## Get-HoloDeckAppIpPools
 
-Retrieves application IP pool information from Holodeck network configuration.
+Retrieves application IP pool information from HoloDeck network configuration.
 
 ```powershell
 Get-HoloDeckAppIpPools [-Site <String>] [-Name <String>] [-ipPool <String>]
