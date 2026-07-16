@@ -917,43 +917,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-dns-entries" class="md-nav__link">
+  <a href="#manage-dns-entries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Get DNS entries
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-or-update-dns-entries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Add or Update DNS entries
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove-dns-entries" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Remove DNS entries
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migrate-holorouter-90901-to-902" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migrate Holorouter 9.0/9.0.1 to 9.0.2
+        Manage DNS entries
       
     </span>
   </a>
@@ -1246,15 +1213,12 @@ network configurations and allows for the deployment of multiple nested environm
 </ul>
 <h2 id="holodeck-environment-overview">Holodeck Environment Overview</h2>
 <p>Each Holodeck environment contains:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">VCF 9.1</label><label for="__tabbed_1_2">VCF 9.0</label><label for="__tabbed_1_3">VCF 5.2</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
 <ul>
 <li><strong>Enhanced Holorouter appliance</strong> (Photon OS based) with built-in networking services:<ul>
 <li>DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching</li>
-<li><strong>New</strong>: HashiCorp Vault for secrets management</li>
-<li><strong>New</strong>: Authentik SSO for identity and access management  </li>
-<li><strong>New</strong>: Technitium DNS for advanced DNS capabilities</li>
+<li>HashiCorp Vault for secrets management</li>
+<li>Authentik SSO for identity and access management</li>
+<li>Technitium DNS for advanced DNS capabilities</li>
 <li>Optional webtop (virtual desktop) capability with HTTPS endpoints</li>
 </ul>
 </li>
@@ -1270,61 +1234,23 @@ network configurations and allows for the deployment of multiple nested environm
 </ul>
 </li>
 <li><strong>Enhanced Supervisor deployment</strong>: Management or workload domain with <strong>VNA (distributed)</strong> or <strong>Edge (centralized)</strong> networking modes</li>
-<li><strong>Enhanced NSX Support</strong>: <ul>
+<li><strong>Enhanced NSX Support</strong>:<ul>
 <li>Edge Cluster deployment in management and/or workload domain</li>
-<li><strong>New</strong>: Virtual Network Appliance (VNA) cluster support for distributed networking</li>
+<li>Virtual Network Appliance (VNA) cluster support for distributed networking</li>
 </ul>
 </li>
 <li><strong>Comprehensive Day 2 Operations</strong>:<ul>
-<li>VCF Automation deployment via VCF Operations Manager</li>
+<li>VCF Automation deployment</li>
 <li>VCF Automation All Apps Org deployment</li>
 <li>Supervisor deployment with networking mode selection</li>
 <li>Deploy additional 3-node vSphere clusters in management or workload domains</li>
-<li>Deploy new nested ESXi hosts with custom specifications</li>
+<li>Deploy new nested ESX hosts with custom specifications</li>
 </ul>
 </li>
 <li><strong>Enhanced networking</strong>: Custom CIDR, VLAN, and DNS domain support</li>
 <li><strong>Provision-only mode</strong>: Deploy VCF Installer and ESX hosts for greenfield experience</li>
 <li><strong>Enhanced security</strong>: HTTPS everywhere, automated certificate management</li>
 </ul>
-</div>
-<div class="tabbed-block">
-<ul>
-<li>A Holorouter appliance (photon OS based) with built-in networking services such as DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching and optional webtop (virtual desktop) capability</li>
-<li>Support for VCF and VVF deployments</li>
-<li>vSAN ESA and OSA support</li>
-<li>Support for online and offline depot with proxy for VCF Installer</li>
-<li>Management Domain deployed with 4 nested hosts deployed as vSAN ready nodes including VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)</li>
-<li>Optional Workload Domain deployed with 3 nested hosts deployed as vSAN ready nodes including VMware vCenter, VMware NSX and Supervisor (optional)</li>
-<li>Optional Supervisor deployment in management domain or workload domain</li>
-<li>Optional NSX Edge Cluster deployment in management and/or workload domain</li>
-<li>VCF Automation All Apps Org deployment as a Day 2 operation</li>
-<li>Deploy one or many additional 3-node vSphere cluster in management domain via Day 2 operations</li>
-<li>Support for provision-only mode (deploy VCF Installer and ESX hosts to allow greenfield deployment experience)</li>
-<li>Custom CIDR support for Holodeck network</li>
-<li>Custom VLAN support for Holodeck network</li>
-<li>Custom DNS Domain for Holodeck environment</li>
-</ul>
-</div>
-<div class="tabbed-block">
-<ul>
-<li>A Holorouter appliance (photon OS based) with built-in networking services such as DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching and optional webtop (virtual desktop) capability</li>
-<li>Support for VCF deployment only</li>
-<li>vSAN OSA support only</li>
-<li>Management Domain deployed with 4 nested hosts deployed as vSAN ready nodes including VMware Cloud Builder, VMware vCenter, VMware NSX, VMware SDDC-Manager</li>
-<li>Optional Workload Domain deployed with 3 nested hosts deployed as vSAN ready nodes including VMware vCenter and VMware NSX</li>
-<li>Optional NSX Edge Cluster deployment in management and/or workload domain</li>
-<li>Deploy one or many additional 3-node vSphere cluster in management domain</li>
-<li>Custom CIDR support for Holodeck network</li>
-<li>Custom VLAN support for Holodeck network</li>
-<li>Custom DNS Domain for Holodeck environment</li>
-</ul>
-</div>
-</div>
-</div>
-<!-- Removed ESA support in 5.2-->
-
-<p>Note: Holodeck 9 is not a VMware supported product, it is similar to a Fling.</p>
 <p>Holodeck 9.1 supports nested VCF deployment for versions 5.2, 9.0, and 9.1. This can be deployed either on a single stand-alone ESX host or a vSphere cluster based on resource availability. Please check the <a href="#pre-requisites">Pre-requisites</a> section</p>
 <div class="admonition warning">
 <p class="admonition-title">Holodeck 9.x Support Status</p>
@@ -1344,14 +1270,16 @@ port group if available.</p>
 <h3 id="holorouter-overview">Holorouter Overview</h3>
 <p>HoloRouter is an appliance that serves as the infrastructure backbone for Holodeck. It provides infrastructure services such as Layer-3 routing, Firewall, DHCP, DNS, NTP, BGP, Proxy, Job scheduling, etc. Through these services, HoloRouter connects the nested VCF environment to the external networks. It also provides inter-connectivity between different networks in the nested VCF environment. If you are not using custom VLANs for Holodeck, then for Site-a, VLANs 0, 10 through 25 and for Site-b, VLANs 40 through 58 are used. It is equipped with a built-in webtop (Desktop UI) which allows users access to HoloRouter via a GUI. Through the webtop service, users get easy GUI access to the nested VCF environment. </p>
 <p>Scope of Services:</p>
-<p><strong>Core Infrastructure Services:</strong>
-- <strong>DNS</strong>: Local to Site-a and Site-b of nested VCF environment, acts as forwarder
-- <strong>DHCP</strong>: Local to Site-a and Site-b of nested VCF environment<br>
-- <strong>NTP</strong>: Local to Site-a and Site-b of nested VCF environment
-- <strong>L3 routing</strong>: Between VLANs of Site-a and Site-b of nested VCF environment
-- <strong>Firewall</strong>: Controls traffic to and from external networks and between networks in the nested VCF environment
-- <strong>BGP</strong>: Establishes relationship with NSX Tier-0 gateway for outbound connectivity for overlay networks
-- <strong>Proxy</strong>: Allows users to control outbound connectivity for the nested VCF environment</p>
+<p><strong>Core Infrastructure Services:</strong></p>
+<ul>
+<li><strong>DNS</strong>: Local to Site-a and Site-b of nested VCF environment, acts as forwarder</li>
+<li><strong>DHCP</strong>: Local to Site-a and Site-b of nested VCF environment  </li>
+<li><strong>NTP</strong>: Local to Site-a and Site-b of nested VCF environment</li>
+<li><strong>L3 routing</strong>: Between VLANs of Site-a and Site-b of nested VCF environment</li>
+<li><strong>Firewall</strong>: Controls traffic to and from external networks and between networks in the nested VCF environment</li>
+<li><strong>BGP</strong>: Establishes relationship with NSX Tier-0 gateway for outbound connectivity for overlay networks</li>
+<li><strong>Proxy</strong>: Allows users to control outbound connectivity for the nested VCF environment</li>
+</ul>
 <p><strong>Enhanced Services (Holodeck 9.1):</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Service domain is always vcf.lab</p>
@@ -1385,13 +1313,15 @@ port group if available.</p>
 </li>
 <li><strong>HTTPS Endpoints</strong>: All HoloRouter services use secure HTTPS endpoints via a built-in reverse proxy with automated SSL certificate management</li>
 </ul>
-<p><strong>Management &amp; Automation:</strong>
-- <strong>Job scheduling</strong>: Allows users to schedule commands/scripts to be run recursively
-- <strong>Webtop</strong>: Allows users to access HoloRouter and nested VCF environment via a simple GUI. Accessible on port 30000 of the HoloRouter management IP. Credentials: <code>admin / VMware123!VMware123!</code>
-- <strong>Enable GitOps</strong>: Installs and configures <strong>GitLab</strong> on HoloRouter as part of OVA deployment. A GitLab repository is pre-configured with a pipeline to run Holodeck deployments, and HoloRouter is registered as a GitLab runner with the appropriate tags and parameters — so users can trigger a Holodeck deployment directly from the GitLab UI without needing to run PowerShell commands manually
-- <strong>PowerShell with VMware PowerCLI</strong>: Enhanced with additional modules and cmdlets for comprehensive Holodeck management
-- <strong>Enhanced Day 2 Operations</strong>: Comprehensive set of Day 2 operations via Update-HoloDeckInstance cmdlet
-- <strong>All required packages</strong>: Complete package set to deploy and operate Holodeck with enhanced validation and error handling</p>
+<p><strong>Management &amp; Automation:</strong></p>
+<ul>
+<li><strong>Job scheduling</strong>: Allows users to schedule commands/scripts to be run recursively</li>
+<li><strong>Webtop</strong>: Allows users to access HoloRouter and nested VCF environment via a simple GUI. Accessible on port 30000 of the HoloRouter management IP. Credentials: <code>admin / VMware123!VMware123!</code></li>
+<li><strong>Enable GitOps</strong>: Installs and configures <strong>GitLab</strong> on HoloRouter as part of OVA deployment. A GitLab repository is pre-configured with a pipeline to run Holodeck deployments, and HoloRouter is registered as a GitLab runner with the appropriate tags and parameters — so users can trigger a Holodeck deployment directly from the GitLab UI without needing to run PowerShell commands manually</li>
+<li><strong>PowerShell with VMware PowerCLI</strong>: Enhanced with additional modules and cmdlets for comprehensive Holodeck management</li>
+<li><strong>Enhanced Day 2 Operations</strong>: Comprehensive set of Day 2 operations via Update-HoloDeckInstance cmdlet</li>
+<li><strong>All required packages</strong>: Complete package set to deploy and operate Holodeck with enhanced validation and error handling</li>
+</ul>
 <h3 id="concepts">Concepts</h3>
 <ul>
 <li>
@@ -1414,112 +1344,6 @@ port group if available.</p>
 <p>Navigate to the <a href="downloads/">Downloads Page</a> to download Holodeck binaries.</p>
 <h2 id="pre-requisites">Pre-requisites</h2>
 <h3 id="physical-host-requirements">Physical Host requirements</h3>
-<table>
-<thead>
-<tr>
-<th>VCF 5.2</th>
-<th><strong>Single Site</strong></th>
-<th><strong>Dual Site</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPU</td>
-<td>16</td>
-<td>32</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>384 GB</td>
-<td>1TB</td>
-</tr>
-<tr>
-<td>Disk</td>
-<td>2 TB</td>
-<td>4TB</td>
-</tr>
-</tbody>
-</table>
-<p>If deploying VCF Automation with vSAN ESA:</p>
-<table>
-<thead>
-<tr>
-<th>VCF 9.0</th>
-<th><strong>Single Site</strong></th>
-<th><strong>Dual Site</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPU</td>
-<td>32</td>
-<td>64</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>325 GB</td>
-<td>768 GB</td>
-</tr>
-<tr>
-<td>Disk</td>
-<td>1.1 TB</td>
-<td>2.5TB</td>
-</tr>
-</tbody>
-</table>
-<p>If deploying VCF Automation with vSAN OSA:</p>
-<table>
-<thead>
-<tr>
-<th>VCF 9.0</th>
-<th><strong>Single Site</strong></th>
-<th><strong>Dual Site</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPU</td>
-<td>24</td>
-<td>48</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>325 GB</td>
-<td>768 GB</td>
-</tr>
-<tr>
-<td>Disk</td>
-<td>1.1 TB</td>
-<td>2.5TB</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>VVF 9.0</th>
-<th><strong>Single Site</strong></th>
-<th><strong>Dual Site</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CPU</td>
-<td>12</td>
-<td>24</td>
-</tr>
-<tr>
-<td>Memory</td>
-<td>256 GB</td>
-<td>512 GB</td>
-</tr>
-<tr>
-<td>Disk</td>
-<td>1 TB</td>
-<td>2TB</td>
-</tr>
-</tbody>
-</table>
 <table>
 <thead>
 <tr>
@@ -1644,7 +1468,7 @@ their account teams.</p>
 <p>Ensure all the pre-requistes stated earlier are completed.</p>
 <h3 id="deploy-holorouter-ova">Deploy Holorouter OVA</h3>
 <p>Holodeck 9 supports deployments on both stand-alone ESX hosts as well as vCenter as target. Choose the appropriate tab below to follow the instructions for your specific target to deploy Holorouter.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Stand-Alone ESX Host</label><label for="__tabbed_2_2">vCenter</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Stand-Alone ESX Host</label><label for="__tabbed_1_2">vCenter</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p></p><ol>
@@ -2838,56 +2662,9 @@ their account teams.</p>
 <a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>Get-HoloDeckBGPConfig -Site b
 </code></pre></div>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Get-HoloDeckBGPConfig.png" data-desc-position="bottom"><img alt="image" src="images/Get-HoloDeckBGPConfig.png"></a></p>
-<h3 id="get-dns-entries">Get DNS entries</h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>Get-HoloDeckDNSConfig</code> is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab</p>
-</div>
-<p>You can list all the DNS entries configured in the DNS service in HoloRouter. You can also get information about a specific DNS entry by specifying its IP or FQDN. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Get-HoloDeckDNSConfig [-IP &lt;string&gt;] [-FQDN &lt;string&gt;] [&lt;CommonParameters&gt;]
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>For e.g.:
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>Get-HoloDeckDNSConfig
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>Get-HoloDeckDNSConfig -IP 10.1.1.1
-<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>
-<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>Get-HoloDeckDNSConfig -FQDN esx-02a.site-a.vcf.lab 
-</code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Get-HoloDeckDNSConfig.png" data-desc-position="bottom"><img alt="image" src="images/Get-HoloDeckDNSConfig.png"></a></p>
-<h3 id="add-or-update-dns-entries">Add or Update DNS entries</h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>Set-HoloDeckDNSConfig</code> is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab</p>
-</div>
-<p>You can configure additional DNS entries to the DNS service in HoloRouter. To do that, use the Set-HoloDeckDNSConfig cmdlet. Note that you must specify the DNS entry in single quotes ('<dns_entry>').</dns_entry></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Set-HoloDeckDNSConfig -DNSRecord &lt;string&gt; [&lt;CommonParameters&gt;]
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>For e.g., to create a DNS entry for '10.1.1.201 harbor.site-a.vcf.lab', you would run -
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>Set-HoloDeckDNSConfig -DNSRecord '10.1.1.201 harbor.site-a.vcf.lab'
-</code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Set-HoloDeckDNSConfig.png" data-desc-position="bottom"><img alt="image" src="images/Set-HoloDeckDNSConfig.png"></a></p>
-<p>You can also replace the DNS entries existing in the DNS service in HoloRouter. You will still use the Set-HoloDeckDNSConfig but specify different parameters. Note that the DNS entries to be searched and replaced must be specified in single quotes ('<dns_entry>').</dns_entry></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Set-HoloDeckDNSConfig -SearchDNSRecord &lt;string&gt; -ReplaceDNSRecord &lt;string&gt; -Update [&lt;CommonParameters&gt;]
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>For e.g., to replace the DNS entry '10.1.1.201 harbor.site-a.vcf.lab' with '10.1.1.210 harbor.site-a.vcf.lab', you would run -
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>Set-HoloDeckDNSConfig -SearchDNSRecord '10.1.1.201 harbor.site-a.vcf.lab' -ReplaceDNSRecord '10.1.1.210 harbor.site-a.vcf.lab' -Update
-</code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Set-HoloDeckDNSConfig-Update.png" data-desc-position="bottom"><img alt="image" src="images/Set-HoloDeckDNSConfig-Update.png"></a></p>
-<h3 id="remove-dns-entries">Remove DNS entries</h3>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>Remove-HoloDeckDNSConfig</code> is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab</p>
-</div>
-<p>You can remove the DNS entries from the DNS service in HoloRouter. To do that, use Remove-HoloDeckDNSConfig cmdlet. You must specify the DNS entry in single quotes ('<dns_entry>').</dns_entry></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Remove-HoloDeckDNSConfig -DNSRecord &lt;string&gt;  [&lt;CommonParameters&gt;]
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>For e.g., to remove the DNS entry '10.1.1.210 harbor.site-a.vcf.lab', you would run -
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>Remove-HoloDeckDNSConfig -DNSRecord '10.1.1.210 harbor.site-a.vcf.lab'
-</code></pre></div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Remove-HoloDeckDNSConfig.png" data-desc-position="bottom"><img alt="image" src="images/Remove-HoloDeckDNSConfig.png"></a></p>
-<h3 id="migrate-holorouter-90901-to-902">Migrate Holorouter 9.0/9.0.1 to 9.0.2</h3>
-<p>Please follow the steps specified in the flowchart below to deploy and use Holorouter 9.0.2 in an existing Holodeck 9.0/9.0.1 instance.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/Migrating-HoloRouter-9.0-and-9.0.1-to-9.0.2.png" data-desc-position="bottom"><img alt="image" src="images/Migrating-HoloRouter-9.0-and-9.0.1-to-9.0.2.png"></a></p>
+<h3 id="manage-dns-entries">Manage DNS entries</h3>
+<p>Starting with Holodeck 9.1, DNS management is handled via <strong>Technitium DNS</strong>, which provides a web UI for managing DNS entries.</p>
+<p>Access Technitium at <code>https://dns.vcf.lab</code> with credentials <code>admin</code> / <code>VMware123!VMware123!</code>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Refer to the <a href="faq/#troubleshooting">Troubleshooting section</a> on the <a href="faq/">FAQ page</a> for more details.</p>
 
