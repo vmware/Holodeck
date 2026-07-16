@@ -2,18 +2,18 @@
  * version-badge.js
  *
  * Moves the MkDocs Material / mike version picker (.md-version) from the
- * header into the RIGHT end of the sticky navigation tabs bar, placing it
- * directly below the GitHub source button — permanently visible on scroll.
+ * header into the RIGHT end of the sticky navigation tabs bar.
  *
- * The dropdown is repositioned with position:fixed + getBoundingClientRect()
- * so it always appears directly below the button regardless of scroll depth
- * or CSS containing-block quirks caused by the sticky tabs bar.
+ * Uses both polling (initial load) and a MutationObserver (instant
+ * navigation) so the picker survives Material Theme re-rendering the
+ * tabs bar when changing the active tab between pages.
  */
 
 (function () {
   'use strict';
 
   var WRAPPER_ID = 'md-version-tab-wrapper';
+  var tabsObserver = null;
 
   /* ── Dropdown repositioning ─────────────────────────────────────────── */
 
@@ -34,48 +34,75 @@
       ].join(';');
     }
 
-    /* Pin when the user opens the dropdown (hover + focus for keyboard nav) */
     btn.addEventListener('mouseenter', pin);
     btn.addEventListener('focus',      pin);
-    list.addEventListener('mouseenter', pin); /* re-pin if user lingers */
+    list.addEventListener('mouseenter', pin);
   }
 
   /* ── Move picker into the tabs bar ──────────────────────────────────── */
 
   function tryMove() {
-    if (document.getElementById(WRAPPER_ID)) return true;
+    var tabsList = document.querySelector('.md-tabs__list');
+    if (!tabsList) return false;
 
     var picker = document.querySelector('.md-version');
     if (!picker) return false;
 
-    var tabsList = document.querySelector('.md-tabs__list');
-    if (!tabsList) return false;
+    var wrapper = document.getElementById(WRAPPER_ID);
 
-    var li = document.createElement('li');
-    li.id = WRAPPER_ID;
-    li.appendChild(picker);
-    tabsList.appendChild(li);
+    /* Already in place inside the current tabs list */
+    if (wrapper && tabsList.contains(wrapper) && wrapper.contains(picker)) {
+      return true;
+    }
 
-    /* Wait one tick so the element is rendered before we query it */
-    setTimeout(function () { setupDropdown(li); }, 0);
+    /* Create a fresh wrapper (tabs bar was re-rendered or first run) */
+    wrapper = document.createElement('li');
+    wrapper.id = WRAPPER_ID;
+    wrapper.appendChild(picker);
+    tabsList.appendChild(wrapper);
+
+    setTimeout(function () { setupDropdown(wrapper); }, 0);
+
+    /* (Re-)attach the MutationObserver to the new tabs container */
+    attachObserver();
 
     return true;
   }
 
-  /* Poll every 100 ms; give up after 8 s (80 attempts) */
-  var attempts = 0;
-  var poll = setInterval(function () {
-    if (tryMove() || ++attempts >= 80) clearInterval(poll);
-  }, 100);
+  /* ── MutationObserver: recover if the tabs bar is re-rendered ────────── */
 
-  /* Re-run after MkDocs Material instant-navigation page switches */
-  document.addEventListener('DOMContentSwitch', function () {
-    attempts = 0;
-    var old = document.getElementById(WRAPPER_ID);
-    if (old) old.remove();
-    clearInterval(poll);
-    poll = setInterval(function () {
+  function attachObserver() {
+    if (tabsObserver) tabsObserver.disconnect();
+
+    var tabsEl = document.querySelector('.md-tabs');
+    if (!tabsEl) return;
+
+    tabsObserver = new MutationObserver(function () {
+      var wrapper  = document.getElementById(WRAPPER_ID);
+      var tabsList = document.querySelector('.md-tabs__list');
+      /* Wrapper is gone or detached → re-place the picker immediately */
+      if (!wrapper || !tabsList || !tabsList.contains(wrapper)) {
+        tryMove();
+      }
+    });
+
+    tabsObserver.observe(tabsEl, { childList: true, subtree: true });
+  }
+
+  /* ── Poll every 100 ms until the picker appears (max 8 s) ───────────── */
+
+  function startPolling() {
+    var attempts = 0;
+    var poll = setInterval(function () {
       if (tryMove() || ++attempts >= 80) clearInterval(poll);
     }, 100);
+  }
+
+  startPolling();
+
+  /* ── Re-run after MkDocs Material instant-navigation page switches ───── */
+  document.addEventListener('DOMContentSwitch', function () {
+    startPolling();
   });
+
 })();
