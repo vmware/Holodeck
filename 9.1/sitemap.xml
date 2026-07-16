@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/cmd_reference/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/downloads/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/faq/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/offline_depot/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/release_notes/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+    <url>
+         <loc>https://vmware.github.io/Holodeck/9.1/support_community/</loc>
+         <lastmod>2026-07-16</lastmod>
+    </url>
+</urlset>
