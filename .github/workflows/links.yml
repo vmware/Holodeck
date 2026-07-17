@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - 'release/**'
   pull_request:
     branches:
       - main
+      - 'release/**'
   repository_dispatch:
   workflow_dispatch:
   schedule:
@@ -47,9 +49,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_NUMBER=$(gh issue list --state open --label "automated issue" --search "Link Checker Report" --json number,title --jq '.[] | select(.title == "Link Checker Report") | .number' | head -1)
+          ISSUE_TITLE="Link Checker Report - ${{ github.ref_name }}"
+          ISSUE_NUMBER=$(gh issue list --state open --label "automated issue" --search "$ISSUE_TITLE" --json number,title --jq --arg title "$ISSUE_TITLE" '.[] | select(.title == $title) | .number' | head -1)
           if [ -n "$ISSUE_NUMBER" ]; then
             gh issue edit "$ISSUE_NUMBER" --body-file ./lychee/out.md
           else
-            gh issue create --title "Link Checker Report" --body-file ./lychee/out.md --label "report" --label "automated issue"
+            gh issue create --title "$ISSUE_TITLE" --body-file ./lychee/out.md --label "report" --label "automated issue"
           fi
