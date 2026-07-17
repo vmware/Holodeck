@@ -56,6 +56,17 @@ The site will be available at `http://127.0.0.1:8000`. Changes to Markdown files
 
 For bug reports and feature requests related to Holodeck itself, please use [GitHub Issues](https://github.com/vmware/Holodeck/issues).
 
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://www.linkedin.com/in/bensier/"><img src="https://avatars.githubusercontent.com/u/214005002?v=4" width="80px;" style="border-radius:50%;" alt="Ben Sier"/><br /><sub><b>Ben Sier</b></sub></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/dhruv-tyagi-2015"><img src="https://avatars.githubusercontent.com/u/214002005?v=4" width="80px;" style="border-radius:50%;" alt="Dhruv Tyagi"/><br /><sub><b>Dhruv Tyagi</b></sub></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/jatinpurohit92/"><img src="https://avatars.githubusercontent.com/u/163879384?v=4" width="80px;" style="border-radius:50%;" alt="Jatin Purohit"/><br /><sub><b>Jatin Purohit</b></sub></a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/kulkarninikhilm/"><img src="https://avatars.githubusercontent.com/u/214144950?v=4" width="80px;" style="border-radius:50%;" alt="Nikhil Kulkarni"/><br /><sub><b>Nikhil Kulkarni</b></sub></a></td>
+  </tr>
+</table>
+
 ## Disclaimer
 
 Holodeck is not an officially supported product. It is intended for testing and training environments only.

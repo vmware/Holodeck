@@ -160,6 +160,68 @@
     background-color: var(--vmware-dark-gray);
 }
 
+/* Contributors Section in Right Sidebar */
+.md-sidebar__contributors {
+    padding: 0 0.6rem 0.75rem;
+    border-top: 1px solid var(--vmware-gray-200);
+    margin-top: 0.25rem;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar__contributors {
+    border-top-color: #2d3748;
+}
+
+.md-sidebar__contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.contributor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    padding: 0.4rem 0.2rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.contributor-card:hover {
+    background-color: var(--vmware-gray-100);
+}
+
+[data-md-color-scheme="slate"] .contributor-card:hover {
+    background-color: #2d3748;
+}
+
+.contributor-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--vmware-gray-200);
+    display: block;
+}
+
+[data-md-color-scheme="slate"] .contributor-avatar {
+    border-color: #4a5568;
+}
+
+.contributor-name {
+    font-size: 0.63rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--vmware-dark-gray);
+    line-height: 1.2;
+}
+
+[data-md-color-scheme="slate"] .contributor-name {
+    color: var(--vmware-cool-gray-7);
+}
+
 /* Video Thumbnail in Right Sidebar */
 .md-sidebar__video-thumbnail {
     padding: 1rem 0.6rem;
