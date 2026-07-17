@@ -13,3 +13,6 @@ https://community\.broadcom\.com/.*
 
 # Placeholder IP used in offline depot instructions
 http://*oda-ip*/
+
+# LinkedIn blocks all automated crawlers with 999 status
+https://www\.linkedin\.com/.*
