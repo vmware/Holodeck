@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en" class="no-js"><head>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,18 +23,23 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="zensical-0.0.51">
     
     
       
-        <title>Command Reference - Holodeck</title>
+        <title>Cmd reference - Holodeck</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="../assets/stylesheets/classic/main.f62f0af6.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
       
       
 
@@ -44,31 +52,21 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
     
     
-  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
-            html.glightbox-open { overflow: initial; height: 100%; }
-            .gslide-title { margin-top: 0px; user-select: text; }
-            .gslide-desc { color: #666; user-select: text; }
-            .gslide-image img { background: white; }
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+  </head>
   
   
     
@@ -83,7 +81,7 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
@@ -96,7 +94,7 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
       </div>
     
@@ -107,14 +105,14 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Holodeck" class="md-header__button md-logo" aria-label="Holodeck" data-md-component="logo">
+    <a href="./.." title="Holodeck" class="md-header__button md-logo" aria-label="Holodeck" data-md-component="logo">
       
-  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+  <img src="../images/VMware_by_Broadcom_White.png" alt="Holodeck">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -126,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Command Reference
+              Cmd reference
             
           </span>
         </div>
@@ -139,20 +137,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
       </label>
     
   
@@ -164,19 +162,32 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
     
-      <div class="md-header__source">
+    <div class="md-header__source">
+      
         <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-      </div>
-    
+      
+    </div>
   </nav>
   
     
@@ -191,11 +202,8 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="./.." class="md-tabs__link">
         
-  
-  
-    
   
   Getting Started
 
@@ -213,9 +221,6 @@
       <a href="../release_notes/" class="md-tabs__link">
         
   
-  
-    
-  
   Release Notes
 
       </a>
@@ -232,9 +237,6 @@
       <a href="../downloads/" class="md-tabs__link">
         
   
-  
-    
-  
   Downloads
 
       </a>
@@ -250,11 +252,8 @@
   
   
     <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+      <a href="././" class="md-tabs__link">
         
-  
-  
-    
   
   Command Reference
 
@@ -272,9 +271,6 @@
       <a href="../offline_depot/" class="md-tabs__link">
         
   
-  
-    
-  
   Offline Depot
 
       </a>
@@ -291,9 +287,6 @@
       <a href="../support_community/" class="md-tabs__link">
         
   
-  
-    
-  
   Support
 
       </a>
@@ -309,9 +302,6 @@
     <li class="md-tabs__item">
       <a href="../faq/" class="md-tabs__link">
         
-  
-  
-    
   
   FAQ
 
@@ -338,7 +328,7 @@
   
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -351,9 +341,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Holodeck" class="md-nav__button md-logo" aria-label="Holodeck" data-md-component="logo">
+    <a href="./.." title="Holodeck" class="md-nav__button md-logo" aria-label="Holodeck" data-md-component="logo">
       
-  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+  <img src="../images/VMware_by_Broadcom_White.png" alt="Holodeck">
 
     </a>
     Holodeck
@@ -363,7 +353,7 @@
       <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -371,7 +361,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
       
@@ -380,15 +370,14 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting Started
-  
+  Getting Started
 
     
   </span>
@@ -414,8 +403,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
-  
+  Release Notes
 
     
   </span>
@@ -441,8 +429,7 @@
   <span class="md-ellipsis">
     
   
-    Downloads
-  
+  Downloads
 
     
   </span>
@@ -464,7 +451,9 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
       
@@ -475,8 +464,7 @@
   <span class="md-ellipsis">
     
   
-    Command Reference
-  
+  Command Reference
 
     
   </span>
@@ -486,15 +474,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Command Reference
-  
+  Command Reference
 
     
   </span>
@@ -505,23 +492,24 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#new-holodeckinstance" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         New-HoloDeckInstance
-      
+      </span>
     </span>
   </a>
   
@@ -531,9 +519,9 @@
           <li class="md-nav__item">
   <a href="#description" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -542,9 +530,9 @@
           <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -553,9 +541,9 @@
           <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -569,9 +557,9 @@
         <li class="md-nav__item">
   <a href="#update-holodeckinstance" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Update-HoloDeckInstance
-      
+      </span>
     </span>
   </a>
   
@@ -581,9 +569,9 @@
           <li class="md-nav__item">
   <a href="#description_1" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -592,9 +580,9 @@
           <li class="md-nav__item">
   <a href="#parameters_1" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -603,9 +591,9 @@
           <li class="md-nav__item">
   <a href="#examples_1" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -614,9 +602,9 @@
           <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Notes
-      
+      </span>
     </span>
   </a>
   
@@ -630,9 +618,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckinstance" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckInstance
-      
+      </span>
     </span>
   </a>
   
@@ -642,9 +630,9 @@
           <li class="md-nav__item">
   <a href="#description_2" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -653,9 +641,9 @@
           <li class="md-nav__item">
   <a href="#parameters_2" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -664,9 +652,9 @@
           <li class="md-nav__item">
   <a href="#examples_2" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -680,9 +668,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckConfig
-      
+      </span>
     </span>
   </a>
   
@@ -692,9 +680,9 @@
           <li class="md-nav__item">
   <a href="#description_3" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -703,9 +691,9 @@
           <li class="md-nav__item">
   <a href="#parameters_3" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -714,9 +702,9 @@
           <li class="md-nav__item">
   <a href="#examples_3" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -725,9 +713,9 @@
           <li class="md-nav__item">
   <a href="#notes_1" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Notes
-      
+      </span>
     </span>
   </a>
   
@@ -741,9 +729,9 @@
         <li class="md-nav__item">
   <a href="#new-holodeckconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         New-HoloDeckConfig
-      
+      </span>
     </span>
   </a>
   
@@ -753,9 +741,9 @@
           <li class="md-nav__item">
   <a href="#description_4" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -764,9 +752,9 @@
           <li class="md-nav__item">
   <a href="#parameters_4" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -775,9 +763,9 @@
           <li class="md-nav__item">
   <a href="#examples_4" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -786,9 +774,9 @@
           <li class="md-nav__item">
   <a href="#notes_2" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Notes
-      
+      </span>
     </span>
   </a>
   
@@ -802,9 +790,9 @@
         <li class="md-nav__item">
   <a href="#import-holodeckconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Import-HoloDeckConfig
-      
+      </span>
     </span>
   </a>
   
@@ -814,9 +802,9 @@
           <li class="md-nav__item">
   <a href="#description_5" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -825,9 +813,9 @@
           <li class="md-nav__item">
   <a href="#parameters_5" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -836,9 +824,9 @@
           <li class="md-nav__item">
   <a href="#examples_5" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -847,9 +835,9 @@
           <li class="md-nav__item">
   <a href="#notes_3" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Notes
-      
+      </span>
     </span>
   </a>
   
@@ -863,9 +851,9 @@
         <li class="md-nav__item">
   <a href="#reset-holodeckstate" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Reset-HoloDeckState
-      
+      </span>
     </span>
   </a>
   
@@ -875,9 +863,9 @@
           <li class="md-nav__item">
   <a href="#description_6" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -886,9 +874,9 @@
           <li class="md-nav__item">
   <a href="#examples_6" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -897,9 +885,9 @@
           <li class="md-nav__item">
   <a href="#notes_4" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Notes
-      
+      </span>
     </span>
   </a>
   
@@ -913,9 +901,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckdnsconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckDNSConfig
-      
+      </span>
     </span>
   </a>
   
@@ -925,9 +913,9 @@
           <li class="md-nav__item">
   <a href="#description_7" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -936,9 +924,9 @@
           <li class="md-nav__item">
   <a href="#parameters_6" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -947,9 +935,9 @@
           <li class="md-nav__item">
   <a href="#examples_7" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -963,9 +951,9 @@
         <li class="md-nav__item">
   <a href="#new-holodecknetworkconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         New-HoloDeckNetworkConfig
-      
+      </span>
     </span>
   </a>
   
@@ -975,9 +963,9 @@
           <li class="md-nav__item">
   <a href="#description_8" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -986,9 +974,9 @@
           <li class="md-nav__item">
   <a href="#parameters_7" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -997,9 +985,9 @@
           <li class="md-nav__item">
   <a href="#examples_8" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1013,9 +1001,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckbgpconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckBGPConfig
-      
+      </span>
     </span>
   </a>
   
@@ -1025,9 +1013,9 @@
           <li class="md-nav__item">
   <a href="#description_9" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1036,9 +1024,9 @@
           <li class="md-nav__item">
   <a href="#parameters_8" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1047,9 +1035,9 @@
           <li class="md-nav__item">
   <a href="#examples_9" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1063,9 +1051,9 @@
         <li class="md-nav__item">
   <a href="#set-holorouter" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Set-HoloRouter
-      
+      </span>
     </span>
   </a>
   
@@ -1075,9 +1063,9 @@
           <li class="md-nav__item">
   <a href="#description_10" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1086,9 +1074,9 @@
           <li class="md-nav__item">
   <a href="#parameters_9" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1097,9 +1085,9 @@
           <li class="md-nav__item">
   <a href="#examples_10" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1113,9 +1101,9 @@
         <li class="md-nav__item">
   <a href="#reset-holorouter" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Reset-HoloRouter
-      
+      </span>
     </span>
   </a>
   
@@ -1125,9 +1113,9 @@
           <li class="md-nav__item">
   <a href="#description_11" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1136,9 +1124,9 @@
           <li class="md-nav__item">
   <a href="#examples_11" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1147,9 +1135,9 @@
           <li class="md-nav__item">
   <a href="#notes_5" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Notes
-      
+      </span>
     </span>
   </a>
   
@@ -1163,9 +1151,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckappnetwork" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckAppNetwork
-      
+      </span>
     </span>
   </a>
   
@@ -1175,9 +1163,9 @@
           <li class="md-nav__item">
   <a href="#description_12" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1186,9 +1174,9 @@
           <li class="md-nav__item">
   <a href="#parameters_10" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1197,9 +1185,9 @@
           <li class="md-nav__item">
   <a href="#examples_12" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1213,9 +1201,9 @@
         <li class="md-nav__item">
   <a href="#get-holodecksubnet" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckSubnet
-      
+      </span>
     </span>
   </a>
   
@@ -1225,9 +1213,9 @@
           <li class="md-nav__item">
   <a href="#description_13" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1236,9 +1224,9 @@
           <li class="md-nav__item">
   <a href="#parameters_11" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1247,9 +1235,9 @@
           <li class="md-nav__item">
   <a href="#examples_13" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1263,9 +1251,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckoverlaysubnet" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckOverlaySubnet
-      
+      </span>
     </span>
   </a>
   
@@ -1275,9 +1263,9 @@
           <li class="md-nav__item">
   <a href="#description_14" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1286,9 +1274,9 @@
           <li class="md-nav__item">
   <a href="#parameters_12" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1297,9 +1285,9 @@
           <li class="md-nav__item">
   <a href="#examples_14" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1313,9 +1301,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckappippools" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HoloDeckAppIpPools
-      
+      </span>
     </span>
   </a>
   
@@ -1325,9 +1313,9 @@
           <li class="md-nav__item">
   <a href="#description_15" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1336,9 +1324,9 @@
           <li class="md-nav__item">
   <a href="#parameters_13" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1347,9 +1335,9 @@
           <li class="md-nav__item">
   <a href="#examples_15" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1363,9 +1351,9 @@
         <li class="md-nav__item">
   <a href="#get-holodeckserviceippools" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Get-HolodeckServiceIPPools
-      
+      </span>
     </span>
   </a>
   
@@ -1375,9 +1363,9 @@
           <li class="md-nav__item">
   <a href="#description_16" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Description
-      
+      </span>
     </span>
   </a>
   
@@ -1386,9 +1374,9 @@
           <li class="md-nav__item">
   <a href="#parameters_14" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Parameters
-      
+      </span>
     </span>
   </a>
   
@@ -1397,9 +1385,9 @@
           <li class="md-nav__item">
   <a href="#examples_16" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Examples
-      
+      </span>
     </span>
   </a>
   
@@ -1432,8 +1420,7 @@
   <span class="md-ellipsis">
     
   
-    Offline Depot
-  
+  Offline Depot
 
     
   </span>
@@ -1459,8 +1446,7 @@
   <span class="md-ellipsis">
     
   
-    Support
-  
+  Support
 
     
   </span>
@@ -1486,8 +1472,7 @@
   <span class="md-ellipsis">
     
   
-    FAQ
-  
+  FAQ
 
     
   </span>
@@ -1515,16 +1500,16 @@
         <div class="md-sidebar__inner">
           <nav class="md-nav md-nav--secondary" aria-label="Contributing">
             <div class="md-nav__title--contributing-custom">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-4h2v2h2v-2h2v-2h-2v-2h-2v2h-2v2z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-4h2v2h2v-2h2v-2h-2v-2h-2v2h-2v2z"/></svg>
               Contributing
             </div>
             <div class="md-nav__contributing">
               <a href="https://github.com/vmware/Holodeck/blob/main/docs/cmd_reference.md" title="Edit this page" class="md-button md-button--contributing" target="_blank" rel="noopener">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 <span>Page source</span>
               </a>
               <a href="https://github.com/vmware/Holodeck/issues/new" title="Create issue" class="md-button md-button--contributing" target="_blank" rel="noopener">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 <span>Create issue</span>
               </a>
             </div>
@@ -1533,7 +1518,7 @@
           <!-- Contributors Section -->
           <div class="md-sidebar__contributors">
             <div class="md-nav__title--contributing-custom">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
               Contributors
             </div>
             <div class="md-sidebar__contributors-grid">
@@ -1573,13 +1558,11 @@
               <article class="md-content__inner md-typeset">
                 
                   
-
-
   
   
 
 
-  <h1>Command Reference</h1>
+  <h1 id="__skip">Cmd reference</h1>
 
 <h2 id="new-holodeckinstance">New-HoloDeckInstance</h2>
 <p>Creates a new Holodeck instance — a nested VMware Cloud Foundation (VCF) lab environment for testing and training purposes.</p>
@@ -1589,10 +1572,10 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-InstanceID</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-CIDR</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">[]&gt;]</span> <span class="p">[</span><span class="n">-vSANMode</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-WorkloadDomainType</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-NsxEdgeClusterMgmtDomain</span><span class="p">]</span> <span class="p">[</span><span class="n">-NsxEdgeClusterWkldDomain</span><span class="p">]</span> <span class="p">[</span><span class="n">-DeployVcfAutomation</span><span class="p">]</span> <span class="p">[</span><span class="n">-DeploySupervisorWldDomain</span><span class="p">]</span> <span class="p">[</span><span class="n">-DeploySupervisorMgmtDomain</span><span class="p">]</span> <span class="p">[</span><span class="n">-LogLevel</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-ProvisionOnly</span><span class="p">]</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-DepotType</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-DeveloperMode</span><span class="p">]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description">Description</h3>
 <p>Deploys a Holodeck instance based on the provided VCF version and optional parameters to customize the environment for management/workload domain, NSX Edge, vSAN mode, and more.</p>
-<hr>
+<hr />
 <h3 id="parameters">Parameters</h3>
 <table>
 <thead>
@@ -1708,36 +1691,36 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples">Examples</h3>
 <p>Example 1</p>
 <p>Deploys a VVF using 9.0 version with vSAN ESA mode using default CIDR 10.1.0.0/20
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-vSANMode</span> <span class="n">ESA</span> <span class="n">-VVF</span> <span class="n">-DepotType</span> <span class="n">Online</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-vSANMode</span> <span class="n">ESA</span> <span class="n">-VVF</span> <span class="n">-DepotType</span> <span class="n">Online</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Deploys a VCF 9.0 management domain with instance ID "holo" using a custom CIDR 10.3.0.0/20 with vSAN OSA and uses offline depot for VCF Installer.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-CIDR</span> <span class="n">10</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">20</span> <span class="n">-vSANMode</span> <span class="n">OSA</span> <span class="n">-ManagementOnly</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-DepotType</span> <span class="n">Offline</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-CIDR</span> <span class="n">10</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">20</span> <span class="n">-vSANMode</span> <span class="n">OSA</span> <span class="n">-ManagementOnly</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-DepotType</span> <span class="n">Offline</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Deploys nested ESX hosts for management domain and VCF Installer and creates scripts available in /holodeck-runtime/specs/ folder to manually walk-through greenfield VCF deployment.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-CIDR</span> <span class="n">10</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">20</span> <span class="n">-vSANMode</span> <span class="n">OSA</span> <span class="n">-ManagementOnly</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-ProvisionOnly</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-CIDR</span> <span class="n">10</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">20</span> <span class="n">-vSANMode</span> <span class="n">OSA</span> <span class="n">-ManagementOnly</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-ProvisionOnly</span>
+</code></pre></div></p>
 <p>Example 4</p>
 <p>Deploys a VCF 9.0 full stack instance with NSX Edge cluster deployed in both management and workload domain, VCF Automation deployed in Management domain, supervisor deployed in workload domain using an online depot.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-NsxEdgeClusterWkldDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-DeploySupervisorWldDomain</span> <span class="n">-DepotType</span> <span class="n">Online</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-NsxEdgeClusterWkldDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-DeploySupervisorWldDomain</span> <span class="n">-DepotType</span> <span class="n">Online</span>
+</code></pre></div></p>
 <p>Example 5</p>
 <p>Deploys a VCF 9.0 management-only instance with Supervisor deployed in the management domain.
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-CIDR</span> <span class="n">10</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">20</span> <span class="n">-ManagementOnly</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-DeploySupervisorMgmtDomain</span> <span class="n">-DepotType</span> <span class="n">Offline</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">New-HoloDeckInstance</span> <span class="n">-Version</span> <span class="n">9</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">-InstanceID</span> <span class="n">holo</span> <span class="n">-CIDR</span> <span class="n">10</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">20</span> <span class="n">-ManagementOnly</span> <span class="n">-NsxEdgeClusterMgmtDomain</span> <span class="n">-DeployVcfAutomation</span> <span class="n">-DeploySupervisorMgmtDomain</span> <span class="n">-DepotType</span> <span class="n">Offline</span>
+</code></pre></div></p>
+<hr />
 <h2 id="update-holodeckinstance">Update-HoloDeckInstance</h2>
 <p>Performs Day 2 operations on an existing Holodeck instance.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-AddVcfAutomationAllAppsOrg</span> <span class="n">-VIDomain</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_1">Description</h3>
 <p>Performs Day 2 operations on a previously deployed Holodeck instance. This cmdlet replaces the previous <code>New-HoloDeckInstance -Interactive</code> workflow. Each Day 2 operation is invoked using a specific parameter set.</p>
 <p>Currently supported Day 2 operations:</p>
@@ -1745,7 +1728,7 @@
 <li><strong>Deploy Additional Cluster</strong> (<code>-AdditionalCluster</code>): Deploys a 3-node vSphere cluster in the specified domain.</li>
 <li><strong>Deploy VCF Automation All Apps Org</strong> (<code>-AddVcfAutomationAllAppsOrg</code>): Creates an All Apps Org in VCF Automation for the specified domain.</li>
 </ul>
-<hr>
+<hr />
 <h3 id="parameters_1">Parameters</h3>
 <table>
 <thead>
@@ -1783,21 +1766,21 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_1">Examples</h3>
 <p>Example 1</p>
 <p>Deploy an additional vSphere cluster in the Management domain for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Deploy an additional vSphere cluster in the Workload domain for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Workload</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Workload</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Deploy a VCF Automation All Apps Org in the Management domain for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AddVcfAutomationAllAppsOrg</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AddVcfAutomationAllAppsOrg</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
+</code></pre></div></p>
+<hr />
 <h3 id="notes">Notes</h3>
 <p>This cmdlet replaces <code>New-HoloDeckInstance -Interactive</code>. </p>
 <ul>
@@ -1805,15 +1788,15 @@
 <li>VCF Automation and Supervisor must already be deployed (via <code>-DeployVcfAutomation</code>, <code>-DeploySupervisorMgmtDomain</code> and <code>-DeploySupervisorWldDomain</code> during <code>New-HoloDeckInstance</code>) before running <code>-AddVcfAutomationAllAppsOrg</code>.</li>
 <li>The additional cluster is deployed as a 3-node vSphere cluster.</li>
 </ul>
-<hr>
+<hr />
 <h2 id="get-holodeckinstance">Get-HoloDeckInstance</h2>
 <p>Retrieves details of a deployed Holodeck instance.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">Get-HoloDeckInstance</span> <span class="n">-InstanceID</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_2">Description</h3>
 <p>Gets instance details from the Holodeck instance output file (<code>output.json</code>). Returns a structured HolodeckInstance model object providing programmatic access to instance details such as deployed components, networking information, and deployment state.</p>
-<hr>
+<hr />
 <h3 id="parameters_2">Parameters</h3>
 <table>
 <thead>
@@ -1833,21 +1816,21 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_2">Examples</h3>
 <p>Example 1</p>
 <p>Returns details for the instance with ID "holo"
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">Get-HoloDeckInstance</span> <span class="n">-InstanceID</span> <span class="n">holo</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">Get-HoloDeckInstance</span> <span class="n">-InstanceID</span> <span class="n">holo</span>
+</code></pre></div></p>
+<hr />
 <h2 id="get-holodeckconfig">Get-HoloDeckConfig</h2>
 <p>Retrieves Holodeck configuration information.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">Get-HoloDeckConfig</span> <span class="p">[</span><span class="n">-configID</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_3">Description</h3>
 <p>Gets configuration details from Holodeck config files. Can retrieve a specific configuration by ID or list all available configurations.</p>
-<hr>
+<hr />
 <h3 id="parameters_3">Parameters</h3>
 <table>
 <thead>
@@ -1867,28 +1850,28 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_3">Examples</h3>
 <p>Example 1</p>
 <p>Returns all available Holodeck configurations
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">Get-HoloDeckConfig</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">Get-HoloDeckConfig</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Returns the configuration details for the "prod" configuration
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">Get-HoloDeckConfig</span> <span class="n">-configID</span> <span class="s2">"prod"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">Get-HoloDeckConfig</span> <span class="n">-configID</span> <span class="s2">&quot;prod&quot;</span>
+</code></pre></div></p>
+<hr />
 <h3 id="notes_1">Notes</h3>
 <p>Configurations are stored in the <code>/holodeck-runtime/config</code> directory.</p>
-<hr>
+<hr />
 <h2 id="new-holodeckconfig">New-HoloDeckConfig</h2>
 <p>Creates a new Holodeck configuration file.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">New-HoloDeckConfig</span> <span class="n">-TargetHost</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-UserName</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-Password</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-Description</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Default</span><span class="p">]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_4">Description</h3>
 <p>Initializes a new Holodeck configuration with target host details, credentials, and optional description. Can create a default configuration or a custom one.</p>
-<hr>
+<hr />
 <h3 id="parameters_4">Parameters</h3>
 <table>
 <thead>
@@ -1932,32 +1915,32 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_4">Examples</h3>
 <p>Example 1</p>
 <p>Creates a new configuration for a production environment
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">New-HoloDeckConfig</span> <span class="n">-TargetHost</span> <span class="s2">"vcenter.example.com"</span> <span class="n">-UserName</span> <span class="s2">"admin"</span> <span class="n">-Password</span> <span class="s2">"pass"</span> <span class="n">-Description</span> <span class="s2">"Production environment"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">New-HoloDeckConfig</span> <span class="n">-TargetHost</span> <span class="s2">&quot;vcenter.example.com&quot;</span> <span class="n">-UserName</span> <span class="s2">&quot;admin&quot;</span> <span class="n">-Password</span> <span class="s2">&quot;pass&quot;</span> <span class="n">-Description</span> <span class="s2">&quot;Production environment&quot;</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Creates a new default configuration
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">New-HoloDeckConfig</span> <span class="n">-TargetHost</span> <span class="s2">"vcenter.example.com"</span> <span class="n">-UserName</span> <span class="s2">"admin"</span> <span class="n">-Password</span> <span class="s2">"pass"</span> <span class="n">-Default</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">New-HoloDeckConfig</span> <span class="n">-TargetHost</span> <span class="s2">&quot;vcenter.example.com&quot;</span> <span class="n">-UserName</span> <span class="s2">&quot;admin&quot;</span> <span class="n">-Password</span> <span class="s2">&quot;pass&quot;</span> <span class="n">-Default</span>
+</code></pre></div></p>
+<hr />
 <h3 id="notes_2">Notes</h3>
 <p>The configuration is saved to <code>/holodeck-runtime/config</code> directory.</p>
 <div class="admonition warning">
 <p class="admonition-title">Config to Deployment: 1:1 Mapping</p>
 <p>Each configuration is mapped to a single deployment. Always create a new config for each new deployment. Do not reuse the same config for multiple deployments as it may lead to state conflicts and unpredictable behavior.</p>
 </div>
-<hr>
+<hr />
 <h2 id="import-holodeckconfig">Import-HoloDeckConfig</h2>
 <p>Imports and loads a Holodeck configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">Import-HoloDeckConfig</span> <span class="n">-ConfigID</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_5">Description</h3>
 <p>Loads a specific Holodeck configuration file by ConfigID into the global <code>$config</code> variable for use by other Holodeck functions.</p>
-<hr>
+<hr />
 <h3 id="parameters_5">Parameters</h3>
 <table>
 <thead>
@@ -1977,41 +1960,41 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_5">Examples</h3>
 <p>Example 1</p>
 <p>Imports the configuration with ID "abc123"
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">Import-HoloDeckConfig</span> <span class="n">-ConfigID</span> <span class="s2">"abc123"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">Import-HoloDeckConfig</span> <span class="n">-ConfigID</span> <span class="s2">&quot;abc123&quot;</span>
+</code></pre></div></p>
+<hr />
 <h3 id="notes_3">Notes</h3>
 <p>Sets the global <code>$config</code> variable with the imported configuration.</p>
-<hr>
+<hr />
 <h2 id="reset-holodeckstate">Reset-HoloDeckState</h2>
 <p>Resets the Holodeck state file to empty.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">Reset-HoloDeckState</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_6">Description</h3>
 <p>Clears all state information from the Holodeck state file by setting its contents to null. Used to start fresh or clear corrupted state.</p>
-<hr>
+<hr />
 <h3 id="examples_6">Examples</h3>
 <p>Example 1</p>
 <p>Resets the state file to empty, clearing all tracked function states
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">Reset-HoloDeckState</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">Reset-HoloDeckState</span>
+</code></pre></div></p>
+<hr />
 <h3 id="notes_4">Notes</h3>
 <p>This operation cannot be undone. All state tracking information will be lost.</p>
-<hr>
+<hr />
 <h2 id="get-holodeckdnsconfig">Get-HoloDeckDNSConfig</h2>
 <p>Retrieves DNS records from the HoloDeck DNS configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">Get-HoloDeckDNSConfig</span> <span class="p">[</span><span class="n">-IP</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-FQDN</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_7">Description</h3>
 <p>Queries the CoreDNS ConfigMap for DNS records. Can filter by IP address, FQDN, or retrieve all records.</p>
-<hr>
+<hr />
 <h3 id="parameters_6">Parameters</h3>
 <table>
 <thead>
@@ -2037,29 +2020,29 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_7">Examples</h3>
 <p>Example 1</p>
 <p>Retrieves all DNS records
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">Get-HoloDeckDNSConfig</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">Get-HoloDeckDNSConfig</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Retrieves DNS records for the specified IP address
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">Get-HoloDeckDNSConfig</span> <span class="n">-IP</span> <span class="s2">"192.168.1.10"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">Get-HoloDeckDNSConfig</span> <span class="n">-IP</span> <span class="s2">&quot;192.168.1.10&quot;</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Retrieves DNS records for the specified FQDN
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">Get-HoloDeckDNSConfig</span> <span class="n">-FQDN</span> <span class="s2">"server.example.com"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">Get-HoloDeckDNSConfig</span> <span class="n">-FQDN</span> <span class="s2">&quot;server.example.com&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="new-holodecknetworkconfig">New-HoloDeckNetworkConfig</h2>
 <p>Generates network configuration for Holodeck deployment.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">New-HoloDeckNetworkConfig</span> <span class="n">-MasterCIDR</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-NoOfSubnets</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-bgpPassword</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-VLANRangeStart</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-DNSDomain</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_8">Description</h3>
 <p>Creates a comprehensive network configuration including subnets, VLANs, IP pools, and BGP configuration. Supports custom network layouts or default configurations. Generates configuration for ESX hosts, vCenter, NSX, and other VCF components.</p>
-<hr>
+<hr />
 <h3 id="parameters_7">Parameters</h3>
 <table>
 <thead>
@@ -2109,25 +2092,25 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_8">Examples</h3>
 <p>Example 1</p>
 <p>Creates default network configuration for Site A using the specified CIDR
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">New-HoloDeckNetworkConfig</span> <span class="n">-MasterCIDR</span> <span class="s2">"192.168.0.0/16"</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">New-HoloDeckNetworkConfig</span> <span class="n">-MasterCIDR</span> <span class="s2">&quot;192.168.0.0/16&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Creates custom network configuration with 40 subnets starting at VLAN 100
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">New-HoloDeckNetworkConfig</span> <span class="n">-MasterCIDR</span> <span class="s2">"10.0.0.0/16"</span> <span class="n">-NoOfSubnets</span> <span class="n">40</span> <span class="n">-VLANRangeStart</span> <span class="n">100</span> <span class="n">-Site</span> <span class="s2">"b"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">New-HoloDeckNetworkConfig</span> <span class="n">-MasterCIDR</span> <span class="s2">&quot;10.0.0.0/16&quot;</span> <span class="n">-NoOfSubnets</span> <span class="n">40</span> <span class="n">-VLANRangeStart</span> <span class="n">100</span> <span class="n">-Site</span> <span class="s2">&quot;b&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="get-holodeckbgpconfig">Get-HoloDeckBGPConfig</h2>
 <p>Retrieves BGP configuration information from Holodeck network configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">Get-HoloDeckBGPConfig</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_9">Description</h3>
 <p>Queries the network configuration YAML file for BGP (Border Gateway Protocol) settings including router AS numbers, Edge AS numbers for management and workload domains, and BGP password. This information is used to configure BGP routing between the HoloRouter and NSX Edge nodes.</p>
-<hr>
+<hr />
 <h3 id="parameters_8">Parameters</h3>
 <table>
 <thead>
@@ -2147,21 +2130,21 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_9">Examples</h3>
 <p>Example 1</p>
 <p>Retrieves BGP configuration for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">Get-HoloDeckBGPConfig</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">Get-HoloDeckBGPConfig</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="set-holorouter">Set-HoloRouter</h2>
 <p>Configures the HoloRouter for network routing and DNS services.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nb">Set-HoloRouter</span> <span class="p">[</span><span class="n">-dualsite</span><span class="p">]</span> <span class="p">[</span><span class="n">-CIDR</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">[]&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_10">Description</h3>
 <p>Sets up the HoloRouter virtual appliance with DNSMASQ for DNS services, FRR for BGP routing, and VLAN configurations. Supports both single-site and dual-site deployments. </p>
-<hr>
+<hr />
 <h3 id="parameters_9">Parameters</h3>
 <table>
 <thead>
@@ -2187,46 +2170,46 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_10">Examples</h3>
 <p>Example 1</p>
 <p>Configures HoloRouter for single-site deployment with default settings
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">Set-HoloRouter</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">Set-HoloRouter</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Configures HoloRouter for dual-site deployment with VRF separation
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">Set-HoloRouter</span> <span class="n">-dualsite</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">Set-HoloRouter</span> <span class="n">-dualsite</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Configures HoloRouter with custom CIDR blocks for routing
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">Set-HoloRouter</span> <span class="n">-CIDR</span> <span class="p">[</span><span class="s2">"10.0.0.0/16"</span><span class="p">,</span><span class="s2">"192.168.0.0/16"</span><span class="p">]</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">Set-HoloRouter</span> <span class="n">-CIDR</span> <span class="p">[</span><span class="s2">&quot;10.0.0.0/16&quot;</span><span class="p">,</span><span class="s2">&quot;192.168.0.0/16&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+<hr />
 <h2 id="reset-holorouter">Reset-HoloRouter</h2>
 <p>Resets and removes HoloRouter configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">Reset-HoloRouter</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_11">Description</h3>
 <p>Uninstalls and removes all HoloRouter components including DNSMASQ DNS services, FRR BGP routing, and associated network configurations. Reverts network settings to their original state by removing VLANs, VRF tables, and custom routing rules. Restores the original DNS configuration on the HoloRouter appliance.</p>
-<hr>
+<hr />
 <h3 id="examples_11">Examples</h3>
 <p>Example 1</p>
 <p>Removes all HoloRouter configuration and services
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">Reset-HoloRouter</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">Reset-HoloRouter</span>
+</code></pre></div></p>
+<hr />
 <h3 id="notes_5">Notes</h3>
 <p>This operation removes critical infrastructure services. Use with caution as it will disable DNS and routing services for the Holodeck environment. HoloRouter will need to be reconfigured with <code>Set-HoloRouter</code> after running this function. Requires appropriate permissions to modify Kubernetes resources and network settings.</p>
-<hr>
+<hr />
 <h2 id="get-holodeckappnetwork">Get-HoloDeckAppNetwork</h2>
 <p>Retrieves application network information from Holodeck network configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="p">[</span><span class="n">-Hostname</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-IP</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-FQDN</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_12">Description</h3>
 <p>Queries the network configuration YAML file for application network details including hostname, IP address, and FQDN mappings. Can filter results by hostname, IP, FQDN, or retrieve all entries for a specific site.</p>
-<hr>
+<hr />
 <h3 id="parameters_10">Parameters</h3>
 <table>
 <thead>
@@ -2264,29 +2247,29 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_12">Examples</h3>
 <p>Example 1</p>
 <p>Retrieves all application network entries for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Retrieves network information for the vcenter host in Site B
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="n">-Hostname</span> <span class="s2">"vcenter"</span> <span class="n">-Site</span> <span class="s2">"b"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="n">-Hostname</span> <span class="s2">&quot;vcenter&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;b&quot;</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Retrieves network information for the specified IP in Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="n">-IP</span> <span class="s2">"192.168.1.10"</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">Get-HoloDeckAppNetwork</span> <span class="n">-IP</span> <span class="s2">&quot;192.168.1.10&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="get-holodecksubnet">Get-HoloDeckSubnet</h2>
 <p>Retrieves subnet configuration information from Holodeck network configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="p">[</span><span class="n">-Name</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-vlanID</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Subnet</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Gateway</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_13">Description</h3>
 <p>Queries the network configuration YAML file for subnet details including subnet name, VLAN ID, subnet CIDR, and gateway information. Can filter results by various subnet properties or retrieve all subnets for a site.</p>
-<hr>
+<hr />
 <h3 id="parameters_11">Parameters</h3>
 <table>
 <thead>
@@ -2330,29 +2313,29 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_13">Examples</h3>
 <p>Example 1</p>
 <p>Retrieves all subnet configurations for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Retrieves the management subnet configuration for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="n">-Name</span> <span class="s2">"mgmt-a"</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="n">-Name</span> <span class="s2">&quot;mgmt-a&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Retrieves subnet information for VLAN 100 in Site B
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="n">-vlanID</span> <span class="s2">"100"</span> <span class="n">-Site</span> <span class="s2">"b"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">Get-HoloDeckSubnet</span> <span class="n">-vlanID</span> <span class="s2">&quot;100&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;b&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="get-holodeckoverlaysubnet">Get-HoloDeckOverlaySubnet</h2>
 <p>Retrieves overlay subnet configuration information from Holodeck network configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="p">[</span><span class="n">-Name</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Subnet</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Gateway</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_14">Description</h3>
 <p>Queries the network configuration YAML file for NSX overlay subnet details. Overlay subnets are used for NSX overlay networking, including GENEVE tunnels, overlay-backed segments, and overlay transport zones. Can filter results by subnet name, CIDR, or gateway.</p>
-<hr>
+<hr />
 <h3 id="parameters_12">Parameters</h3>
 <table>
 <thead>
@@ -2390,29 +2373,29 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_14">Examples</h3>
 <p>Example 1</p>
 <p>Retrieves all overlay subnet configurations for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Retrieves the overlay transport zone subnet for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="n">-Name</span> <span class="s2">"overlay-tz-a"</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="n">-Name</span> <span class="s2">&quot;overlay-tz-a&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Retrieves overlay subnet information for the specified CIDR in Site B
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="n">-Subnet</span> <span class="s2">"10.0.0.0/16"</span> <span class="n">-Site</span> <span class="s2">"b"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nb">Get-HoloDeckOverlaySubnet</span> <span class="n">-Subnet</span> <span class="s2">&quot;10.0.0.0/16&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;b&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="get-holodeckappippools">Get-HoloDeckAppIpPools</h2>
 <p>Retrieves application IP pool information from Holodeck network configuration.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Name</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-ipPool</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_15">Description</h3>
 <p>Queries the network configuration YAML file for application IP pool definitions. IP pools are used for allocating IP addresses to VCF appliances and components such as Supervisor, VCF Automation and other infrastructure services. Can filter results by pool name, IP pool range, or retrieve all pools for a site.</p>
-<hr>
+<hr />
 <h3 id="parameters_13">Parameters</h3>
 <table>
 <thead>
@@ -2444,29 +2427,29 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_15">Examples</h3>
 <p>Example 1</p>
 <p>Retrieves all application IP pool configurations for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 2</p>
 <p>Retrieves the vCenter IP pool configuration for Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="n">-Name</span> <span class="s2">"vcenter-pool"</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="n">-Name</span> <span class="s2">&quot;vcenter-pool&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
 <p>Example 3</p>
 <p>Retrieves IP pool information for the specified range in Site B
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="n">-ipPool</span> <span class="s2">"192.168.1.10-192.168.1.20"</span> <span class="n">-Site</span> <span class="s2">"b"</span>
-</code></pre></div><p></p>
-<hr>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nb">Get-HoloDeckAppIpPools</span> <span class="n">-ipPool</span> <span class="s2">&quot;192.168.1.10-192.168.1.20&quot;</span> <span class="n">-Site</span> <span class="s2">&quot;b&quot;</span>
+</code></pre></div></p>
+<hr />
 <h2 id="get-holodeckserviceippools">Get-HolodeckServiceIPPools</h2>
 <p>Displays IP pool allocations used by all Holodeck services.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="nb">Get-HolodeckServiceIPPools</span> <span class="p">[</span><span class="n">-Site</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
 </code></pre></div>
-<hr>
+<hr />
 <h3 id="description_16">Description</h3>
 <p>Retrieves and displays IP pool allocations used by Holodeck infrastructure services. This is useful for network troubleshooting and understanding IP usage across the Holodeck environment.</p>
-<hr>
+<hr />
 <h3 id="parameters_14">Parameters</h3>
 <table>
 <thead>
@@ -2486,12 +2469,14 @@
 </tr>
 </tbody>
 </table>
-<hr>
+<hr />
 <h3 id="examples_16">Examples</h3>
 <p>Example 1</p>
 <p>Displays IP pool allocations for all Holodeck services in Site A
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">Get-HolodeckServiceIPPools</span> <span class="n">-Site</span> <span class="s2">"a"</span>
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">Get-HolodeckServiceIPPools</span> <span class="n">-Site</span> <span class="s2">&quot;a&quot;</span>
+</code></pre></div></p>
+
+
 
 
 
@@ -2514,9 +2499,9 @@
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
         
@@ -2535,8 +2520,8 @@ The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -2554,15 +2539,13 @@ The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.instant", "navigation.top", "navigation.tracking", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tabs","navigation.tabs.sticky","navigation.sections","navigation.instant","navigation.top","navigation.tracking","toc.integrate","toc.follow","search.suggest","search.highlight","content.tabs.link","content.code.annotation","content.code.copy"],"search":"../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"default":"latest","provider":"mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7f30b55.min.js"></script>
       
         <script src="../javascripts/version-badge.js"></script>
       
     
-  
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(()=>{ lightbox.reload(); });
-</script></body></html>
+  </body>
+</html>
