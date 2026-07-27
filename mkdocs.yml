@@ -11,6 +11,7 @@ edit_uri: blob/main/docs/
 #Configuration
 theme:
   name: material
+  variant: classic
   custom_dir: overrides
   logo: images/VMware_by_Broadcom_White.png
   font:
