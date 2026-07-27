@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en" class="no-js"><head>
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="zensical-0.0.51">
     
     
       
@@ -28,10 +31,15 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="../assets/stylesheets/classic/main.f62f0af6.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
       
       
 
@@ -44,31 +52,21 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
     
     
-  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
-            html.glightbox-open { overflow: initial; height: 100%; }
-            .gslide-title { margin-top: 0px; user-select: text; }
-            .gslide-desc { color: #666; user-select: text; }
-            .gslide-image img { background: white; }
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+  </head>
   
   
     
@@ -83,7 +81,7 @@
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
     <div data-md-component="skip">
       
         
@@ -96,7 +94,7 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
       </div>
     
@@ -107,14 +105,14 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Holodeck" class="md-header__button md-logo" aria-label="Holodeck" data-md-component="logo">
+    <a href="./.." title="Holodeck" class="md-header__button md-logo" aria-label="Holodeck" data-md-component="logo">
       
-  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+  <img src="../images/VMware_by_Broadcom_White.png" alt="Holodeck">
 
     </a>
-    <label class="md-header__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -139,20 +137,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"></path></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"></path></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
       </label>
     
   
@@ -164,19 +162,32 @@
     
     
     
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
     
-      <div class="md-header__source">
+    <div class="md-header__source">
+      
         <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
   </div>
 </a>
-      </div>
-    
+      
+    </div>
   </nav>
   
     
@@ -191,11 +202,8 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="./.." class="md-tabs__link">
         
-  
-  
-    
   
   Getting Started
 
@@ -213,9 +221,6 @@
       <a href="../release_notes/" class="md-tabs__link">
         
   
-  
-    
-  
   Release Notes
 
       </a>
@@ -231,9 +236,6 @@
     <li class="md-tabs__item">
       <a href="../downloads/" class="md-tabs__link">
         
-  
-  
-    
   
   Downloads
 
@@ -251,9 +253,6 @@
       <a href="../cmd_reference/" class="md-tabs__link">
         
   
-  
-    
-  
   Command Reference
 
       </a>
@@ -269,11 +268,8 @@
   
   
     <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+      <a href="././" class="md-tabs__link">
         
-  
-  
-    
   
   Offline Depot
 
@@ -291,9 +287,6 @@
       <a href="../support_community/" class="md-tabs__link">
         
   
-  
-    
-  
   Support
 
       </a>
@@ -309,9 +302,6 @@
     <li class="md-tabs__item">
       <a href="../faq/" class="md-tabs__link">
         
-  
-  
-    
   
   FAQ
 
@@ -338,7 +328,7 @@
   
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -351,9 +341,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Holodeck" class="md-nav__button md-logo" aria-label="Holodeck" data-md-component="logo">
+    <a href="./.." title="Holodeck" class="md-nav__button md-logo" aria-label="Holodeck" data-md-component="logo">
       
-  <img src="../images/VMware_by_Broadcom_White.png" alt="logo">
+  <img src="../images/VMware_by_Broadcom_White.png" alt="Holodeck">
 
     </a>
     Holodeck
@@ -363,7 +353,7 @@
       <a href="https://github.com/vmware/Holodeck" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -371,7 +361,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
       
@@ -380,15 +370,14 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="./.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Getting Started
-  
+  Getting Started
 
     
   </span>
@@ -414,8 +403,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
-  
+  Release Notes
 
     
   </span>
@@ -441,8 +429,7 @@
   <span class="md-ellipsis">
     
   
-    Downloads
-  
+  Downloads
 
     
   </span>
@@ -468,8 +455,7 @@
   <span class="md-ellipsis">
     
   
-    Command Reference
-  
+  Command Reference
 
     
   </span>
@@ -491,7 +477,9 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
       
         
@@ -504,8 +492,7 @@
   <span class="md-ellipsis">
     
   
-    Offline Depot
-  
+  Offline Depot
 
     
   </span>
@@ -515,15 +502,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Offline Depot
-  
+  Offline Depot
 
     
   </span>
@@ -534,7 +520,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -543,16 +530,16 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Overview
-      
+      </span>
     </span>
   </a>
   
@@ -561,9 +548,9 @@
         <li class="md-nav__item">
   <a href="#obtaining-a-download-token" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Obtaining a Download Token
-      
+      </span>
     </span>
   </a>
   
@@ -572,9 +559,9 @@
         <li class="md-nav__item">
   <a href="#deployment-options-if-using-holodeck" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Deployment Options if Using Holodeck
-      
+      </span>
     </span>
   </a>
   
@@ -583,9 +570,9 @@
         <li class="md-nav__item">
   <a href="#deploying-the-offline-depot-appliance" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Deploying the Offline Depot Appliance
-      
+      </span>
     </span>
   </a>
   
@@ -594,9 +581,9 @@
         <li class="md-nav__item">
   <a href="#initial-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Initial Boot
-      
+      </span>
     </span>
   </a>
   
@@ -605,9 +592,9 @@
         <li class="md-nav__item">
   <a href="#accessing-the-appliance-web-server" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Accessing the Appliance Web Server
-      
+      </span>
     </span>
   </a>
   
@@ -616,9 +603,9 @@
         <li class="md-nav__item">
   <a href="#accessing-the-jupyter-lab-server" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Accessing the Jupyter Lab Server
-      
+      </span>
     </span>
   </a>
   
@@ -627,9 +614,9 @@
         <li class="md-nav__item">
   <a href="#accessing-the-vcf-product-documentation" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Accessing the VCF Product Documentation
-      
+      </span>
     </span>
   </a>
   
@@ -638,9 +625,9 @@
         <li class="md-nav__item">
   <a href="#logging-into-the-oda" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Logging into the ODA
-      
+      </span>
     </span>
   </a>
   
@@ -649,9 +636,9 @@
         <li class="md-nav__item">
   <a href="#populating-the-binaries" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Populating the Binaries
-      
+      </span>
     </span>
   </a>
   
@@ -661,9 +648,9 @@
           <li class="md-nav__item">
   <a href="#option-one-automatic-download-requires-internet-and-download-token" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Option One: Automatic Download (Requires Internet and Download Token)
-      
+      </span>
     </span>
   </a>
   
@@ -672,9 +659,9 @@
           <li class="md-nav__item">
   <a href="#option-two-leverage-the-jupyter-notebook" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Option Two: Leverage the Jupyter Notebook
-      
+      </span>
     </span>
   </a>
   
@@ -683,9 +670,9 @@
           <li class="md-nav__item">
   <a href="#option-three-manually-use-the-vcf-download-tool" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Option Three: Manually Use the VCF Download Tool
-      
+      </span>
     </span>
   </a>
   
@@ -694,9 +681,9 @@
           <li class="md-nav__item">
   <a href="#option-four-manually-populate-the-depot-darksite-air-gapped" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Option Four: Manually Populate the Depot (Darksite / Air-Gapped)
-      
+      </span>
     </span>
   </a>
   
@@ -705,9 +692,9 @@
           <li class="md-nav__item">
   <a href="#directory-structure-and-permissions" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Directory Structure and Permissions
-      
+      </span>
     </span>
   </a>
   
@@ -721,21 +708,21 @@
         <li class="md-nav__item">
   <a href="#configuring-https-ssltls-for-the-offline-depot" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Configuring HTTPS (SSL/TLS) for the Offline Depot
-      
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuring HTTPS (SSL/TLS) for the Offline Depot">
+    <nav class="md-nav" aria-label="Configuring HTTPS (SSL&#x2f;TLS) for the Offline Depot">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#step-1-create-the-directory-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 1: Create the Directory Structure
-      
+      </span>
     </span>
   </a>
   
@@ -744,9 +731,9 @@
           <li class="md-nav__item">
   <a href="#step-2-create-the-root-ca" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 2: Create the Root CA
-      
+      </span>
     </span>
   </a>
   
@@ -755,9 +742,9 @@
           <li class="md-nav__item">
   <a href="#step-3-create-the-intermediate-ca" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 3: Create the Intermediate CA
-      
+      </span>
     </span>
   </a>
   
@@ -766,9 +753,9 @@
           <li class="md-nav__item">
   <a href="#step-4-create-the-server-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 4: Create the Server Certificate
-      
+      </span>
     </span>
   </a>
   
@@ -777,9 +764,9 @@
           <li class="md-nav__item">
   <a href="#step-5-build-the-full-certificate-chain" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 5: Build the Full Certificate Chain
-      
+      </span>
     </span>
   </a>
   
@@ -788,9 +775,9 @@
           <li class="md-nav__item">
   <a href="#step-6-set-file-permissions" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 6: Set File Permissions
-      
+      </span>
     </span>
   </a>
   
@@ -799,9 +786,9 @@
           <li class="md-nav__item">
   <a href="#step-7-configure-nginx-for-https" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 7: Configure NGINX for HTTPS
-      
+      </span>
     </span>
   </a>
   
@@ -810,9 +797,9 @@
           <li class="md-nav__item">
   <a href="#step-8-open-firewall-port-for-https" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Step 8: Open Firewall Port for HTTPS
-      
+      </span>
     </span>
   </a>
   
@@ -826,9 +813,9 @@
         <li class="md-nav__item">
   <a href="#caveats" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         Caveats
-      
+      </span>
     </span>
   </a>
   
@@ -837,9 +824,9 @@
         <li class="md-nav__item">
   <a href="#how-to-expand-the-storage" class="md-nav__link">
     <span class="md-ellipsis">
-      
+      <span class="md-typeset">
         How to Expand the Storage
-      
+      </span>
     </span>
   </a>
   
@@ -867,8 +854,7 @@
   <span class="md-ellipsis">
     
   
-    Support
-  
+  Support
 
     
   </span>
@@ -894,8 +880,7 @@
   <span class="md-ellipsis">
     
   
-    FAQ
-  
+  FAQ
 
     
   </span>
@@ -923,16 +908,16 @@
         <div class="md-sidebar__inner">
           <nav class="md-nav md-nav--secondary" aria-label="Contributing">
             <div class="md-nav__title--contributing-custom">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-4h2v2h2v-2h2v-2h-2v-2h-2v2h-2v2z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-8-4h2v2h2v-2h2v-2h-2v-2h-2v2h-2v2z"/></svg>
               Contributing
             </div>
             <div class="md-nav__contributing">
               <a href="https://github.com/vmware/Holodeck/blob/main/docs/offline_depot.md" title="Edit this page" class="md-button md-button--contributing" target="_blank" rel="noopener">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 <span>Page source</span>
               </a>
               <a href="https://github.com/vmware/Holodeck/issues/new" title="Create issue" class="md-button md-button--contributing" target="_blank" rel="noopener">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 <span>Create issue</span>
               </a>
             </div>
@@ -941,7 +926,7 @@
           <!-- Contributors Section -->
           <div class="md-sidebar__contributors">
             <div class="md-nav__title--contributing-custom">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="contributing-folder-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
               Contributors
             </div>
             <div class="md-sidebar__contributors-grid">
@@ -981,8 +966,6 @@
               <article class="md-content__inner md-typeset">
                 
                   
-
-
   
   
 
@@ -1018,31 +1001,31 @@
 <ol>
 <li>
 <p>To deploy the appliance, simply deploy the OVA on your vCenter Server like you would normally do.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-1.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 1" src="../images/Deploy-Offline-Depot-Step-1.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-1.png"><img alt="Deploy Offline Depot Step 1" src="../images/Deploy-Offline-Depot-Step-1.png" /></a></p>
 </li>
 <li>
 <p>Next, provide a name for the VM and specify its deployment location:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-2.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 2" src="../images/Deploy-Offline-Depot-Step-2.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-2.png"><img alt="Deploy Offline Depot Step 2" src="../images/Deploy-Offline-Depot-Step-2.png" /></a></p>
 </li>
 <li>
 <p>Then, select the compute resource for the VM. You can choose to automatically start the VM after import by checking the box; otherwise, you can power it on manually to observe the first boot process.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-3.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 3" src="../images/Deploy-Offline-Depot-Step-3.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-3.png"><img alt="Deploy Offline Depot Step 3" src="../images/Deploy-Offline-Depot-Step-3.png" /></a></p>
 </li>
 <li>
 <p>Review the settings and proceed by clicking Next.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-4.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 4" src="../images/Deploy-Offline-Depot-Step-4.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-4.png"><img alt="Deploy Offline Depot Step 4" src="../images/Deploy-Offline-Depot-Step-4.png" /></a></p>
 </li>
 <li>
 <p>Next, select appropriate storage with sufficient capacity for your needs.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-5.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 5" src="../images/Deploy-Offline-Depot-Step-5.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-5.png"><img alt="Deploy Offline Depot Step 5" src="../images/Deploy-Offline-Depot-Step-5.png" /></a></p>
 </li>
 <li>
 <p>On the next screen, select the network for ODA deployment. As discussed in the previous section, it is recommended to deploy the appliance on the management network.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-6.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 6" src="../images/Deploy-Offline-Depot-Step-6.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-6.png"><img alt="Deploy Offline Depot Step 6" src="../images/Deploy-Offline-Depot-Step-6.png" /></a></p>
 </li>
 <li>
 <p>Now, specify the networking attributes, including hostname, IP address, and netmask, according to your environment's requirements.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-7a.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 7a" src="../images/Deploy-Offline-Depot-Step-7a.png"></a></p>
+<p><a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-7a.png"><img alt="Deploy Offline Depot Step 7a" src="../images/Deploy-Offline-Depot-Step-7a.png" /></a></p>
 </li>
 </ol>
 <p>The subsequent section allows you to set the password for the admin user, which is used for SSH access to the appliance.</p>
@@ -1062,7 +1045,7 @@
 </li>
 </ul>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Deploy-Offline-Depot-Step-7b.png" data-desc-position="bottom"><img alt="Deploy Offline Depot Step 7b" src="../images/Deploy-Offline-Depot-Step-7b.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Deploy-Offline-Depot-Step-7b.png"><img alt="Deploy Offline Depot Step 7b" src="../images/Deploy-Offline-Depot-Step-7b.png" /></a>
 </figure>
 <h3 id="initial-boot">Initial Boot</h3>
 <p>After you deploy the appliance, you'll want to power it on. Note that the first time you power it on, it will perform some configuration steps and then reboot itself. These configuration steps will only occur the first time you boot the VM.</p>
@@ -1072,14 +1055,14 @@
 <p><code>http://&lt;ODA_IP&gt;</code></p>
 <p>You should see this if you selected the option to skip the automatic download of the binaries or if the appliance had some issue trying to download the binaries:</p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Web-Server.png" data-desc-position="bottom"><img alt="Offline Depot Web Server" src="../images/Offline-Depot-Web-Server.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Web-Server.png"><img alt="Offline Depot Web Server" src="../images/Offline-Depot-Web-Server.png" /></a>
 </figure>
 <p>This indicates that no binaries have been put into place on the depot. After you download binaries (see below) then this will be populated.</p>
 <h3 id="accessing-the-jupyter-lab-server">Accessing the Jupyter Lab Server</h3>
 <p>You can also access the Jupyter Lab server (if you enabled it) by using the following URL: </p>
-<p>http://<oda_ip>:8888</oda_ip></p>
+<p>http://<ODA_IP>:8888</p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook" src="../images/Offline-Depot-Jupyter-Notebook.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Jupyter-Notebook.png"><img alt="Offline Depot Jupyter Notebook" src="../images/Offline-Depot-Jupyter-Notebook.png" /></a>
 </figure>
 <p>Here, you will see two Jupyter notebooks that can assist you in performing a variety of tasks. </p>
 <h3 id="accessing-the-vcf-product-documentation">Accessing the VCF Product Documentation</h3>
@@ -1096,11 +1079,11 @@
 <h4 id="option-two-leverage-the-jupyter-notebook">Option Two: Leverage the Jupyter Notebook</h4>
 <p>This is the preferred manual method, as it makes things a bit easier. Simply access the Depot Maintenance Jupyter Notebook and go to the section about downloading the binaries and follow the directions.</p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook Manual 1" src="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png"><img alt="Offline Depot Jupyter Notebook Manual 1" src="../images/Offline-Depot-Jupyter-Notebook-Manual-1.png" /></a>
 </figure>
 <p>Please note that the Jupyter Notebook will display the output of the command cell executed (if there is any). For example, if you ran the cell to download the ESX binaries for Holodeck, you would see something similar to this:</p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook Manual 2" src="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png"><img alt="Offline Depot Jupyter Notebook Manual 2" src="../images/Offline-Depot-Jupyter-Notebook-Manual-2.png" /></a>
 </figure>
 <p>It's important to note that you can make these Jupyter Notebooks specific to your environment by modifying the commands or adding more.</p>
 <h4 id="option-three-manually-use-the-vcf-download-tool">Option Three: Manually Use the VCF Download Tool</h4>
@@ -1187,7 +1170,7 @@
 </table>
 <p>If you populate the binaries manually, you need to ensure the files are in the proper location with the proper permissions. You can leverage the Jupyter Notebooks or manually execute the commands:</p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png" data-desc-position="bottom"><img alt="Offline Depot Jupyter Notebook Manual 3" src="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png"><img alt="Offline Depot Jupyter Notebook Manual 3" src="../images/Offline-Depot-Jupyter-Notebook-Manual-3.png" /></a>
 </figure>
 <p>Set proper ownership and permissions on all depot files:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>nginx<span class="w"> </span>/var/www
@@ -1198,7 +1181,7 @@
 <p>Failure to set the permissions properly will result in the inability to download the files from the depot.</p>
 <p>Once the depot is ready, you should be able to access the web server by accessing the web server on http://ODA-IP</p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Web-Server-2.png" data-desc-position="bottom"><img alt="Offline Depot Web Server 2" src="../images/Offline-Depot-Web-Server-2.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Web-Server-2.png"><img alt="Offline Depot Web Server 2" src="../images/Offline-Depot-Web-Server-2.png" /></a>
 </figure>
 <h3 id="configuring-https-ssltls-for-the-offline-depot">Configuring HTTPS (SSL/TLS) for the Offline Depot</h3>
 <p>By default, the ODA serves the depot over HTTP. However, HTTPS can be used when communicating with the VCF Installer. While Holodeck automates the <code>application-prod.properties</code> modification on the VCF Installer to allow HTTP, you may prefer to configure the depot with proper HTTPS support -- especially in production-like lab environments.</p>
@@ -1212,19 +1195,19 @@
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-key<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>-sha256<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Root CA"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Root CA&quot;</span>
 </code></pre></div>
 <h4 id="step-3-create-the-intermediate-ca">Step 3: Create the Intermediate CA</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="m">4096</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/intermediate/intermediate.csr<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Intermediate CA"</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Intermediate CA&quot;</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span>ca/intermediate/intermediate.csr<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>-CA<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>-CAcreateserial<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>-out<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span>-days<span class="w"> </span><span class="m">1825</span><span class="w"> </span>-sha256<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-extfile<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"basicConstraints=CA:TRUE,pathlen:0"</span><span class="o">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-extfile<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;basicConstraints=CA:TRUE,pathlen:0&quot;</span><span class="o">)</span>
 </code></pre></div>
 <h4 id="step-4-create-the-server-certificate">Step 4: Create the Server Certificate</h4>
 <p>Generate a private key and CSR for the ODA. Replace the CN and SAN values with your ODA's FQDN and IP:</p>
@@ -1232,7 +1215,7 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>ca/server/server.key<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/server/server.csr<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=&lt;ODA_FQDN&gt;"</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=CA/L=Lab/O=MyLab/CN=&lt;ODA_FQDN&gt;&quot;</span>
 </code></pre></div>
 <p>Create a SAN extension file at <code>ca/server/server_ext.cnf</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>subjectAltName = DNS:&lt;ODA_FQDN&gt;,IP:&lt;ODA_IP&gt;
@@ -1309,20 +1292,22 @@
 <p>These procedures are documented in the included Jupyter Notebook. This allows you to execute them directly from there. However, if you chose not to install the Jupyter Notebooks, the instructions are duplicated here.</p>
 <p>First, you need to increase the size of the physical disk. To do this, simply edit the size of the disk for the VM and increase it to what will suit your needs. It will support up to 5.9TB in size.</p>
 <p>Next, we need to make sure the OS is aware of the space increase:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>echo 1 &gt; /sys/block/sda/device/rescan
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>echo 1 &gt; /sys/block/sda/device/rescan
 </code></pre></div>
 Finally, we will execute this command in order to resize the partition
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>printf 'yes\n100%%\n' | parted /dev/sda resizepart 2 ---pretend-input-tty
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>printf &#39;yes\n100%%\n&#39; | parted /dev/sda resizepart 2 ---pretend-input-tty
 </code></pre></div>
 You can verify that the partition has been resized by using the following command:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>parted -s -a opt /dev/sda "print free"
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>parted -s -a opt /dev/sda &quot;print free&quot;
+</code></pre></div></p>
 <figure>
-    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/Offline-Depot-Storage-Expansion.png" data-desc-position="bottom"><img alt="Offline Depot Storage Expansion" src="../images/Offline-Depot-Storage-Expansion.png"></a>
+    <a class="glightbox" data-type="image" href="../images/Offline-Depot-Storage-Expansion.png"><img alt="Offline Depot Storage Expansion" src="../images/Offline-Depot-Storage-Expansion.png" /></a>
 </figure>
 <p>Next, you need to expand the filesystem in order to take advantage of the new partition space by using a command like:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>resize2fs /dev/sda2
-</code></pre></div><p></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>resize2fs /dev/sda2
+</code></pre></div></p>
+
+
 
 
 
@@ -1345,9 +1330,9 @@ You can verify that the partition has been resized by using the following comman
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Back to top
 </button>
         
@@ -1366,8 +1351,8 @@ The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -1385,15 +1370,13 @@ The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.instant", "navigation.top", "navigation.tracking", "toc.integrate", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tabs","navigation.tabs.sticky","navigation.sections","navigation.instant","navigation.top","navigation.tracking","toc.integrate","toc.follow","search.suggest","search.highlight","content.tabs.link","content.code.annotation","content.code.copy"],"search":"../assets/javascripts/workers/search.b6b7e04f.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"default":"latest","provider":"mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7f30b55.min.js"></script>
       
         <script src="../javascripts/version-badge.js"></script>
       
     
-  
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(()=>{ lightbox.reload(); });
-</script></body></html>
+  </body>
+</html>

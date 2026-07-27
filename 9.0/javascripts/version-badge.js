@@ -15,6 +15,10 @@
   /* ── URL helpers ─────────────────────────────────────────────────────── */
 
   function getBasePath() {
+    // If we're running locally via mike serve, the base path is just /
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return '/';
+    }
     var m = window.location.pathname.match(/^(\/[^/]+\/)/);
     return m ? m[1] : '/';
   }
