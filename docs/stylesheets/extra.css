@@ -82,6 +82,158 @@
     color: #e2e8f0;
 }
 
+/* Blog Cards */
+.toc-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.blog-card-container {
+    margin-bottom: 1.5rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: row; /* Always horizontal */
+    border: 1px solid var(--vmware-gray-200);
+    border-radius: 8px;
+    background-color: var(--vmware-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    position: relative; /* Ensure the stretched link stays inside the card */
+}
+
+/* Make the entire card clickable by stretching the link */
+.blog-card-link-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10; /* Cover the whole card and any glightbox links inside */
+    cursor: pointer;
+}
+
+/* Remove media query for flex-direction to ensure it stays horizontal on all screens */
+/* @media (min-width: 768px) {
+    .blog-card {
+        flex-direction: row;
+    }
+} */
+
+.blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-md-color-scheme="slate"] .blog-card {
+    background-color: var(--vmware-gray-850);
+    border-color: var(--vmware-gray-700);
+}
+
+[data-md-color-scheme="slate"] .blog-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.blog-card-image {
+    width: 350px; /* Made slightly wider to better balance the cards */
+    max-width: 42%; 
+    background-color: var(--vmware-dark-blue); /* Deep blue to blend with slide backgrounds */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Absolutely no cropping */
+    object-position: center; 
+    display: block;
+}
+
+.blog-card-content {
+    padding: 1.25rem 1.5rem; /* Restored some breathing room */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.blog-card-date {
+    font-size: 0.7rem;
+    color: var(--vmware-cool-gray-7);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .blog-card-date {
+    color: var(--vmware-gray-400);
+}
+
+.md-typeset h3.blog-card-title {
+    color: var(--vmware-blue);
+    font-size: 1.0rem; 
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.3;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3.blog-card-title {
+    color: var(--vmware-blue-light);
+}
+
+.blog-card-desc {
+    color: var(--vmware-dark-gray);
+    margin: 0 !important;
+    font-size: 0.75rem !important; /* Reduced from 0.8rem */
+    line-height: 1.4; /* Reduced from 1.5 */
+    flex: 1;
+}
+
+[data-md-color-scheme="slate"] .blog-card-desc {
+    color: var(--vmware-gray-300);
+}
+
+.blog-card-link-text {
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    font-weight: 600;
+    font-size: 0.8rem; /* Reduced from 0.85rem */
+    color: var(--vmware-blue) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    width: fit-content;
+}
+
+[data-md-color-scheme="slate"] .blog-card-link-text {
+    color: var(--vmware-blue-light);
+}
+
+.blog-card-link-text::after {
+    content: "→";
+    transition: transform 0.2s;
+}
+
+.blog-card:hover .blog-card-link-text::after {
+    transform: translateX(4px);
+}
+
 /* Contributing Section - Custom Right Sidebar */
 .md-sidebar--contributing {
     position: sticky;
