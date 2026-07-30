@@ -4,7 +4,7 @@
 [![Links](https://github.com/vmware/Holodeck/actions/workflows/links.yml/badge.svg)](https://github.com/vmware/Holodeck/actions/workflows/links.yml)
 [![GitHub Pages](https://img.shields.io/badge/docs-live-blue)](https://vmware.github.io/Holodeck/)
 
-This repository contains the source for the [Holodeck documentation site](https://vmware.github.io/Holodeck/), built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/).
+This repository contains the source for the [Holodeck documentation site](https://vmware.github.io/Holodeck/), built with [Zensical](https://zensical.org/).
 
 Holodeck is a toolkit for deploying nested VMware Cloud Foundation (VCF) environments on a single ESX host or vSphere cluster. It automates the provisioning of fully self-contained VCF labs for testing, training, and capability exploration.
 
@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ### Preview
 
 ```bash
-mkdocs serve
+zensical serve
 ```
 
 The site will be available at `http://127.0.0.1:8000`. Changes to Markdown files are reflected automatically.
@@ -51,7 +51,7 @@ The site will be available at `http://127.0.0.1:8000`. Changes to Markdown files
 
 1. Fork the repository and create a feature branch.
 2. Make your changes in the `docs/` directory.
-3. Preview locally with `mkdocs serve` to verify formatting.
+3. Preview locally with `zensical serve` to verify formatting.
 4. Submit a pull request against the `main` branch.
 
 For bug reports and feature requests related to Holodeck itself, please use [GitHub Issues](https://github.com/vmware/Holodeck/issues).
