@@ -811,3 +811,80 @@ Displays IP pool allocations for all Holodeck services in Site A
 ```powershell
 Get-HolodeckServiceIPPools -Site "a"
 ```
+
+---
+
+## Initialize-Authentik
+
+Initializes Authentik to act as the Identity Provider (IdP) for VCF SSO.
+
+```powershell
+Initialize-Authentik -AdminPassword <String> -Site <String> -UserPassword <String> -BootstrapToken <String>
+```
+
+---
+
+### Description
+
+Connects to the Authentik instance deployed on HoloRouter and bootstraps everything VCF SSO needs on the IdP side. This includes creating the VCF Administrators group, creating an admin user, registering the holodeck OIDC provider, and binding it to the vcf application. Returns an OIDC provider object containing the client ID and secret.
+
+---
+
+### Parameters
+
+| Name | Description | Required | Default |
+|------|-------------|----------|---------|
+| `-AdminPassword` | Password for the Authentik admin user | ✅ | |
+| `-Site` | Site identifier (a or b) | ✅ | |
+| `-UserPassword` | Password for the new VCF admin user | ✅ | |
+| `-BootstrapToken` | Token used for bootstrapping | ✅ | |
+
+---
+
+### Examples
+
+ Example 1
+
+Initializes Authentik and stores the OIDC provider object in a variable
+```powershell
+$oidcProvider = Initialize-Authentik -AdminPassword 'VMware123!VMware123!' -Site a -UserPassword 'VMware123!VMware123!' -BootstrapToken 'holodeck'
+```
+
+---
+
+## Set-VCFSSOConfiguration
+
+Configures VCF Operations to use Authentik as the external Identity Provider.
+
+```powershell
+Set-VCFSSOConfiguration -Site <String> -Username <String> -Password <String> -BootstrapToken <String> -oidcProvider <Object>
+```
+
+---
+
+### Description
+
+Calls the VCF Operations IAM API to wire Authentik in as the trusted external IdP and kick off the initial SCIM synchronisation. It creates the SSO realm, registers Authentik as the OIDC/SCIM IdP, generates a SCIM sync token, triggers SCIM sync, and assigns the `vcf_administrator` role to the synced group.
+
+---
+
+### Parameters
+
+| Name | Description | Required | Default |
+|------|-------------|----------|---------|
+| `-Site` | Site identifier (a or b) | ✅ | |
+| `-Username` | Username for VCF Operations admin | ✅ | |
+| `-Password` | Password for VCF Operations admin | ✅ | |
+| `-BootstrapToken` | Token used for bootstrapping | ✅ | |
+| `-oidcProvider` | OIDC provider object returned by `Initialize-Authentik` | ✅ | |
+
+---
+
+### Examples
+
+ Example 1
+
+Configures VCF SSO using the OIDC provider object
+```powershell
+Set-VCFSSOConfiguration -Site a -Username admin -Password 'VMware123!VMware123!' -BootstrapToken 'holodeck' -oidcProvider $oidcProvider
+```

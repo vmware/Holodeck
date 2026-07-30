@@ -878,6 +878,32 @@ Update-HoloDeckInstance -Site a -DeployNewHosts -CPU 12 -MemoryInGb 96 -Nodes 4 
 | VIDomain                 | String   | **Optional** | Target domain | "Management", "Workload", "Unknown" |
 | DiskSizeInGB             | Array    | **Optional** | Custom disk sizes (max 3) | Array of numbers |
 
+##### Configure VCF SSO with Authentik (Holodeck 9.1)
+
+Holodeck 9.1 ships Authentik as a first-class service on the Holorouter. Authentik is a self-hosted, open-source Identity Provider (IdP) that supports OIDC, OAuth2, SAML 2.0, and SCIM 2.0. It is deployed automatically inside the HoloRouter's single-node Kubernetes cluster at `auth.vcf.lab` as part of the `Set-HoloRouter` command.
+
+VCF Operations 9.0 introduced a fleet-level Single Sign-On (SSO) layer that federates authentication across every VCF component (vCenter, NSX, VCF Automation, and VCF Operations) through a single external identity provider. 
+
+You can integrate Authentik as the VCF SSO Identity Provider using two PowerShell commands exposed by the Holodeck module. Run them in order after your VCF deployment is complete.
+
+**Step 1: Initialize Authentik**
+
+`Initialize-Authentik` connects to the Authentik instance at `auth.vcf.lab` and bootstraps everything VCF SSO needs on the IdP side (creates VCF Administrators group, admin user `admin@vcf.lab`, registers holodeck OIDC provider, and creates vcf application).
+
+```powershell
+$oidcProvider = Initialize-Authentik -AdminPassword 'VMware123!VMware123!' -Site a -UserPassword 'VMware123!VMware123!' -BootstrapToken 'holodeck'
+```
+
+**Step 2: Set VCF SSO Configuration**
+
+`Set-VCFSSOConfiguration` calls the VCF Operations IAM API to wire Authentik in as the trusted external IdP and kick off the initial SCIM synchronisation. Pass the OIDC provider returned by `Initialize-Authentik` directly into this command.
+
+```powershell
+Set-VCFSSOConfiguration -Site a -Username admin -Password 'VMware123!VMware123!' -BootstrapToken 'holodeck' -oidcProvider $oidcProvider
+```
+
+After both commands complete, users can log into VCF Operations at `https://ops-a.site-a.vcf.lab` with `admin@vcf.lab` — authenticated by Authentik, authorised by VCF SSO, and carrying full `vcf_administrator` rights.
+
 !!! Note
     Each Day 2 operation uses separate parameter sets and cannot be combined in a single invocation. Run separate commands for each operation.
 
