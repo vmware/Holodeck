@@ -878,7 +878,7 @@ Update-HoloDeckInstance -Site a -DeployNewHosts -CPU 12 -MemoryInGb 96 -Nodes 4 
 | VIDomain                 | String   | **Optional** | Target domain | "Management", "Workload", "Unknown" |
 | DiskSizeInGB             | Array    | **Optional** | Custom disk sizes (max 3) | Array of numbers |
 
-##### Configure VCF SSO with Authentik (Holodeck 9.1)
+##### Configure VCF SSO with Authentik
 
 Holodeck 9.1 ships Authentik as a first-class service on the Holorouter. Authentik is a self-hosted, open-source Identity Provider (IdP) that supports OIDC, OAuth2, SAML 2.0, and SCIM 2.0. It is deployed automatically inside the HoloRouter's single-node Kubernetes cluster at `auth.vcf.lab` as part of the `Set-HoloRouter` command.
 
