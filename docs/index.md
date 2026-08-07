@@ -675,6 +675,7 @@ The -DeveloperMode Parameter allows you to automate deployments by defining all 
     ```powershell
     $env:cluster_name = "<cluster_name>"
     $env:dc_name = "<datacenter_name>"
+    $env:resource_pool_name = "<resource_pool_name>" (optional, if you want to deploy to a specific resource pool in vCenter)
     ```
 
 After setting the environment variables, run the New-HoloDeckConfig and New-HoloDeckInstance command as you would in a manual deployment with the parameters you require and the user inputs will automatically be captured from the environment variables.
