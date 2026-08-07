@@ -91,7 +91,7 @@ port group if available.
 
 ### Holorouter Overview
 
-HoloRouter is an appliance that serves as the infrastructure backbone for Holodeck. It provides infrastructure services such as Layer-3 routing, Firewall, DHCP, DNS, NTP, BGP, Proxy, Job scheduling, etc. Through these services, HoloRouter connects the nested VCF environment to the external networks. It also provides inter-connectivity between different networks in the nested VCF environment. If you are not using custom VLANs for Holodeck, then for Site-a, VLANs 0, 10 through 25 and for Site-b, VLANs 40 through 58 are used. It is equipped with a built-in webtop (Desktop UI) which allows users access to HoloRouter via a GUI. Through the webtop service, users get easy GUI access to the nested VCF environment. 
+HoloRouter is an appliance that serves as the infrastructure backbone for Holodeck. It provides infrastructure services such as Layer-3 routing, Firewall, DHCP, DNS, NTP, BGP, Proxy, Job scheduling, etc. Through these services, HoloRouter connects the nested VCF environment to the external networks. It also provides inter-connectivity between different networks in the nested VCF environment. If you are not using custom VLANs for Holodeck, then for Site-a, VLANs 0, 9 through 29 and for Site-b, VLANs 39 through 60 are used. It is equipped with a built-in webtop (Desktop UI) which allows users access to HoloRouter via a GUI. Through the webtop service, users get easy GUI access to the nested VCF environment. 
 
 Scope of Services:
 
@@ -148,7 +148,7 @@ Scope of Services:
 
 Let's take a look at the default VLANs used within the Holodeck Network for Site A:
 
-![image](images/Holodeck_Networking.png)
+![image](images/Holodeck_9_1_Networking.png)
 
 ### Download the Required Software
 
@@ -190,7 +190,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
         <figcaption>Figure: Security Settings for vDS Port Group</figcaption>
     </figure>
 
-4. If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or if using default VLANs, at a minimum VLANs 0,10-25 for Site A and 40-58 for Site-B; if using custom VLANs, VLAN 0 and custom VLAN range). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
+4. If NSX port group is used, ensure the type is Overlay and allow VLANs 0 to 4094 (or if using default VLANs, at a minimum VLANs 0,9-29 for Site A and 39-60 for Site-B; if using custom VLANs, VLAN 0 and custom VLAN range). Create custom segment profiles with settings as per below by navigating to Networking --> Segments tab on the left navigation bar, then click on Profiles tab on the right, click on Add segment profile and select the profiles as per below
 
     <figure markdown="span">
         <img src="images/NSX-Overlay-Segment-IP-Discovery-Profile.png" alt="IP Discovery Profile in NSX">
@@ -205,7 +205,7 @@ Navigate to the [Downloads Page](downloads.md) to download Holodeck binaries.
 
     Once the profiles have been created, navigate to the overlay segment you wish to use and edit the segment and update the segment profiles association.
 
-5. If a vCenter is used as the target for deploying nested VCF lab, then VLANs 0, 10 through 25 and 40 through 58 (or VLAN 0 and custom VLAN range as specified by the user) need to be allowed on the physical switches to allow inter-host communication within the vSphere cluster where the nested VCF deployment will occur.
+5. If a vCenter is used as the target for deploying nested VCF lab, then VLANs 0, 9 through 29 and 39 through 60 (or VLAN 0 and custom VLAN range as specified by the user) need to be allowed on the physical switches to allow inter-host communication within the vSphere cluster where the nested VCF deployment will occur.
 
 ### Target Host Configuration
 
@@ -546,7 +546,7 @@ In the second option, we see that -ManagementOnly, -Version and -InstanceID are 
 | DeployVcfAutomation      | Switch   | Optional     | Deploys VCF Automation. This is applicable only if -Version is set to "9.0.0.0" and beyond (including "9.1.0.0"). VCF Automation is not deployed by default unless this switch is used.     | NA                                                  |                            |
 | DeploySupervisorMgmtDomain | String   | Optional     | **ENHANCED in 9.1**: Deploys Supervisor in management domain with networking mode selection. Applicable only for VCF 9.0.0.0 and beyond (including VCF 9.1.0.0).     | "Centralized" or "Distributed"                     |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
-| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
+| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 9 through 29 for Site a and 39 through 60 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 21 consecutive valid VLAN IDs and for site b, it should have at least 22 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
 | DNSDomain                     | String   | Optional     | VCF instance is deployed by default with DNS domain vcf.lab. Users can specify a custom DNS domain using this parameter. **Note**: HoloRouter infrastructure services (Vault, Authentik, GitLab, etc.) always remain on `vcf.lab` regardless of this setting.     | String of format: demo.lab                    | vcf.lab             |
 | Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
 | DepotType                | String   | Optional     | Applicable for -Version 9.0.0.0 and beyond (including 9.1.0.0) only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
@@ -579,7 +579,7 @@ In the third option, we see that -Version and -InstanceID are mandatory, and it 
 | DeploySupervisorWkldDomain | String   | Optional     | **ENHANCED in 9.1**: Deploys Supervisor in workload domain with networking mode selection. Applicable only for VCF 9.0.0.0 and beyond (including VCF 9.1.0.0).     | "Centralized" or "Distributed"                     |                            |
 | DeploySupervisorMgmtDomain | String   | Optional     | **ENHANCED in 9.1**: Deploys Supervisor in management domain with networking mode selection. Applicable only for VCF 9.0.0.0 and beyond (including VCF 9.1.0.0).     | "Centralized" or "Distributed"                     |                            |
 | ProvisionOnly            | Switch   | Optional     | Deploys nested ESX hosts and VCF Installer/Cloud Builder and provides JSON API specs for performing VCF deployment manually     | NA  |                      |
-| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 10 through 25 for Site a and 40 through 58 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 16 consecutive valid VLAN IDs and for site b, it should have at least 19 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
+| VLANRangeStart                     | Array of Integers   | Optional     | VCF instance is deployed by default with VLANs 0, 9 through 29 for Site a and 39 through 60 for Site b. If you wish to use a custom VLAN range, provide the start of the custom VLAN range using this paramater. You can specify only an integerfor a single site (site a) deployment. For site b (in a dual site deployment scenario), you should specify an array [n,m] where n and m are the VLAN start range for Site a and Site b respectively. The VLAN specified for Site a should have at least 21 consecutive valid VLAN IDs and for site b, it should have at least 22 consecutive valid VLAN IDs.     | Integer of format: [100,200]                     | [10,40]             |
 | DNSDomain                     | String   | Optional     | VCF instance is deployed by default with DNS domain vcf.lab. Users can specify a custom DNS domain using this parameter. **Note**: HoloRouter infrastructure services (Vault, Authentik, GitLab, etc.) always remain on `vcf.lab` regardless of this setting.     | String of format: demo.lab                    | vcf.lab             |
 | Site                     | String   | Optional     | Deploy site a or b in a VCF Instance | "a" or "b"  | "a"                      |
 | DepotType                | String   | Optional     | Applicable for -Version 9.0.0.0 and beyond (including 9.1.0.0) only. Choose whether VCF Installer should use the online or offline depot to download VCF 9 components. | "Online" or "Offline"  | "Online"                      |
