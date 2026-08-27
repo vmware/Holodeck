@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.53">
+      <meta name="generator" content="zensical-0.0.57">
     
     
       
@@ -34,12 +34,12 @@
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/classic/main.39e53929.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/classic/main.38807bfb.min.css">
       
         
           
         
-        <link rel="stylesheet" href="../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/classic/palette.c7ab7c71.min.css">
       
       
 
@@ -1237,19 +1237,19 @@
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-new<span class="w"> </span>-nodes<span class="w"> </span>-key<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>-sha256<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Root CA&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Root CA"</span>
 </code></pre></div>
 <h4 id="step-3-create-the-intermediate-ca">Step 3: Create the Intermediate CA</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="m">4096</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>ca/intermediate/intermediate.key<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/intermediate/intermediate.csr<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Intermediate CA&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=MyLab Intermediate CA"</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span>ca/intermediate/intermediate.csr<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>-CA<span class="w"> </span>ca/root/rootCA.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca/root/rootCA.key<span class="w"> </span>-CAcreateserial<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>-out<span class="w"> </span>ca/intermediate/intermediate.pem<span class="w"> </span>-days<span class="w"> </span><span class="m">1825</span><span class="w"> </span>-sha256<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-extfile<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;basicConstraints=CA:TRUE,pathlen:0&quot;</span><span class="o">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-extfile<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"basicConstraints=CA:TRUE,pathlen:0"</span><span class="o">)</span>
 </code></pre></div>
 <h4 id="step-4-create-the-server-certificate">Step 4: Create the Server Certificate</h4>
 <p>Generate a private key and CSR for the ODA. Replace the CN and SAN values with your ODA's FQDN and IP:</p>
@@ -1257,7 +1257,7 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>ca/server/server.key<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-out<span class="w"> </span>ca/server/server.csr<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=CA/L=Lab/O=MyLab/CN=&lt;ODA_FQDN&gt;&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=CA/L=Lab/O=MyLab/CN=&lt;ODA_FQDN&gt;"</span>
 </code></pre></div>
 <p>Create a SAN extension file at <code>ca/server/server_ext.cnf</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>subjectAltName = DNS:&lt;ODA_FQDN&gt;,IP:&lt;ODA_IP&gt;
@@ -1337,10 +1337,10 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>echo 1 &gt; /sys/block/sda/device/rescan
 </code></pre></div>
 Finally, we will execute this command in order to resize the partition
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>printf &#39;yes\n100%%\n&#39; | parted /dev/sda resizepart 2 ---pretend-input-tty
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>printf 'yes\n100%%\n' | parted /dev/sda resizepart 2 ---pretend-input-tty
 </code></pre></div>
 You can verify that the partition has been resized by using the following command:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>parted -s -a opt /dev/sda &quot;print free&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>parted -s -a opt /dev/sda "print free"
 </code></pre></div></p>
 <figure>
     <a class="glightbox" data-type="image" href="../images/Offline-Depot-Storage-Expansion.png"><img alt="Offline Depot Storage Expansion" src="../images/Offline-Depot-Storage-Expansion.png" /></a>
@@ -1415,7 +1415,7 @@ The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br><br>
       <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tabs","navigation.tabs.sticky","navigation.sections","navigation.instant","navigation.top","navigation.tracking","toc.integrate","toc.follow","search.suggest","search.highlight","content.tabs.link","content.code.annotation","content.code.copy"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":{"default":"latest","provider":"mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      <script src="../assets/javascripts/bundle.49251538.min.js"></script>
       
         <script src="../javascripts/version-badge.js"></script>
       
