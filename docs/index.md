@@ -46,32 +46,32 @@ Each Holodeck environment contains:
 
 === "VCF 9.1"
 
-- **Enhanced Holorouter appliance** (Photon OS based) with built-in networking services:
-    - DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching
-    - HashiCorp Vault for secrets management
-    - Authentik SSO for identity and access management
-    - Technitium DNS for advanced DNS capabilities
-    - Optional webtop (virtual desktop) capability with HTTPS endpoints
-- **Enhanced VCF Support**: VCF 9.1.x, 9.0.x, 5.2.x and VVF 9.1.x deployments, including greenfield deployment of patch releases
-- **vSAN ESA and OSA support** with enhanced validation
-- **Enhanced depot support**: Online and offline depot with proxy for VCF Installer and improved validation
-- **Management Domain** deployed with 4 nested hosts as vSAN ready nodes:
-    - VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
-- **Enhanced Workload Domain** with 3 nested hosts as vSAN ready nodes:
-    - VMware vCenter, VMware NSX, and Supervisor (optional)
-- **Enhanced Supervisor deployment**: Management or workload domain with **VNA (distributed)** or **Edge (centralized)** networking modes
-- **Enhanced NSX Support**:
-    - Edge Cluster deployment in management and/or workload domain
-    - Virtual Network Appliance (VNA) cluster support for distributed networking
-- **Comprehensive Day 2 Operations**:
-    - VCF Automation deployment
-    - VCF Automation All Apps Org deployment
-    - Supervisor deployment with networking mode selection
-    - Deploy additional 3-node vSphere clusters in management or workload domains
-    - Deploy new nested ESX hosts with custom specifications
-- **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
-- **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
-- **Enhanced security**: HTTPS everywhere, automated certificate management
+    - **Enhanced Holorouter appliance** (Photon OS based) with built-in networking services:
+        - DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching
+        - HashiCorp Vault for secrets management
+        - Authentik SSO for identity and access management
+        - Technitium DNS for advanced DNS capabilities
+        - Optional webtop (virtual desktop) capability with HTTPS endpoints
+    - **Enhanced VCF Support**: VCF 9.1.x, 9.0.x, 5.2.x and VVF 9.1.x deployments, including greenfield deployment of patch releases
+    - **vSAN ESA and OSA support** with enhanced validation
+    - **Enhanced depot support**: Online and offline depot with proxy for VCF Installer and improved validation
+    - **Management Domain** deployed with 4 nested hosts as vSAN ready nodes:
+        - VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
+    - **Enhanced Workload Domain** with 3 nested hosts as vSAN ready nodes:
+        - VMware vCenter, VMware NSX, and Supervisor (optional)
+    - **Enhanced Supervisor deployment**: Management or workload domain with **VNA (distributed)** or **Edge (centralized)** networking modes
+    - **Enhanced NSX Support**:
+        - Edge Cluster deployment in management and/or workload domain
+        - Virtual Network Appliance (VNA) cluster support for distributed networking
+    - **Comprehensive Day 2 Operations**:
+        - VCF Automation deployment
+        - VCF Automation All Apps Org deployment
+        - Supervisor deployment with networking mode selection
+        - Deploy additional 3-node vSphere clusters in management or workload domains
+        - Deploy new nested ESX hosts with custom specifications
+    - **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
+    - **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
+    - **Enhanced security**: HTTPS everywhere, automated certificate management
 
 === "VCF 9.0"
 
