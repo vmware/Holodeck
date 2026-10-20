@@ -46,32 +46,32 @@ Each Holodeck environment contains:
 
 === "VCF 9.1"
 
-    - **Enhanced Holorouter appliance** (Photon OS based) with built-in networking services:
-        - DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching
-        - **New**: HashiCorp Vault for secrets management
-        - **New**: Authentik SSO for identity and access management  
-        - **New**: Technitium DNS for advanced DNS capabilities
-        - Optional webtop (virtual desktop) capability with HTTPS endpoints
-    - **Enhanced VCF Support**: VCF 9.1.0.0, 9.0.x, 5.2.x and VVF 9.1.0.0 deployments
-    - **vSAN ESA and OSA support** with enhanced validation
-    - **Enhanced depot support**: Online and offline depot with proxy for VCF Installer and improved validation
-    - **Management Domain** deployed with 4 nested hosts as vSAN ready nodes:
-        - VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
-    - **Enhanced Workload Domain** with 3 nested hosts as vSAN ready nodes:
-        - VMware vCenter, VMware NSX, and Supervisor (optional)
-    - **Enhanced Supervisor deployment**: Management or workload domain with **VNA (distributed)** or **Edge (centralized)** networking modes
-    - **Enhanced NSX Support**: 
-        - Edge Cluster deployment in management and/or workload domain
-        - **New**: Virtual Network Appliance (VNA) cluster support for distributed networking
-    - **Comprehensive Day 2 Operations**:
-        - VCF Automation deployment via VCF Operations Manager
-        - VCF Automation All Apps Org deployment
-        - Supervisor deployment with networking mode selection
-        - Deploy additional 3-node vSphere clusters in management or workload domains
-        - Deploy new nested ESXi hosts with custom specifications
-    - **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
-    - **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
-    - **Enhanced security**: HTTPS everywhere, automated certificate management
+- **Enhanced Holorouter appliance** (Photon OS based) with built-in networking services:
+    - DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching
+    - HashiCorp Vault for secrets management
+    - Authentik SSO for identity and access management
+    - Technitium DNS for advanced DNS capabilities
+    - Optional webtop (virtual desktop) capability with HTTPS endpoints
+- **Enhanced VCF Support**: VCF 9.1.x, 9.0.x, 5.2.x and VVF 9.1.x deployments, including greenfield deployment of patch releases
+- **vSAN ESA and OSA support** with enhanced validation
+- **Enhanced depot support**: Online and offline depot with proxy for VCF Installer and improved validation
+- **Management Domain** deployed with 4 nested hosts as vSAN ready nodes:
+    - VCF Installer, VMware vCenter, VMware NSX, VCF Operations, VMware SDDC Manager, VCF Automation (optional)
+- **Enhanced Workload Domain** with 3 nested hosts as vSAN ready nodes:
+    - VMware vCenter, VMware NSX, and Supervisor (optional)
+- **Enhanced Supervisor deployment**: Management or workload domain with **VNA (distributed)** or **Edge (centralized)** networking modes
+- **Enhanced NSX Support**:
+    - Edge Cluster deployment in management and/or workload domain
+    - Virtual Network Appliance (VNA) cluster support for distributed networking
+- **Comprehensive Day 2 Operations**:
+    - VCF Automation deployment
+    - VCF Automation All Apps Org deployment
+    - Supervisor deployment with networking mode selection
+    - Deploy additional 3-node vSphere clusters in management or workload domains
+    - Deploy new nested ESX hosts with custom specifications
+- **Enhanced networking**: Custom CIDR, VLAN, and DNS domain support
+- **Provision-only mode**: Deploy VCF Installer and ESX hosts for greenfield experience
+- **Enhanced security**: HTTPS everywhere, automated certificate management
 
 === "VCF 9.0"
 
@@ -113,7 +113,7 @@ Holodeck 9.1 supports nested VCF deployment for versions 5.2, 9.0, and 9.1. This
 
 <!-- Architecture Diagram placeholder -->
 
-Holodeck 9.1 has been developed using PowerShell and VMware PowerCLI. We have bundled and packaged everything needed into a powershell module called
+Holodeck 9.1.1 has been developed using PowerShell and VMware PowerCLI. We have bundled and packaged everything needed into a powershell module called
 Holodeck. This powershell module is provided to you as an in-built functionality within the OVA we ship called Holorouter. 
 
 Each Holodeck environment runs an identical nested configuration. A Holodeck environment can be deployed as a Single or
@@ -433,6 +433,7 @@ Upload the binaries for VCF Installer/Cloud Builder and VMware ESX that were dow
 <div style="display: flex; justify-content: center;" markdown>
 | VCF Version | Folder Path                      |
 |-------------|----------------------------------|
+| VCF 9.1.1.0 | `/holodeck-runtime/bin/9.1.1.0/` |
 | VCF 9.1.0.0 | `/holodeck-runtime/bin/9.1.0.0/` |
 | VCF 9.0.2.0 | `/holodeck-runtime/bin/9.0.2.0/` |
 | VCF 9.0.1.0 | `/holodeck-runtime/bin/9.0.1.0/` |
@@ -447,6 +448,13 @@ Upload the binaries for VCF Installer/Cloud Builder and VMware ESX that were dow
 The files can be downloaded by accessing the Broadcom Support Portal within the webtop UI (assuming proper entitlement is available for end-user)
 
 Another option is to download the files locally and use scp to copy the files using the below command:
+
+For VCF 9.1.1.0:
+
+```
+scp /<local-path>/<ESX ISO File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.1.1.0/
+scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-runtime/bin/9.1.1.0/
+```
 
 For VCF 9.1.0.0:
 
@@ -477,7 +485,7 @@ scp /<local-path>/<VCF Installer OVA File Name> root@<Holorouter-IP>:/holodeck-r
 ```
 
 !!! Note 
-    - Holodeck 9.1 supports VCF Installer 9.1.0.0 for deploying VCF 9.1.0.0 environments.
+    - Holodeck 9.1.1 supports VCF Installer 9.1.1.0 for deploying VCF 9.1.1.0 environments and VCF Installer 9.1.0.0 for deploying VCF 9.1.0.0 environments.
     - Holodeck recommends VCF Installer 9.0.2.0 for deploying VCF 9.0.0.0, VCF 9.0.1.0 and VCF 9.0.2.0. 
     - VCF Installer 9.0.0.0 is no longer supported on Holodeck for nested VCF deployments.
 
@@ -597,7 +605,7 @@ In the second option, we see that -ManagementOnly, -Version and -InstanceID are 
 
 | **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
 |--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
-| Version                  | String   | **Mandatory**| Provide VCF version | "9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"                                      |                            |
+| Version                  | String   | **Mandatory**| Provide VCF version | "9.1.1.0", "9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"                                      |                            |
 | InstanceID               | String   | **Mandatory**| Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to uniquely identify the instance.     | String                                              |                            |
 | CIDR                     | Array of Strings   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR for Site a and 10.2.0.0/20 for Site b. If you wish to use a custom CIDR, provide a CIDR of /20 size. For single site (site a) deployment, specify only a single CIDR. For site b deployment in a dual site scenario, specify an array of CIDRs using an array [n,m] where n and m are the CIDRs for Site a and Site b respectively.     | String of format: ["10.3.0.0/20","10.4.0.0/20"]                     | ["10.1.0.0/20","10.2.0.0/20"]              |
 | vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
@@ -627,7 +635,7 @@ In the third option, we see that -Version and -InstanceID are mandatory, and it 
 
 | **Parameter**            | **Type** | **Required** | **Description**     |     **Options**                                         | **Default Value**          |
 |--------------------------|----------|--------------|----------------------|-----------------------------------------|----------------------------|
-| Version                  | String   | **Mandatory**| Provide VCF version | "9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"                                      |                            |
+| Version                  | String   | **Mandatory**| Provide VCF version | "9.1.1.0", "9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"                                      |                            |
 | InstanceID               | String   | **Mandatory**| Instance ID used as a prefix before all nested VMs deployed as part of Holodeck to uniquely identify the instance.     | String                                              |                            |
 | CIDR                     | String   | Optional     | VCF instance is deployed by default in the 10.1.0.0/20 CIDR for Site a and 10.2.0.0/20 for Site b. If you wish to use a custom CIDR, provide a CIDR of /20 size. For single site (site a) deployment, specify only a single CIDR. For site b deployment in a dual site scenario, specify an array of CIDRs using an array [n,m] where n and m are the CIDRs for Site a and Site b respectively.     | String of format: ["10.3.0.0/20","10.4.0.0/20"]                     | ["10.1.0.0/20","10.2.0.0/20"]              |
 | vSANMode                 | String   | Optional     | Support for both vSAN Express Storage Architecture (ESA) and Original Storage Architecture (OSA)     | "ESA" or "OSA"                                      | "OSA"                      |
@@ -886,7 +894,7 @@ Update-HoloDeckInstance -Site a -AddVcfAutomationAllAppsOrg -VIDomain Management
 | Site                     | String   | **Mandatory**| Site identifier      | "a" or "b"    |
 | AddVcfAutomationAllAppsOrg | Switch | **Mandatory**| Triggers All Apps Org creation in VCF Automation | NA |
 | VIDomain                 | String   | **Mandatory**| Target domain | "Management" or "Workload" |
-| Version                  | String   | **Optional**| VCF version | "9.0.0.0", "9.0.1.0", "9.0.2.0", "9.1.0.0" |
+| Version                  | String   | **Optional**| VCF version | "9.0.0.0", "9.0.1.0", "9.0.2.0", "9.1.0.0", "9.1.1.0" |
 
 ##### Deploy Supervisor
 
