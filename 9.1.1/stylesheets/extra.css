@@ -1,0 +1,460 @@
+/* VMware Brand Colors and Theme Customization - Enhanced */
+
+:root {
+    /* Official VMware Brand Colors */
+    --vmware-black: #000000;
+    --vmware-white: #ffffff;
+    --vmware-dark-blue: #1b1d36;
+    --vmware-blue: #005c8a;
+    --vmware-aqua: #007b8c;
+    --vmware-azure: #0098c7;
+    --vmware-purple: #6c4b94;
+    --vmware-green: #61a60e;
+    --vmware-red: #cc092f;
+    --vmware-orange: #e68c28;
+    --vmware-yellow: #f3ba16;
+    --vmware-dark-gray: #53565a;
+    --vmware-cool-gray-7: #97999b;
+    --vmware-broadcom-gray: #e2e3e4;
+    
+    /* Enhanced color variants */
+    --vmware-blue-light: #4db8da;
+    --vmware-blue-lighter: #e6f4fb;
+    --vmware-gray-50: #f9fafb;
+    --vmware-gray-100: #f3f4f6;
+    --vmware-gray-200: #e5e7eb;
+    --vmware-gray-300: #d1d5db;
+    --vmware-gray-600: #4b5563;
+    --vmware-gray-700: #374151;
+    --vmware-gray-800: #1f2937;
+    --vmware-gray-850: #1a202c;
+    --vmware-gray-900: #111827;
+
+    --md-primary-fg-color:        #005C8A;
+    --md-primary-fg-color--light: #005C8A;
+    --md-primary-fg-color--dark:  #90030C;
+}
+
+/* Content Area Improvements - Better Typography */
+.md-content__inner {
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+}
+
+.md-typeset h1 {
+    color: var(--vmware-dark-blue);
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.05em;
+    line-height: 1.2;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+    color: #f7fafc;
+}
+
+.md-typeset h2 {
+    color: var(--vmware-blue);
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #D9D9D9;
+    padding-bottom: 0.75rem;
+    letter-spacing: -0.025em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+    color: var(--vmware-blue-light);
+}
+
+.md-typeset h3 {
+    color: #2d3748;
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+    color: #e2e8f0;
+}
+
+/* Blog Cards */
+.toc-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.blog-card-container {
+    margin-bottom: 1.5rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: row; /* Always horizontal */
+    border: 1px solid var(--vmware-gray-200);
+    border-radius: 8px;
+    background-color: var(--vmware-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+    position: relative; /* Ensure the stretched link stays inside the card */
+}
+
+/* Make the entire card clickable by stretching the link */
+.blog-card-link-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10; /* Cover the whole card and any glightbox links inside */
+    cursor: pointer;
+}
+
+/* Remove media query for flex-direction to ensure it stays horizontal on all screens */
+/* @media (min-width: 768px) {
+    .blog-card {
+        flex-direction: row;
+    }
+} */
+
+.blog-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-md-color-scheme="slate"] .blog-card {
+    background-color: var(--vmware-gray-850);
+    border-color: var(--vmware-gray-700);
+}
+
+[data-md-color-scheme="slate"] .blog-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.blog-card-image {
+    width: 350px; /* Made slightly wider to better balance the cards */
+    max-width: 42%; 
+    background-color: var(--vmware-dark-blue); /* Deep blue to blend with slide backgrounds */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Absolutely no cropping */
+    object-position: center; 
+    display: block;
+}
+
+.blog-card-content {
+    padding: 1.25rem 1.5rem; /* Restored some breathing room */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.blog-card-date {
+    font-size: 0.7rem;
+    color: var(--vmware-cool-gray-7);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .blog-card-date {
+    color: var(--vmware-gray-400);
+}
+
+.md-typeset h3.blog-card-title {
+    color: var(--vmware-blue);
+    font-size: 1.0rem; 
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.25rem !important;
+    line-height: 1.3;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3.blog-card-title {
+    color: var(--vmware-blue-light);
+}
+
+.blog-card-desc {
+    color: var(--vmware-dark-gray);
+    margin: 0 !important;
+    font-size: 0.75rem !important; /* Reduced from 0.8rem */
+    line-height: 1.4; /* Reduced from 1.5 */
+    flex: 1;
+}
+
+[data-md-color-scheme="slate"] .blog-card-desc {
+    color: var(--vmware-gray-300);
+}
+
+.blog-card-link-text {
+    margin-top: 0.25rem; /* Reduced from 0.5rem */
+    font-weight: 600;
+    font-size: 0.8rem; /* Reduced from 0.85rem */
+    color: var(--vmware-blue) !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    width: fit-content;
+}
+
+[data-md-color-scheme="slate"] .blog-card-link-text {
+    color: var(--vmware-blue-light);
+}
+
+.blog-card-link-text::after {
+    content: "→";
+    transition: transform 0.2s;
+}
+
+.blog-card:hover .blog-card-link-text::after {
+    transform: translateX(4px);
+}
+
+/* Contributing Section - Custom Right Sidebar */
+.md-sidebar--contributing {
+    position: sticky;
+    top: 4.8rem;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+.md-nav__title--contributing-custom {
+    font-weight: 700;
+    padding: 0.625rem 0.6rem;
+    font-size: 0.8rem;
+    color: var(--vmware-black);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title--contributing-custom {
+    color: var(--vmware-white);
+}
+
+.contributing-folder-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.md-nav__contributing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0.6rem 0.75rem;
+}
+
+.md-button--contributing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--vmware-black);
+    color: var(--vmware-white);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.75rem;
+    transition: background-color 0.2s ease;
+    border: none;
+    text-align: left;
+}
+
+.md-button--contributing:hover {
+    background-color: var(--vmware-dark-gray);
+    color: var(--vmware-white);
+}
+
+.md-button--contributing svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.md-button--contributing span {
+    flex: 1;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .md-button--contributing {
+    background-color: #1a1a1a;
+    color: var(--vmware-white); /* Ensure text and icons are white in dark mode */
+}
+
+[data-md-color-scheme="slate"] .md-button--contributing:hover {
+    background-color: var(--vmware-dark-gray);
+}
+
+/* Contributors Section in Right Sidebar */
+.md-sidebar__contributors {
+    padding: 0 0.6rem 0.75rem;
+    border-top: 1px solid var(--vmware-gray-200);
+    margin-top: 0.25rem;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar__contributors {
+    border-top-color: #2d3748;
+}
+
+.md-sidebar__contributors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.contributor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+    padding: 0.4rem 0.2rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.contributor-card:hover {
+    background-color: var(--vmware-gray-100);
+}
+
+[data-md-color-scheme="slate"] .contributor-card:hover {
+    background-color: #2d3748;
+}
+
+.contributor-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--vmware-gray-200);
+    display: block;
+}
+
+[data-md-color-scheme="slate"] .contributor-avatar {
+    border-color: #4a5568;
+}
+
+.contributor-name {
+    font-size: 0.63rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--vmware-dark-gray);
+    line-height: 1.2;
+}
+
+[data-md-color-scheme="slate"] .contributor-name {
+    color: var(--vmware-cool-gray-7);
+}
+
+/* Video Thumbnail in Right Sidebar */
+.md-sidebar__video-thumbnail {
+    padding: 1rem 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.video-thumbnail-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.md-sidebar__video-thumbnail a:hover .video-thumbnail-img {
+    opacity: 0.85;
+}
+
+/* ============================================================
+   Version picker — custom build in tabs bar (version-badge.js)
+   The native Material Theme / mike picker in the header is hidden.
+   The wrapper is on document.body; JS sets position:fixed + coordinates
+   from .md-tabs.getBoundingClientRect() so overflow:auto cannot clip it.
+   ============================================================ */
+
+/* Hide the native mike picker — our custom one replaces it */
+.md-header .md-version {
+    display: none !important;
+}
+
+/* Wrapper position (top/right/height/display) is set by version-badge.js.
+   Right edge aligns with .md-header__source (the GitHub link). */
+#md-version-tab-wrapper {
+    box-sizing: border-box;
+}
+
+/* "Holodeck Version: " prefix rendered inside the button */
+#md-version-tab-wrapper .md-version__current::before {
+    content: "Holodeck Version: ";
+    font-weight: 400;
+    opacity: 0.82;
+    letter-spacing: normal;
+    font-size: 0.7rem;
+}
+
+/* Style the version button to blend with the tabs bar */
+#md-version-tab-wrapper .md-version__current {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.22rem 0.75rem !important;
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.16) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.42) !important;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+}
+
+#md-version-tab-wrapper .md-version__current:hover {
+    background: rgba(255, 255, 255, 0.30) !important;
+    border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/*
+ * Dropdown: position:fixed and exact coordinates are set by version-badge.js
+ * via getBoundingClientRect() — no CSS top/right override needed here.
+ * Only z-index and min-width are set to ensure it stacks above everything.
+ */
+#md-version-tab-wrapper .md-version__list {
+    z-index: 9999 !important;
+    min-width: 6rem;
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] #md-version-tab-wrapper .md-version__current {
+    background: rgba(255, 255, 255, 0.10) !important;
+    border-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+[data-md-color-scheme="slate"] #md-version-tab-wrapper .md-version__current:hover {
+    background: rgba(255, 255, 255, 0.20) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
