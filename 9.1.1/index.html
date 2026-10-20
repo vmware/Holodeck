@@ -1300,19 +1300,21 @@ network configurations and allows for the deployment of multiple nested environm
 </ul>
 <h2 id="holodeck-environment-overview">Holodeck Environment Overview</h2>
 <p>Each Holodeck environment contains:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VCF 9.1</label><label for="__tabbed_1_2">VCF 9.0</label><label for="__tabbed_1_3">VCF 5.2</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VCF 9.1</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-block"></div>
+</div>
+</div>
 <ul>
 <li><strong>Enhanced Holorouter appliance</strong> (Photon OS based) with built-in networking services:<ul>
 <li>DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching</li>
-<li><strong>New</strong>: HashiCorp Vault for secrets management</li>
-<li><strong>New</strong>: Authentik SSO for identity and access management  </li>
-<li><strong>New</strong>: Technitium DNS for advanced DNS capabilities</li>
+<li>HashiCorp Vault for secrets management</li>
+<li>Authentik SSO for identity and access management</li>
+<li>Technitium DNS for advanced DNS capabilities</li>
 <li>Optional webtop (virtual desktop) capability with HTTPS endpoints</li>
 </ul>
 </li>
-<li><strong>Enhanced VCF Support</strong>: VCF 9.1.0.0, 9.0.x, 5.2.x and VVF 9.1.0.0 deployments</li>
+<li><strong>Enhanced VCF Support</strong>: VCF 9.1.x, 9.0.x, 5.2.x and VVF 9.1.x deployments, including greenfield deployment of patch releases</li>
 <li><strong>vSAN ESA and OSA support</strong> with enhanced validation</li>
 <li><strong>Enhanced depot support</strong>: Online and offline depot with proxy for VCF Installer and improved validation</li>
 <li><strong>Management Domain</strong> deployed with 4 nested hosts as vSAN ready nodes:<ul>
@@ -1324,24 +1326,25 @@ network configurations and allows for the deployment of multiple nested environm
 </ul>
 </li>
 <li><strong>Enhanced Supervisor deployment</strong>: Management or workload domain with <strong>VNA (distributed)</strong> or <strong>Edge (centralized)</strong> networking modes</li>
-<li><strong>Enhanced NSX Support</strong>: <ul>
+<li><strong>Enhanced NSX Support</strong>:<ul>
 <li>Edge Cluster deployment in management and/or workload domain</li>
-<li><strong>New</strong>: Virtual Network Appliance (VNA) cluster support for distributed networking</li>
+<li>Virtual Network Appliance (VNA) cluster support for distributed networking</li>
 </ul>
 </li>
 <li><strong>Comprehensive Day 2 Operations</strong>:<ul>
-<li>VCF Automation deployment via VCF Operations Manager</li>
+<li>VCF Automation deployment</li>
 <li>VCF Automation All Apps Org deployment</li>
 <li>Supervisor deployment with networking mode selection</li>
 <li>Deploy additional 3-node vSphere clusters in management or workload domains</li>
-<li>Deploy new nested ESXi hosts with custom specifications</li>
+<li>Deploy new nested ESX hosts with custom specifications</li>
 </ul>
 </li>
 <li><strong>Enhanced networking</strong>: Custom CIDR, VLAN, and DNS domain support</li>
 <li><strong>Provision-only mode</strong>: Deploy VCF Installer and ESX hosts for greenfield experience</li>
 <li><strong>Enhanced security</strong>: HTTPS everywhere, automated certificate management</li>
 </ul>
-</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">VCF 9.0</label><label for="__tabbed_2_2">VCF 5.2</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
 <li>A Holorouter appliance (photon OS based) with built-in networking services such as DNS, DHCP, NTP, Proxy, dynamic routing (BGP), L2 switching and optional webtop (virtual desktop) capability</li>
@@ -1386,7 +1389,7 @@ network configurations and allows for the deployment of multiple nested environm
 </div>
 <!-- Architecture Diagram placeholder -->
 
-<p>Holodeck 9.1 has been developed using PowerShell and VMware PowerCLI. We have bundled and packaged everything needed into a powershell module called
+<p>Holodeck 9.1.1 has been developed using PowerShell and VMware PowerCLI. We have bundled and packaged everything needed into a powershell module called
 Holodeck. This powershell module is provided to you as an in-built functionality within the OVA we ship called Holorouter. </p>
 <p>Each Holodeck environment runs an identical nested configuration. A Holodeck environment can be deployed as a Single or
 Dual site Configuration. Separation of the environments and between sites within an environment is handled at the 
@@ -1698,7 +1701,7 @@ their account teams.</p>
 <p>Ensure all the pre-requistes stated earlier are completed.</p>
 <h3 id="deploy-holorouter-ova">Deploy Holorouter OVA</h3>
 <p>Holodeck 9 supports deployments on both stand-alone ESX hosts as well as vCenter as target. Choose the appropriate tab below to follow the instructions for your specific target to deploy Holorouter.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Stand-Alone ESX Host</label><label for="__tabbed_2_2">vCenter</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Stand-Alone ESX Host</label><label for="__tabbed_3_2">vCenter</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><ol>
@@ -1828,6 +1831,10 @@ their account teams.</p>
 </thead>
 <tbody>
 <tr>
+<td>VCF 9.1.1.0</td>
+<td><code>/holodeck-runtime/bin/9.1.1.0/</code></td>
+</tr>
+<tr>
 <td>VCF 9.1.0.0</td>
 <td><code>/holodeck-runtime/bin/9.1.0.0/</code></td>
 </tr>
@@ -1868,54 +1875,58 @@ their account teams.</p>
 </div>
 <p>The files can be downloaded by accessing the Broadcom Support Portal within the webtop UI (assuming proper entitlement is available for end-user)</p>
 <p>Another option is to download the files locally and use scp to copy the files using the below command:</p>
+<p>For VCF 9.1.1.0:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.1.1.0/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.1.1.0/
+</code></pre></div>
 <p>For VCF 9.1.0.0:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.1.0.0/
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.1.0.0/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.1.0.0/
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.1.0.0/
 </code></pre></div>
 <p>For VCF 9.0.2.0:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.2.0/
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.2.0/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.2.0/
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.2.0/
 </code></pre></div>
 <p>For VCF 9.0.1.0:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.1.0/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.1.0/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.1.0/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.1.0/
 </code></pre></div>
 <p>For VCF 9.0.0.0:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.0.0/
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.0.0/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.0.0/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/9.0.0.0/
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li>Holodeck 9.1 supports VCF Installer 9.1.0.0 for deploying VCF 9.1.0.0 environments.</li>
+<li>Holodeck 9.1.1 supports VCF Installer 9.1.1.0 for deploying VCF 9.1.1.0 environments and VCF Installer 9.1.0.0 for deploying VCF 9.1.0.0 environments.</li>
 <li>Holodeck recommends VCF Installer 9.0.2.0 for deploying VCF 9.0.0.0, VCF 9.0.1.0 and VCF 9.0.2.0. </li>
 <li>VCF Installer 9.0.0.0 is no longer supported on Holodeck for nested VCF deployments.</li>
 </ul>
 </div>
 <p>For VCF 5.2.4:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.4/
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.4/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.4/
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.4/
 </code></pre></div>
 <p>For VCF 5.2.3:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.3/
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.3/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.3/
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.3/
 </code></pre></div>
 <p>For VCF 5.2.2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.2/
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.2/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.2/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.2/
 </code></pre></div>
 <p>For VCF 5.2.1:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.1/
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.1/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.1/
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2.1/
 </code></pre></div>
 <p>For VCF 5.2:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2/
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>scp /&lt;local-path&gt;/&lt;ESX ISO File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2/
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>scp /&lt;local-path&gt;/&lt;VCF Installer OVA File Name&gt; root@&lt;Holorouter-IP&gt;:/holodeck-runtime/bin/5.2/
 </code></pre></div>
 <h3 id="run-holodeck-deployment">Run Holodeck deployment</h3>
 <p>Once logged in to Holorouter via SSH, run the following commands:</p>
 <p>Open PowerShell:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pwsh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pwsh
 </code></pre></div>
 <p>Use the command below to create a new Holodeck config. This command creates a config file specific for your deployment with a unique config ID and loads the config file into the $config variable. </p>
 <p><code>New-HoloDeckConfig -Description &lt;Description&gt; -TargetHost &lt;Target vCenter/ESX IP/FQDN&gt; -Username &lt;username&gt; -Password &lt;password&gt;</code></p>
@@ -1935,15 +1946,15 @@ their account teams.</p>
 </div>
 <p>Multiple config files can be created by running the above command multiple times for different use-cases such as 1 config for VCF 5.2 deployment and another for VCF 9.0 deployment. </p>
 <p>To check which config is currently loaded in your powershell session, run the below command and check the config ID or description:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$config
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$config
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Config-Variable.png"><img alt="image" src="images/Config-Variable.png" /></a></p>
 <p>Note that $config is specific to a powershell session. If you exit powershell and open a new session, you will need to import the config using:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Get-HoloDeckConfig
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Get-HoloDeckConfig
 </code></pre></div>
 <p>The above command gives a list of config files available. Note the config ID for your specific deployment to use in the below command. You must use the <code>-Site</code> parameter to specify which site configuration to load:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Import-HoloDeckConfig -ConfigId &lt;String&gt; -Site a
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Import-HoloDeckConfig -ConfigId &lt;String&gt; -Site b
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Import-HoloDeckConfig -ConfigId &lt;String&gt; -Site a
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Import-HoloDeckConfig -ConfigId &lt;String&gt; -Site b
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Get-HoloDeckConfig-and-ImportHoloDeckConfig.png"><img alt="image" src="images/Get-HoloDeckConfig-and-ImportHoloDeckConfig.png" /></a></p>
 <p>The same procedure can be followed if you wish to switch from one config file to another as well. Holodeck 9.1 automatically creates both Site A and Site B configurations, and Site A is loaded by default. For single-site deployments, you will use the Site A configuration (<code>-Site a</code>). </p>
@@ -1978,7 +1989,7 @@ their account teams.</p>
 <td>String</td>
 <td><strong>Mandatory</strong></td>
 <td>Provide VCF version</td>
-<td>"9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"</td>
+<td>"9.1.1.0", "9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"</td>
 <td></td>
 </tr>
 <tr>
@@ -2125,7 +2136,7 @@ their account teams.</p>
 <td>String</td>
 <td><strong>Mandatory</strong></td>
 <td>Provide VCF version</td>
-<td>"9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"</td>
+<td>"9.1.1.0", "9.1.0.0", "9.0.2.0", "9.0.1.0", "9.0.0.0", "5.2.4", "5.2.3", "5.2.2", "5.2.1" or "5.2"</td>
 <td></td>
 </tr>
 <tr>
@@ -2278,22 +2289,22 @@ their account teams.</p>
 
 <h4 id="dual-site-deployment"><strong>Dual Site Deployment</strong></h4>
 <p><strong>For dual site deployments with default CIDRs and VLAN ranges:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>New-HoloDeckNetworkConfig -Site a -MasterCIDR 10.1.0.0/20
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>New-HoloDeckNetworkConfig -Site b -MasterCIDR 10.2.0.0/20
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Set-HoloRouter -dualsite
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>New-HoloDeckInstance -Site a [Additional Parameters]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>New-HoloDeckNetworkConfig -Site a -MasterCIDR 10.1.0.0/20
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>New-HoloDeckNetworkConfig -Site b -MasterCIDR 10.2.0.0/20
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Set-HoloRouter -dualsite
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>New-HoloDeckInstance -Site a [Additional Parameters]
 </code></pre></div></p>
 <p>Open a new tab in powershell, import the config and run </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>New-HoloDeckInstance -Site b [Additional Parameters]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>New-HoloDeckInstance -Site b [Additional Parameters]
 </code></pre></div>
 <p><strong>For dual site deployments with custom CIDRs and VLAN ranges:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>New-HoloDeckNetworkConfig -Site a -MasterCIDR &lt;site-a-cidr&gt; -VLANRangeStart &lt;site-a-vlanrangestart&gt;
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>New-HoloDeckNetworkConfig -Site b -MasterCIDR &lt;site-b-cidr&gt; -VLANRangeStart &lt;site-b-vlanrangestart&gt;
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Set-HoloRouter -dualsite
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>New-HoloDeckInstance -Site a -CIDR &lt;site-a-cidr&gt; -VLANRangeStart &lt;site-a-vlanrangestart&gt; [Additional Parameters]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>New-HoloDeckNetworkConfig -Site a -MasterCIDR &lt;site-a-cidr&gt; -VLANRangeStart &lt;site-a-vlanrangestart&gt;
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>New-HoloDeckNetworkConfig -Site b -MasterCIDR &lt;site-b-cidr&gt; -VLANRangeStart &lt;site-b-vlanrangestart&gt;
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Set-HoloRouter -dualsite
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>New-HoloDeckInstance -Site a -CIDR &lt;site-a-cidr&gt; -VLANRangeStart &lt;site-a-vlanrangestart&gt; [Additional Parameters]
 </code></pre></div></p>
 <p>Open a new tab in powershell, import the config and run </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>New-HoloDeckInstance -Site b -CIDR &lt;site-a-cidr&gt;,&lt;site-b-cidr&gt; -VLANRangeStart &lt;site-a-vlanrangestart&gt;,&lt;site-b-vlanrangestart&gt; [Additional Parameters]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>New-HoloDeckInstance -Site b -CIDR &lt;site-a-cidr&gt;,&lt;site-b-cidr&gt; -VLANRangeStart &lt;site-a-vlanrangestart&gt;,&lt;site-b-vlanrangestart&gt; [Additional Parameters]
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2305,40 +2316,40 @@ their account teams.</p>
 <li>
 <p>Online Depot Configuration</p>
 <p>For online depot deployments:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nv">$env:brcm_build_token</span> <span class="p">=</span> <span class="s2">"build"</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nv">$env:enable_proxy</span> <span class="p">=</span> <span class="s2">"y"</span> <span class="n">or</span> <span class="s2">"n"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">$env:brcm_build_token</span> <span class="p">=</span> <span class="s2">"build"</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nv">$env:enable_proxy</span> <span class="p">=</span> <span class="s2">"y"</span> <span class="n">or</span> <span class="s2">"n"</span>
 </code></pre></div>
 <p>If proxy is enabled, set the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">$env:proxy_protocol</span> <span class="p">=</span> <span class="s2">"http"</span> <span class="n">or</span> <span class="s2">"https"</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nv">$env:proxy_ip</span> <span class="p">=</span> <span class="s2">"&lt;proxy_ip_address&gt;"</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nv">$env:proxy_port</span> <span class="p">=</span> <span class="s2">"&lt;proxy_port&gt;"</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nv">$env:enable_proxy_auth</span> <span class="p">=</span> <span class="s2">"y"</span> <span class="n">or</span> <span class="s2">"n"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">$env:proxy_protocol</span> <span class="p">=</span> <span class="s2">"http"</span> <span class="n">or</span> <span class="s2">"https"</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">$env:proxy_ip</span> <span class="p">=</span> <span class="s2">"&lt;proxy_ip_address&gt;"</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nv">$env:proxy_port</span> <span class="p">=</span> <span class="s2">"&lt;proxy_port&gt;"</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nv">$env:enable_proxy_auth</span> <span class="p">=</span> <span class="s2">"y"</span> <span class="n">or</span> <span class="s2">"n"</span>
 </code></pre></div>
 <p>If proxy authentication is enabled, set the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">$env:proxy_username</span> <span class="p">=</span> <span class="s2">"&lt;proxy_username&gt;"</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">$env:proxy_password</span> <span class="p">=</span> <span class="s2">"&lt;proxy_password&gt;"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">$env:proxy_username</span> <span class="p">=</span> <span class="s2">"&lt;proxy_username&gt;"</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">$env:proxy_password</span> <span class="p">=</span> <span class="s2">"&lt;proxy_password&gt;"</span>
 </code></pre></div>
 </li>
 <li>
 <p>Offline Depot Configuration</p>
 <p>For offline depot deployments, define the following environment variables:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">$env:offline_depot_ip</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_ip_address&gt;"</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">$env:offline_depot_port</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_port&gt;"</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nv">$env:offline_depot_username</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_username&gt;"</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nv">$env:offline_depot_password</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_password&gt;"</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nv">$env:offline_depot_protocol</span> <span class="p">=</span> <span class="s2">"http"</span> <span class="n">or</span> <span class="s2">"https"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">$env:offline_depot_ip</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_ip_address&gt;"</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nv">$env:offline_depot_port</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_port&gt;"</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nv">$env:offline_depot_username</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_username&gt;"</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="nv">$env:offline_depot_password</span> <span class="p">=</span> <span class="s2">"&lt;offline_depot_password&gt;"</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nv">$env:offline_depot_protocol</span> <span class="p">=</span> <span class="s2">"http"</span> <span class="n">or</span> <span class="s2">"https"</span>
 </code></pre></div>
 </li>
 <li>
 <p>Datastore and Network Port Group details:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">$env:datastore_name</span> <span class="p">=</span> <span class="s2">"&lt;datastore_name&gt;"</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nv">$env:trunk_port_group_name</span> <span class="p">=</span> <span class="s2">"&lt;trunk_port_group_name&gt;"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">$env:datastore_name</span> <span class="p">=</span> <span class="s2">"&lt;datastore_name&gt;"</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nv">$env:trunk_port_group_name</span> <span class="p">=</span> <span class="s2">"&lt;trunk_port_group_name&gt;"</span>
 </code></pre></div>
 </li>
 <li>
 <p>If vCenter is the target, set the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">$env:cluster_name</span> <span class="p">=</span> <span class="s2">"&lt;cluster_name&gt;"</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nv">$env:dc_name</span> <span class="p">=</span> <span class="s2">"&lt;datacenter_name&gt;"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">$env:cluster_name</span> <span class="p">=</span> <span class="s2">"&lt;cluster_name&gt;"</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nv">$env:dc_name</span> <span class="p">=</span> <span class="s2">"&lt;datacenter_name&gt;"</span>
 </code></pre></div>
 </li>
 </ul>
@@ -2573,9 +2584,9 @@ their account teams.</p>
 <p>Use the <code>Update-HoloDeckInstance</code> cmdlet to perform Day 2 operations on a Holodeck instance after it has been deployed successfully. Each operation uses specific parameter sets that cannot be combined in a single invocation.</p>
 <h5 id="deploy-additional-cluster">Deploy Additional Cluster</h5>
 <p>Deploys an additional 3-node vSphere cluster in the Management or Workload domain.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Workload</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AdditionalCluster</span> <span class="n">-VIDomain</span> <span class="n">Workload</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2613,7 +2624,7 @@ their account teams.</p>
 </table>
 <h5 id="deploy-vcf-automation-all-apps-org">Deploy VCF Automation All Apps Org</h5>
 <p>Creates a VCF Automation All Apps Org in the specified domain. Requires VCF Automation to already be deployed in the instance. This command sets up the required constructs for creating an organization such as region, region quota, IP space etc.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AddVcfAutomationAllAppsOrg</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-AddVcfAutomationAllAppsOrg</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2652,15 +2663,15 @@ their account teams.</p>
 <td>String</td>
 <td><strong>Optional</strong></td>
 <td>VCF version</td>
-<td>"9.0.0.0", "9.0.1.0", "9.0.2.0", "9.1.0.0"</td>
+<td>"9.0.0.0", "9.0.1.0", "9.0.2.0", "9.1.0.0", "9.1.1.0"</td>
 </tr>
 </tbody>
 </table>
 <h5 id="deploy-supervisor">Deploy Supervisor</h5>
 <p>Deploys Supervisor in management or workload domain. For VCF 9.1.0.0, supports both Centralized (Edge) and Distributed (VNA) deployment modes.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeploySupervisor</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeploySupervisor</span> <span class="n">-VIDomain</span> <span class="n">Management</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeploySupervisor</span> <span class="n">-VIDomain</span> <span class="n">Workload</span> <span class="n">-SupervisorDeploymentMode</span> <span class="n">Distributed</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeploySupervisor</span> <span class="n">-VIDomain</span> <span class="n">Workload</span> <span class="n">-SupervisorDeploymentMode</span> <span class="n">Distributed</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2705,7 +2716,7 @@ their account teams.</p>
 </table>
 <h5 id="deploy-vcf-automation">Deploy VCF Automation</h5>
 <p>Deploys VCF Automation as a Day 2 operation via VCF Operations Manager.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeployVcfAutomation</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeployVcfAutomation</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2736,7 +2747,7 @@ their account teams.</p>
 </table>
 <h5 id="deploy-new-hosts">Deploy New Hosts</h5>
 <p>Deploys new nested ESX hosts using custom specifications.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeployNewHosts</span> <span class="n">-CPU</span> <span class="n">12</span> <span class="n">-MemoryInGb</span> <span class="n">96</span> <span class="n">-Nodes</span> <span class="n">4</span> <span class="n">-vSANMode</span> <span class="n">ESA</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nb">Update-HoloDeckInstance</span> <span class="n">-Site</span> <span class="n">a</span> <span class="n">-DeployNewHosts</span> <span class="n">-CPU</span> <span class="n">12</span> <span class="n">-MemoryInGb</span> <span class="n">96</span> <span class="n">-Nodes</span> <span class="n">4</span> <span class="n">-vSANMode</span> <span class="n">ESA</span>
 </code></pre></div>
 <table>
 <thead>
@@ -2823,73 +2834,73 @@ their account teams.</p>
 <h3 id="start-and-stop-holodeck-instance">Start and Stop Holodeck Instance</h3>
 <p>There may be situations where you have already deployed Holodeck but need the resources for another operation. In that case, we provide cmdlets to power off Holodeck and power it back on as well.</p>
 <p>For powering off Holodeck:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Stop-HoloDeckInstance [-InstanceID] &lt;string&gt; [-Force]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Stop-HoloDeckInstance [-InstanceID] &lt;string&gt; [-Force]
 </code></pre></div>
 <p>Stop-HoloDeckInstance asks for confirmation which can be bypassed by using the -Force parameter.</p>
 <p><a class="glightbox" data-type="image" href="images/Stop-HoloDeckInstance.png"><img alt="image" src="images/Stop-HoloDeckInstance.png" /></a></p>
 <p>For powering on Holodeck:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Start-HoloDeckInstance [-InstanceID] &lt;string&gt; [-Force]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Start-HoloDeckInstance [-InstanceID] &lt;string&gt; [-Force]
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Start-HoloDeckInstance.png"><img alt="image" src="images/Start-HoloDeckInstance.png" /></a></p>
 <h3 id="create-new-nested-esx-hosts">Create new nested ESX hosts</h3>
 <p>You can dynamically add new ESX hosts to an existing site using the New-HoloDeckESXiNodes cmdlet. These hosts can be used for additional clusters or expanding existing clusters.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>New-HoloDeckESXiNodes -Nodes &lt;No. of Nodes&gt; -CPU &lt;No. of vCPU&gt; -MemoryInGb &lt;Memory in GB&gt; -Site &lt;'a' or 'b'&gt; -vSANMode &lt;'ESA' or 'OSA'&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>New-HoloDeckESXiNodes -Nodes &lt;No. of Nodes&gt; -CPU &lt;No. of vCPU&gt; -MemoryInGb &lt;Memory in GB&gt; -Site &lt;'a' or 'b'&gt; -vSANMode &lt;'ESA' or 'OSA'&gt;
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/New-HoloDeckESXiNodes.png"><img alt="image" src="images/New-HoloDeckESXiNodes.png" /></a></p>
 <h3 id="remove-nested-vcf-instance">Remove nested VCF Instance</h3>
 <p>To remove a Holodeck Instance, run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Remove-HoloDeckInstance [-ResetHoloRouter]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Remove-HoloDeckInstance [-ResetHoloRouter]
 </code></pre></div>
 <p>Remove-HoloDeckInstance will delete al the nested ESX hosts and VCF Installer/Cloud Builder VM associated to a specific instance.</p>
 <p>-ResetHoloRouter will remove the networking configuration setup for the nested VCF instance. When you run New-HoloDeckInstance, the networking is configured again. This involves an automatic reboot of the Holorouter.</p>
 <h3 id="get-subnets-in-holodeck">Get subnets in Holodeck</h3>
 <p>You can list all the subnets that have been configured or reserved for Holodeck. You can also get information about specific subnets by specifying the name, VLAN ID, Subnet range, and Gateway IP.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Get-HoloDeckSubnet [-Name &lt;string&gt;] [-vlanID &lt;string&gt;] [-Subnet &lt;string&gt;] [-Gateway &lt;string&gt;] [-Site &lt;string&gt;] [&lt;CommonParameters&gt;]
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>For e.g.:
-<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>For Site 'a':
-<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>Get-HoloDeckSubnet -Site a | ft -AutoSize
-<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
-<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>For Site 'b':
-<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>Get-HoloDeckSubnet -Site b | ft -AutoSize
-<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>
-<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>Get-HoloDeckSubnet -Site a -Name Untagged-HOL
-<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>
-<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>Get-HoloDeckSubnet -Site b -vlanID 50
-<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>
-<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>Get-HoloDeckSubnet -Site a -Gateway 10.1.1.1
-<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>
-<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>Get-HoloDeckSubnet -Site a -Subnet 10.1.2.0/25
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Get-HoloDeckSubnet [-Name &lt;string&gt;] [-vlanID &lt;string&gt;] [-Subnet &lt;string&gt;] [-Gateway &lt;string&gt;] [-Site &lt;string&gt;] [&lt;CommonParameters&gt;]
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>For e.g.:
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>For Site 'a':
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>Get-HoloDeckSubnet -Site a | ft -AutoSize
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>For Site 'b':
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>Get-HoloDeckSubnet -Site b | ft -AutoSize
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>Get-HoloDeckSubnet -Site a -Name Untagged-HOL
+<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>
+<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>Get-HoloDeckSubnet -Site b -vlanID 50
+<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>
+<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>Get-HoloDeckSubnet -Site a -Gateway 10.1.1.1
+<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>
+<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>Get-HoloDeckSubnet -Site a -Subnet 10.1.2.0/25
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Get-HoloDeckSubnet.png"><img alt="image" src="images/Get-HoloDeckSubnet.png" /></a></p>
 <h3 id="get-appliance-details">Get appliance details</h3>
 <p>You can list all the IP-Hostname entries generated by the Network Manager for Holodeck. You can also get information about specific IP-Hostname mappings by specifying the IP, hostname, and FQDN.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Get-HoloDeckAppNetwork [-Hostname &lt;string&gt;] [-IP &lt;string&gt;] [-FQDN &lt;string&gt;] [-Site &lt;string&gt;] [&lt;CommonParameters&gt;]
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
-<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>For e.g.:
-<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>For Site 'a':
-<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>Get-HoloDeckAppNetwork -Site a
-<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
-<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>For Site 'b':
-<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>Get-HoloDeckAppNetwork -Site b
-<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>
-<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>Get-HoloDeckAppNetwork -Site a -Hostname router
-<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>
-<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>Get-HoloDeckAppNetwork -Site a -IP 10.1.1.10
-<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>
-<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>Get-HoloDeckAppNetwork -Site a -FQDN esx-01a.site-a.vcf.lab
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Get-HoloDeckAppNetwork [-Hostname &lt;string&gt;] [-IP &lt;string&gt;] [-FQDN &lt;string&gt;] [-Site &lt;string&gt;] [&lt;CommonParameters&gt;]
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>For e.g.:
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>For Site 'a':
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Get-HoloDeckAppNetwork -Site a
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>For Site 'b':
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>Get-HoloDeckAppNetwork -Site b
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>Get-HoloDeckAppNetwork -Site a -Hostname router
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>Get-HoloDeckAppNetwork -Site a -IP 10.1.1.10
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>
+<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>Get-HoloDeckAppNetwork -Site a -FQDN esx-01a.site-a.vcf.lab
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Get-HoloDeckAppNetwork.png"><img alt="image" src="images/Get-HoloDeckAppNetwork.png" /></a></p>
 <h3 id="get-bgp-configuration">Get BGP configuration</h3>
 <p>You can list the BGP configuration generated by the Network Manager for Holodeck. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Get-HoloDeckBGPConfig [-Site &lt;string&gt;] [&lt;CommonParameters&gt;]
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>For e.g.:
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>For Site 'a':
-<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Get-HoloDeckBGPConfig -Site a
-<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
-<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>For Site 'b':
-<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>Get-HoloDeckBGPConfig -Site b
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Get-HoloDeckBGPConfig [-Site &lt;string&gt;] [&lt;CommonParameters&gt;]
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>For e.g.:
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>For Site 'a':
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>Get-HoloDeckBGPConfig -Site a
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>For Site 'b':
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>Get-HoloDeckBGPConfig -Site b
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Get-HoloDeckBGPConfig.png"><img alt="image" src="images/Get-HoloDeckBGPConfig.png" /></a></p>
 <h3 id="get-dns-entries">Get DNS entries</h3>
@@ -2898,14 +2909,14 @@ their account teams.</p>
 <p><code>Get-HoloDeckDNSConfig</code> is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab</p>
 </div>
 <p>You can list all the DNS entries configured in the DNS service in HoloRouter. You can also get information about a specific DNS entry by specifying its IP or FQDN. </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Get-HoloDeckDNSConfig [-IP &lt;string&gt;] [-FQDN &lt;string&gt;] [&lt;CommonParameters&gt;]
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>For e.g.:
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>Get-HoloDeckDNSConfig
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>Get-HoloDeckDNSConfig -IP 10.1.1.1
-<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>
-<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>Get-HoloDeckDNSConfig -FQDN esx-02a.site-a.vcf.lab 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Get-HoloDeckDNSConfig [-IP &lt;string&gt;] [-FQDN &lt;string&gt;] [&lt;CommonParameters&gt;]
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>For e.g.:
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>Get-HoloDeckDNSConfig
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>Get-HoloDeckDNSConfig -IP 10.1.1.1
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>Get-HoloDeckDNSConfig -FQDN esx-02a.site-a.vcf.lab 
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Get-HoloDeckDNSConfig.png"><img alt="image" src="images/Get-HoloDeckDNSConfig.png" /></a></p>
 <h3 id="add-or-update-dns-entries">Add or Update DNS entries</h3>
@@ -2914,17 +2925,17 @@ their account teams.</p>
 <p><code>Set-HoloDeckDNSConfig</code> is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab</p>
 </div>
 <p>You can configure additional DNS entries to the DNS service in HoloRouter. To do that, use the Set-HoloDeckDNSConfig cmdlet. Note that you must specify the DNS entry in single quotes ('<dns_entry>').</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Set-HoloDeckDNSConfig -DNSRecord &lt;string&gt; [&lt;CommonParameters&gt;]
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>For e.g., to create a DNS entry for '10.1.1.201 harbor.site-a.vcf.lab', you would run -
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>Set-HoloDeckDNSConfig -DNSRecord '10.1.1.201 harbor.site-a.vcf.lab'
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Set-HoloDeckDNSConfig -DNSRecord &lt;string&gt; [&lt;CommonParameters&gt;]
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>For e.g., to create a DNS entry for '10.1.1.201 harbor.site-a.vcf.lab', you would run -
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>Set-HoloDeckDNSConfig -DNSRecord '10.1.1.201 harbor.site-a.vcf.lab'
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Set-HoloDeckDNSConfig.png"><img alt="image" src="images/Set-HoloDeckDNSConfig.png" /></a></p>
 <p>You can also replace the DNS entries existing in the DNS service in HoloRouter. You will still use the Set-HoloDeckDNSConfig but specify different parameters. Note that the DNS entries to be searched and replaced must be specified in single quotes ('<dns_entry>').</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Set-HoloDeckDNSConfig -SearchDNSRecord &lt;string&gt; -ReplaceDNSRecord &lt;string&gt; -Update [&lt;CommonParameters&gt;]
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>For e.g., to replace the DNS entry '10.1.1.201 harbor.site-a.vcf.lab' with '10.1.1.210 harbor.site-a.vcf.lab', you would run -
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>Set-HoloDeckDNSConfig -SearchDNSRecord '10.1.1.201 harbor.site-a.vcf.lab' -ReplaceDNSRecord '10.1.1.210 harbor.site-a.vcf.lab' -Update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Set-HoloDeckDNSConfig -SearchDNSRecord &lt;string&gt; -ReplaceDNSRecord &lt;string&gt; -Update [&lt;CommonParameters&gt;]
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>For e.g., to replace the DNS entry '10.1.1.201 harbor.site-a.vcf.lab' with '10.1.1.210 harbor.site-a.vcf.lab', you would run -
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>Set-HoloDeckDNSConfig -SearchDNSRecord '10.1.1.201 harbor.site-a.vcf.lab' -ReplaceDNSRecord '10.1.1.210 harbor.site-a.vcf.lab' -Update
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Set-HoloDeckDNSConfig-Update.png"><img alt="image" src="images/Set-HoloDeckDNSConfig-Update.png" /></a></p>
 <h3 id="remove-dns-entries">Remove DNS entries</h3>
@@ -2933,10 +2944,10 @@ their account teams.</p>
 <p><code>Remove-HoloDeckDNSConfig</code> is valid only for Holodeck versions up to and including 9.0.2. Starting Holodeck 9.1, Technitium has been introduced for DNS management which provides a web UI to interact and manage DNS entries. Technitium can be accessed at https://dns.vcf.lab</p>
 </div>
 <p>You can remove the DNS entries from the DNS service in HoloRouter. To do that, use Remove-HoloDeckDNSConfig cmdlet. You must specify the DNS entry in single quotes ('<dns_entry>').</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Remove-HoloDeckDNSConfig -DNSRecord &lt;string&gt;  [&lt;CommonParameters&gt;]
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>For e.g., to remove the DNS entry '10.1.1.210 harbor.site-a.vcf.lab', you would run -
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>Remove-HoloDeckDNSConfig -DNSRecord '10.1.1.210 harbor.site-a.vcf.lab'
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>Remove-HoloDeckDNSConfig -DNSRecord &lt;string&gt;  [&lt;CommonParameters&gt;]
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>For e.g., to remove the DNS entry '10.1.1.210 harbor.site-a.vcf.lab', you would run -
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>Remove-HoloDeckDNSConfig -DNSRecord '10.1.1.210 harbor.site-a.vcf.lab'
 </code></pre></div>
 <p><a class="glightbox" data-type="image" href="images/Remove-HoloDeckDNSConfig.png"><img alt="image" src="images/Remove-HoloDeckDNSConfig.png" /></a></p>
 <h3 id="migrate-holorouter-90901-to-902">Migrate Holorouter 9.0/9.0.1 to 9.0.2</h3>
