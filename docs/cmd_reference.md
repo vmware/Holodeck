@@ -22,7 +22,7 @@ Deploys a Holodeck instance based on the provided VCF version and optional param
 
 | Name | Description | Required | Default |
 |------|-------------|----------|---------|
-| `-Version` | VCF version. Valid: `9.0.0.0` , `9.0.1.0` , `9.0.2.0` , `5.2` , `5.2.1` , `5.2.2` | ✅ | |
+| `-Version` | VCF version. Valid: `9.1.1.0` , `9.1.0.0` , `9.0.0.0` , `9.0.1.0` , `9.0.2.0` , `5.2` , `5.2.1` , `5.2.2` , `5.2.3` , `5.2.4` | ✅ | |
 | `-InstanceID` | Prefix for all nested VMs to uniquely identify the instance | ✅ | |
 | `-CIDR` | Custom /20 CIDR block (e.g., `"10.3.0.0/20"`). For Dual Site, provide in the format `["10.3.0.0/20","10.4.0.0/20"]` | ❌ | `10.1.0.0/20` |
 | `-vSANMode` | vSAN type: `"ESA"` or `"OSA"` | ❌ | `OSA` |

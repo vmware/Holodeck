@@ -27,7 +27,7 @@ jobs:
       - name: Deploy docs with mike
         run: |
           if [ "$GITHUB_REF_NAME" = "main" ]; then
-            DEPLOY_ARGS="--update-aliases 9.1 latest"
+            DEPLOY_ARGS="--update-aliases 9.1.1 latest"
           else
             VERSION=$(echo "$GITHUB_REF_NAME" | sed 's|release/||')
             DEPLOY_ARGS="$VERSION"

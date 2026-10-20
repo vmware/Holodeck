@@ -1,6 +1,61 @@
 # Release Notes
 
-This page documents the key features, enhancements, and capabilities available in Holodeck 9.1.
+This page documents the key features, enhancements, and capabilities available in Holodeck 9.1.1.
+
+---
+
+## Holodeck 9.1.1 – Patch Release
+
+**Release Date:** October 2026  
+**Supported VCF Versions:** VCF 9.1.1.0, VCF 9.1.0.0, VCF 9.0.2.0, VCF 9.0.1.0, VCF 9.0.0.0, VCF 5.2.4, VCF 5.2.3, VCF 5.2.2, VCF 5.2.1, VCF 5.2 (including all 9.1 patches)
+<br> 
+**Minimum ESX Version:** 8.0 U3
+<br>
+**Release Blog:** [Announcing the General Availability of Holodeck 9.1.1](#) *(link coming soon)*
+
+### What's New
+
+#### Features
+
+- Support for deploying VVF and VCF 9.1.1
+- Ability to perform greenfield deployment of VCF 9.1 patch releases
+- Support for custom VM/Template folder structure when deploying on vCenter target
+
+#### Enhancements
+
+- Added online depot connectivity checks for 9.x
+- Improved ovftool checks and ISO/OVA check guardrails to reduce VCF Installer deployment failures
+- Updated MAC learning / promiscuous mode precheck settings to match documentation
+- Improved precheck validation for 9.0.x ESX and VCF Installer binaries for patch releases
+- Added `bgpRouterConfiguration.yaml` for dual-site BGP setup, and updated GitLab/rc.local/CTGW IP block handling
+- Added more verbosity to "Enable GitOps" in Holorouter OVA deployment
+- Updated Authentik configuration and network manager service handling in the Holorouter/webtop deployment flow
+
+#### Bug Fixes
+
+- Fixed missing vmmgmt port group in WLD config; moved VNA to correct port group for 9.x
+- Fixed VNA deployment failure in WLD when NSX Edge, VNA, and centralized supervisor were all selected
+- Fixed ESX hosts not deploying to the specified folder
+- Fixed deployment failure caused by `/` in cluster names
+- Fixed NSX Edge cluster deployment failure in the 9.1 management domain
+- Fixed offline depot hard-coded version check and missing auto-configuration in Ops
+- Fixed `Remove-HoloDeckInstance` skipping VCF Installer
+- Fixed VCF Installer deploying with only 1 DNS server instead of 2
+- Fixed missing static transit route checkbox for NSX management domain
+- Fixed incorrect VCFA IP pool used for external IP block
+- Fixed NIC teaming inconsistency between management and WLD domains
+- Fixed `Deploy-VcfAllApssOrg` failure for Day 2 VCFA deployments
+- Fixed Day 2 VCFA AllAppsOrg creation on fresh "ManagementOnly" deployment
+- Fixed missing online depot activation code prompt in developer mode
+- Fixed Site-B Installer placement on Site-B port group
+- Fixed handling of vSS port group in VirtualCenter TargetAPI type
+- Fixed `New-VM` failure with null HostId on single-host vCenter clusters during ESX build
+- Fixed external IP block overlapping with default VKS service CIDR
+- Fixed GitLab FQDN inaccessibility via Webtop before Holorouter setup, and GitLab project details not displaying
+- Fixed FRR BGP configuration
+- Fixed Cloudbuilder 5.2.4 download crashing Webtop
+- Fixed extra space in IP SAN log
+- Fixed `Reset-HoloRouter` not resetting state
 
 ---
 
