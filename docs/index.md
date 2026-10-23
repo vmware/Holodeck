@@ -849,7 +849,7 @@ Once Holodeck is deployed, you can access the VCF components on your browser, as
 ||                   | GitLab Registry                | https://gitlab-registry.vcf.lab                                                                                               | root                                                                                | VMware123!VMware123! |
 ||                   | Webtop                         | https://webtop.vcf.lab  (or http://holorouter-ip:30000)                                                                      | admin                                                                               | VMware123!VMware123! |
 
-The above table has been generated for Site A. If you have deployed Site B, replace "site-a" in the FQDN with "site-b". For example, Management vCenter for Site A is https://vc-mgmt-a.site-a.vcf.lab/ and Management vCenter for Site B is https://vc-mgmt-a.site-b.vcf.lab/
+The above table has been generated for Site A. If you have deployed Site B, replace "site-a" in the FQDN with "site-b". For example, Management vCenter for Site A is https://vc-mgmt-a.site-a.vcf.lab/ and Management vCenter for Site B is https://vc-mgmt-b.site-b.vcf.lab/
 
 !!! info "Service Access Notes"
     - **HoloRouter service FQDNs are always on `vcf.lab`**, even if you deployed with a custom `-DNSDomain`. The `*.vcf.lab` domain is static for all HoloRouter infrastructure services. Only the nested VCF component FQDNs (vCenter, NSX, SDDC Manager, etc.) reflect the custom domain.
