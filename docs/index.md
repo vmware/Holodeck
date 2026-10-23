@@ -595,7 +595,7 @@ Once Holodeck is deployed, you can access the VCF components on your browser (lo
 |                   | Workload NSX                   | https://nsx-wld01-a.site-a.vcf.lab/                                                                                         | admin                                                                               | VMware123!VMware123! |
 |                   | ESX                            | https://esx-05a.site-a.vcf.lab https://esx-06a.site-a.vcf.lab https://esx-07a.site-a.vcf.lab                                | root                                                                                | VMware123!VMware123! |
 
-The above table has been generated for Site A. If you have deployed Site B, replace "site-a" in the FQDN with "site-b". For example, Management vCenter for Site A is https://vc-mgmt-a.site-a.vcf.lab/ and Management vCenter for Site B is https://vc-mgmt-a.site-b.vcf.lab/
+The above table has been generated for Site A. If you have deployed Site B, replace "site-a" in the FQDN with "site-b". For example, Management vCenter for Site A is https://vc-mgmt-a.site-a.vcf.lab/ and Management vCenter for Site B is https://vc-mgmt-b.site-b.vcf.lab/
 
 ## How To
 
