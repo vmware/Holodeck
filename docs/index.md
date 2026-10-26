@@ -181,7 +181,7 @@ Scope of Services:
 
 Let's take a look at the default VLANs used within the Holodeck Network for Site A:
 
-![image](images/Holodeck_Networking.png)
+![image](images/Holodeck_9_1_Networking.png)
 
 ### Download the Required Software
 
