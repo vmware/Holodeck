@@ -11,6 +11,9 @@ https?://holorouter-ip.*
 # Broadcom community site frequently returns 500 to automated requests
 https://community\.broadcom\.com/.*
 
+# Broadcom support portal returns 403 to automated requests from CI runners
+https://support\.broadcom\.com/.*
+
 # Placeholder IP used in offline depot instructions
 http://*oda-ip*/
 
