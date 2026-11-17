@@ -11,7 +11,7 @@ This page documents the key features, enhancements, and capabilities available i
 <br> 
 **Minimum ESX Version:** 8.0 U3
 <br>
-**Release Blog:** [Announcing the General Availability of Holodeck 9.1.1](#) *(link coming soon)*
+**Release Blog:** [Announcing the General Availability of Holodeck 9.1.1](https://blogs.vmware.com/cloud-foundation/2026/11/16/announcing-the-general-availability-of-holodeck-9-1-1/)
 
 ### What's New
 
