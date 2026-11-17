@@ -2,6 +2,21 @@
 
 Welcome to the Holodeck blog directory! Here you can find a curated list of articles, tutorials, and community posts related to Holodeck.
 
+## Announcing the General Availability of Holodeck 9.1.1 {: .toc-hidden }
+<div class="blog-card-container">
+<div class="blog-card">
+    <div class="blog-card-image">
+        <img src="https://blogs.vmware.com/cloud-foundation/wp-content/uploads/sites/75/2025/10/holodeck9.0.1_98a0a8.png" alt="Holodeck 9.1.1 Release">
+    </div>
+    <div class="blog-card-content">
+        <div class="blog-card-date">November 16, 2026</div>
+        <div class="blog-card-title">Announcing the General Availability of Holodeck 9.1.1</div>
+        <div class="blog-card-desc">Holodeck 9.1.1 is now generally available. Deploy nested VMware Cloud Foundation (VCF) 9.1.1 environments with stronger prechecks and fewer deployment failures.</div>
+        <a href="https://blogs.vmware.com/cloud-foundation/2026/11/16/announcing-the-general-availability-of-holodeck-9-1-1/" target="_blank" class="blog-card-link-text">Read Article</a>
+    </div>
+</div>
+</div>
+
 ## Simplified Identity Management with Authentik for Holodeck 9.1 {: .toc-hidden }
 <div class="blog-card-container">
 <div class="blog-card">
