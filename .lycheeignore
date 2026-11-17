@@ -13,3 +13,9 @@ https://community\.broadcom\.com/.*
 
 # Placeholder IP used in offline depot instructions
 http://*oda-ip*/
+
+# Broadcom support portal returns 403 to automated requests from CI runners
+https://support\.broadcom\.com/.*
+
+# Broadcom support portal returns 403 to automated requests from CI runners
+https://support\.broadcom\.com/.*
